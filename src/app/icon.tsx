@@ -12,7 +12,7 @@ export const contentType = 'image/png';
 
 export default function Icon() {
   try {
-    const imagePath = path.join(process.cwd(), 'unnamed-removebg-preview2.png');
+    const imagePath = path.join(process.cwd(), 'public', 'logo-icon.png');
     const imageBuffer = fs.readFileSync(imagePath);
     const imageBase64 = imageBuffer.toString('base64');
     const src = `data:image/png;base64,${imageBase64}`;

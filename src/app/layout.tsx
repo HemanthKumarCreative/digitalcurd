@@ -24,6 +24,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${plusJakartaSans.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <head>
         <link rel="stylesheet" href="/css/menu-v9.css" />
@@ -33,7 +34,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="/css/swiper.css" />
         <link rel="stylesheet" href="/css/form-county.css" />
       </head>
-      <body className="home wp-singular page-template page-template-page-templates page-template-tpl-home-v10 page-template-page-templatestpl-home-v10-php page page-id-29326 wp-theme-valuecoders no-sidebar" id="themeAdd">
+      <body className="home wp-singular page-template page-template-page-templates page-template-tpl-home-v10 page-template-page-templatestpl-home-v10-php page page-id-29326 wp-theme-valuecoders no-sidebar" id="themeAdd" suppressHydrationWarning>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

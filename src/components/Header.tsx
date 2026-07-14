@@ -8,6 +8,8 @@ import AnimatedLogo from "./AnimatedLogo";
 export default function Header() {
   const [activePanel, setActivePanel] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeMobileAcc, setActiveMobileAcc] = useState<string | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -72,7 +74,7 @@ export default function Header() {
             <span className="circle"><img src="https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/move-right.svg" alt="" /></span>
           </Link>
         </div>    
-        <button className="hamb" id="hamb" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <button className={`hamb ${isMobileMenuOpen ? 'is-open' : ''}`} id="hamb" aria-label="Open menu" aria-expanded={isMobileMenuOpen} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}><span></span><span></span><span></span></button>
       </nav>
 
       {/* ═══ PANEL: SERVICES ═══ */}
@@ -288,6 +290,67 @@ export default function Header() {
           <span className="trust-foot"><span><b><i>4.8</i> on Clutch</b> across <i>19k+</i> reviews</span><span className="sep"></span><span>ISO 27001</span><span className="sep"></span><span>CMMi Level 3</span><span className="sep"></span><span>NASSCOM member</span></span>
           <span className="push"></span>
           <Link className="btn2" href="/contact" data-nav="cta" data-nav-id="talk-to-us-panel">Talk to Us <span className="arr">→</span></Link>
+        </div>
+      </div>
+      {/* ═══ MOBILE DRAWER ═══ */}
+      <div className={`drawer__ov ${isMobileMenuOpen ? 'is-on' : ''}`} onClick={() => setIsMobileMenuOpen(false)}></div>
+      <div className={`drawer ${isMobileMenuOpen ? 'is-on' : ''}`}>
+        <div className="drawer__hd">
+          <Link className="logo" href="/" onClick={() => setIsMobileMenuOpen(false)}>
+            <AnimatedLogo className="site-logo-light" variant="light" />
+          </Link>
+          <button className="drawer__close" aria-label="Close menu" onClick={() => setIsMobileMenuOpen(false)}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </button>
+        </div>
+        <div className="drawer__scroll">
+          <button className={`acc ${activeMobileAcc === 'services' ? 'is-open' : ''}`} onClick={() => setActiveMobileAcc(activeMobileAcc === 'services' ? null : 'services')}>
+            Services
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </button>
+          <div className={`acc-body ${activeMobileAcc === 'services' ? 'is-open' : ''}`}>
+            <div className="acc-sub">AI & Automation</div>
+            <Link href="/ai" onClick={() => setIsMobileMenuOpen(false)}>AI Consulting</Link>
+            <div className="acc-sub">Product Engineering</div>
+            <Link href="/custom-software-development-services-company" onClick={() => setIsMobileMenuOpen(false)}>Custom Software</Link>
+            <Link href="/web-application-development" onClick={() => setIsMobileMenuOpen(false)}>Web App</Link>
+            <Link href="/mobile-application-development" onClick={() => setIsMobileMenuOpen(false)}>Mobile App</Link>
+            <Link href="/services" className="acc-all" onClick={() => setIsMobileMenuOpen(false)}>View All Services →</Link>
+          </div>
+
+          <button className={`acc ${activeMobileAcc === 'solutions' ? 'is-open' : ''}`} onClick={() => setActiveMobileAcc(activeMobileAcc === 'solutions' ? null : 'solutions')}>
+            Solutions
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </button>
+          <div className={`acc-body ${activeMobileAcc === 'solutions' ? 'is-open' : ''}`}>
+            <Link href="/solutions/ship-your-roadmap" onClick={() => setIsMobileMenuOpen(false)}>Ship Your Roadmap</Link>
+            <Link href="/solutions/build-your-product" onClick={() => setIsMobileMenuOpen(false)}>Build Your Product</Link>
+            <Link href="/application-modernization" onClick={() => setIsMobileMenuOpen(false)}>Modernise Legacy Systems</Link>
+            <Link href="/solutions" className="acc-all" onClick={() => setIsMobileMenuOpen(false)}>View All Solutions →</Link>
+          </div>
+
+          <button className={`acc ${activeMobileAcc === 'hire' ? 'is-open' : ''}`} onClick={() => setActiveMobileAcc(activeMobileAcc === 'hire' ? null : 'hire')}>
+            Hire & Teams
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </button>
+          <div className={`acc-body ${activeMobileAcc === 'hire' ? 'is-open' : ''}`}>
+            <Link href="/hire-developers/hire-reactjs-developers" onClick={() => setIsMobileMenuOpen(false)}>React Developers</Link>
+            <Link href="/hire-developers/hire-nodejs-developers" onClick={() => setIsMobileMenuOpen(false)}>Node.js Developers</Link>
+            <Link href="/hire-developers" className="acc-all" onClick={() => setIsMobileMenuOpen(false)}>View All Developers →</Link>
+          </div>
+
+          <button className={`acc ${activeMobileAcc === 'company' ? 'is-open' : ''}`} onClick={() => setActiveMobileAcc(activeMobileAcc === 'company' ? null : 'company')}>
+            Company
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </button>
+          <div className={`acc-body ${activeMobileAcc === 'company' ? 'is-open' : ''}`}>
+            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
+            <Link href="/case-studies" onClick={() => setIsMobileMenuOpen(false)}>Case Studies</Link>
+            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
+          </div>
+        </div>
+        <div className="drawer__ft">
+          <Link href="/contact" className="drawer__cta" onClick={() => setIsMobileMenuOpen(false)}>Contact Us <span className="arr">→</span></Link>
         </div>
       </div>
     </header>
