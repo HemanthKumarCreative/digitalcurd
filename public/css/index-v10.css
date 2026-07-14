@@ -1,0 +1,8114 @@
+@charset "UTF-8";
+@media only screen and (min-width: 768px) {
+  @font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/fonts/PlusJakartaSans-VariableFont_wght.woff2) format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+.fixed_top_icon {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 999;
+  display: none;
+}
+.fixed_top_icon .back-to-top-btn {
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  border: 1px solid #D4D4D8;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 45px;
+  gap: 5px;
+  height: 73px;
+  align-items: center;
+  border-radius: 100px;
+}
+.fixed_top_icon .back-to-top-btn .arrow {
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/top-icon-grey.svg);
+  width: 12px;
+  display: block;
+  background-repeat: no-repeat;
+  height: 25px;
+}
+.fixed_top_icon .back-to-top-btn .text {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  color: #9F9FA9;
+}
+.fixed_top_icon .back-to-top-btn:hover {
+  background-color: #1D5BC4;
+  border-color: #1D5BC4;
+}
+.fixed_top_icon .back-to-top-btn:hover .arrow {
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/top-icon-white.svg);
+}
+.fixed_top_icon .back-to-top-btn:hover .text {
+  color: #ffffff;
+}
+
+.fixed_top_icon.active {
+  display: block;
+}
+
+.mb-70 {
+  margin-bottom: 70px;
+}
+
+.primary_btn {
+  border: 1px solid #ffffff;
+  line-height: 1 !important;
+  width: fit-content;
+  color: #ffffff;
+  border-radius: 100px;
+}
+.primary_btn:hover {
+  background-color: #1D5BC4;
+  border-color: #1D5BC4;
+}
+.primary_btn a {
+  line-height: 1.1 !important;
+  padding: 11.5px 15px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  text-decoration: none !important;
+  font-weight: 500;
+}
+.primary_btn a::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 10px;
+  vertical-align: middle;
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/white-btn-arrow.svg);
+  background-size: cover !important;
+}
+
+.btn-primary-two {
+  border: 1px solid #9F9FA9;
+  border-radius: 100px;
+  width: fit-content;
+  overflow: hidden;
+}
+.btn-primary-two a {
+  padding: 10px 15px;
+  color: #52525C;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  font-weight: 500;
+}
+.btn-primary-two a::after {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  vertical-align: middle;
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/more-btn.svg);
+  background-size: cover !important;
+}
+.btn-primary-two a.rotate::after {
+  transform: rotate(180deg);
+}
+.btn-primary-two:hover a {
+  border-color: #1D5BC4;
+  background: #1D5BC4;
+  color: #ffffff;
+}
+.btn-primary-two:hover a::after {
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/more-hover-btn.svg);
+}
+
+.btn-primary-two.white {
+  border: 1px solid #ffffff;
+}
+.btn-primary-two.white a {
+  color: #ffffff;
+}
+
+.btn-primary-two.white.right a {
+  padding: 10px 15px;
+}
+.btn-primary-two.white.right a::after {
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/white-right.svg);
+}
+.btn-primary-two.white.right:hover {
+  border-color: #1D5BC4;
+}
+.btn-primary-two.white.right:hover::after {
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/white-right.svg);
+}
+
+.btn-primary-two.grey-right {
+  border-color: #9F9FA9;
+}
+.btn-primary-two.grey-right a {
+  padding: 10px 15px;
+  color: #52525C;
+}
+.btn-primary-two.grey-right a::after {
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/grey-right.svg);
+}
+.btn-primary-two.grey-right:hover {
+  border-color: #1D5BC4;
+}
+.btn-primary-two.grey-right:hover a {
+  color: #ffffff;
+}
+.btn-primary-two.grey-right:hover a::after {
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/white-right.svg);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+  color: #4B5563;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.bg-blue {
+  background-color: #006eff;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.bg-blue-linear {
+  background: linear-gradient(180deg, #211f47 0%, #05164d 100%);
+}
+.bg-blue-linear h2 {
+  color: #ffffff;
+}
+.bg-blue-linear p {
+  color: #D9D9E0 !important;
+}
+
+.light-background {
+  background: #F9FAFB;
+}
+
+h1 {
+  font-size: 60px;
+  line-height: 1.3;
+  color: #FFAD00;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 42px;
+  line-height: 60px;
+  font-weight: 700;
+  color: #05164D;
+  margin: 0 0 15px;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 700;
+  color: #05164D;
+  margin: 0 0 15px;
+}
+
+h4 {
+  font-size: 18px;
+  color: #05164D;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 18px;
+}
+
+.master-menu-text,
+.nav-link,
+h1,
+h2,
+h3 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  /* Subtle sub-pixel fix */
+}
+
+p {
+  font-size: 16px;
+  color: #4B5563;
+  line-height: 28px;
+  font-weight: 400;
+  margin: 0 0 15px;
+}
+
+ul {
+  list-style: none;
+}
+
+p:last-child {
+  margin-bottom: 0px;
+}
+
+.font-30 {
+  font-size: 30px;
+  line-height: 40px;
+}
+
+a {
+  color: #4B5563;
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  position: relative;
+}
+
+.strong,
+strong {
+  font-weight: 600;
+}
+
+.clr-yellow {
+  color: #FFAD00;
+}
+
+.head-small {
+  font-size: 24px;
+  line-height: 32px;
+  display: block;
+  text-transform: uppercase;
+}
+
+.sub-head {
+  font-size: 34px;
+  line-height: 46px;
+}
+
+.bg-light,
+.bg-dark-theme {
+  background: #f8f8f8;
+}
+
+.subhead-small {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 33px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.dis-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.item-end {
+  align-items: flex-end;
+}
+
+.justify-sb {
+  justify-content: space-between;
+}
+
+.block {
+  display: block;
+}
+
+.flex-2 {
+  flex-basis: 50%;
+}
+.flex-2:first-child {
+  padding-right: 20px;
+}
+
+.flex-3 {
+  flex-basis: 33.33%;
+}
+
+.flex-4 {
+  flex-basis: 25%;
+}
+
+.flex-5 {
+  flex-basis: 20%;
+}
+
+.padding-t-150 {
+  padding-top: 150px;
+}
+
+.padding-t-120 {
+  padding-top: 120px;
+}
+
+.padding-b-150 {
+  padding-bottom: 150px;
+}
+
+.padding-b-120 {
+  padding-bottom: 120px;
+}
+
+.padding-t-100 {
+  padding-top: 100px;
+}
+
+.padding-b-100 {
+  padding-bottom: 100px;
+}
+
+.padding-t-70 {
+  padding-top: 70px;
+}
+
+.padding-b-70 {
+  padding-bottom: 70px;
+}
+
+.margin-b-150 {
+  margin-bottom: 150px;
+}
+
+.padding-t-50 {
+  padding-top: 50px;
+}
+
+.padding-b-50 {
+  padding-bottom: 50px;
+}
+
+.margin-t-100 {
+  margin-top: 100px;
+}
+
+.margin-t-80 {
+  margin-top: 80px;
+}
+
+.margin-t-70 {
+  margin-top: 70px;
+}
+
+.margin-t-60 {
+  margin-top: 60px;
+}
+
+.margin-t-50 {
+  margin-top: 50px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.head-txt {
+  max-width: 1060px;
+  margin: auto;
+}
+.head-txt p {
+  margin-top: 20px;
+  color: #4B5563;
+  line-height: 26px;
+}
+.head-txt small {
+  font-size: 14px;
+}
+.head-txt a {
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+.head-txt a:hover {
+  text-decoration: underline;
+}
+
+.green-btn {
+  background: #FFAD00;
+  padding: 16px 42px 16px 22px;
+  display: inline-block;
+  color: #05164d;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  font-weight: 500;
+  line-height: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 228px;
+}
+.green-btn:hover {
+  background-color: #ffffff;
+}
+
+.green-bdr-btn {
+  background: none;
+  border: 1px #FFAD00 solid;
+  padding: 18px 84px 18px 66px;
+  display: inline-block;
+  color: #FFAD00;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  cursor: pointer;
+}
+.green-bdr-btn:hover {
+  border-color: #FFAD00;
+  color: #FFAD00;
+}
+.green-bdr-btn:hover .arrow-icon.green::after {
+  background-position: -21px 2px;
+}
+
+.arrow-icon {
+  position: relative;
+}
+.arrow-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/arrow-icon.png) no-repeat;
+  width: 11px;
+  height: 17px;
+}
+.arrow-icon.green::after {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/green-yl-btn.png) 0 2px no-repeat;
+}
+
+.form-link-outer {
+  display: block;
+  font-size: 16px;
+  line-height: 28px;
+  margin-top: 10px;
+}
+.form-link-outer .form-link {
+  border: 0;
+  outline: 0;
+  background: none;
+  font-size: 14px;
+  line-height: 28px;
+  font-weight: 300;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.form-link-outer .form-link:hover {
+  color: #FFAD00;
+}
+
+.bg-light-theme .link-box {
+  background: #05164d;
+  color: #ffffff;
+}
+
+.bg-dark-theme .link-box {
+  background: #05164d;
+  color: #ffffff;
+}
+
+.top-content p,
+.top-content li {
+  color: #4B5563;
+  line-height: 26px;
+}
+
+.tick-icon-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 30px 0 0;
+}
+.tick-icon-list li {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  line-height: 25px;
+  flex-basis: 48%;
+}
+.tick-icon-list li a {
+  display: inline-flex;
+}
+.tick-icon-list li sup {
+  font-size: 10px;
+  font-size: 10px;
+  margin-left: 2px;
+  margin-top: -4px;
+}
+.tick-icon-list li::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #ffb81d;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 7px;
+}
+
+.learn-more {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.learn-more .round-arrow-icon {
+  width: 24px;
+  height: 24px;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/arrow-circle.png) 0 0 no-repeat;
+  display: inline-block;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+.learn-more::before {
+  content: "";
+  clear: both;
+  display: block;
+  background: #8e8c8c;
+  width: 0;
+  height: 2px;
+  position: absolute;
+  bottom: -5px;
+  transition: all 0.3s ease-in-out;
+}
+.learn-more:hover {
+  color: #FFAD00 !important;
+}
+.learn-more:hover .round-arrow-icon {
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/arrow-circle-hover.png);
+  margin-left: 15px;
+}
+
+.client-logo-box-section {
+  padding: 22px 0;
+}
+.client-logo-box-section .dis-flex {
+  justify-content: space-between;
+}
+.client-logo-box-section .logo-heading {
+  width: 220px;
+}
+.client-logo-box-section h4 {
+  font-size: 12px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #aaadb6;
+  font-weight: 600;
+}
+.client-logo-box-section .dis-flex {
+  align-items: center;
+}
+.client-logo-box-section .logo-box-outer {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/banner-client-logo.svg) 0 0 no-repeat;
+  width: calc(100% - 240px);
+  height: 69px;
+  background-size: 100%;
+}
+
+.input-field {
+  color: #ffffff;
+}
+
+::placeholder {
+  color: #6B7280;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+::placeholder {
+  color: #6B7280;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  text-transform: capitalize;
+}
+
+input,
+textarea {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.lighter-theme-img {
+  display: none !important;
+}
+
+.dot-icon {
+  background-color: #FFAD00;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 20px transparent, 0 0 30px #FFAD00, 0 0 20px #FFAD00, 0 0 0px #FFAD00, 0 0 0px #FFAD00, 0 0 0px #FFAD00, 0 0 80px #FFAD00;
+}
+.dot-icon::before {
+  content: "";
+  border: 1px #FFAD00 solid;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.dot-icon.dot-md {
+  width: 19px;
+  height: 19px;
+}
+.dot-icon.dot-md::before {
+  padding: 5px;
+  top: -6px;
+  left: -6px;
+}
+.dot-icon.dot-sm {
+  width: 12px;
+  height: 12px;
+}
+.dot-icon.dot-sm::before {
+  padding: 4px;
+  top: -5px;
+  left: -5px;
+}
+
+.for-box-effect {
+  transition: all 0.3s ease-in-out;
+  background: transparent;
+}
+
+.two-column-right-box-section.bg-dark-theme .has-vlink:hover {
+  background: #fff;
+}
+.two-column-right-box-section .has-vlink:hover {
+  background: #f6f6f6;
+}
+
+.bg-blue-opacity {
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 20px #f3f3f3;
+}
+
+.bg-blue-opacity-light {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.green-bdr-btn {
+  border-color: #FFAD00;
+  color: #FFAD00;
+}
+.green-bdr-btn .arrow-icon.green::after {
+  background-position: -21px 2px;
+}
+.green-bdr-btn:hover {
+  border-color: #60b741;
+  color: #60b741;
+  color: #60b741;
+}
+.green-bdr-btn:hover .arrow-icon.green::after {
+  background-position: 0 2px;
+}
+
+.link-box {
+  background: transparent;
+  color: #212121;
+}
+.link-box:hover {
+  color: #ffffff;
+}
+
+.learn-more .round-arrow-icon {
+  background-position: 0 0;
+}
+.learn-more:hover {
+  color: #FFAD00;
+}
+.learn-more:hover .round-arrow-icon {
+  background-position: 0 0;
+}
+
+.bg-jacarta,
+.bg-voilet,
+.bg-white {
+  background-color: #f6f6f6;
+}
+
+.lighter-theme-img {
+  display: block !important;
+}
+
+.dark-theme-img {
+  display: none !important;
+}
+
+.hero-section,
+.second-level-section {
+  padding: 180px 0 70px;
+  display: grid;
+  flex-wrap: wrap;
+  min-height: calc(100vh - 120px);
+  align-items: center;
+}
+.hero-section p span,
+.hero-section strong,
+.second-level-section p span,
+.second-level-section strong {
+  color: #ffffff;
+}
+.hero-section a,
+.second-level-section a {
+  text-decoration: none;
+}
+.hero-section::after,
+.second-level-section::after {
+  content: "";
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/client-logo-sprite.png) bottom center no-repeat;
+  background-size: 100%;
+  width: 100%;
+  height: 92px;
+  max-width: 1640px;
+  margin: 78px auto 0;
+  display: none;
+}
+.hero-section ul,
+.second-level-section ul {
+  margin: 30px 0 0;
+  list-style: none;
+}
+.hero-section ul li,
+.second-level-section ul li {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 27px;
+  line-height: 26px;
+  flex-basis: 100%;
+  color: #bdb7b7;
+}
+.hero-section ul li:before,
+.second-level-section ul li:before {
+  content: "";
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/checklist-icon.svg) no-repeat;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 3px;
+  left: 0;
+  border-radius: 50px;
+}
+
+.second-level-section {
+  padding: 145px 0 80px;
+  align-items: normal;
+}
+.second-level-section .has-free-trial {
+  position: relative;
+  display: block;
+}
+.second-level-section .has-free-trial::before {
+  content: "";
+  clear: both;
+  display: block;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/two-weeks-trial-img.png) top center no-repeat;
+  background-size: 100%;
+  position: absolute;
+  top: -8px;
+  right: -7px;
+  width: 251px;
+  height: 197px;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+}
+.second-level-section .has-free-trial:hover::before {
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/two-weeks-trial-img-light.png);
+}
+.second-level-section .col-estimate-box {
+  margin-top: 40px;
+}
+.second-level-section .col-estimate-box h3 {
+  font-weight: 700;
+  color: #f7f7f9;
+}
+.second-level-section .col-estimate-box .flex-3 {
+  padding: 0 10px;
+  max-width: 245px;
+}
+.second-level-section .col-estimate-box .flex-3:first-child {
+  padding-left: 0;
+}
+.second-level-section .col-estimate-box .inner-content {
+  background: #1b1a39;
+  border: 1px solid #403f6f;
+  padding: 15px 30px 15px 40px;
+  height: 100%;
+}
+.second-level-section .col-estimate-box .inner-content p {
+  margin-bottom: 0;
+  margin-top: 5px;
+  font-size: 18px;
+}
+.second-level-section .tick-icon-list li {
+  color: #bdb7b7;
+}
+
+.faq-section .container {
+  max-width: 1250px;
+}
+.faq-section .head-txt {
+  max-width: 945px;
+}
+.faq-section .head-txt h2 {
+  text-transform: capitalize;
+}
+.faq-section .faq-outer {
+  max-width: 970px;
+  margin: 0 auto;
+}
+.faq-section .faq-accordion-item-outer {
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+  margin: 0 0 20px;
+  padding: 0 20px;
+}
+.faq-section .faq-accordion-item-outer.active {
+  border-bottom: 2px solid #FFAD00;
+}
+.faq-section .faq-accordion-item-outer.active .faq-accordion-content {
+  display: block;
+}
+.faq-section .faq-accordion-item-outer.active .open-icon {
+  display: none;
+}
+.faq-section .faq-accordion-item-outer.active .faq-accordion-toggle::after {
+  display: none;
+}
+.faq-section .faq-accordion-item-outer:nth-child(1) .faq-accordion-toggle {
+  border-top: 0;
+}
+.faq-section .faq-accordion-toggle {
+  display: block;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  padding: 20px 20px 20px 0;
+  position: relative;
+  font-weight: 600;
+  color: #05164D;
+  border-bottom: 1px solid #e4e4e4;
+  margin: 0;
+  font-size: 20px;
+  line-height: 32px;
+}
+.faq-section .faq-accordion-toggle a {
+  display: contents;
+}
+.faq-section .faq-accordion-toggle::before {
+  content: "";
+  clear: both;
+  display: block;
+  background: #FFAD00;
+  height: 3px;
+  width: 18px;
+  border-radius: 3px;
+  position: absolute;
+  right: 0;
+}
+.faq-section .faq-accordion-toggle::after {
+  content: "";
+  clear: both;
+  display: block;
+  background: #FFAD00;
+  height: 18px;
+  width: 3px;
+  border-radius: 3px;
+  position: absolute;
+  right: 7px;
+}
+.faq-section .faq-accordion-content {
+  display: none;
+  padding: 20px 0;
+}
+.faq-section .faq-accordion-content p {
+  margin: 0 0 10px;
+}
+.faq-section .faq-accordion-content ul,
+.faq-section .faq-accordion-content ol {
+  margin: 20px 0;
+  padding-left: 0;
+}
+.faq-section .faq-accordion-content ul li,
+.faq-section .faq-accordion-content ol li {
+  margin: 5px 0 0;
+  position: relative;
+  padding-left: 18px;
+}
+.faq-section .faq-accordion-content ul li:before,
+.faq-section .faq-accordion-content ol li:before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: #FFAD00;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 10px;
+}
+.faq-section .no-list-type ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.page-id-12791 .faq-section .head-txt h2 {
+  text-transform: initial;
+}
+
+.breadcrumbs {
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: left;
+  z-index: 2;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+.breadcrumbs a {
+  display: inline-block;
+  position: relative;
+  padding-right: 14px;
+  color: #bababa;
+  font-size: 14px;
+  line-height: 22px;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+.breadcrumbs a:hover {
+  color: #ffffff;
+}
+.breadcrumbs a:after {
+  content: "";
+  clear: both;
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 3px;
+  width: 6px;
+  height: 10px;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/breadcrumbs-arrow.png) top center no-repeat;
+  background-size: 100%;
+}
+.breadcrumbs span {
+  color: #bababa;
+  position: relative;
+  padding-right: 14px;
+  display: inline-block;
+}
+.breadcrumbs span:after {
+  content: "";
+  clear: both;
+  display: block;
+  position: absolute;
+  top: 51%;
+  transform: translateY(-50%);
+  right: 3px;
+  width: 6px;
+  height: 10px;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/breadcrumbs-arrow.png) top center no-repeat;
+  background-size: 100%;
+}
+
+.for-client-logo-box {
+  margin-bottom: 30px;
+}
+.for-client-logo-box .logo-box {
+  width: 109px;
+  height: 57px;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-partner-logo.png) 0 0 no-repeat;
+  display: inline-block;
+}
+.for-client-logo-box .logo-box.logo2 {
+  background-position: -111px 0;
+}
+.for-client-logo-box .logo-box.logo3 {
+  background-position: -220px 0;
+}
+.for-client-logo-box .logo-box.logo4 {
+  background-position: -329px 0;
+}
+.for-client-logo-box .logo-box.logo5 {
+  background-position: -439px 0;
+}
+.for-client-logo-box .logo-box.logo6 {
+  background-position: -549px 0;
+}
+
+.client-video-section iframe {
+  vertical-align: bottom;
+  background-color: #656565;
+  width: 100%;
+  border: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.client-video-section .client-videos {
+  position: relative;
+  margin: 0 10px;
+  border: 1px solid #e2e9ef;
+  background-color: #ffffff;
+}
+.client-video-section .client-description {
+  padding: 30px 25px;
+  min-height: 142px;
+  text-align: center;
+  background: #fff;
+}
+.client-video-section .client-description span {
+  display: block;
+  text-align: center;
+}
+.client-video-section .client-description .star-rating {
+  width: 96px;
+  height: 17px;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/star-rating.png) no-repeat center;
+  background-size: 100%;
+  display: block;
+  margin: 10px auto;
+}
+.client-video-section .client-description h3 {
+  margin: 0 0 5px;
+}
+.client-video-section .client-description .detail {
+  color: #666666;
+  font-weight: 300;
+}
+.client-video-section .client-testimonial-slider {
+  margin-top: 90px;
+}
+.client-video-section .glider-next,
+.client-video-section .glider-prev {
+  display: none;
+}
+.client-video-section .glider-dots {
+  align-items: center;
+  margin-top: 50px;
+}
+.client-video-section .glider-dots .glider-dot {
+  width: 10px;
+  height: 10px;
+  background: #d9d9d9;
+}
+.client-video-section .glider-dots .glider-dot.active {
+  width: 15px;
+  height: 15px;
+  background: #373658;
+  margin: 0 1px;
+}
+.client-video-section .shadow-box {
+  position: relative;
+}
+.client-video-section .shadow-box .client-video-box {
+  position: relative;
+}
+.client-video-section .shadow-box .client-video-box .frame-mask {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.client-video-section .shadow-box .client-video-box .frame-mask img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.client-video-section .shadow-box:hover::before {
+  display: none;
+}
+.client-video-section .glider-track {
+  padding-bottom: 16px;
+}
+
+.experts-talk-first-section {
+  position: relative;
+  z-index: 1;
+}
+.experts-talk-first-section:before, .experts-talk-first-section:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+.experts-talk-first-section:before {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/intersect-left.png) 0 0 no-repeat;
+  background-size: 100%;
+  bottom: 0;
+  left: 0;
+  width: 116px;
+  height: 163px;
+}
+.experts-talk-first-section:after {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/intersect-right.png) 0 0 no-repeat;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  width: 304px;
+  height: 475px;
+}
+.experts-talk-first-section .button-section {
+  justify-content: center;
+}
+.experts-talk-first-section .button-section .btn-sec {
+  justify-content: center;
+}
+
+.experts-talk-first-section.bg-blue-linear .primary_btn a {
+  color: #ffffff;
+}
+
+.experts-talk-second-section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.experts-talk-second-section .col-left,
+.experts-talk-second-section .col-right {
+  flex-basis: 48%;
+}
+.experts-talk-second-section .col-right .dis-flex {
+  justify-content: flex-end;
+}
+.experts-talk-second-section .col-right .count-box-section {
+  text-align: center;
+}
+.experts-talk-second-section .col-right .count-box-section .count-box-big {
+  margin-top: 20px;
+}
+.experts-talk-second-section .col-right .count-box-section .count-box-small {
+  font-size: 16px;
+  line-height: 22px;
+  margin-top: 10px;
+  display: inline-block;
+}
+.experts-talk-second-section:before, .experts-talk-second-section:after {
+  content: "";
+  position: absolute;
+  width: 381px;
+  height: 301px;
+  z-index: -1;
+}
+.experts-talk-second-section:before {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/intersect-circ-left.png) 0 0 no-repeat;
+  background-size: 100%;
+  top: 0;
+  left: -100px;
+}
+.experts-talk-second-section:after {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/intersect-circ-right.png) 0 0 no-repeat;
+  background-size: 100%;
+  bottom: 0;
+  right: -100px;
+}
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .safari_only,
+    a,
+    span.title,
+    .checkout-submit {
+      font-weight: 500 !important;
+    }
+  }
+}
+@-moz-document url-prefix() {
+  a,
+  span.title,
+  .checkout-submit {
+    font-weight: 500 !important;
+  }
+}
+.customer-column-section .client-video-section iframe {
+  position: initial !important;
+}
+
+.related-tags-section h3 {
+  text-transform: uppercase;
+}
+.related-tags-section a {
+  display: inline-block;
+  background: rgba(232, 227, 227, 0.32);
+  border: 1px solid #d1d1e1;
+  border-radius: 40px;
+  text-decoration: none;
+  padding: 14px 25px;
+  color: #212121;
+  transition: all 0.3s ease-in-out;
+  margin: 20px 20px 0 0;
+}
+.related-tags-section a:hover, .related-tags-section a.active {
+  background: rgba(255, 173, 0, 0.15);
+  color: #212121;
+  border-color: #FFAD00;
+}
+
+.is-arrow {
+  display: block;
+  text-decoration: underline;
+  color: #05164d;
+  text-align: left;
+  margin: 40px 0 0;
+  font-weight: 400;
+  font-size: 18px;
+}
+.is-arrow:after {
+  content: "";
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/arrow.svg) no-repeat center;
+  width: 11px;
+  display: inline-block;
+  height: 11px;
+  margin-left: 8px;
+  transition: all 0.3s ease-in-out;
+}
+.is-arrow:hover {
+  text-decoration: none;
+}
+.is-arrow:hover:after {
+  margin-left: 15px;
+}
+
+.top-section h6 {
+  color: #FFAD00;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+.top-section p {
+  font-size: 16px;
+  font-weight: 500;
+}
+.top-section.b-100 {
+  max-width: 100%;
+  margin: auto;
+  padding: 0 0 100px;
+  text-align: center;
+}
+
+.gradient-bg {
+  background: linear-gradient(90deg, #05164d 0%, #0c33b3 100%);
+}
+.gradient-bg .top-section h2 {
+  color: #ffffff;
+}
+.gradient-bg .top-section p {
+  color: #bdb7b7;
+}
+
+.btn-container {
+  margin-top: 30px;
+}
+.btn-container .cta-button {
+  display: inline-flex;
+  padding: 14px 16px;
+  cursor: pointer;
+  position: relative;
+  background: #ffffff;
+  color: #05164d;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 50px;
+}
+.btn-container .cta-button:after {
+  content: "";
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/yellow-cta.svg) no-repeat;
+  width: 26px;
+  height: 26px;
+  background-size: 100%;
+  display: inline-block;
+  margin-left: 10px;
+}
+.btn-container .cta-button:hover {
+  background-color: #FFAD00;
+  color: #05164d;
+}
+.btn-container .cta-button:hover:after {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/blue-cta.svg) no-repeat;
+}
+.btn-container .cta-button.yellow {
+  background: #FFAD00;
+  color: #05164d;
+}
+.btn-container .cta-button.yellow:after {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/white-cta.svg) no-repeat;
+}
+.btn-container .cta-button.yellow:hover {
+  background: #05164d;
+  color: #ffffff;
+}
+.btn-container .cta-button.yellow:hover:after {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/yellow-cta.svg) no-repeat;
+}
+
+.explore-btn {
+  position: relative;
+  color: #05164d;
+  font-weight: 500;
+  text-decoration: underline;
+}
+.explore-btn:after {
+  content: "";
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/explore-btn.svg) no-repeat center;
+  width: 11px;
+  position: absolute;
+  height: 11px;
+  margin-left: 8px;
+  top: 6px;
+  transition: all 0.3s ease-in-out;
+}
+.explore-btn:hover:after {
+  margin-left: 15px;
+}
+
+@media only screen and (max-width: 1600px) {
+  .container {
+    max-width: 1380px;
+  }
+  .related-tags-section .tags-outer {
+    margin-top: 10px;
+  }
+  .related-tags-section a {
+    margin: 20px 10px 0 0;
+    padding: 12px 20px;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  .container {
+    max-width: 1260px;
+  }
+  .client-video-section .client-testimonial-slider {
+    margin-top: 70px;
+  }
+  .subhead-small {
+    font-size: 18px;
+  }
+  .margin-t-50 {
+    margin-top: 30px;
+  }
+  .faq-section .container {
+    max-width: 1160px;
+  }
+  .for-client-logo-box i {
+    width: 118px;
+    height: 68px;
+    background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/header-partner-logo-dark-md-.svg) 0 0 no-repeat;
+    margin: 0 5px;
+  }
+  .for-client-logo-box i:nth-child(1) {
+    background-position: 0 -85.5px;
+  }
+  .for-client-logo-box i:nth-child(2) {
+    background-position: -127px -85.5px;
+  }
+  .for-client-logo-box i:nth-child(3) {
+    background-position: -254px -85.5px;
+  }
+  .for-client-logo-box i:nth-child(4) {
+    background-position: -381px -85.5px;
+  }
+  .breadcrumbs {
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 55px;
+    line-height: 1.3;
+  }
+  h2 {
+    font-size: 36px;
+    line-height: 55px;
+  }
+}
+@media only screen and (max-width: 1320px) {
+  .container,
+  .hero-section::after,
+  .second-level-section::after,
+  .hero-img-section h1 {
+    max-width: 1160px;
+  }
+  .client-logo-box-section h4 {
+    font-size: 12px;
+  }
+  .experts-talk-first-section:after {
+    width: 200px;
+    height: 380px;
+  }
+  .experts-talk-second-section:before, .experts-talk-second-section:after {
+    width: 220px;
+    height: 180px;
+  }
+  .padding-t-100 {
+    padding-top: 60px;
+  }
+  .padding-b-100 {
+    padding-bottom: 60px;
+  }
+  .padding-t-120 {
+    padding-top: 80px;
+  }
+  .padding-b-120 {
+    padding-bottom: 80px;
+  }
+  .padding-b-70 {
+    padding-top: 60px;
+  }
+  .padding-t-70 {
+    padding-bottom: 60px;
+  }
+  .margin-t-80 {
+    margin-top: 60px;
+  }
+  .top-section.b-100 {
+    padding: 0 0 60px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  h1 {
+    font-size: 50px;
+  }
+  h2 {
+    font-size: 35px;
+    line-height: 40px;
+    margin: 0 0 15px;
+  }
+  .client-logo-box-section {
+    text-align: center;
+  }
+  .client-logo-box-section .logo-heading {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+  }
+  .client-logo-box-section .logo-box-outer {
+    flex-basis: 100%;
+    padding-left: 0;
+    width: 100%;
+  }
+  .client-video-section .client-description .client-name {
+    font-size: 20px;
+  }
+  .for-client-logo-box i {
+    margin: 0;
+  }
+}
+@media only screen and (max-width: 991px) {
+  br {
+    display: none;
+  }
+  h3 {
+    font-size: 22px;
+  }
+  .flex-2 {
+    flex-basis: 100%;
+  }
+  .flex-2:first-child {
+    padding-right: 0;
+  }
+  .flex-3 {
+    flex-basis: 50%;
+  }
+  .flex-4 {
+    flex-basis: 50%;
+  }
+  .flex-5 {
+    flex-basis: 33.33%;
+  }
+  .padding-t-150 {
+    padding-top: 60px;
+  }
+  .padding-b-150 {
+    padding-bottom: 60px;
+  }
+  .margin-b-150 {
+    margin-bottom: 60px;
+  }
+  .margin-t-100,
+  .margin-t-80,
+  .margin-t-70,
+  .margin-t-60 {
+    margin-top: 40px;
+  }
+  .head-small {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .head-txt p {
+    margin-top: 15px;
+  }
+  .head-txt small {
+    text-transform: lowercase;
+  }
+  .hero-section::after,
+  .second-level-section::after {
+    margin-top: 10px;
+  }
+  .second-level-section .col-estimate-box .flex-3 {
+    flex-basis: 33.33%;
+  }
+  .experts-talk-first-section .container .head-txt h2 {
+    font-size: 26px;
+    line-height: 40px;
+  }
+  .experts-talk-first-section .container .head-txt p {
+    margin-top: 15px;
+  }
+  .count-box-section .count-box-big {
+    font-size: 26px;
+  }
+  .experts-talk-second-section .container .head-txt h2 {
+    font-size: 26px;
+    line-height: 40px;
+  }
+  .experts-talk-second-section .container .d-flex {
+    flex-direction: column;
+  }
+  .experts-talk-second-section .container .d-flex .col-left {
+    text-align: center;
+  }
+  .experts-talk-second-section .container .d-flex .col-right .count-box-section {
+    justify-content: space-between;
+    margin-left: 0;
+  }
+  .experts-talk-second-section .container .d-flex .col-right .count-box-section .flex-3 {
+    flex-basis: 30%;
+  }
+  .is-arrow {
+    margin: 25px 0 0;
+  }
+}
+@media only screen and (max-width: 767px) {
+  body {
+    font-size: 14px;
+    font-family: sans-serif;
+    line-height: 24px;
+  }
+  ::placeholder,
+  input,
+  textarea {
+    font-family: sans-serif;
+  }
+  .subhead-small {
+    font-size: 14px;
+  }
+  .tick-icon-list li {
+    margin: 0 0 5px;
+    flex-basis: 100%;
+    line-height: 24px;
+  }
+  .tick-icon-list li::before {
+    top: 8px;
+  }
+  .padding-t-100 {
+    padding-top: 40px;
+  }
+  .padding-b-100 {
+    padding-bottom: 40px;
+  }
+  .padding-b-150 {
+    padding-bottom: 60px;
+  }
+  .margin-b-150 {
+    margin-bottom: 40px;
+  }
+  .padding-t-120 {
+    padding-top: 50px;
+  }
+  .padding-b-120 {
+    padding-bottom: 50px;
+  }
+  .padding-t-150 {
+    padding-top: 60px;
+  }
+  .padding-t-70 {
+    padding-top: 40px;
+  }
+  .padding-b-70 {
+    padding-bottom: 60px;
+  }
+  h1 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  h2 {
+    font-size: 28px;
+    line-height: 37px;
+  }
+  h3 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  p {
+    font-size: 14px;
+    line-height: 24px;
+    margin: 0 0 15px;
+  }
+  .flex-3 {
+    flex-basis: 100%;
+  }
+  .flex-4 {
+    flex-basis: 100%;
+  }
+  .flex-5 {
+    flex-basis: 100%;
+  }
+  .font-30 {
+    font-size: 18px;
+    line-height: 26px;
+  }
+  .green-btn {
+    padding: 15px 44px 15px 24px;
+    font-size: 16px;
+  }
+  .head-txt p {
+    font-size: 14px;
+    line-height: 23px;
+  }
+  .breadcrumbs {
+    line-height: 18px;
+  }
+  .dot-icon.dot-md, .dot-icon.dot-sm {
+    width: 8px;
+    height: 8px;
+  }
+  .dot-icon.dot-md::before, .dot-icon.dot-sm::before {
+    padding: 3px;
+    top: -4px;
+    left: -4px;
+  }
+  .client-logo-box-section {
+    display: none;
+  }
+  .for-client-logo-box {
+    text-align: center;
+  }
+  .for-client-logo-box i {
+    margin: 0 4px;
+  }
+  .form-link-outer {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .form-link-outer .form-link {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .sub-head {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .hero-section,
+  .second-level-section {
+    padding-top: 100px;
+    min-height: auto;
+  }
+  .hero-section::after,
+  .second-level-section::after {
+    display: none !important;
+  }
+  .experts-talk-first-section:after {
+    display: none;
+  }
+  .experts-talk-first-section:before {
+    width: 50px;
+    height: 70px;
+  }
+  .experts-talk-second-section .container .head-txt h2 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .experts-talk-second-section:before, .experts-talk-second-section:after {
+    width: 120px;
+    height: 110px;
+  }
+  .client-video-section .client-testimonial-slider {
+    margin-top: 40px;
+    padding: 0 10px;
+  }
+  .client-video-section iframe {
+    height: 240px;
+  }
+  .client-video-section .glider-dots {
+    margin-top: 40px;
+  }
+  .client-video-section .client-videos {
+    margin: 0;
+  }
+  .second-level-section {
+    padding-bottom: 50px;
+  }
+  .second-level-section .has-free-trial::before {
+    top: 0;
+    right: -5px;
+    width: 140px;
+    height: 110px;
+  }
+  .second-level-section .col-estimate-box {
+    margin-top: 10px;
+    justify-content: center;
+  }
+  .second-level-section .col-estimate-box .inner-content {
+    text-align: center;
+  }
+  .second-level-section .col-estimate-box .flex-3 {
+    flex-basis: 50%;
+    margin-top: 10px;
+  }
+  .second-level-section .tick-icon-list ul {
+    margin: 20px 0 0;
+  }
+  .second-level-section .tick-icon-list li::before {
+    background-position: 2px 3px;
+  }
+  .second-level-section ul li {
+    line-height: 24px;
+  }
+  .second-level-section .margin-t-70 {
+    text-align: center;
+  }
+  .faq-section .faq-accordion-content p {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .faq-section .faq-accordion-content ul li:before {
+    top: 7px;
+  }
+  .faq-section .faq-accordion-content ol li:before {
+    top: 7px;
+  }
+  .faq-section .faq-accordion-toggle {
+    font-size: 18px;
+    line-height: 28px;
+    padding: 15px 30px 15px 0;
+  }
+  .faq-section .faq-accordion-toggle::before {
+    height: 2px;
+    width: 12px;
+  }
+  .faq-section .faq-accordion-toggle::after {
+    height: 12px;
+    width: 2px;
+    right: 5px;
+  }
+  .related-tags-section {
+    text-align: center;
+  }
+  .related-tags-section a {
+    margin: 8px 5px 0 0;
+    padding: 5px 15px;
+  }
+  .for-client-logo-box {
+    margin-bottom: 20px;
+  }
+  .for-client-logo-box .logo-box {
+    margin: 0 0 10px;
+  }
+  .for-client-logo-box .logo-box.logo3 {
+    display: none;
+  }
+  .is-arrow {
+    margin: 20px 0 0;
+    font-size: 16px;
+  }
+  .top-section p {
+    font-size: 16px;
+  }
+  .top-section.b-100 {
+    padding: 0 0 40px;
+  }
+  .btn-container {
+    margin-top: 20px;
+  }
+  .btn-container .cta-button {
+    padding: 12px 16px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+body.page-template-template-testimonials .client-video-section iframe,
+.keka-iframe iframe {
+  position: initial !important;
+  height: 260px;
+}
+
+.popup-section {
+  width: 100%;
+}
+.popup-section .popup-wrapper {
+  z-index: 999;
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.popup-section .popup-wrapper .popWrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup-section .popup-wrapper .popWrap .popup-content {
+  width: 612px;
+  background: #fff;
+  border-radius: 25px;
+  padding: 36px 70px;
+  text-align: center;
+  position: relative;
+}
+.popup-section .popup-wrapper .popWrap .popup-content h2 {
+  color: #ffad00;
+  font-weight: 700;
+  font-size: 32px;
+  margin: 0 0 5px;
+  line-height: 40px;
+}
+.popup-section .popup-wrapper .popWrap .popup-content h3 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  margin: 0 0 15px;
+  color: #05164d;
+}
+.popup-section .popup-wrapper .popWrap .popup-content p {
+  color: #666;
+}
+.popup-section .popup-wrapper .popWrap .popup-content .ctasec {
+  margin: 20px 0 0;
+}
+.popup-section .popup-wrapper .popWrap .popup-content .ctasec a {
+  display: inline-block;
+  border: 1px solid #05164d;
+  margin: 15px auto 0;
+  padding: 15px 20px;
+  font-weight: 500;
+  color: #05164d;
+  border-radius: 8px;
+  min-width: 376px;
+}
+.popup-section .popup-wrapper .popWrap .popup-content .ctasec a:hover {
+  background: #05164d;
+  color: #fff;
+  border-color: #05164d;
+}
+.popup-section .popup-wrapper .popWrap .popup-content .ctasec a.book-btn {
+  background: #ffad00;
+  border-color: #ffad00;
+}
+.popup-section .popup-wrapper .popWrap .popup-content .closeicon {
+  cursor: pointer;
+  position: absolute;
+  right: 18px;
+  top: 10px;
+  background: 0 0;
+}
+.popup-section .exit-intent-popup {
+  display: none;
+}
+.popup-section .exit-intent-popup.visible {
+  display: block;
+}
+
+@media only screen and (max-width: 991px) {
+  .popup-section .popup-wrapper .popWrap .popup-content {
+    width: 90%;
+    border-radius: 20px;
+    padding: 30px 35px;
+  }
+  .popup-section .popup-wrapper .popWrap .popup-content h2 {
+    font-size: 27px;
+    line-height: 32px;
+  }
+  .popup-section .popup-wrapper .popWrap .popup-content h3 {
+    font-size: 18px;
+    line-height: 26px;
+    margin: 0 0 10px;
+  }
+  .popup-section .popup-wrapper .popWrap .popup-content .ctasec {
+    margin: 20px 0 0;
+  }
+  .popup-section .popup-wrapper .popWrap .popup-content .ctasec a {
+    padding: 12px 20px;
+    margin: 10px 0 0;
+    min-width: auto;
+  }
+}
+.back-to-top-btn {
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  border: 1px solid #D4D4D8;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 45px;
+  gap: 5px;
+  height: 73px;
+  align-items: center;
+  border-radius: 100px;
+}
+.back-to-top-btn .arrow {
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/top-icon-grey.svg);
+  width: 12px;
+  display: block;
+  background-repeat: no-repeat;
+  height: 25px;
+}
+.back-to-top-btn .text {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  color: #9F9FA9;
+}
+.back-to-top-btn:hover {
+  background-color: #1D5BC4;
+  border-color: #1D5BC4;
+}
+.back-to-top-btn:hover .arrow {
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/top-icon-white.svg);
+}
+.back-to-top-btn:hover .text {
+  color: #ffffff;
+}
+
+.popup-section {
+  width: 100%;
+}
+.popup-section .popup-wrapper {
+  z-index: 999;
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.popup-section .popup-wrapper .popWrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup-section .popup-wrapper .popWrap .popup-content {
+  width: 612px;
+  background: #fff;
+  border-radius: 25px;
+  padding: 36px 70px;
+  text-align: center;
+  position: relative;
+}
+.popup-section .popup-wrapper .popWrap .popup-content h2 {
+  color: #ffad00;
+  font-weight: bold;
+  font-size: 32px;
+  margin: 0 0 5px;
+  line-height: 40px;
+}
+.popup-section .popup-wrapper .popWrap .popup-content h3 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  margin: 0 0 15px;
+  color: #05164d;
+}
+.popup-section .popup-wrapper .popWrap .popup-content p {
+  color: #666666;
+}
+.popup-section .popup-wrapper .popWrap .popup-content .ctasec {
+  margin: 20px 0 0;
+}
+.popup-section .popup-wrapper .popWrap .popup-content .ctasec a {
+  display: inline-block;
+  border: 1px solid #05164d;
+  margin: 15px auto 0;
+  padding: 15px 20px;
+  font-weight: 500;
+  color: #05164d;
+  border-radius: 8px;
+  min-width: 376px;
+}
+.popup-section .popup-wrapper .popWrap .popup-content .ctasec a.book-btn {
+  background: #ffad00;
+  border-color: #ffad00;
+}
+.popup-section .popup-wrapper .popWrap .popup-content .ctasec a:hover {
+  background: #05164d;
+  color: #fff;
+  border-color: #05164d;
+}
+.popup-section .popup-wrapper .popWrap .popup-content .closeicon {
+  cursor: pointer;
+  position: absolute;
+  right: 18px;
+  top: 10px;
+  background: none;
+}
+
+.popup-section .exit-intent-popup {
+  display: none;
+}
+
+.popup-section .exit-intent-popup.visible {
+  display: block;
+}
+
+@media only screen and (max-width: 991px) {
+  .popup-section .popup-wrapper .popWrap .popup-content {
+    width: 90%;
+    border-radius: 20px;
+    padding: 30px 35px;
+  }
+  .popup-section .popup-wrapper .popWrap .popup-content h2 {
+    font-size: 27px;
+    line-height: 32px;
+  }
+  .popup-section .popup-wrapper .popWrap .popup-content h3 {
+    font-size: 18px;
+    line-height: 26px;
+    margin: 0 0 10px;
+  }
+  .popup-section .popup-wrapper .popWrap .popup-content .ctasec {
+    margin: 20px 0 0;
+  }
+  .popup-section .popup-wrapper .popWrap .popup-content .ctasec a {
+    padding: 12px 20px;
+    margin: 10px 0 0;
+    min-width: auto;
+  }
+}
+.running-bar {
+  background: linear-gradient(90deg, #011C71 0%, #0026A0 100%);
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  margin-bottom: -7px;
+}
+.running-bar .awards-marquee-track {
+  line-height: 1;
+  padding: 22px 0;
+}
+.running-bar .awards-marquee-track .awards-marquee-inner {
+  display: inline-flex;
+  gap: 12px;
+  padding: 0.5rem clamp(1.25rem, 5vw, 3.5rem);
+  animation: marquee 40s linear infinite;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.running-bar .awards-marquee-track .awards-marquee-inner .award-tile span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  padding-left: 16px;
+  position: relative;
+}
+.running-bar .awards-marquee-track .awards-marquee-inner .award-tile span::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background-color: #F59E0B;
+  border-radius: 50%;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.award-section-vten {
+  padding-top: 60px;
+  padding-bottom: 90px;
+}
+@media (max-width: 768px) {
+  .award-section-vten {
+    padding: 50px 0;
+  }
+}
+.award-section-vten .top-logo {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.award-section-vten .top-logo .text {
+  display: flex;
+  align-items: center;
+}
+.award-section-vten .top-logo .text i img {
+  margin: 1px 8px 0 0;
+  vertical-align: text-top;
+  display: inline-block;
+}
+.award-section-vten .top-logo .text strong {
+  font-size: 24px;
+  color: #05164D;
+  margin-right: 10px;
+}
+.award-section-vten .top-logo .awlogo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: 10px;
+}
+.award-section-vten .top-logo .awlogo a {
+  border: 1px solid #dfdbdb;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  padding: 8px;
+  position: relative;
+  cursor: default;
+}
+.award-section-vten .top-logo .awlogo a:after {
+  content: "";
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/awlogo-01.svg) no-repeat;
+  width: 25px;
+  height: 26px;
+  background-size: 100%;
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.award-section-vten .top-logo .awlogo a:nth-child(2):after {
+  width: 24px;
+  height: 24px;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/awlogo-02.svg) no-repeat;
+  background-size: 100%;
+}
+.award-section-vten .top-logo .awlogo a:nth-child(3):after {
+  width: 26px;
+  height: 25px;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/awlogo-03.svg) no-repeat;
+  background-size: 100%;
+}
+.award-section-vten .stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 75%;
+  margin: 40px auto 0;
+}
+.award-section-vten .stats .stat {
+  border-right: 1px solid #cdcdcd;
+  flex-basis: 33.33%;
+  padding: 30px 20px;
+  text-align: center;
+}
+.award-section-vten .stats .stat h2 {
+  font-size: 56px;
+  line-height: 55px;
+  margin: 0 0 5px;
+}
+.award-section-vten .stats .stat:last-child {
+  border: 0;
+}
+.award-section-vten .award-image {
+  padding: 8px 0 0;
+  text-align: center;
+}
+.award-section-vten .award-image .dis-flex {
+  overflow: hidden;
+  width: 100%;
+}
+.award-section-vten .award-image .award-heading {
+  position: relative;
+  width: 100%;
+  margin: 0 0 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  flex-basis: 100%;
+  margin: 0 0 30px;
+  justify-content: center;
+}
+.award-section-vten .award-image .award-heading h4 {
+  font-size: 19px;
+  margin: 0 35px;
+  background: #ffffff;
+  position: relative;
+}
+.award-section-vten .award-image .award-heading h4 span {
+  margin: 0 35px;
+  background: #ffffff;
+}
+.award-section-vten .award-image .award-heading strong {
+  color: #FFAD00;
+}
+.award-section-vten .award-image .award-heading:before {
+  width: 90%;
+  content: "";
+  height: 0.197px;
+  background: #E5E7EB;
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.award-section-vten .award-image .award-section {
+  width: 100%;
+}
+.award-section-vten .award-image .award-section img {
+  margin: 0 auto;
+}
+
+@media (max-width: 1440px) {
+  .award-section-vten .stats {
+    max-width: 90%;
+  }
+}
+@media (max-width: 1320px) {
+  .award-section-vten .top-logo .text strong {
+    font-size: 22px;
+  }
+  .award-section-vten .stats {
+    margin: 30px auto 0;
+  }
+  .award-section-vten .stats .stat h2 {
+    font-size: 45px;
+    line-height: 50px;
+  }
+}
+@media (max-width: 1024px) {
+  .award-section-vten .stats {
+    max-width: 100%;
+  }
+  .award-section-vten .stats .stat {
+    padding: 25px 20px;
+  }
+  .award-section-vten .award-image .award-heading {
+    margin: 0 0 20px;
+    margin: 0 0 25px;
+  }
+  .award-section-vten .award-image .award-heading h4 {
+    font-size: 18px;
+    margin: 0 25px;
+  }
+  .award-section-vten .award-image .award-heading h4 span {
+    margin: 0;
+  }
+}
+@media (max-width: 767px) {
+  .award-section-vten .top-logo {
+    flex-wrap: wrap;
+    font-size: 16px;
+  }
+  .award-section-vten .top-logo .text {
+    width: 100%;
+    margin: 0 0 20px;
+    justify-content: center;
+  }
+  .award-section-vten .top-logo .text strong {
+    font-size: 20px;
+    margin-right: 8px;
+  }
+  .award-section-vten .top-logo .awlogo {
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+  }
+  .award-section-vten .stats {
+    max-width: 100%;
+    border: 1px solid #cdcdcd;
+    border-radius: 8px;
+  }
+  .award-section-vten .stats .stat {
+    flex-basis: 50%;
+    padding: 20px;
+  }
+  .award-section-vten .stats .stat h2 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .award-section-vten .stats .stat:nth-child(2) {
+    border-right: 0;
+  }
+  .award-section-vten .stats .stat:last-child {
+    flex-basis: 100%;
+    border-top: 1px solid #cdcdcd;
+  }
+  .award-section-vten .award-image {
+    padding: 0px 0 0;
+  }
+  .award-section-vten .award-image .award-heading {
+    margin: 0 0 15px;
+  }
+  .award-section-vten .award-image .award-heading h4 {
+    font-size: 16px;
+  }
+}
+.delivery-section {
+  background: #05164d;
+  position: relative;
+  overflow: hidden;
+}
+.delivery-section::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/delivery-section__right.webp);
+  background-size: cover;
+  width: 50%;
+  height: 100%;
+}
+.delivery-section::after {
+  position: absolute;
+  bottom: 0;
+  left: -32px;
+  content: "";
+  bottom: -66px;
+  width: 371px;
+  height: 242px;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/delivery-elipse.webp);
+}
+@media (max-width: 1024px) {
+  .delivery-section {
+    padding: 60px 0;
+  }
+}
+@media (max-width: 768px) {
+  .delivery-section {
+    padding: 48px 0;
+  }
+}
+.delivery-section .inner-part {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 1024px) {
+  .delivery-section .inner-part {
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .delivery-section .inner-part {
+    gap: 32px;
+  }
+}
+.delivery-section__left {
+  width: 62%;
+  max-width: 658px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+@media (max-width: 1024px) {
+  .delivery-section__left {
+    width: 100%;
+  }
+}
+.delivery-section span {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6AA0FF;
+  margin-bottom: 5px;
+  position: relative;
+  animation: fadeUp 0.5s ease both 0.1s;
+}
+.delivery-section h2 {
+  font-weight: 700;
+  line-height: 130%;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.delivery-section h2 em {
+  color: #6AA0FF;
+  font-style: normal;
+}
+.delivery-section p {
+  font-size: 16px;
+  line-height: 160%;
+  color: #E8E8EC;
+  width: 100%;
+  font-weight: 400;
+}
+.delivery-section__right {
+  width: 37%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 1024px) {
+  .delivery-section__right {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .delivery-section__right {
+    gap: 12px;
+  }
+}
+@media (max-width: 480px) {
+  .delivery-section__right {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-card {
+  background: #05164d;
+  border: 1px solid var(--gray-500, #6A7282);
+  border-radius: 16px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  min-height: 180px;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 11;
+  gap: 5px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  backdrop-filter: blur(4px);
+}
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/right-sade.webp);
+  display: none;
+  transition: opacity 0.3s ease;
+}
+.stat-card:hover {
+  border: 1px solid #6AA0FF;
+}
+.stat-card:hover::before {
+  display: block;
+  background-size: cover;
+}
+@media (max-width: 768px) {
+  .stat-card {
+    padding: 24px 20px;
+  }
+}
+.stat-card__number h3 {
+  font-size: clamp(36px, 4.5vw, 46px);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 119%;
+  margin-bottom: 5px;
+}
+.stat-card__number h3 .star {
+  color: #FFAD00;
+  font-size: 0.85em;
+}
+.stat-card__number h4 {
+  font-size: 46px;
+  font-weight: 800;
+  color: #fff;
+}
+.stat-card__number h4 .star {
+  color: #FFAD00;
+  font-size: 0.85em;
+}
+.stat-card__label p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #bdb7b7;
+  line-height: 160%;
+  color: #ffffff;
+  font-weight: 500;
+}
+.stat-card__platforms {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.stat-card span {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 0;
+  flex-shrink: 0;
+}
+.stat-card span::before {
+  display: none;
+}
+.stat-card span--google {
+  background: rgba(234, 67, 53, 0.18);
+  border-color: rgba(234, 67, 53, 0.3);
+  color: #EA4335;
+}
+.stat-card span--blue {
+  background: rgba(38, 132, 255, 0.18);
+  border-color: rgba(38, 132, 255, 0.3);
+  color: #2684ff;
+}
+.stat-card span--green {
+  background: rgba(96, 183, 65, 0.18);
+  border-color: rgba(96, 183, 65, 0.3);
+  color: #60b741;
+}
+
+@media screen and (max-width: 1024px) {
+  .stat-card {
+    min-height: 130px;
+  }
+}
+#capabilities-section {
+  background-color: #05164D;
+  color: #ffffff;
+  z-index: 1;
+  position: relative;
+}
+@media screen and (max-width: 992px) {
+  #capabilities-section {
+    overflow: hidden;
+  }
+}
+#capabilities-section::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/ellips-boxes.webp);
+  width: 572px;
+  z-index: -1;
+  height: 374px;
+  top: 300px;
+  left: 0;
+  background-repeat: no-repeat;
+}
+#capabilities-section .cap-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+@media (max-width: 991px) {
+  #capabilities-section .cap-wrapper {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+#capabilities-section .left-part {
+  position: sticky;
+  top: 100px;
+  padding-bottom: 40px;
+  height: fit-content;
+}
+#capabilities-section .left-part .engineering-design {
+  position: relative;
+}
+@media (max-width: 991px) {
+  #capabilities-section .left-part {
+    position: relative;
+    top: 0;
+    padding-bottom: 0;
+  }
+}
+#capabilities-section .left-part h2 {
+  font-weight: 700;
+  line-height: 130%;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+#capabilities-section .left-part h2 em {
+  font-style: normal;
+  color: #6AA0FF;
+}
+#capabilities-section .left-part p {
+  color: rgba(255, 255, 255, 0.6901960784);
+  line-height: 160%;
+  margin-bottom: 40px;
+  max-width: 450px;
+}
+#capabilities-section .left-part .master-btn .text {
+  min-width: 110px;
+  text-align: center;
+}
+#capabilities-section .left-part .master-btn .text::after {
+  min-width: 100%;
+}
+#capabilities-section .right-part {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+#capabilities-section .right-part .card {
+  background: linear-gradient(153.09deg, rgba(56, 103, 255, 0.2) 2.06%, rgba(34, 34, 34, 0.2) 116.66%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 39px 40px;
+  transition: background 0.3s ease;
+  position: relative;
+  position: relative;
+}
+#capabilities-section .right-part .card::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/sticky-card-ellips.svg);
+  width: 160px;
+  height: 111px;
+  bottom: 8px;
+  background-size: 15px;
+}
+#capabilities-section .right-part .card figure {
+  margin: 0 0 24px 0;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+#capabilities-section .right-part .card figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+#capabilities-section .right-part .card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 100%;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+#capabilities-section .right-part .card h3 a {
+  color: #ffffff;
+  transition: 0.3s;
+}
+#capabilities-section .right-part .card h3 a:hover {
+  color: #FFAD00;
+}
+#capabilities-section .right-part .card p {
+  font-size: 16px;
+  color: #E8E8EC;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+#capabilities-section .right-part .card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#capabilities-section .right-part .card ul li {
+  font-size: 14px;
+  margin-bottom: 15px;
+  display: flex;
+  font-weight: 500;
+  position: relative;
+  line-height: 100%;
+  align-items: center;
+  gap: 10px;
+  color: #E8E8EC;
+  padding-left: 25px;
+}
+#capabilities-section .right-part .card ul li:last-child {
+  margin-bottom: 0;
+}
+#capabilities-section .right-part .card ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/white-check-round.svg);
+  width: 15px;
+  height: 15px;
+  top: 0px;
+  background-size: 15px;
+}
+#capabilities-section .right-part .card ul li a {
+  color: #D1D5DC;
+  transition: 0.3s;
+}
+#capabilities-section .right-part .card ul li a:hover {
+  color: #ffffff;
+}
+#capabilities-section .right-part .card:hover {
+  border: 1px solid #6AA0FF;
+}
+#capabilities-section .right-part .card:nth-child(even) {
+  background: linear-gradient(153.09deg, rgba(255, 255, 255, 0.172) 2.06%, rgba(255, 255, 255, 0.04) 116.66%);
+}
+
+@media screen and (max-width: 768px) {
+  #capabilities-section > div {
+    gap: 0;
+  }
+  #capabilities-section .right-part {
+    gap: 40px;
+    margin-top: 40px;
+  }
+  #capabilities-section .right-part .card {
+    padding: 22px;
+  }
+  #capabilities-section .right-part .card ul li::before {
+    top: 5px !important;
+  }
+}
+.help-section {
+  background: #f6f6f6;
+  /* GRID */
+  /* CARD */
+  /* RESPONSIVE */
+}
+.help-section .section-head {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 70px;
+}
+@media (max-width: 1024px) {
+  .help-section .section-head {
+    margin-bottom: 50px;
+  }
+}
+.help-section .section-head h2 {
+  font-weight: 700;
+  color: #05164d;
+  margin-bottom: 10px;
+  line-height: 100%;
+}
+.help-section .section-head h2 em {
+  color: #2563EB;
+  font-style: normal;
+}
+.help-section .section-head p {
+  line-height: 1.6;
+  font-size: 18px;
+  color: #60646C;
+  line-height: 160%;
+  font-weight: 500;
+}
+.help-section .help-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.help-section .help-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0px 4px 14px 3px rgba(0, 0, 0, 0.0588235294);
+  transition: 0.3s ease;
+  position: relative;
+  /* Hover Effect (like second card) */
+  /* Active Default Card */
+}
+.help-section .help-card .icon {
+  margin-bottom: 18px;
+  display: block;
+  height: 45px;
+}
+.help-section .help-card .icon img {
+  width: 45px;
+  height: 45px;
+}
+.help-section .help-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1C2024;
+  margin-bottom: 10px;
+  line-height: 150%;
+}
+.help-section .help-card p {
+  font-size: 16px;
+  color: #60646C;
+  margin-bottom: 25px;
+  line-height: 160%;
+}
+.help-section .help-card h4 {
+  color: #60646C;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  line-height: 100%;
+}
+.help-section .help-card ul {
+  padding: 0;
+  margin: 0px 0;
+}
+.help-section .help-card ul li {
+  list-style: none;
+  font-size: 14px;
+  color: #80838D;
+  margin-bottom: 15px;
+  font-weight: 500;
+  line-height: 100%;
+  position: relative;
+  padding-left: 26px;
+}
+.help-section .help-card ul li:before {
+  content: "";
+  position: absolute;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/check-list.webp);
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background-size: 16px;
+}
+.help-section .help-card ul li:last-child {
+  margin-bottom: 0;
+}
+.help-section .help-card .border-line {
+  border-top: 1px solid #E5E7EB;
+  margin-bottom: 49px;
+  margin-top: 30px;
+}
+.help-section .help-card .learn-more {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1D5BC4;
+  text-decoration: none;
+  transition: 0.3s;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+}
+.help-section .help-card .learn-more::after {
+  content: "";
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/right-blue.svg) no-repeat;
+  width: 16px;
+  height: 17px;
+  margin-top: 0px;
+  background-size: 100%;
+  display: inline-block;
+  margin-left: 8px;
+  transition: 0.4s;
+}
+.help-section .help-card .learn-more:hover {
+  color: #1D5BC4 !important;
+}
+.help-section .help-card .learn-more:hover::after {
+  transform: translateX(2px);
+  transition: 0.4s;
+}
+.help-section .help-card:hover {
+  border: 1px solid #1D5BC4;
+  box-shadow: 0px 0px 20px 5px rgba(29, 91, 196, 0.1490196078);
+}
+.help-section .help-card .hover {
+  display: none;
+}
+.help-section .help-card:hover .hover {
+  display: block;
+}
+.help-section .help-card:hover .normal {
+  display: none;
+}
+.help-section .bottom-append-part {
+  margin-top: 30px;
+  width: 100%;
+  position: relative;
+}
+.help-section .bottom-append-part .btn-primary-two {
+  margin-left: auto;
+}
+.help-section .bottom-append-part::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: calc(100% - 140px);
+  background-color: #F0F0F3;
+  height: 2px;
+  top: 50%;
+}
+@media screen and (max-width: 1024px) {
+  .help-section .help-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .help-section .help-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ai-production-loop {
+  position: relative;
+  display: flex;
+  min-height: 700px;
+  background: linear-gradient(270deg, #090C19 43.32%, #00060d 62.86%, rgba(9, 12, 25, 0) 100%);
+  flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  .ai-production-loop {
+    min-height: auto;
+  }
+}
+
+/* LEFT IMAGE FULL HEIGHT */
+.ai-left {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  width: 50%;
+}
+.ai-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ai-left video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* RIGHT CONTENT */
+.ai-right {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  background: linear-gradient(270deg, #090c19 43.32%, rgba(9, 12, 25, 0.31) 62.86%, rgba(9, 12, 25, 0) 100%);
+  z-index: 11;
+}
+.ai-right .ai-content {
+  padding: 80px 0 91px 20px;
+  color: #ffffff;
+  max-width: 590px;
+  float: right;
+}
+.ai-right .ai-content h2 {
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 130%;
+  color: #fff;
+}
+.ai-right .ai-content h2 em {
+  color: #6AA0FF;
+  font-style: normal;
+}
+.ai-right .ai-content > p {
+  color: #F0F0F3;
+  line-height: 160%;
+  margin-bottom: 60px;
+}
+.ai-right::after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  content: "";
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(270deg, #05164D 43.32%, rgba(5, 22, 77, 0.95) 62.86%, rgba(5, 22, 77, 0) 100%);
+  z-index: -1;
+}
+
+/* LIST */
+.ai-list {
+  height: 280px;
+  padding-left: 25px;
+}
+.ai-list .ai-item {
+  position: relative;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  /* Reserve space so layout doesn't jump */
+  /* FIXED HEIGHT AREA */
+  /* ACTIVE */
+}
+.ai-list .ai-item:first-of-type {
+  padding-top: 0;
+}
+.ai-list .ai-item .title h4 {
+  font-size: 22px;
+  font-weight: 700;
+  transition: 0.3s;
+  color: #ffffff;
+  position: relative;
+}
+.ai-list .ai-item .title h4:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #6A7282;
+  position: absolute;
+  left: -24px;
+  top: 10px;
+  transition: 0.3s;
+}
+.ai-list .ai-item .desc {
+  max-height: 0px;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+.ai-list .ai-item .desc p {
+  color: #E8E8EC;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.ai-list .ai-item .desc ul li {
+  position: relative;
+  color: #D1D5DC;
+}
+.ai-list .ai-item .desc ul li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: #6AA0FF;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 10px;
+}
+.ai-list .ai-item .progress {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: #6AA0FF;
+}
+.ai-list .ai-item.active .title h4 {
+  color: #6AA0FF;
+}
+.ai-list .ai-item.active .title h4:before {
+  background: #6AA0FF;
+}
+.ai-list .ai-item.active .desc {
+  max-height: 80px; /* fixed height */
+  opacity: 1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .ai-right {
+    width: 100%;
+  }
+  .ai-production-loop {
+    background: linear-gradient(270deg, #090C19 43.32%, rgba(9, 12, 25, 0.95) 62.86%, rgba(9, 12, 25, 0.89) 100%);
+  }
+  .ai-right .ai-content {
+    max-width: 100%;
+    float: unset;
+    padding-left: 20px;
+  }
+  .ai-left {
+    display: none;
+  }
+  .ai-right .ai-content h2 {
+    font-size: 32px;
+  }
+}
+@media (max-width: 640px) {
+  .ai-right .ai-content {
+    padding: 48px 0;
+  }
+  .ai-list {
+    padding-left: 20px;
+  }
+  .ai-right .ai-content > p {
+    margin-bottom: 20px;
+  }
+}
+.delivery-models {
+  background-color: #f5f7f9;
+}
+.delivery-models .section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+.delivery-models .section-header h2 {
+  color: #111827;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.delivery-models .section-header p {
+  font-size: 18px;
+  color: #60646C;
+  font-weight: 500;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 160%;
+}
+
+.models-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  align-items: stretch;
+}
+
+.model-card {
+  background: #fff;
+  border-radius: 20px;
+  position: relative;
+  padding: 30px 30px 40px 30px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 4px 14px 3px rgba(0, 0, 0, 0.0588235294);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+  border: 1px solid var(--gray-200, #E5E7EB);
+}
+.model-card::before {
+  position: absolute;
+  content: "";
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/modal-card-sty.png);
+  top: 0;
+  right: -1%;
+  z-index: -1;
+  width: 80%;
+  height: 40%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.model-card .card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: self-start;
+  margin-bottom: 20px;
+}
+.model-card .icon-box {
+  width: 44px;
+  height: 44px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+}
+.model-card .badge {
+  background-color: rgba(37, 99, 235, 0.1490196078);
+  color: #2563EB;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.model-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 100%;
+  color: #111827;
+  margin-bottom: 15px;
+}
+.model-card h3 a {
+  color: #111827;
+}
+.model-card p {
+  font-size: 16px;
+  color: #4B5563;
+  line-height: 160%;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.model-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+.model-card ul li {
+  font-size: 14px;
+  font-weight: 500;
+  color: #80838D;
+  margin-bottom: 15px;
+  padding-left: 26px;
+  display: flex;
+  line-height: 100%;
+  align-items: flex-start;
+  position: relative;
+}
+.model-card ul li:last-of-type {
+  margin-bottom: 0;
+}
+.model-card ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/d-grey-check.svg);
+  width: 14px;
+  height: 14px;
+  top: 0px !important;
+  background-size: 14px;
+}
+.model-card .card-footer {
+  border-top: 1px solid #F0F0F3;
+  padding-top: 10px;
+}
+.model-card .card-footer p {
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #60646C;
+  line-height: 160%;
+}
+.model-card .card-footer p strong {
+  color: #60646C;
+  font-weight: 700;
+}
+.model-card.highlighted {
+  background: #05164d;
+  color: #fff;
+}
+.model-card.highlighted .icon-box {
+  background: rgba(255, 255, 255, 0.1019607843);
+  border: 1px solid rgba(229, 231, 235, 0.2);
+}
+.model-card.highlighted .badge {
+  background: rgba(37, 99, 235, 0.2);
+  color: #6AA0FF;
+}
+.model-card.highlighted h3 {
+  color: #fff;
+}
+.model-card.highlighted h3 a {
+  color: #fff;
+}
+.model-card.highlighted p {
+  color: #D1D5DC;
+}
+.model-card.highlighted ul li {
+  color: #D1D5DC;
+}
+.model-card.highlighted .card-footer p {
+  color: #99A1AF;
+}
+.model-card.highlighted ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/white-check-round.svg);
+  width: 15px;
+  height: 15px;
+  top: 8px;
+  background-size: 15px;
+}
+.model-card.highlighted .card-footer {
+  border-color: #0D2A8A;
+}
+.model-card.highlighted .card-footer p {
+  border-top-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 0;
+  color: #CDCED6;
+}
+.model-card.highlighted .card-footer p strong {
+  color: #CDCED6;
+}
+
+@media (max-width: 480px) {
+  .model-card {
+    padding: 30px 20px;
+  }
+}
+.stories-section {
+  background: #f6f6f6;
+}
+.stories-section .inner-part {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+@media (max-width: 768px) {
+  .stories-section .inner-part {
+    gap: 28px;
+  }
+}
+.stories-section__top {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+@media (max-width: 768px) {
+  .stories-section__top {
+    flex-direction: column;
+    gap: 20px;
+    align-items: self-start;
+  }
+}
+.stories-section__heading-wrap {
+  width: 55%;
+}
+@media (max-width: 768px) {
+  .stories-section__heading-wrap {
+    width: 100%;
+  }
+}
+.stories-section h2 {
+  font-weight: 800;
+  color: #05164d;
+  line-height: 100%;
+  margin-bottom: 10px;
+}
+.stories-section p {
+  line-height: 160%;
+  font-weight: 500;
+  color: #60646C;
+  max-width: 590px;
+}
+.stories-section__btn-wrap {
+  display: flex;
+  align-items: center;
+  padding-top: 6px;
+}
+@media (max-width: 768px) {
+  .stories-section__btn-wrap {
+    padding-top: 0;
+  }
+}
+.stories-section__grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+@media (max-width: 992px) {
+  .stories-section__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.story-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+  display: flex;
+  padding: 30px;
+  border-radius: 20px;
+  flex-direction: column;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  box-shadow: 0px 4px 14px 3px rgba(0, 0, 0, 0.0588235294);
+}
+.story-card:hover {
+  box-shadow: 0px 0px 20px 5px rgba(29, 91, 196, 0.1490196078);
+  border: 1px solid #1D5BC4;
+}
+.story-card--featured {
+  grid-row: 1/3;
+}
+@media (max-width: 768px) {
+  .story-card--featured {
+    grid-row: auto;
+  }
+}
+.story-card--featured .story-card__image-wrap {
+  height: 300px;
+}
+@media (max-width: 1024px) {
+  .story-card--featured .story-card__image-wrap {
+    height: 240px;
+  }
+}
+@media (max-width: 768px) {
+  .story-card--featured .story-card__image-wrap {
+    height: 200px;
+  }
+}
+.story-card--featured h3 {
+  font-size: 22px;
+  font-width: 600;
+  line-height: 100%;
+  margin-bottom: 10px;
+}
+.story-card--featured p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 160%;
+  color: #60646C;
+}
+.story-card--small {
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 640px) {
+  .story-card--small {
+    flex-direction: column;
+  }
+}
+.story-card--small .story-card__image-wrap {
+  width: 200px;
+  min-width: 260px;
+  height: auto;
+  border-radius: 0;
+}
+.story-card--small .story-card__image-wrap .img-part {
+  border-radius: 20px;
+  overflow: hidden;
+}
+.story-card--small .story-card__image-wrap .img-part img {
+  height: 216px;
+  object-fit: cover;
+}
+@media (max-width: 1024px) {
+  .story-card--small .story-card__image-wrap {
+    width: 160px;
+    min-width: 160px;
+  }
+}
+@media (max-width: 480px) {
+  .story-card--small .story-card__image-wrap {
+    width: 100%;
+    min-width: unset;
+    height: 180px;
+  }
+}
+.story-card--small .story-card__content {
+  padding: 0 0 0 30px;
+  display: flex;
+  flex-direction: column;
+}
+.story-card--small .story-card__content h3 {
+  font-size: 22px;
+  font-weight: 600 !important;
+  color: #1C2024;
+  line-height: 100%;
+  margin-bottom: 10px;
+}
+.story-card--small .story-card__content p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #60646C;
+  margin-bottom: 0;
+  line-height: 160%;
+}
+.story-card--small .story-card__name {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #101828;
+}
+.story-card--small .story-card__desc {
+  font-size: 16px;
+  font-weight: 500;
+  color: #4A5565;
+}
+.story-card__image-wrap {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.story-card__image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.story-card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.story-card__name {
+  font-weight: 700;
+  color: #101828;
+  font-size: 24px;
+}
+.story-card__desc {
+  color: #4A5565;
+  font-weight: 500;
+  font-size: 16px;
+}
+.story-card__link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+  color: #1D5BC4;
+  margin-top: auto;
+  transition: gap 0.2s ease;
+}
+.story-card__link::after {
+  content: "";
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/right-blue.svg) no-repeat;
+  width: 16px;
+  height: 19px;
+  background-size: 100%;
+  display: inline-block;
+  margin-left: 7px;
+  margin-top: 4px;
+}
+
+.story-card--featured .story-card__content {
+  padding-top: 30px;
+}
+
+@media screen and (max-width: 640px) {
+  .story-card--small .story-card__content {
+    padding: 20px 0 0 0;
+  }
+  .story-card--small .story-card__image-wrap {
+    width: 100%;
+  }
+}
+.insights {
+  background: #ffffff;
+}
+.insights .insights__top-part {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 60px;
+  gap: 20px;
+}
+.insights .insights__top-part h2 {
+  margin-bottom: 10px;
+  line-height: 100%;
+}
+.insights .insights__top-part h2 em {
+  color: #6AA0FF;
+  font-style: normal;
+}
+.insights .insights__top-part p {
+  margin-bottom: 0;
+  font-weight: 500;
+  color: #60646C;
+}
+.insights .insights__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* BUTTON */
+.btn-outline {
+  padding: 12px 17px;
+  border-radius: 180px;
+  border: 0.92px solid #D1D5DB;
+  background-color: #F3F4F6;
+  color: #4B5563;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.3s;
+}
+.btn-outline::after {
+  content: "";
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/btn-icon-grey.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+  background-size: 100%;
+  display: inline-block;
+  transition: 0.2s;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .btn-outline {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+  .btn-outline::after {
+    width: 16px;
+    height: 16px;
+    background-size: 100%;
+    margin-left: 8px;
+  }
+  .insights .insights__top-part {
+    margin-bottom: 30px;
+  }
+}
+.btn-outline:hover {
+  background: #f8fafc;
+}
+
+/* CARD */
+.blog-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  transition: 0.35s ease;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 14px 3px rgba(0, 0, 0, 0.0588235294);
+  cursor: pointer;
+}
+.blog-card__image img {
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+}
+.blog-card__content {
+  margin-top: 15px;
+}
+.blog-card span {
+  font-size: 10px;
+  font-weight: 600;
+  color: #80838D;
+  text-transform: uppercase;
+  line-height: 140%;
+}
+.blog-card h3 {
+  font-size: 22px;
+  margin: 5px 0 30px;
+  font-weight: 600;
+  color: #1C2024;
+  line-height: 140%;
+}
+.blog-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.blog-card .author {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.blog-card .author img {
+  width: 36px;
+  border: 1px solid #E5E7EB;
+  height: 36px;
+  border-radius: 50%;
+}
+.blog-card .author p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6B7280;
+  margin: 0;
+  line-height: 1;
+}
+.blog-card .author span {
+  font-size: 10px;
+  font-weight: 500;
+  color: #94a3b8;
+}
+.blog-card a {
+  color: #1C2024;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  position: relative;
+}
+.blog-card a.read-more {
+  color: #1D5BC4;
+}
+.blog-card a.read-more::after {
+  content: "";
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/right-blue.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+  background-size: 100%;
+  display: inline-block;
+  transition: 0.2s;
+  margin-left: 5px;
+}
+.blog-card:hover {
+  border: 1px solid #1D5BC4;
+  box-shadow: 0px 0px 20px 5px rgba(29, 91, 196, 0.1490196078);
+}
+
+/* ✅ RESPONSIVE */
+@media (max-width: 1024px) {
+  .insights {
+    padding: 80px 0;
+  }
+  .insights .insights__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .insights .insights__top-part {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 768px) {
+  .insights .insights__top-part h2 {
+    font-size: 30px;
+  }
+}
+@media (max-width: 640px) {
+  .insights {
+    padding: 50px 0;
+  }
+  .insights__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .insights .insights__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+.friction-section {
+  background-color: #0a0b19;
+  color: #ffffff;
+  padding: 120px 0;
+}
+.friction-section .friction-inner-part {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  border-top: 2px solid #FFAD00;
+  padding-top: 10px;
+  position: relative;
+}
+.friction-section .friction-inner-part:before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 20%;
+  height: 6px;
+  background-color: #FFAD00;
+  clip-path: polygon(50% 0%, 96% 0, 100% 100%, 0 98%, 0 0);
+}
+.friction-section .friction-inner-part .friction-content-top {
+  flex: 1;
+  width: 100%;
+}
+.friction-section .friction-inner-part .friction-content-top > span {
+  color: #FFAD00;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.friction-section .friction-inner-part .friction-content-top h2 {
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  color: #ffffff;
+}
+.friction-section .friction-inner-part .friction-content-top h2 .highlight {
+  color: #FFAD00;
+  display: block;
+}
+.friction-section .friction-inner-part .friction-content-top p {
+  color: rgba(252, 252, 252, 0.87);
+  font-size: 18px;
+  line-height: 1.6;
+}
+.friction-section .friction-inner-part .friction-innner-content {
+  width: 100%;
+  display: flex;
+  gap: 60px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-list {
+  list-style: none;
+  padding: 0;
+  width: calc(50% - 30px);
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-list ul {
+  margin-right: 20%;
+}
+@media (max-width: 992px) {
+  .friction-section .friction-inner-part .friction-innner-content .friction-list ul {
+    margin-right: 0;
+  }
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-list ul .friction-item {
+  border-bottom: 1px solid #1a1a1a;
+  padding: 20px 0;
+  cursor: pointer;
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-list ul .friction-item .item-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 27px;
+  position: relative;
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-list ul .friction-item .item-header::after {
+  position: absolute;
+  left: 0;
+  transform: translateY(-50%);
+  top: 50%;
+  width: 22px;
+  background-size: contain;
+  height: 22px;
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/icons/circle-x.svg);
+  background-repeat: no-repeat;
+  content: "";
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-list ul .friction-item .item-header i {
+  color: #FF4C4C;
+  font-size: 18px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-list ul .friction-item .item-header h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+@media screen and (max-width: 992px) {
+  .friction-section .friction-inner-part .friction-innner-content .friction-list ul .friction-item .item-header h3 {
+    font-size: 18px;
+  }
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-list ul .friction-item p {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
+  margin-left: 34px;
+  color: rgba(252, 252, 252, 0.87);
+  font-size: 16px;
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-list ul .friction-item:hover .item-header h3 {
+  color: #FF4C4C;
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-list ul .friction-item:hover p {
+  max-height: 100px;
+  opacity: 1;
+  margin-top: 10px;
+}
+@media (max-width: 992px) {
+  .friction-section .friction-inner-part .friction-innner-content .friction-list {
+    width: 100%;
+  }
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-card {
+  width: calc(50% - 30px);
+  border: 1px solid #FFAD00;
+  border-radius: 24px;
+  padding: 45px 40px 61px 40px;
+  background: radial-gradient(circle at bottom right, rgba(255, 173, 0, 0.15), transparent 70%);
+  position: relative;
+  overflow: hidden;
+  height: fit-content;
+}
+@media (max-width: 992px) {
+  .friction-section .friction-inner-part .friction-innner-content .friction-card {
+    flex: none;
+    width: 100%;
+    padding: 25px;
+  }
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-card > span {
+  color: #FFAD00;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-card h2 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-card h2 span {
+  color: #FFAD00;
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-card p {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 35px;
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-card p em {
+  font-style: italic;
+  color: #ffffff;
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-card .card-bottom-text p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(252, 252, 252, 0.87);
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-left: 26px;
+}
+.friction-section .friction-inner-part .friction-innner-content .friction-card .card-bottom-text p::after {
+  position: absolute;
+  left: 0;
+  transform: translateY(-50%);
+  top: 50%;
+  width: 16px;
+  background-size: contain;
+  height: 16px;
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/icons/zap.svg);
+  background-repeat: no-repeat;
+  content: "";
+}
+@media (max-width: 992px) {
+  .friction-section .friction-inner-part {
+    gap: 30px;
+  }
+}
+@media (max-width: 992px) {
+  .friction-section {
+    padding: 60px 0;
+  }
+}
+
+.build-team {
+  padding: 120px 0px;
+  background-color: #ffffff;
+}
+@media (max-width: 992px) {
+  .build-team {
+    padding: 60px 0;
+  }
+}
+
+.section-header {
+  padding-top: 10px;
+  position: relative;
+  margin-bottom: 6%;
+}
+.section-header > span {
+  color: #FFAD00;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.section-header h2 {
+  font-size: clamp(30px, 3.7vw, 46px);
+  margin: 0;
+  color: #0c104c;
+}
+.section-header h2 em {
+  color: #FFAD00;
+  font-style: normal;
+}
+.section-header p {
+  margin-top: 15px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #364153;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+@media (max-width: 992px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.card-grid .card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 30px;
+  border: 1px solid #E5E7EB;
+  backdrop-filter: blur(13.9393939972px);
+  min-height: 405px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+.card-grid .card::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  height: 50%;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/card-top-sade.png);
+  content: "";
+}
+.card-grid .card .strategic-needs {
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: 0.4s;
+  background: #FFCD6A;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  position: absolute;
+  margin: 15px;
+  left: 0;
+  margin-bottom: 0 !important;
+}
+.card-grid .card h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+.card-grid .card p {
+  color: #555;
+  line-height: 1.4;
+}
+.card-grid .card .card-icon {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #999;
+  width: 45px;
+  height: 45px;
+}
+.card-grid .card .card-icon i {
+  padding: 11px;
+  width: 100%;
+  padding: 11px;
+  border-radius: 12px;
+  border-width: 1px;
+  background: #ffffff;
+  display: flex;
+  border: 1px solid rgb(229, 231, 235);
+}
+.card-grid .card .card-icon i img {
+  width: 23px;
+  height: 23px;
+}
+.card-grid .card .card-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid #E0E0E0;
+}
+.card-grid .card .card-footer ul {
+  padding-left: 15px;
+}
+.card-grid .card .card-footer ul li {
+  font-size: 14px;
+  color: #4A5565;
+  line-height: 160%;
+  font-style: italic;
+  font-weight: 600;
+  list-style: disc;
+}
+.card-grid .card:hover {
+  background: #FFAD00;
+  height: 405px;
+}
+.card-grid .card:hover h3 {
+  color: #1A1A1A;
+}
+.card-grid .card:hover > p {
+  display: none;
+}
+.card-grid .card:hover .strategic-needs {
+  visibility: visible;
+  transform: translateY(0px);
+}
+.card-grid .card:hover .strategic-needs p {
+  font-weight: 600;
+  font-size: 12px;
+  color: #1A1A1A;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.card-grid .card:hover .strategic-needs ul {
+  list-style: none;
+  padding: 0;
+}
+.card-grid .card:hover .strategic-needs ul li {
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  position: relative;
+  line-height: 20px;
+  padding-left: 25px;
+  font-weight: 500;
+  color: #1D293D;
+}
+.card-grid .card:hover .strategic-needs ul li:before {
+  content: "";
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/icons/dark-check.svg);
+  margin-right: 8px;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  left: 0;
+  top: 7px;
+  position: absolute;
+}
+
+.build-team .card .card-content {
+  overflow: hidden;
+}
+
+.build-team .card:hover .card-icon {
+  display: none;
+}
+
+.build-team .card:hover .card-footer {
+  display: none;
+}
+
+.build-team .card:hover .card-content > p {
+  display: none;
+}
+
+.not-for-section {
+  background: #090C19;
+  border-radius: 24px;
+  padding: 40px 84px 40px 39px;
+  overflow: hidden;
+  color: #ffffff;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+.not-for-section::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 41%;
+  height: 100%;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/fit-back-sade.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.not-for-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 21%;
+  height: 100%;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/r-eleps-radius.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.not-for-section .yello-sade {
+  position: absolute;
+  right: -62%;
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/yellow-sade.png);
+  width: 82%;
+  height: 350px;
+  bottom: -160px;
+  background-repeat: no-repeat;
+  border-radius: 58%;
+}
+@media (max-width: 992px) {
+  .not-for-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 25px;
+  }
+}
+.not-for-section .not-for-content {
+  max-width: 60%;
+}
+.not-for-section .not-for-content h3 {
+  font-size: 30px;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+@media (max-width: 992px) {
+  .not-for-section .not-for-content {
+    max-width: 100%;
+  }
+}
+.not-for-section .not-for-content h2 {
+  margin-bottom: 10px;
+}
+.not-for-section .not-for-content p {
+  color: rgb(209, 213, 220);
+  margin-bottom: 30px;
+}
+.not-for-section .not-for-content ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  font-size: 14px;
+}
+.not-for-section .not-for-content ul li {
+  position: relative;
+  padding-left: 24px;
+}
+.not-for-section .not-for-content ul li::after {
+  position: absolute;
+  left: 0;
+  transform: translateY(-50%);
+  top: 50%;
+  width: 16px;
+  background-size: contain;
+  height: 16px;
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/icons/circle-x.svg);
+  background-repeat: no-repeat;
+  content: "";
+}
+@media (max-width: 767px) {
+  .not-for-section .not-for-content {
+    grid-template-columns: 1fr;
+  }
+}
+.not-for-section .cta-area {
+  text-align: right;
+  color: #ffffff;
+}
+@media (max-width: 767px) {
+  .not-for-section .cta-area {
+    margin-top: 40px;
+    text-align: center;
+  }
+}
+.not-for-section .cta-area p {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 10px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 54px;
+}
+.not-for-section .cta-area p::after {
+  position: absolute;
+  left: 28px;
+  transform: translateY(-50%);
+  top: 50%;
+  width: 16px;
+  background-size: contain;
+  height: 16px;
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/icons/zap.svg);
+  background-repeat: no-repeat;
+  content: "";
+}
+
+@media screen and (max-width: 1024px) {
+  .card-grid .card {
+    padding: 20px;
+  }
+  .card-grid .card .strategic-needs {
+    padding: 10px;
+  }
+  .card-grid .card:hover .strategic-needs ul li {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .card-grid .card {
+    min-height: 325px;
+  }
+  .card-grid .card:hover {
+    height: 325px;
+  }
+  .not-for-section::before {
+    background-size: cover;
+    width: 26%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .card-grid .card {
+    padding: 15px;
+  }
+  .card-grid .card .strategic-needs {
+    margin-top: 0;
+  }
+  .not-for-section .not-for-content ul {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+}
+.card-grid .card:hover .strategic-needs {
+  position: static;
+  margin: 0;
+}
+
+.vco-wrap.bg-blue {
+  background: linear-gradient(90deg, #05164D 0%, #0C33B3 100%);
+}
+
+.vco-wrap.bg-blue .vco-eyebrow {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.vco-wrap.bg-blue h2 {
+  color: #ffffff !important;
+}
+
+.vco-wrap.bg-blue p {
+  color: #bdb7b7 !important;
+}
+
+.vco-wrap {
+  background: #fafafa;
+  color: var(--vco-heading);
+}
+
+.vco-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  color: #b45309;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+.vco-wrap h2 {
+  margin-bottom: 10px;
+}
+
+.vco-wrap p {
+  margin-bottom: 48px;
+}
+
+.vco-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .vco-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .vco-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.vco-card {
+  background: #ffffff;
+  border: 1.5px solid #e4e4e7;
+  border-radius: 14px;
+  padding: 22px;
+  transition: border-color 0.22s, box-shadow 0.22s, transform 0.22s;
+  position: relative;
+  overflow: hidden;
+}
+
+.vco-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #FFAD00;
+  opacity: 0;
+  transition: opacity 0.22s;
+}
+
+.vco-card:hover {
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.12);
+  transform: translateY(-3px);
+}
+
+.vco-card:hover::after {
+  opacity: 1;
+}
+
+.vco-cat-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.vco-cat-ico {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  color: #b45309;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vco-cat-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #3f3f46;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.vco-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.vco-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f4f4f5;
+  border: 1.5px solid #e4e4e7;
+  color: #3f3f46;
+  font-size: 12.5px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  white-space: nowrap;
+}
+
+.vco-chip:hover {
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.12);
+}
+
+.vco-chip img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+.vco-init {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  background: #5B5563;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 0;
+}
+
+.vco-chip.has-link {
+  padding: 0;
+}
+
+.vco-chip.has-link a {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.client-feedback {
+  background: #fff;
+}
+.client-feedback .section-title {
+  margin-bottom: 60px;
+}
+.client-feedback .section-title > em {
+  font-size: 14px;
+  letter-spacing: 3px;
+  font-style: normal;
+  margin-bottom: 5px;
+  color: #2563EB;
+  font-weight: 700;
+}
+.client-feedback .section-title h2 {
+  color: #05164d;
+  margin-bottom: 0px;
+}
+.client-feedback .section-title h2 em {
+  color: #1D5BC4;
+}
+.client-feedback .feedback-slider {
+  margin-top: 50px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 60px;
+  border-radius: 10px;
+}
+.client-feedback .feedback-slider .swiper-slide {
+  opacity: 0.25;
+  transition: 0.4s;
+}
+.client-feedback .feedback-slider .swiper-slide.swiper-slide-active {
+  opacity: 1;
+  transition: 0.5s;
+  margin: 0 auto;
+}
+.client-feedback .feedback-slider .feedback-card {
+  display: flex;
+  background: #fff;
+  border: 1px solid #E8E8EC;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 400px;
+  position: relative;
+}
+.client-feedback .feedback-slider .feedback-card .client-image {
+  width: 34%;
+  border-left: 7px solid #2962ff;
+}
+.client-feedback .feedback-slider .feedback-card .client-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.client-feedback .feedback-slider .feedback-card .content {
+  width: 66%;
+  padding: 69.6px 51px 36.5px 40px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 1;
+}
+.client-feedback .feedback-slider .feedback-card .content::before {
+  content: "";
+  position: absolute;
+  background-image: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/feed-cots.svg);
+  width: 50px;
+  height: 50px;
+  left: 40px;
+  top: 40px;
+  z-index: -1;
+}
+.client-feedback .feedback-slider .feedback-card .content p {
+  color: #52525C;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 0;
+  line-height: 160%;
+}
+.client-feedback .feedback-slider .feedback-card .content .clint-bio {
+  margin-top: auto;
+}
+.client-feedback .feedback-slider .feedback-card .content .clint-bio h4 {
+  margin-bottom: 5px;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 700;
+  color: #18181B;
+}
+.client-feedback .feedback-slider .feedback-card .content .clint-bio p {
+  font-size: 14px;
+  font-weight: 400;
+  color: #52525C;
+}
+.client-feedback .feedback-slider .swiper-button-prev,
+.client-feedback .feedback-slider .swiper-button-next {
+  color: #333;
+  width: 23px;
+  height: 15px;
+}
+.client-feedback .feedback-slider .swiper-button-prev:after,
+.client-feedback .feedback-slider .swiper-button-next:after {
+  content: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/swiper-arrow.svg);
+}
+.client-feedback .feedback-slider .swiper-button-next::after {
+  transform: rotate(180deg);
+  top: 17px;
+  position: relative;
+}
+.client-feedback .feedback-slider .swiper-pagination {
+  position: static;
+  margin-top: 20px;
+}
+.client-feedback .feedback-slider .swiper-pagination .swiper-pagination-bullet {
+  width: 7px;
+  height: 7px;
+  background: #D9D9E0;
+  opacity: 1;
+}
+.client-feedback .feedback-slider .swiper-pagination .swiper-pagination-bullet-active {
+  background: #60646C;
+}
+@media screen and (max-width: 767px) {
+  .client-feedback .feedback-card {
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto !important;
+  }
+  .client-feedback .feedback-card .client-image {
+    width: 50% !important;
+  }
+  .client-feedback .feedback-card .client-image img {
+    height: 100%;
+  }
+  .client-feedback .feedback-card .content {
+    width: 100% !important;
+  }
+  .client-feedback .feedback-card .clint-bio {
+    margin-top: 20px !important;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .client-feedback .feedback-slider .feedback-card .client-image {
+    display: none;
+  }
+  .client-feedback .feedback-slider .swiper-button-prev {
+    display: none !important;
+  }
+  .client-feedback .feedback-slider .swiper-button-next {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 540px) {
+  .client-feedback .feedback-slider .feedback-card .client-image {
+    width: auto;
+  }
+  .client-feedback .feedback-slider .feedback-card .content {
+    padding: 30px 40px 30px 40px;
+  }
+  .client-feedback .feedback-slider .feedback-card .content::before {
+    top: 5px;
+  }
+}
+.client-feedback .swiper-slide.swiper-slide-prev .feedback-card .client-image.before {
+  display: block;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  z-index: 11;
+}
+
+.client-feedback .swiper-slide.swiper-slide-active .feedback-card .client-image.before {
+  display: none;
+}
+
+.client-feedback .swiper-slide.swiper-slide-next {
+  transition: 0.5s;
+}
+.client-feedback .swiper-slide.swiper-slide-next .client-image.before img {
+  object-position: 100px 0px;
+}
+
+.client-feedback .swiper-slide.swiper-slide-prev {
+  transition: 0.5s;
+}
+.client-feedback .swiper-slide.swiper-slide-prev .client-image.before img {
+  object-position: 100px 0px;
+}
+
+.client-feedback .feedback-slider .swiper-button-prev:after {
+  left: 35px;
+  position: relative;
+}
+
+.client-feedback .feedback-slider .swiper-button-next:after {
+  right: 35px;
+  position: relative;
+}
+
+.testimonial-section .testlider {
+  width: 100%;
+}
+.testimonial-section .testlider .slide-item {
+  display: flex;
+}
+.testimonial-section .testlider .glide__slides {
+  white-space: normal !important;
+}
+.testimonial-section .testlider .test-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.testimonial-section .testlider .test-row .cust-img-box {
+  flex-basis: 40%;
+}
+.testimonial-section .testlider .test-row .cust-img-box img {
+  width: 100%;
+}
+.testimonial-section .testlider .test-row .client-videos {
+  flex-basis: 40%;
+  position: relative;
+}
+.testimonial-section .testlider .test-row .client-videos .client-video-box {
+  position: relative;
+}
+.testimonial-section .testlider .test-row .client-videos iframe {
+  vertical-align: bottom;
+  background-color: #656565;
+  width: 100%;
+  border: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.testimonial-section .testlider .test-row .client-videos .frame-mask {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.testimonial-section .testlider .test-row .client-videos .frame-mask img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.testimonial-section .testlider .test-row .client-videos .frame-mask .playBtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 9;
+  height: 100%;
+  cursor: pointer;
+}
+.testimonial-section .testlider .test-row .client-videos .frame-mask .playsc {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  margin: 0 auto;
+  transition: 0.4s ease-in-out;
+}
+.testimonial-section .testlider .test-row .client-videos .frame-mask .playsc::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: -10px;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: #FFAD00;
+  opacity: 0.5;
+  transition: 0.4s ease-in-out;
+}
+.testimonial-section .testlider .test-row .client-videos .frame-mask .playsc .playicon {
+  width: 100%;
+  height: 100%;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/playicon.svg) center center/contain no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  z-index: 1;
+  transition: 0.4s ease-in-out;
+}
+.testimonial-section .testlider .test-row .client-videos .frame-mask .playsc:hover .playicon {
+  top: 10px;
+  transition: 0.4s ease-in-out;
+}
+.testimonial-section .testlider .test-row .client-videos .frame-mask .playsc:hover:before {
+  width: 85px;
+  height: 85px;
+  left: -13px;
+  top: -5px;
+  transition: 0.4s ease-in-out;
+}
+.testimonial-section .testlider .test-row .content-box {
+  flex-basis: 54%;
+  position: relative;
+}
+.testimonial-section .testlider .test-row .content-box p {
+  margin: 0 0 20px;
+  line-height: 160%;
+}
+.testimonial-section .testlider .test-row .content-box h5 {
+  margin: 30px 0 5px;
+  color: #3f3f3f;
+  font-weight: 600;
+  font-size: 20px;
+}
+.testimonial-section .testlider .test-row .content-box span {
+  font-size: 16px;
+  font-weight: 300;
+  display: block;
+  margin: 0 0 10px;
+}
+.testimonial-section .testlider .test-row .content-box .star-image {
+  width: 96px;
+  height: 17px;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/star-image.png) center center no-repeat;
+  background-size: 100%;
+}
+.testimonial-section .testlider .test-row .content-box::before {
+  content: "";
+  display: block;
+  width: 115px;
+  height: 100px;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/dble-quote.png) center center no-repeat;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  left: -25px;
+}
+.testimonial-section .testlider .glide__bullets {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0 0;
+  gap: 15px;
+}
+.testimonial-section .testlider .glide__bullet {
+  position: relative;
+  display: flex;
+  flex-basis: 33.33%;
+  padding: 20px;
+  border: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid rgba(5, 22, 77, 0.04);
+  background: #fcfcfc;
+}
+.testimonial-section .testlider .glide__bullet .btnsec {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0 0 15px;
+  position: relative;
+}
+.testimonial-section .testlider .glide__bullet .btnsec:after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  height: 4px;
+  display: block;
+  border-radius: 20px;
+  background-color: #e8e6e6;
+  transition: transform 5s;
+}
+.testimonial-section .testlider .glide__bullet .btnsec .btnimg {
+  width: 69px;
+}
+.testimonial-section .testlider .glide__bullet .btnsec .btnimg img {
+  width: 69px;
+  height: 69px;
+  border-radius: 100%;
+}
+.testimonial-section .testlider .glide__bullet .btnsec .btncont {
+  margin-left: 15px;
+  text-align: left;
+}
+.testimonial-section .testlider .glide__bullet .btnsec .btncont p {
+  font-weight: 300 !important;
+  color: #666;
+}
+.testimonial-section .testlider .glide__bullet .btnsec .btncont h3 {
+  margin: 0;
+}
+.testimonial-section .testlider .glide__bullet:before {
+  content: "";
+  position: absolute;
+  bottom: 21px;
+  width: 90%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  height: 4px;
+  display: block;
+  border-radius: 20px;
+  background: #e8e6e6;
+  opacity: 0;
+  transform: translateX(-100%);
+  background-color: #FFAD00;
+  transition: transform 5s;
+  z-index: 9;
+}
+.testimonial-section .testlider .glide__bullet--active {
+  background: #ffffff;
+}
+.testimonial-section .testlider .glide__bullet--active:before {
+  opacity: 1;
+  transform: translateX(0);
+}
+.testimonial-section .testlider .arw {
+  width: 26px;
+  height: 26px;
+  background-size: 100%;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/left-arw.png) no-repeat;
+  position: absolute;
+  bottom: 60px;
+  left: -55px;
+  font-size: 0;
+  border: 0;
+  transition: 0.4s ease-in-out;
+  cursor: pointer;
+}
+.testimonial-section .right {
+  left: auto !important;
+  right: -55px;
+  transform: rotate(180deg);
+}
+.testimonial-section .popup-section .popup-wrapper .popup-content {
+  max-width: 800px;
+  width: 100%;
+  padding: 0;
+}
+.testimonial-section .popup-section .popup-wrapper .popup-content iframe {
+  width: 100%;
+  height: 480px;
+}
+.testimonial-section .popup-section .popup-wrapper .popup-content .closeicon {
+  cursor: pointer;
+  position: absolute;
+  right: -7px;
+  top: -10px;
+  background: #fff;
+  width: 30px;
+  height: 29px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1366px) {
+  .testimonial-section .testlider .arw {
+    left: -35px;
+    background-size: 20px;
+  }
+  .testimonial-section .testlider .glide__bullets {
+    gap: 12px;
+  }
+  .testimonial-section .testlider .glide__bullet {
+    padding: 15px;
+  }
+  .testimonial-section .testlider .glide__bullet .btnsec .btnimg {
+    width: 50px;
+  }
+  .testimonial-section .testlider .glide__bullet .btnsec .btnimg img {
+    width: 50px;
+    height: 50px;
+  }
+  .testimonial-section .testlider .glide__bullet .btnsec .btncont {
+    margin-left: 12px;
+  }
+  .testimonial-section .testlider .glide__bullet .btnsec .btncont p {
+    font-size: 14px;
+  }
+  .testimonial-section .testlider .glide__bullet:before {
+    bottom: 16px;
+  }
+  .testimonial-section .right {
+    right: -35px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .testimonial-section .testlider .glide__bullets {
+    margin: 30px 0 0;
+    gap: 0;
+  }
+  .testimonial-section .testlider .glide__bullet {
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+    flex-basis: auto;
+    padding: 0;
+    background: #e8e6e6;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+  .testimonial-section .testlider .glide__bullet .btnsec {
+    display: none;
+  }
+  .testimonial-section .testlider .glide__bullet:before {
+    display: none;
+  }
+  .testimonial-section .testlider .glide__bullet--active {
+    background: #FFAD00;
+  }
+  .testimonial-section .testlider .arw {
+    display: none;
+  }
+  .testimonial-section .right {
+    right: -20px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .testimonial-section .testlider .test-row .content-box:before {
+    width: 95px;
+    height: 100px;
+    top: -28px;
+    left: -15px;
+  }
+  .testimonial-section .popup-section .popup-wrapper .popup-content {
+    max-width: 90%;
+  }
+  .testimonial-section .popup-section .popup-wrapper .popup-content iframe {
+    width: 100%;
+    height: 340px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .testimonial-section .testlider .test-row .cust-img-box {
+    flex-basis: 100%;
+  }
+  .testimonial-section .testlider .test-row .client-videos {
+    flex-basis: 100%;
+  }
+  .testimonial-section .testlider .test-row .content-box {
+    flex-basis: 100%;
+    margin: 20px 0 0;
+    text-align: center;
+  }
+  .testimonial-section .testlider .test-row .content-box p {
+    margin: 0 0 15px;
+  }
+  .testimonial-section .testlider .test-row .content-box h5 {
+    margin: 20px 0 5px;
+    font-size: 18px;
+  }
+  .testimonial-section .testlider .test-row .content-box span {
+    font-size: 14px;
+  }
+  .testimonial-section .testlider .test-row .content-box .star-image {
+    margin: 0 auto;
+  }
+  .testimonial-section .testlider .test-row .content-box::before {
+    display: none;
+  }
+}
+.glider {
+  margin: 0 auto;
+  position: relative;
+  transform: translateZ(0);
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  overflow: hidden;
+}
+.glider::-webkit-scrollbar {
+  opacity: 0;
+  height: 0;
+  display: none;
+}
+
+.glider-contain {
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+
+.glider-track {
+  transform: translateZ(0);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  z-index: 1;
+}
+
+.glider-dot {
+  border: 0;
+  padding: 0;
+  user-select: none;
+  outline: 0;
+  display: block;
+  cursor: pointer;
+  color: #ccc;
+  border-radius: 999px;
+  background: transparent;
+  width: 12px;
+  height: 12px;
+  margin: 7px;
+}
+.glider-dot:focus {
+  background: #F76600;
+}
+.glider-dot:hover {
+  background: #F76600;
+}
+
+.glider-prev,
+.glider-next {
+  border: 0;
+  padding: 0;
+  user-select: none;
+  outline: 0;
+  position: absolute;
+  z-index: 2;
+  font-size: 30px;
+  text-decoration: none;
+  top: 40%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #212121;
+  opacity: 1;
+  line-height: 1;
+  transition: opacity 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67), color 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  width: 65px;
+  height: 65px;
+}
+
+.glider-next {
+  right: 10px;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/right-slide-btn.png) 0 0 no-repeat;
+  background-size: 100%;
+}
+
+.glider-prev {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/left-slide-btn.png) 0 0 no-repeat;
+  background-size: 100%;
+}
+
+.glider.draggable {
+  user-select: none;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.glider.draggable .glider-slide img {
+  user-select: none;
+  pointer-events: none;
+}
+
+.glider.drag {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.glider-slide {
+  user-select: none;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  min-width: 150px;
+}
+.glider-slide img {
+  max-width: 100%;
+}
+
+.glider-next.disabled,
+.glider-prev.disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+
+.glider-hide {
+  opacity: 0;
+}
+
+.glider-dots {
+  user-select: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.glider-dot.active {
+  background: #fff;
+}
+
+.day .glider-next {
+  background-position: -53px 0;
+}
+.day .glider-prev {
+  background-position: -53px 0;
+}
+
+@media (max-width: 36em) {
+  .glider::-webkit-scrollbar {
+    opacity: 1;
+    -webkit-appearance: none;
+    width: 7px;
+    height: 3px;
+  }
+  .glider::-webkit-scrollbar-thumb {
+    opacity: 1;
+    border-radius: 99px;
+    background-color: rgba(156, 156, 156, 0.25);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.25);
+  }
+}
+.footer {
+  width: 100%;
+  background: #1C2024;
+  border: 1px solid;
+  border-image-source: linear-gradient(105.4deg, rgba(5, 22, 77, 0.09) 7.94%, rgba(5, 22, 77, 0.1) 99.22%);
+  padding: 50px 0 0;
+}
+.footer .footer-top .cards {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+.footer .footer-top .cards .card {
+  height: 115px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1294117647);
+  border-radius: 10px;
+  width: calc(25% - 12px);
+}
+.footer .footer-top .cards .card .normal {
+  padding: 15px 12px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.footer .footer-top .cards .card .normal .top-part-inner {
+  display: flex;
+  align-items: center;
+}
+.footer .footer-top .cards .card .normal .top-part-inner .img-part {
+  width: 21px;
+  height: 21px;
+  margin-right: 10px;
+}
+.footer .footer-top .cards .card .normal .top-part-inner .img-part img {
+  border-radius: 500px;
+}
+.footer .footer-top .cards .card .normal .top-part-inner .country h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+.footer .footer-top .cards .card .normal .address {
+  display: block;
+  width: 100%;
+  padding-top: 10px;
+}
+.footer .footer-top .cards .card .normal .address p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #D1D5DC;
+}
+.footer .footer-top .cards .card .hover {
+  display: none;
+  padding: 27px 12px;
+}
+.footer .footer-top .cards .card .hover .img-part {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+}
+.footer .footer-top .cards .card .hover .img-part img {
+  border-radius: 500px;
+}
+.footer .footer-top .cards .card .hover .text-part h4 {
+  font-size: 18px;
+  color: #fff;
+  font-size: 500;
+}
+.footer .footer-top .cards .card .hover .text-part a {
+  font-size: 16px;
+  font-weight: 500;
+  color: #FFAD00;
+}
+.footer .footer-top .cards .card::before {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/footer-card.png);
+  bottom: 0;
+  right: 0;
+  content: "";
+  background-size: cover;
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+.footer .footer-top .cards .card:hover::before {
+  display: block;
+}
+.footer .footer-top .cards .card.has-hover:hover .normal {
+  display: none;
+}
+.footer .footer-top .cards .card.has-hover:hover .hover {
+  display: flex;
+  position: relative;
+  z-index: 9;
+}
+.footer .footer-top .cards .card.has-hover:hover {
+  border: 1px solid rgba(255, 173, 0, 0.5019607843);
+}
+.footer .footer-middle {
+  padding: 40px 0 25px;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.footer .footer-middle .flex-5 {
+  flex-basis: auto;
+  padding-right: 60px;
+}
+.footer .footer-middle .flex-5:last-child {
+  padding-right: 0;
+}
+.footer .footer-middle h4 {
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 500;
+}
+.footer .footer-middle ul li {
+  margin: 10px 0 0;
+  color: #b9b9b9;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+}
+.footer .footer-middle ul li a {
+  color: #99A1AF;
+}
+.footer .footer-middle ul li a:hover {
+  color: #fff;
+}
+.footer .footer-bottom {
+  padding: 40px 0 0;
+  gap: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  justify-content: space-between;
+}
+.footer .footer-bottom .flex-4 {
+  flex-basis: 15%;
+}
+.footer .footer-bottom h3 {
+  font-size: 15px;
+  line-height: 24px;
+  color: #b9b9b9;
+  font-weight: 400;
+  margin: 0 0 22px;
+}
+.footer .footer-bottom .logo-box {
+  flex-basis: 31%;
+}
+.footer .footer-bottom .logo-box .dis-flex a {
+  margin-right: 30px;
+}
+.footer .footer-bottom .logo-box .dis-flex a:hover {
+  opacity: 0.8;
+}
+.footer .footer-bottom .social-box .dis-flex a {
+  margin-right: 10px;
+}
+.footer .footer-bottom .social-box .dis-flex a:hover {
+  opacity: 0.6;
+}
+.footer .footer-bottom .footer-rating {
+  color: #b9b9b9;
+  flex-basis: 35%;
+}
+.footer .footer-bottom .footer-rating .star-outer a {
+  font-size: 14px;
+  color: #b9b9b9;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+.footer .footer-bottom .footer-rating a:hover {
+  color: #ffffff;
+  opacity: 0.8;
+}
+.footer .footer-bottom .footer-rating .star-icon {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/footer-icons.png) 0 0 no-repeat;
+  width: 18px;
+  height: 15px;
+  display: inline-block;
+}
+.footer .footer-bottom .footer-rating .client-outer {
+  margin-top: 12px;
+}
+.footer .footer-bottom .footer-rating .rate-us {
+  border: 1px solid #ffb81d;
+  border-radius: 6px;
+  padding: 5px 18px;
+  display: inline-block;
+  color: #ffb81d;
+  margin-right: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.footer .footer-copyright {
+  background: #000000;
+  margin: 40px 0 0;
+  color: #8d8d8d;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 12px;
+  line-height: 1;
+}
+
+/*Media Query Start From Here*/
+@media (max-width: 1440px) {
+  .footer .footer-top .count-sec .count-col {
+    margin-right: 25px;
+  }
+  .footer .footer-middle .flex-5 {
+    padding-right: 30px;
+  }
+  .footer .footer-bottom .logo-box .dis-flex a {
+    margin-right: 15px;
+  }
+  .footer .footer-bottom .social-box .dis-flex a {
+    margin-right: 7px;
+  }
+  .footer .footer-bottom h3 {
+    margin: 0 0 15px;
+  }
+}
+@media (max-width: 1290px) {
+  .footer .footer-top .count-sec .count-col p {
+    font-size: 13px;
+  }
+  .footer .footer-middle ul li {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .footer .footer-bottom h3 {
+    font-size: 14px;
+  }
+  .footer .footer-bottom .flex-4 {
+    flex-basis: 17%;
+  }
+  .footer .footer-bottom .footer-rating {
+    flex-basis: 36%;
+  }
+  .footer .footer-bottom .footer-rating .client-outer {
+    font-size: 14px;
+  }
+  .footer .footer-bottom .footer-rating .star-outer {
+    font-size: 14px;
+  }
+}
+@media (max-width: 1160px) {
+  .footer .footer-top .count-sec .count-col p {
+    font-size: 13px;
+  }
+  .footer .footer-top .subs-box {
+    padding: 20px 15px;
+    border-radius: 20px;
+  }
+  .footer .footer-top .subs-box:before {
+    width: 60px;
+    height: 52px;
+  }
+  .footer .footer-top .subs-box:after {
+    width: 34px;
+    height: 46px;
+  }
+  .footer .footer-top .footer-middle .flex-5 {
+    padding-right: 20px;
+  }
+  .footer .footer-top .footer-bottom {
+    gap: 20px;
+  }
+  .footer .footer-middle .flex-5 {
+    padding-right: 20px;
+  }
+  .footer .footer-middle ul li {
+    font-size: 13px;
+  }
+}
+@media (max-width: 1160px) {
+  .footer .footer-top .count-sec .count-col {
+    line-height: 24px;
+  }
+  .footer .footer-top .count-sec .count-col p {
+    font-size: 12px;
+  }
+}
+@media (max-width: 1023px) {
+  .footer .footer-top {
+    flex-wrap: wrap;
+  }
+  .footer .footer-top .count-sec {
+    flex-basis: 100%;
+    justify-content: space-between;
+  }
+  .footer .footer-top .count-sec .count-col {
+    margin-right: 18px;
+  }
+  .footer .footer-top .subs-box {
+    flex-basis: 100%;
+    margin: 20px 0 0;
+  }
+  .footer .footer-middle .flex-5 {
+    flex-basis: 20%;
+  }
+  .footer .footer-bottom {
+    gap: 0;
+    justify-content: space-between;
+  }
+  .footer .footer-bottom .flex-4 {
+    flex-basis: 100%;
+    text-align: center;
+  }
+  .footer .footer-bottom .logo-box {
+    flex-basis: 50%;
+    text-align: left;
+  }
+  .footer .footer-bottom .logo-box .dis-flex {
+    gap: 15px;
+  }
+  .footer .footer-bottom .social-box {
+    flex-basis: 50%;
+    text-align: center;
+  }
+  .footer .footer-bottom .social-box .dis-flex {
+    justify-content: center;
+  }
+  .footer .footer-bottom .footer-rating {
+    flex-basis: 100%;
+    text-align: center;
+  }
+  .footer .footer-bottom h3 {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .footer .footer-bottom .logo-box .dis-flex a {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .footer .footer-bottom .social-box .dis-flex a {
+    margin-right: 10px;
+  }
+  .footer .footer-bottom .copyright p {
+    font-size: 13px;
+    line-height: 22px;
+  }
+}
+@media (max-width: 767px) {
+  .footer .footer-top {
+    flex-wrap: wrap;
+  }
+  .footer .footer-top .count-sec {
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .footer .footer-top .count-sec .count-col {
+    flex-basis: 48%;
+    margin-right: 0;
+    text-align: center;
+    padding: 0 0 20px;
+  }
+  .footer .footer-top .count-sec .count-col p {
+    font-size: 12px;
+    line-height: 22px;
+  }
+  .footer .footer-top .count-sec .count-col h5 {
+    font-size: 18px;
+    margin: 0 0 5px;
+  }
+  .footer .footer-top .subs-box {
+    flex-basis: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .footer .footer-middle {
+    padding: 30px 0 10px;
+  }
+  .footer .footer-middle .flex-5 {
+    flex-basis: 48%;
+    padding: 0 0 20px;
+  }
+  .footer .footer-middle ul li {
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .footer .footer-bottom {
+    padding: 30px 0 0;
+    gap: 0;
+  }
+  .footer .footer-bottom .flex-4 {
+    flex-basis: 100%;
+    text-align: center;
+    margin: 10px 0 0;
+  }
+  .footer .footer-bottom .logo-box {
+    flex-basis: 100%;
+    text-align: center;
+  }
+  .footer .footer-bottom .logo-box .dis-flex {
+    justify-content: center;
+    gap: 8px;
+  }
+  .footer .footer-bottom .social-box {
+    flex-basis: 100%;
+    text-align: center;
+    margin: 20px 0 0;
+  }
+  .footer .footer-bottom .footer-rating {
+    margin: 20px 0 0;
+  }
+  .footer .footer-bottom h3 {
+    font-weight: 500;
+  }
+}
+/*Media Query Ends Here*/
+@media screen and (max-width: 992px) {
+  .footer .footer-top .cards .card {
+    width: calc(50% - 15px);
+  }
+  .footer .footer-top .cards .card .footer .footer-top .cards {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 640px) {
+  .footer .footer-top .cards .card {
+    width: 100%;
+  }
+}
+.faq-section-v10 {
+  background: #F9FAFB;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  /* LEFT */
+  /* RIGHT */
+}
+.faq-section-v10::after {
+  position: absolute;
+  content: "";
+  bottom: 0%;
+  left: 0;
+  width: 422px;
+  height: 280px;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/faq-bottom-styl.png) no-repeat center;
+  background-size: cover;
+  z-index: -1;
+}
+@media screen and (max-width: 1024px) {
+  .faq-section-v10::after {
+    width: 250px;
+    height: 180px;
+    background-size: cover;
+    bottom: 0;
+  }
+}
+.faq-section-v10 .inner-part {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 60px;
+  align-items: start;
+}
+.faq-section-v10 .faq-left h2 {
+  font-weight: 700;
+  color: #05164D;
+  line-height: 1.2;
+}
+.faq-section-v10 .faq-left h2 em {
+  color: #1D5BC4;
+  font-style: normal;
+}
+.faq-section-v10 .faq-left p {
+  font-size: 18px;
+  margin-top: 16px;
+  color: #364153;
+  font-weight: 500;
+  max-width: 500px;
+}
+.faq-section-v10 .faq-item {
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+.faq-section-v10 .faq-item.active {
+  border-color: #6AA0FF;
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.08);
+}
+.faq-section-v10 .faq-item.active .faq-question h3 {
+  color: #2563EB;
+}
+.faq-section-v10 .faq-item.active .faq-answer {
+  display: block;
+  padding: 20px 24px;
+}
+.faq-section-v10 .faq-question {
+  width: 100%;
+  background: #fff;
+  padding: 20px 30px 20px 20px;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+}
+.faq-section-v10 .faq-question h3 {
+  color: #364153;
+  font-weight: bold;
+  margin-bottom: 0;
+  font-size: 18px;
+}
+.faq-section-v10 .faq-question::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transition: 0.4s ease-in-out;
+  right: 20px;
+  width: 18px;
+  height: 15px;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/grey-arrow.svg);
+  transform: translateY(-50%);
+}
+.faq-section-v10 .faq-answer {
+  overflow: hidden;
+  transition: all 0.35s ease;
+  display: none;
+  padding: 0 24px;
+}
+.faq-section-v10 .faq-answer p {
+  color: #364153;
+  line-height: 1.6;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+.faq-section-v10 .faq-answer p:last-child {
+  margin-bottom: 0;
+}
+.faq-section-v10 .faq-answer p:first-child {
+  margin-bottom: 15px;
+}
+.faq-section-v10 .faq-answer p a {
+  font-weight: bold;
+}
+.faq-section-v10 .faq-answer ul {
+  margin: 15px 0;
+}
+.faq-section-v10 .faq-answer ul li {
+  margin: 5px 0 0;
+  position: relative;
+  padding-left: 18px;
+}
+.faq-section-v10 .faq-answer ul li a {
+  font-weight: bold;
+}
+.faq-section-v10 .faq-answer ul li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: #6AA0FF;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 10px;
+}
+.faq-section-v10 .icon {
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  transition: 0.3s;
+}
+
+.faq-section-v10 .faq-item.active .faq-question {
+  background-color: #F0F0F3;
+  border-bottom: 1px solid #6AA0FF;
+}
+
+.faq-section-v10 .faq-item.active .faq-question::before {
+  transform: rotate(-180deg);
+  transition: 0.4s ease-in-out;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .faq-section-v10 {
+    padding: 50px 0;
+  }
+  .faq-section-v10 .inner-part {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .faq-section-v10 .faq-left h2 {
+    font-size: 32px;
+  }
+}
+.industries-section {
+  background-color: #ffffff;
+}
+.industries-section .section-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  margin-top: 0;
+  position: relative;
+}
+.industries-section .section-header .header-text {
+  max-width: 763px;
+  text-align: left;
+}
+.industries-section .section-header .header-text .subtitle {
+  color: #1D5BC4;
+  margin-top: 0;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.industries-section .section-header .header-text h2 {
+  color: #05164d;
+  margin-bottom: 10px;
+}
+.industries-section .section-header .header-text h2 em {
+  color: inherit;
+}
+.industries-section .section-header .header-text p {
+  color: #60646C;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.industries-section .glider-nav {
+  position: relative;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-right: 0px;
+}
+.industries-section .glider-nav .hover {
+  display: none;
+}
+.industries-section .glider-nav .glider-prev {
+  transform: rotate(-180deg) translateY(17px);
+}
+.industries-section .glider-nav button {
+  width: 35px;
+  height: 35px;
+  border-radius: 16px;
+  border: 2px solid #99A1AF;
+  background: transparent;
+  color: #05164d;
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  font-size: 18px;
+  top: 88%;
+}
+.industries-section .glider-nav button:hover {
+  background: #1D5BC4;
+  color: white;
+  border-color: #1D5BC4;
+}
+.industries-section .glider-nav button:hover .hover {
+  display: block;
+  width: 21px;
+  height: 21px;
+}
+.industries-section .glider-nav button:hover .default {
+  display: none;
+}
+.industries-section .glider-next.disabled,
+.industries-section .glider-prev.disabled {
+  opacity: 1;
+  cursor: default;
+}
+.industries-section .industry-item {
+  padding: 0 10px;
+  cursor: auto;
+}
+.industries-section .industry-card {
+  border-radius: 25px;
+  overflow: hidden;
+  height: 430px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.industries-section .industry-card .card-image {
+  height: 350px;
+  transition: height 0.4s ease;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+.industries-section .industry-card .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.industries-section .industry-card .card-body {
+  padding: 20px 15px;
+  flex-grow: 1;
+  border-radius: 25px;
+  background-color: #F4F4F4;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border: 1px solid #E5E7EB;
+  transition: background 0.4s ease;
+  position: relative;
+}
+.industries-section .industry-card .card-body .title-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.industries-section .industry-card .card-body .title-wrap h3 {
+  font-size: 18px;
+  color: #1C2024;
+  font-weight: 600;
+  margin: 0;
+}
+.industries-section .industry-card .card-body .title-wrap::after {
+  position: absolute;
+  content: "";
+  right: 0;
+  transform: rotate(359deg);
+  top: 0;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/d-black.svg);
+  width: 24px;
+  height: 24px;
+  background-size: auto;
+}
+.industries-section .industry-card .hover-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: all 0.4s ease;
+}
+.industries-section .industry-card .hover-content .inner-top {
+  display: block;
+}
+.industries-section .industry-card .hover-content .inner-top h4 {
+  font-weight: 700;
+  font-size: 16px;
+  margin: 15px 0 5px;
+  color: #ffffff;
+}
+.industries-section .industry-card .hover-content .inner-top p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #F0F0F3;
+  margin-bottom: 20px;
+}
+.industries-section .industry-card .hover-content .expand-btn {
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+  color: inherit;
+  margin-bottom: 34px;
+  color: #FFFFFF;
+}
+.industries-section .industry-card:hover {
+  transform: translateY(0px);
+}
+.industries-section .industry-card:hover .card-image {
+  height: 120px;
+}
+.industries-section .industry-card:hover .card-image img {
+  object-fit: cover;
+  object-position: top;
+}
+.industries-section .industry-card:hover .card-body {
+  background: #05164D;
+  margin-top: 10px;
+}
+.industries-section .industry-card:hover .hover-content {
+  max-height: 250px;
+  opacity: 1;
+}
+.industries-section .industry-card:hover .title-wrap h3 a {
+  color: #ffffff;
+}
+
+.industries-section .industry-card:hover .card-body .title-wrap h3 {
+  color: #6AA0FF;
+}
+
+@media screen and (max-width: 992px) {
+  .industries-section .section-header .header-text {
+    padding-bottom: 10px;
+  }
+  .industries-section .section-header {
+    flex-direction: column;
+    padding-top: 0;
+  }
+  .industries-section .glider-nav {
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .industries-section {
+    padding: 60px 0;
+  }
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .section-header .glider-nav {
+    margin-top: 20px;
+  }
+  .industries-section .glider-nav {
+    margin: 20px auto;
+  }
+}
+.industry-card .card-body::after {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/right-arrow-big.svg);
+  width: 24px;
+  display: none;
+  height: 24px;
+  content: "";
+  position: absolute;
+  top: 29px;
+  right: 8%;
+  transform: rotate(360deg);
+  transition: 0.4s;
+}
+
+.industry-card:hover .card-body::after {
+  display: block;
+}
+
+.industries-section .industry-card:hover .card-body .title-wrap::after {
+  display: none;
+}
+
+.contact-us-section {
+  background: linear-gradient(to right, #F0F0F3 39%, #fff 30%) !important;
+}
+
+@media screen and (max-width: 992px) {
+  .contact-us-section {
+    background: linear-gradient(to bottom, #F0F0F3 39%, #fff 30%) !important;
+  }
+}
+.contact-us-section {
+  position: relative;
+  background: linear-gradient(to right, #F0F0F3 39%, #fff 30%);
+}
+.contact-us-section .left-box {
+  flex-basis: 35%;
+  position: relative;
+  z-index: 1;
+}
+.contact-us-section .left-box .soc-box {
+  margin: 20px 0 0;
+  color: rgba(5, 22, 77, 0.8);
+  font-size: 14px;
+  font-weight: 500;
+}
+.contact-us-section .left-box .soc-box a {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  position: relative;
+  color: rgba(5, 22, 77, 0.8);
+  line-height: initial;
+}
+.contact-us-section .left-box .soc-box a:before {
+  content: "";
+  width: 1px;
+  height: 25px;
+  position: absolute;
+  left: 9px;
+  top: -2px;
+  background: rgba(65, 65, 65, 0.3);
+}
+.contact-us-section .left-box .soc-box a:hover {
+  color: #05164d;
+}
+.contact-us-section .left-box .soc-box a:first-child {
+  padding: 0;
+}
+.contact-us-section .left-box .soc-box a:first-child:before {
+  display: none;
+}
+.contact-us-section .left-box .soc-box a i {
+  margin-right: 10px;
+}
+.contact-us-section .left-box .soc-box a i img {
+  vertical-align: middle;
+}
+.contact-us-section .left-box .soc-box a:before {
+  content: "";
+  width: 1px;
+  height: 25px;
+  position: absolute;
+  left: 9px;
+  top: -2px;
+  background: rgba(65, 65, 65, 0.3);
+}
+.contact-us-section .left-box .soc-box a span {
+  position: relative;
+}
+.contact-us-section .left-box .soc-box a span:after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/soc-border.svg) 0 0 no-repeat;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  opacity: 1 !important;
+}
+.contact-us-section .left-box .award-box {
+  width: 100%;
+  padding: 30px 0 0;
+}
+.contact-us-section .left-box .award-box p {
+  color: #1C2024;
+  font-weight: 500;
+  font-size: 20px;
+}
+.contact-us-section .left-box .award-box p strong {
+  font-weight: 700;
+}
+.contact-us-section .left-box .award-box p a {
+  color: #05164D;
+  text-decoration: underline;
+}
+.contact-us-section .left-box .award-box .row-box .col-box {
+  margin: 30px 0 0;
+  align-items: self-start;
+}
+.contact-us-section .left-box .award-box .row-box .col-box .icon {
+  flex-basis: 10%;
+}
+.contact-us-section .left-box .award-box .row-box .col-box .desp {
+  flex-basis: 90%;
+  padding-left: 0;
+}
+.contact-us-section .left-box .award-box .row-box .col-box .desp h4 {
+  color: #6f6f6f;
+  font-weight: 500;
+}
+.contact-us-section .left-box .award-box .row-box .col-box .desp p {
+  font-size: 14px;
+  margin: 5px 0 0;
+  line-height: 24px;
+  color: #4B5563;
+  font-weight: 400;
+}
+.contact-us-section .left-box .award-box .client-stack {
+  margin: 30px 0 0;
+}
+.contact-us-section .left-box .award-box .client-stack ul {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.contact-us-section .right-box {
+  width: 58%;
+  background: #ffffff;
+  padding: 0;
+}
+.contact-us-section .right-box h2 {
+  margin: 0 0 10px;
+}
+.contact-us-section .right-box .top-section {
+  margin: 0 0 50px;
+}
+.contact-us-section .form-text-cont {
+  flex-basis: 50%;
+  margin-bottom: 30px;
+  position: relative;
+}
+.contact-us-section .form-text-cont:nth-child(2n-1) {
+  padding-right: 20px;
+}
+.contact-us-section .form-text-cont.verror label {
+  color: #dc0019;
+}
+.contact-us-section .input-field {
+  border: 1.5px solid #d4e0ed;
+  padding: 0 15px;
+  height: 54px;
+  background: transparent;
+  width: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  border-radius: 5px;
+  outline: 0;
+  color: #6B7280;
+}
+.contact-us-section .user-input {
+  position: relative;
+}
+.contact-us-section .user-input label {
+  position: absolute;
+  top: -15px;
+  left: 8px;
+  font-size: 13px;
+  background: #fff;
+  padding: 0 8px;
+  color: rgba(51, 51, 51, 0.7);
+  font-weight: 500;
+}
+.contact-us-section .user-input:focus-within label {
+  color: rgb(51, 51, 51);
+}
+.contact-us-section .user-input:focus-within .input-field {
+  border-color: rgb(5, 22, 77);
+}
+.contact-us-section .form-control small,
+.contact-us-section .user-input small {
+  display: none;
+  font-size: 13px;
+  margin-top: 5px;
+}
+.contact-us-section .width-full .user-input {
+  border: 1.5px solid #d4e0ed;
+  padding: 20px 15px;
+  background: transparent;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 25px;
+  height: 180px;
+  margin-bottom: 0;
+  padding-right: 50px;
+}
+.contact-us-section .width-full .user-input small {
+  display: block;
+  opacity: 0;
+}
+.contact-us-section .width-full .user-input.form-control.verror {
+  border-color: red;
+}
+.contact-us-section .width-full .user-input.success::after {
+  top: 27px;
+}
+.contact-us-section .width-full.verror .user-input {
+  border-color: #dc0019 !important;
+}
+.contact-us-section .comment-input {
+  height: 70px;
+  resize: none;
+  background: none;
+  outline: 0;
+  border: none;
+  overflow-y: auto;
+  padding: 0;
+}
+.contact-us-section .drop-input {
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+.contact-us-section .drop-box {
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 0.5px solid #ffffff;
+  font-size: 12px;
+}
+.contact-us-section .btn-container {
+  margin-top: 0;
+}
+.contact-us-section .btn-container .cta-button {
+  background: #ffad00 url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/white-cta.svg) no-repeat right 15px center;
+  border: none;
+  padding: 16px 50px 16px 20px;
+}
+.contact-us-section .btn-container .cta-button:hover {
+  background: #05164d url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/yellow-cta.svg) no-repeat right 15px center;
+  color: #ffffff;
+}
+.contact-us-section .arrow-wrap {
+  right: 50px;
+  top: 9px;
+}
+.contact-us-section .user-input.checkout {
+  text-align: right;
+}
+.contact-us-section .user-input.success {
+  position: relative;
+}
+.contact-us-section .user-input.success::after {
+  content: "";
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/success-icon.png) top center no-repeat;
+  background-size: 100%;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 14px;
+  height: 14px;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.contact-us-section .error {
+  color: #dc0019 !important;
+  opacity: 0.9;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 13px;
+}
+.contact-us-section .form-text-cont.width-full {
+  flex-basis: 100%;
+  padding-right: 0;
+}
+.contact-us-section #drop-area {
+  border: none;
+  margin-top: 2px;
+  display: inline-block;
+  position: relative;
+  bottom: 0;
+  padding: 0;
+}
+.contact-us-section #drop-area .button {
+  background: rgba(217, 217, 217, 0.2);
+  color: rgb(65, 64, 64);
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid #d1d1e1;
+  font-size: 12px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+.contact-us-section #drop-area .button:hover {
+  background: rgba(217, 217, 217, 0.8);
+  opacity: 1;
+}
+.contact-us-section #drop-area .button:focus {
+  background: rgba(76, 76, 76, 0.7);
+  color: #ffffff;
+}
+.contact-us-section #gallery {
+  margin-bottom: 8px;
+}
+.contact-us-section #gallery div {
+  display: inline-flex;
+  margin-right: 10px;
+  vertical-align: baseline;
+  align-items: flex-start;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.contact-us-section #gallery div button,
+.contact-us-section #gallery div a {
+  text-decoration: none;
+  background: #FFAD00;
+  padding: 4px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  border: 0;
+}
+.contact-us-section #gallery div button:focus,
+.contact-us-section #gallery div a:focus {
+  background: #f30909;
+}
+.contact-us-section #file-type-error {
+  font-size: 13px;
+  color: #dc0019;
+  margin-bottom: 10px;
+}
+.contact-us-section .loader {
+  border: 5px solid #9f9f9f;
+  border-radius: 50%;
+  border-top: 5px solid #3498db;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  display: inline-block;
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  display: none;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.contact-us-section .gal-loader {
+  position: relative;
+  padding: 20px;
+  margin-bottom: 15px;
+  display: none;
+}
+.contact-us-section .gal-loader.active {
+  background: rgba(0, 0, 0, 0.1);
+}
+.contact-us-section .gal-loader.active .loader {
+  display: block;
+}
+.contact-us-section .gal-loader.show-me {
+  display: block;
+  min-height: 100px;
+}
+.contact-us-section .autocomplete-items {
+  display: none;
+}
+.contact-us-section .autocomplete-items.has-data {
+  display: block;
+  height: 170px;
+  overflow-y: auto;
+  position: absolute;
+  top: 68px;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  box-shadow: 0px 6px 9px rgba(1, 0, 12, 0.43);
+  background: #1d1c39;
+  border-radius: 5px;
+  z-index: 2;
+}
+.contact-us-section .autocomplete-items.has-data div {
+  color: #fff;
+  border-bottom: 1px solid #05142b;
+  background-color: #1d1c39;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 15px 20px;
+}
+.contact-us-section .autocomplete-items.has-data div.autocomplete-active, .contact-us-section .autocomplete-items.has-data div:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.contact-us-section .form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.contact-us-section .form-group ::placeholder {
+  opacity: 0.5;
+}
+.contact-us-section .quizQ {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/line-image.png) 5px center no-repeat;
+  border: 1px dashed #e0e0e0;
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+.contact-us-section .quizQ span {
+  font-size: 20px;
+  color: rgb(65, 65, 65);
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+.contact-us-section .refreshbtn {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/refresh-button.svg) no-repeat;
+  background-size: 100%;
+  width: 24px;
+  height: 24px;
+  margin-left: 35px;
+  cursor: pointer;
+  transition: all 0.5s ease 0s;
+  display: inline-block;
+  vertical-align: bottom;
+  cursor: pointer;
+}
+.contact-us-section .refreshbtn:active {
+  transform: rotate(360deg);
+}
+.contact-us-section .equal {
+  margin: 0 18px;
+  font-size: 25px;
+}
+.contact-us-section .quizAns {
+  position: relative;
+}
+.contact-us-section .quizAns input {
+  border: 1px solid rgb(133, 129, 129);
+  border-radius: 8px;
+  height: 50px;
+  max-width: 60px;
+  text-align: center;
+  padding: 10px;
+  color: rgb(65, 65, 65);
+  font-size: 20px;
+}
+.contact-us-section .quizAns .error {
+  margin-left: 10px;
+  color: #dc0019;
+  font-size: 13px;
+}
+.contact-us-section .verror small,
+.contact-us-section .verror label {
+  color: #dc0019 !important;
+  display: block;
+}
+.contact-us-section .verror .input-field,
+.contact-us-section .verror .nice-select {
+  border-color: #dc0019 !important;
+}
+.contact-us-section .qz-captcha {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.contact-us-section .qz-captcha .qz-wrap {
+  display: flex;
+  align-items: center;
+}
+.contact-us-section .qz-captcha input[type=number] {
+  color: #414141;
+}
+
+@media screen and (min-width: 2500px) {
+  .contact-us-section .left-box .award-logo .logo-box img {
+    width: 150px;
+  }
+}
+@media only screen and (max-width: 1680px) {
+  .contact-us-section .left-box p {
+    margin: 0 0 15px;
+  }
+  .contact-us-section .left-box .side-dash1:after {
+    top: 35px;
+  }
+}
+@media only screen and (max-width: 1366px) {
+  .contact-us-section .qz-captcha {
+    margin-top: 30px;
+  }
+}
+@media only screen and (max-width: 1280px) {
+  .contact-us-section {
+    background: linear-gradient(to right, #fff9eb 38%, #fff 30%);
+  }
+  .contact-us-section .quizQ {
+    padding: 0 15px;
+  }
+  .contact-us-section .equal {
+    margin: 0 10px;
+  }
+  .contact-us-section .right-box {
+    width: 60%;
+  }
+  .contact-us-section .left-box {
+    width: 35%;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .contact-us-section {
+    background: linear-gradient(to bottom, #fff9eb 45%, #fff 30%);
+  }
+  .contact-us-section .left-box {
+    flex-basis: 100%;
+  }
+  .contact-us-section .right-box {
+    width: 100%;
+    margin-top: 70px;
+    padding: 50px 20px 0;
+  }
+  .contact-us-section .qz-captcha {
+    margin-top: 15px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .contact-us-section {
+    background: linear-gradient(to bottom, #fff9eb 36%, #fff 30%);
+  }
+  .contact-us-section .left-box .soc-box {
+    margin: 0;
+  }
+  .contact-us-section .left-box .award-box p {
+    font-size: 15px;
+  }
+  .contact-us-section .left-box .award-box .row-box .col-box {
+    justify-content: space-between;
+    margin: 20px 0 0;
+  }
+  .contact-us-section .left-box .award-box .row-box .col-box .icon {
+    flex-basis: 13%;
+  }
+  .contact-us-section .left-box .award-box .row-box .col-box .desp {
+    flex-basis: 80%;
+  }
+  .contact-us-section .left-box .award-box .row-box .col-box .desp h4 {
+    font-size: 16px;
+  }
+  .contact-us-section .left-box .award-box .row-box .col-box .desp p {
+    margin: 4px 0 0;
+  }
+  .contact-us-section .form-group {
+    margin-bottom: 0;
+  }
+  .contact-us-section .right-box {
+    margin-top: 60px;
+    padding: 40px 0 0;
+  }
+  .contact-us-section .right-box .top-section {
+    text-align: center;
+  }
+  .contact-us-section .form-text-cont {
+    flex-basis: 100%;
+    margin-bottom: 30px;
+  }
+  .contact-us-section .form-text-cont:nth-child(2n-1) {
+    padding-right: 0;
+  }
+  .contact-us-section .btn-container {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+  }
+  .contact-us-section .input-field {
+    height: 50px;
+    font-size: 14px;
+  }
+  .contact-us-section .form-control small,
+  .contact-us-section .user-input small {
+    display: none;
+    font-size: 13px;
+    margin-top: 5px;
+  }
+  .contact-us-section .width-full .user-input {
+    padding: 15px 20px;
+    font-size: 14px;
+    height: 180px;
+    margin-bottom: 0;
+    padding-right: 50px;
+  }
+  .contact-us-section .width-full .user-input small {
+    display: block;
+    opacity: 0;
+  }
+  .contact-us-section .width-full .user-input.form-control.verror {
+    border-color: red;
+  }
+  .contact-us-section .width-full .user-input.success::after {
+    top: 27px;
+  }
+  .contact-us-section .width-full.verror .user-input {
+    border-color: #dc0019 !important;
+  }
+  .contact-us-section .comment-input {
+    height: 70px;
+    resize: none;
+    background: none;
+    outline: 0;
+    border: none;
+    overflow-y: auto;
+    padding: 0;
+  }
+  .contact-us-section .drop-input {
+    position: relative;
+    bottom: 0;
+    left: 0;
+  }
+  .contact-us-section .drop-box {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 0.5px solid #ffffff;
+    font-size: 12px;
+  }
+  .contact-us-section .checkout-submit {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 25px;
+  }
+  .contact-us-section .user-input.checkout {
+    text-align: center;
+  }
+  .contact-us-section .user-input.success {
+    position: relative;
+  }
+  .contact-us-section .user-input.success::after {
+    content: "";
+    background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/success-icon.png) top center no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    width: 14px;
+    height: 14px;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+  .contact-us-section .error {
+    color: #dc0019 !important;
+    opacity: 0.9;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 13px;
+    display: block;
+  }
+  .contact-us-section .form-text-cont.width-full {
+    flex-basis: 100%;
+    padding-right: 0;
+  }
+  .contact-us-section #drop-area {
+    border: none;
+    margin-top: 2px;
+    display: inline-block;
+    position: relative;
+    bottom: 0;
+    padding: 0;
+  }
+  .contact-us-section #drop-area .button {
+    background: rgba(217, 217, 217, 0.32);
+    color: #9b9b9b;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #d1d1e1;
+    font-size: 14px;
+    border-radius: 5px;
+    line-height: 1.4;
+    opacity: 0.5;
+  }
+  .contact-us-section #gallery {
+    margin-bottom: 15px;
+  }
+  .contact-us-section #gallery div {
+    display: inline-flex;
+    margin-right: 10px;
+    vertical-align: baseline;
+    align-items: flex-start;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+  .contact-us-section #gallery div button,
+  .contact-us-section #gallery div a {
+    text-decoration: none;
+    background: #FFAD00;
+    padding: 4px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    border: 0;
+  }
+  .contact-us-section #gallery div button:focus,
+  .contact-us-section #gallery div a:focus {
+    background: #f30909;
+  }
+  .contact-us-section #file-type-error {
+    font-size: 13px;
+    color: #dc0019;
+    margin-bottom: 10px;
+  }
+  .contact-us-section .loader {
+    border: 5px solid #9f9f9f;
+    border-radius: 50%;
+    border-top: 5px solid #3498db;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    display: none;
+  }
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .contact-us-section .gal-loader {
+    position: relative;
+    padding: 20px;
+    margin-bottom: 15px;
+    display: none;
+  }
+  .contact-us-section .gal-loader.active {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  .contact-us-section .gal-loader.active .loader {
+    display: block;
+  }
+  .contact-us-section .gal-loader.show-me {
+    display: block;
+    min-height: 100px;
+  }
+  .contact-us-section .autocomplete-items {
+    display: none;
+  }
+  .contact-us-section .autocomplete-items.has-data {
+    display: block;
+    height: 170px;
+    overflow-y: auto;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    box-shadow: 0px 6px 9px rgba(1, 0, 12, 0.43);
+    background: #1d1c39;
+    border-radius: 5px;
+    z-index: 2;
+  }
+  .contact-us-section .autocomplete-items.has-data div {
+    color: #fff;
+    border-bottom: 1px solid #05142b;
+    background-color: #1d1c39;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 15px 20px;
+  }
+  .contact-us-section .autocomplete-items.has-data div.autocomplete-active, .contact-us-section .autocomplete-items.has-data div:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  .contact-us-section .qz-captcha .qz-wrap {
+    flex-basis: 100%;
+    align-items: flex-start;
+  }
+  .contact-us-section .qz-captcha .checkout {
+    flex-basis: 100%;
+    margin: 20px 0 0;
+  }
+  .contact-us-section .equal {
+    margin: 15px 20px 0;
+  }
+  .contact-us-section .quizQ {
+    font-size: 16px;
+    padding: 0 15px;
+  }
+  .contact-us-section .refreshbtn {
+    margin-left: 20px;
+  }
+  .contact-us-section .btn-sec .btn {
+    font-size: 16px;
+  }
+  .contact-us-section .btn-sec .btn .checkout-submit {
+    font-size: 16px;
+    padding: 10px 60px 10px 25px;
+  }
+  .contact-us-section .btn-sec .btn::before {
+    width: 41px;
+    height: 41px;
+    top: 3px;
+    right: 4px;
+  }
+}
+.btn-primary-two {
+  border: 1px solid #9F9FA9;
+  border-radius: 100px;
+  width: fit-content;
+  overflow: hidden;
+}
+.btn-primary-two input {
+  background: rgba(255, 174, 0, 0) url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/grey-right.svg) no-repeat right 15% center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  color: #60646C;
+  cursor: pointer;
+  padding: 11.5px 41px 11.5px 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 14px;
+  gap: 10px;
+  line-height: 100%;
+  transition: background 0.3s ease;
+  position: relative !important;
+  transition: 0.4s;
+  border: 1px solid #CDCED6;
+}
+.btn-primary-two:hover input {
+  border-color: #1D5BC4;
+  background: #1D5BC4;
+  color: #ffffff;
+  background: #1D5BC4 url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/white-right.svg) no-repeat right 15% center;
+}
+
+@media screen and (min-width: 1992px) {
+  .contact-us-section {
+    background: linear-gradient(to right, #F0F0F3 42%, #fff 30%) !important;
+  }
+}
+.award-section .top-logo {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.award-section .top-logo .text {
+  display: flex;
+  align-items: center;
+}
+.award-section .top-logo .text i img {
+  margin: 1px 8px 0 0;
+  vertical-align: text-top;
+  display: inline-block;
+}
+.award-section .top-logo .text strong {
+  font-size: 24px;
+  color: #05164D;
+  margin-right: 10px;
+}
+.award-section .top-logo .awlogo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: 10px;
+}
+.award-section .top-logo .awlogo a {
+  border: 1px solid #dfdbdb;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  padding: 8px;
+  position: relative;
+  cursor: default;
+}
+.award-section .top-logo .awlogo a:after {
+  content: "";
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/awlogo-01.svg) no-repeat;
+  width: 25px;
+  height: 26px;
+  background-size: 100%;
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.award-section .top-logo .awlogo a:nth-child(2):after {
+  width: 24px;
+  height: 24px;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/awlogo-02.svg) no-repeat;
+  background-size: 100%;
+}
+.award-section .top-logo .awlogo a:nth-child(3):after {
+  width: 26px;
+  height: 25px;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/awlogo-03.svg) no-repeat;
+  background-size: 100%;
+}
+.award-section .stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 75%;
+  margin: 40px auto 0;
+}
+.award-section .stats .stat {
+  border-right: 1px solid #cdcdcd;
+  flex-basis: 33.33%;
+  padding: 30px 20px;
+  text-align: center;
+}
+.award-section .stats .stat h2 {
+  font-size: 56px;
+  line-height: 55px;
+  margin: 0 0 5px;
+}
+.award-section .stats .stat:last-child {
+  border: 0;
+}
+.award-section .award-image {
+  padding: 8px 0 0;
+  text-align: center;
+}
+.award-section .award-image .dis-flex {
+  overflow: hidden;
+  width: 100%;
+}
+.award-section .award-image .award-heading {
+  position: relative;
+  width: 100%;
+  margin: 0 0 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  flex-basis: 100%;
+  margin: 0 0 30px;
+  justify-content: center;
+}
+.award-section .award-image .award-heading h4 {
+  font-size: 20px;
+  margin: 0 35px;
+  background: #ffffff;
+  position: relative;
+}
+.award-section .award-image .award-heading h4 span {
+  margin: 0 35px;
+  background: #ffffff;
+}
+.award-section .award-image .award-heading strong {
+  color: #FFAD00;
+}
+.award-section .award-image .award-heading:before {
+  width: 90%;
+  content: "";
+  height: 0.197px;
+  background: #cdcdcd;
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.award-section .award-image .award-section {
+  width: 100%;
+}
+.award-section .award-image .award-section img {
+  margin: 0 auto;
+}
+
+@media (max-width: 1440px) {
+  .award-section .stats {
+    max-width: 90%;
+  }
+}
+@media (max-width: 1320px) {
+  .award-section .top-logo .text strong {
+    font-size: 22px;
+  }
+  .award-section .stats {
+    margin: 30px auto 0;
+  }
+  .award-section .stats .stat h2 {
+    font-size: 45px;
+    line-height: 50px;
+  }
+}
+@media (max-width: 1024px) {
+  .award-section .stats {
+    max-width: 100%;
+  }
+  .award-section .stats .stat {
+    padding: 25px 20px;
+  }
+  .award-section .award-image .award-heading {
+    margin: 0 0 20px;
+    margin: 0 0 25px;
+  }
+  .award-section .award-image .award-heading h4 {
+    font-size: 18px;
+    margin: 0 25px;
+  }
+  .award-section .award-image .award-heading h4 span {
+    margin: 0;
+  }
+}
+@media (max-width: 767px) {
+  .award-section .top-logo {
+    flex-wrap: wrap;
+    font-size: 16px;
+  }
+  .award-section .top-logo .text {
+    width: 100%;
+    margin: 0 0 20px;
+    justify-content: center;
+  }
+  .award-section .top-logo .text strong {
+    font-size: 20px;
+    margin-right: 8px;
+  }
+  .award-section .top-logo .awlogo {
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+  }
+  .award-section .stats {
+    max-width: 100%;
+    border: 1px solid #cdcdcd;
+    border-radius: 8px;
+  }
+  .award-section .stats .stat {
+    flex-basis: 50%;
+    padding: 20px;
+  }
+  .award-section .stats .stat h2 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .award-section .stats .stat:nth-child(2) {
+    border-right: 0;
+  }
+  .award-section .stats .stat:last-child {
+    flex-basis: 100%;
+    border-top: 1px solid #cdcdcd;
+  }
+  .award-section .award-image {
+    padding: 20px 0 0;
+  }
+  .award-section .award-image .award-heading {
+    margin: 0 0 15px;
+  }
+  .award-section .award-image .award-heading h4 {
+    font-size: 16px;
+  }
+}
+.help-section {
+  background-color: #ffffff;
+}
+
+.primary_btn {
+  margin-top: 35px;
+}
+
+.hero-section .master-btn {
+  margin-top: 30px;
+  margin-bottom: 70px;
+}
+
+.master-btn {
+  text-decoration: none;
+  display: inline-flex;
+}
+
+.master-btn .btn-circle:hover {
+  text-decoration: none !important;
+}
+
+.logo-size .dark {
+  display: none !important;
+}
+
+.master-btn .btn-circle {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  text-decoration: none;
+  padding: 11px 58px 11px 20px;
+  border-radius: 60px;
+  background: #FFAD00;
+  color: #05164D;
+  font-size: 16px;
+  font-weight: 500;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+.master-btn .btn-circle:hover {
+  background: #f0a000;
+}
+
+.master-btn .text {
+  position: relative;
+  height: 26px;
+  overflow: hidden;
+  display: block;
+  top: -2px;
+}
+
+.master-btn .text::before,
+.master-btn .text::after {
+  content: attr(data-text);
+  display: block;
+  transition: transform 0.35s ease;
+  will-change: transform;
+  color: #05164D;
+}
+
+.master-btn .text::after {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  color: #05164D;
+  line-height: 23px;
+}
+
+.master-btn .btn-circle:hover .text::before,
+.master-btn .btn-circle:hover .text::after {
+  transform: translateY(-100%);
+  text-decoration: none;
+}
+
+.master-btn .circle {
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #0b2a6f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.master-btn .circle img {
+  width: 50px;
+  transition: transform 0.4s ease;
+}
+
+.master-btn .btn-circle:hover .circle img {
+  transform: translateX(150%);
+}
+
+.master-btn .circle::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/move-right.svg) center/20px no-repeat;
+  transform: translateX(-150%);
+  background-size: 50px;
+  transition: transform 0.4s ease;
+}
+
+.master-btn .btn-circle:hover .circle::after {
+  transform: translateX(0);
+}
+
+.master-btn.button-v10.second a {
+  background: transparent !important;
+  border: 1px solid #99A1AF;
+}
+
+.master-menu-desktop {
+  max-width: unset !important;
+}
+
+.master-header {
+  background-color: transparent !important;
+  border: none;
+  margin-top: 30px;
+  backdrop-filter: inherit;
+}
+
+.master-header.header-bg .site-logo-img,
+.logo-size .site-logo-img.bg-logo {
+  display: block;
+}
+
+.master-header.sc-up {
+  margin-top: 30px;
+}
+
+.master-menu-desktop .nav-item-base {
+  color: #F8FAFC;
+}
+
+.master-header.header-bg.sc-up {
+  margin-top: 0;
+}
+
+.master-header.header-bg.sc-up .master-menu-desktop .nav-item-base {
+  color: #4b5563;
+}
+
+.master-header.sc-down.header-bg:hover .master-menu-desktop .nav-item-base {
+  color: #4b5563;
+}
+
+.hero-section {
+  padding: 145px 0 70px;
+  height: 100vh;
+  align-items: center;
+  position: relative;
+  display: flex;
+  display: -webkit-flex;
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-v10/hero-banner.webp);
+  background-size: cover;
+  z-index: 1;
+}
+.hero-section #background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.hero-section .dis-flex {
+  align-items: center;
+}
+.hero-section .dis-flex .left-box {
+  flex-basis: 80%;
+}
+.hero-section .dis-flex .left-box h1 {
+  font-size: 70px;
+  line-height: 1.3;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.hero-section .dis-flex .left-box h1 em {
+  font-style: normal;
+}
+.hero-section .dis-flex .left-box h3 {
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+.hero-section .dis-flex .left-box h3 em {
+  font-style: normal;
+}
+.hero-section .dis-flex .left-box p {
+  margin-top: 20px;
+  line-height: 30px;
+  color: rgba(252, 252, 252, 0.87);
+  font-size: 18px;
+  font-weight: 400;
+}
+.hero-section .dis-flex .left-box p:first-of-type {
+  margin-top: 0;
+}
+.hero-section .dis-flex .left-box ul {
+  list-style: none;
+  margin-top: 20px;
+}
+.hero-section .dis-flex .left-box ul li {
+  position: relative;
+  margin: 0 0 15px;
+  color: rgba(252, 252, 252, 0.87);
+  padding-left: 30px;
+  font-size: 16px;
+  line-height: 28px;
+}
+.hero-section .dis-flex .left-box ul li:before {
+  content: "";
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/list-icon.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+  background-size: 100%;
+  position: absolute;
+  top: 5px;
+  left: 0;
+}
+.hero-section .dis-flex .left-box a {
+  color: #ffffff;
+}
+.hero-section .dis-flex .left-box a:hover {
+  text-decoration: underline;
+}
+.hero-section .dis-flex .left-box .for-client-logo-box {
+  margin: 60px 0 0;
+}
+.hero-section .scroll-next {
+  width: 36px;
+  height: 54px;
+  border: 5px solid #bacaf3;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 15px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  z-index: 1;
+  position: absolute;
+  bottom: 80px;
+  right: 100px;
+}
+.hero-section .scroll-next .scroll-downicon {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/scroll-arrow.svg) no-repeat;
+  width: 21px;
+  height: 22px;
+  display: inline-block;
+  position: absolute;
+  bottom: -35px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  -webkit-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  font-size: 0;
+}
+.hero-section .scroll-next:after {
+  content: "";
+  background: #bacaf3;
+  width: 4px;
+  height: 15px;
+  border-radius: 10px;
+  display: inline-block;
+  position: absolute;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  animation: up-down 1s ease-in-out infinite alternate-reverse both;
+}
+.hero-section .scroll-next:hover .scroll-downicon {
+  bottom: -26px;
+}
+
+@keyframes up-down {
+  0% {
+    -webkit-transform: translateY(5px);
+    -o-transform: translateY(5px);
+    transform: translateY(5px);
+  }
+  100% {
+    -webkit-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+}
+.not-found-section {
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  padding: 200px 0;
+  border-bottom: 1px solid rgba(155, 155, 155, 0.2);
+}
+.not-found-section h2 {
+  color: #fff;
+}
+.not-found-section .suggest {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 44px;
+  color: #4B5563;
+  display: block;
+  margin-top: 5px;
+}
+.not-found-section ul {
+  margin-top: 43px;
+}
+.not-found-section ul li {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 27px;
+  color: #4B5563;
+  margin-top: 12px;
+  list-style-type: none;
+}
+.not-found-section ul li a {
+  color: #FFAD00;
+}
+
+.contact-us-section .btn-container .cta-button {
+  position: relative;
+}
+
+.contact-us-section .btn-container .cta-button {
+  background: rgba(255, 174, 0, 0) url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/icons/btn-yellow-arrow.svg) no-repeat right 15% center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  color: #FFAD00;
+  padding: 13px 54px 13px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 16px;
+  gap: 10px;
+  line-height: 30px;
+  transition: background 0.3s ease;
+  position: relative !important;
+  transition: 0.4s;
+  border: 1px solid #FFAD00;
+}
+
+.contact-us-section .btn-container .cta-button:hover {
+  background: #05164d url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/icons/btn-yellow-arrow.svg) no-repeat right 15% center;
+  color: #FFAD00;
+}
+
+@media (max-width: 1440px) {
+  .hero-section .dis-flex .left-box {
+    flex-basis: 85%;
+  }
+  .btn-secondry::before {
+    right: 27% !important;
+  }
+}
+@media screen and (max-width: 1320px) {
+  .hero-section {
+    height: initial;
+    min-height: initial;
+  }
+  .hero-section .dis-flex .left-box {
+    flex-basis: 90%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .master-header.sc-up .header-inner .btn-menu-toggle svg {
+    fill: #fff !important;
+  }
+  .master-header .header-inner .btn-menu-toggle svg {
+    fill: #fff !important;
+  }
+  .master-header.sc-down.header-bg .header-inner .btn-menu-toggle svg {
+    fill: #05164d !important;
+  }
+  .master-header.header-bg.sc-up .header-inner .btn-menu-toggle svg {
+    fill: #05164d !important;
+  }
+  .master-header {
+    margin-top: 0px;
+  }
+  #mobile-menu-open:focus i svg {
+    fill: #000 !important;
+  }
+  .master-header.sc-up {
+    margin-top: 0px !important;
+  }
+  .get-connect {
+    display: none !important;
+  }
+  .btn-secondry::before {
+    right: 15% !important;
+  }
+  .btn-circle.button-v10 {
+    margin-bottom: 35px;
+    margin-top: 30px;
+  }
+  .hero-section .dis-flex .left-box h1 {
+    font-size: 50px !important;
+    line-height: 1.4;
+  }
+  h2 {
+    font-size: 35px;
+    line-height: 40px;
+  }
+}
+@media (max-width: 979px) {
+  .hero-section {
+    background: linear-gradient(90deg, #05164d 0%, #0c33b3 100%) !important;
+  }
+  .hero-section #background-video {
+    display: none;
+  }
+  .hero-section .dis-flex .left-box {
+    flex-basis: 100%;
+    text-align: center;
+  }
+  .hero-section .dis-flex .left-box .for-client-logo-box {
+    margin: 40px 0 0;
+  }
+  .hero-section .dis-flex .left-box .primary_btn {
+    margin: 30px auto 30px auto;
+  }
+  .not-found-section .suggest {
+    font-size: 22px;
+  }
+  .not-found-section .flex-2 {
+    text-align: center;
+  }
+  .not-found-section .flex-2:last-child {
+    margin-top: 30px;
+  }
+  h3 {
+    font-size: 22px;
+  }
+}
+.btn-secondry {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  color: #05164D;
+  padding: 9px 62px;
+  border: 1px solid #6A7282;
+  border-radius: 50px;
+  text-decoration: none;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 16px;
+  gap: 10px;
+  line-height: 30px;
+  transition: background 0.3s ease;
+  position: relative;
+  z-index: 9;
+  overflow: hidden;
+  transition: 0.4s;
+  flex-direction: row-reverse;
+}
+.btn-secondry::before {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/view-all.svg);
+  content: "";
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  background-size: 19px !important;
+  vertical-align: middle;
+}
+.btn-secondry::after {
+  background-color: #05164D;
+  width: 8%;
+  height: 50%;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  right: 50%;
+  border-radius: 50%;
+  transition: 0.4s;
+  z-index: -1;
+  opacity: 0;
+}
+.btn-secondry:hover {
+  color: #FFAD00;
+  z-index: 10;
+}
+.btn-secondry:hover::after {
+  left: 50%;
+  right: 0;
+  opacity: 1;
+  width: 100%;
+  transition: 0.4s;
+  height: 100%;
+  border-radius: 0;
+}
+.btn-secondry:hover::before {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/view-all-yellow.svg);
+  width: 19px;
+  height: 19px;
+}
+.btn-secondry i {
+  display: flex;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  justify-content: center;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  background-color: #FFAD00;
+  color: #000;
+  padding: 9px 62px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  gap: 10px;
+  line-height: 30px;
+  transition: background 0.3s ease;
+  position: relative;
+  z-index: 9;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: 0.4s;
+  border: 2px solid #FFAD00;
+}
+.btn-primary::after {
+  background-color: #000000;
+  width: 8%;
+  height: 50%;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  right: 50%;
+  border-radius: 50%;
+  transition: 0.4s;
+  z-index: -1;
+  opacity: 0;
+}
+.btn-primary::before {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/icons/btn-black-icon.svg);
+  width: 16px;
+  height: 16px;
+  content: "";
+  position: absolute;
+  top: 48%;
+  transition: 0.4s;
+  transform: translateY(-50%);
+  right: 40px;
+}
+.btn-primary:hover {
+  color: #FFAD00;
+  z-index: 10;
+}
+.btn-primary:hover::before {
+  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/icons/btn-yellow-arrow.svg);
+}
+.btn-primary:hover::after {
+  left: 50%;
+  right: 0;
+  opacity: 1;
+  width: 100%;
+  transition: 0.4s;
+  height: 100%;
+  border-radius: 0;
+}
+.btn-primary:hover i svg {
+  fill: #FFAD00;
+  stroke: #FFAD00;
+}
+.btn-primary i {
+  display: flex;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1440px) {
+  .hero-section .dis-flex .left-box h1 {
+    font-size: 55px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .btn-secondry {
+    padding: 9px 40px;
+  }
+  .btn-primary {
+    padding: 9px 40px;
+    line-height: 18px;
+  }
+  .btn-primary::before {
+    right: 20px;
+  }
+  .hero-section {
+    padding: 130px 0 50px;
+  }
+  .hero-section .dis-flex .left-box {
+    flex-basis: 100%;
+    text-align: center;
+  }
+  .hero-section .dis-flex .left-box h1 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  .hero-section .dis-flex .left-box p {
+    font-size: 16px;
+    line-height: 27px;
+  }
+  .hero-section .dis-flex .left-box .for-client-logo-box {
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0 0;
+  }
+  .hero-section .scroll-next {
+    width: 30px;
+    height: 41px;
+    bottom: 14px;
+    right: 12px;
+  }
+  .hero-section .scroll-next .scroll-downicon {
+    background-size: 100%;
+    width: 17px;
+    height: 18px;
+    bottom: -30px;
+  }
+  .not-found-section {
+    height: auto;
+    padding: 100px 0 40px;
+  }
+  .not-found-section .suggest {
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .not-found-section ul {
+    margin-top: 20px;
+  }
+  .not-found-section ul li {
+    font-size: 14px;
+    margin-top: 10px;
+    line-height: 18px;
+  }
+  h2 {
+    font-size: 30px;
+    line-height: 35px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+}
+.padding-b-80 {
+  padding-bottom: 80px;
+}
+
+.slide-logo .box p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.slide-logo .box h2 {
+  font-size: 56px;
+  line-height: 1;
+  margin-bottom: 0 !important;
+}
+
+.slide-logo {
+  text-align: center;
+}
+
+.slide-logo .dis-flex {
+  overflow: hidden;
+}
+
+.slide-logo-part .logo-heading {
+  position: relative;
+  width: 90%;
+  margin: 0 0 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  flex-basis: 100%;
+  margin: 0 0 25px;
+  justify-content: center;
+}
+
+.slide-logo-part .logo-heading h4 {
+  color: #1C2024;
+  font-size: 20px;
+  margin: 0 35px;
+  background: #fff;
+  position: relative;
+}
+
+.slide-logo-part .logo-heading h4 span {
+  margin: 0 35px;
+  background: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  .slide-logo-part .logo-heading h4 {
+    margin: 0 auto;
+    font-size: 16px;
+    text-align: center;
+  }
+  .slide-logo-part .logo-heading h4 span {
+    margin: 0;
+  }
+  .slide-logo-part {
+    padding-bottom: 30px;
+  }
+}
+.slide-logo-part .logo-heading strong {
+  color: #2563EB;
+  font-weight: 800;
+}
+
+.slide-logo-part .logo-heading:before {
+  width: 100%;
+  content: "";
+  height: 0.197px;
+  background: #F0F0F3;
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.slide-logo-part {
+  padding: 30px 0 56px;
+  /* pause on hover */
+}
+.slide-logo-part .logo-slider {
+  overflow: hidden;
+  width: 100%;
+}
+.slide-logo-part .logo-slider .logo-track {
+  display: flex;
+  width: max-content;
+  animation: scrollLogo 20s linear infinite;
+}
+.slide-logo-part .logo-slider .logos {
+  flex-shrink: 0;
+  padding-right: 20px;
+}
+.slide-logo-part .logo-slider .logos img {
+  height: 70px;
+  width: auto;
+  display: block;
+}
+.slide-logo-part .logo-slider:hover .logo-track {
+  animation-play-state: paused;
+}
+@keyframes scrollLogo {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.slide-logo .logos .glide__slide {
+  height: 92px;
+}
+
+.slide-logo .logos .glide__slide img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+@media only screen and (max-width: 479px) {
+  .slide-logo {
+    display: none;
+    padding: 30px 0;
+  }
+  .slide-logo-part .logo-heading {
+    margin: 0 0 20px;
+    margin: 0 0 20px;
+    justify-content: center;
+  }
+  .slide-logo .logo-heading h4 {
+    font-size: 18px;
+    margin: 0 20px;
+  }
+  .slide-logo .logo-heading:before {
+    display: none;
+  }
+  .slide-logo .logo-heading:after {
+    display: none;
+  }
+  .slide-logo .logos {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .slide-logo .logos .glide__slide {
+    height: auto;
+  }
+}
+
+/*# sourceMappingURL=index-v10.css.map */
