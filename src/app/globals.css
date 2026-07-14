@@ -114,8 +114,39 @@
 }
 
 @layer base {
+  /* Beautiful Overlay Scrollbar */
+  html {
+    overflow-y: overlay; /* Forces the scrollbar to float on top of content without layout gap */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(100, 100, 100, 0.5) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px; /* Wider hit area */
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(150, 150, 150, 0.4);
+    border-radius: 10px;
+    border: 3px solid transparent; /* Creates padding inside the track to make thumb look slim */
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(100, 100, 100, 0.8);
+  }
+
   * {
     @apply border-border outline-ring/50;
+  }
+  
+  .swiper-slide {
+    outline: none !important;
   }
   body {
     @apply bg-background text-foreground;

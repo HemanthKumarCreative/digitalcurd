@@ -1,19 +1,14 @@
 'use client';
 
-import React, { useCallback } from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
+import React, { useRef, useCallback } from 'react';
+import Glider from 'react-glider';
+import 'glider-js/glider.min.css';
 import Link from 'next/link';
 
 export default function IndustriesCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: 'start', slidesToScroll: 1, breakpoints: { '(min-width: 768px)': { slidesToScroll: 2 }, '(min-width: 1024px)': { slidesToScroll: 3 } } });
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+  // We use refs for custom arrows as react-glider requires elements or refs
+  const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
 
   const industries = [
     { name: 'Healthcare', link: '/industries/healthcare', img: 'healthcare.webp', title: 'Smarter Care, Better Outcomes', desc: 'Innovative software solutions to improve patient care.' },
@@ -36,19 +31,42 @@ export default function IndustriesCarousel() {
             <p>Get what you are looking for to fulfill your software development and outsourcing needs at ValueCoders, with our expertise on all in-demand technologies &amp; platforms.</p>
           </div>
           <div className="glider-nav">
-            <button className="glider-prev" aria-label="Previous" onClick={scrollPrev}>
+            <button className="glider-prev" aria-label="Previous">
               <img src="https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/icons/arrow-right.svg" alt="" style={{ transform: 'rotate(180deg)' }} />
             </button>
-            <button className="glider-next" aria-label="Next" onClick={scrollNext}>
+            <button className="glider-next" aria-label="Next">
               <img src="https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/icons/arrow-right.svg" alt="" />
             </button>
           </div>
         </div>
         
-        <div className="glider-contain embla" ref={emblaRef} style={{ overflow: 'hidden' }}>
-          <div className="glider embla__container" style={{ display: 'flex' }}>
+        <div className="glider-contain">
+          <Glider
+            className="glider"
+            hasArrows={true}
+            arrows={{ prev: '.glider-prev', next: '.glider-next' }}
+            slidesToShow={1.2}
+            slidesToScroll={1}
+            draggable={true}
+            responsive={[
+              {
+                breakpoint: 768,
+                settings: {
+                  slidesToShow: 2.4,
+                  slidesToScroll: 1
+                }
+              },
+              {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 3.5,
+                  slidesToScroll: 1
+                }
+              }
+            ]}
+          >
             {industries.map((ind, i) => (
-              <div className="industry-item embla__slide" key={i} style={{ flex: '0 0 auto', minWidth: 0, paddingRight: '20px' }}>
+              <div className="industry-item" key={i}>
                 <div className="industry-card">
                   <div className="card-image">
                     <img src={`https://www.valuecoders.com/wp-content/themes/valuecoders/dev-img/industries-v10/${ind.img}`} alt={ind.name} />
@@ -68,7 +86,7 @@ export default function IndustriesCarousel() {
                 </div>
               </div>
             ))}
-          </div>
+          </Glider>
         </div>
       </div>
     </section>
