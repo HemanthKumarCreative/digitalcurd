@@ -187,13 +187,11 @@ svg {
 }
 
 .nav-v9 .trigger:hover {
-  color: var(--tx-strong);
-  background: var(--s-2);
+  background: transparent;
 }
 
 .nav-v9 .trigger[aria-expanded=true] {
-  color: var(--navy);
-  background: var(--s-2);
+  background: transparent;
 }
 
 .nav-v9 .trigger::after {
@@ -203,14 +201,19 @@ svg {
   right: 14px;
   bottom: 4px;
   height: 2px;
-  background: var(--azure);
+  background: #f0a000;
   border-radius: 1px;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform var(--t);
+  transition: transform var(--t), background var(--t);
 }
 
 .nav-v9 .trigger[aria-expanded=true]::after {
+  background: var(--azure);
+  transform: scaleX(1);
+}
+
+.nav-v9 .trigger:hover::after {
   transform: scaleX(1);
 }
 
@@ -521,13 +524,13 @@ a.col__head:hover .arr {
   margin-left: -10px;
   border-radius: var(--r-md);
   line-height: 1.35;
-  transition: background var(--t), color var(--t), padding-left var(--t);
+  transition: all var(--t-slow);
 }
 
 .lnk:hover {
-  background: var(--s-2);
-  color: var(--navy);
-  padding-left: 13px;
+  background: rgba(37, 99, 235, 0.06);
+  color: var(--azure-text);
+  transform: translateX(4px);
 }
 
 .lnk .dot {
@@ -536,12 +539,13 @@ a.col__head:hover .arr {
   border-radius: var(--r-full);
   background: var(--bd-strong);
   flex-shrink: 0;
-  transition: background var(--t), box-shadow var(--t);
+  transition: all var(--t-slow);
 }
 
 .lnk:hover .dot {
   background: var(--azure);
-  box-shadow: 0 0 0 3px var(--navy-tint);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  transform: scale(1.2);
 }
 
 .viewall-col {
@@ -552,14 +556,15 @@ a.col__head:hover .arr {
   font-weight: 600;
   color: var(--azure-text);
   margin-top: 10px;
+  transition: color var(--t-slow);
 }
 
 .viewall-col .arr {
-  transition: transform var(--t);
+  transition: transform var(--t-slow);
 }
 
 .viewall-col:hover .arr {
-  transform: translateX(3px);
+  transform: translateX(5px);
 }
 
 /* ── Solutions: situation cards + industry siderail ── */
@@ -584,13 +589,13 @@ a.col__head:hover .arr {
   padding: 19px;
   border-radius: var(--r-lg);
   box-shadow: 0 0 0 1px var(--bd), 0 1px 3px rgba(3, 14, 51, 0.04);
-  transition: box-shadow var(--t), transform var(--t);
+  transition: all var(--t-slow);
   min-height: 138px;
 }
 
 .sol:hover {
-  box-shadow: 0 0 0 1.5px var(--azure), 0 6px 20px rgba(3, 14, 51, 0.1);
-  transform: translateY(-2px);
+  box-shadow: 0 0 0 1.5px var(--azure), 0 8px 24px rgba(37, 99, 235, 0.15);
+  transform: translateY(-3px);
 }
 
 .sol__icon {
@@ -1439,26 +1444,26 @@ a.col__head:hover .arr {
   color: #80838D;
 }
 
-header:hover {
+header.has-open-panel {
   background-color: #fff;
 }
-header:hover .site-logo-light {
+header.has-open-panel .site-logo-light {
   display: none;
 }
-header:hover .site-logo-dark {
+header.has-open-panel .site-logo-dark {
   display: block;
 }
-header:hover .search__txt {
+header.has-open-panel .search__txt {
   color: #80838D;
 }
-header:hover .search svg {
+header.has-open-panel .search svg {
   stroke: #80838D;
   color: #80838D;
 }
-header:hover .trigger {
+header.has-open-panel .trigger {
   color: var(--navy);
 }
-header:hover .trigger .chev {
+header.has-open-panel .trigger .chev {
   color: var(--navy);
 }
 

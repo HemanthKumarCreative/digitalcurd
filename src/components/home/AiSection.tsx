@@ -47,9 +47,9 @@ export default function AiSection() {
   const duration = 4000;
   
   const items = [
-    { title: 'GenAI Integration', desc: 'Integrate LLMs into products and workflows, including AI agents, enterprise chatbots, and developer copilots.' },
-    { title: 'Computer Vision', desc: 'Use computer vision for visual quality control and facial recognition.' },
-    { title: 'Data Engineering', desc: 'Build scalable pipelines and data infrastructure to support reliable production systems.' }
+    { title: 'Integrated Growth', desc: 'At DigitalCurd, we deliver integrated growth solutions designed to help businesses attract more customers and increase revenue.' },
+    { title: 'Digital Foundation', desc: 'Improve operational efficiency and build a strong digital foundation for the future.' },
+    { title: 'Connected Ecosystem', desc: 'Explore our most in-demand solutions that combine AI, marketing, commerce, analytics, and modern engineering.' }
   ];
 
   useEffect(() => {
@@ -78,8 +78,8 @@ export default function AiSection() {
       <div className="ai-right">
         <div className="container">
           <div className="ai-content">
-            <h2><em>Build an AI Ecosystem</em> That Drives Real Business Outcomes</h2>
-            <p>We help enterprises move from experimentation to execution. From custom LLMs to workflow automation, we design, deploy, and scale AI systems that deliver measurable impact.</p>
+            <h2>Powerful Solutions. Measurable Business Growth.</h2>
+            <p>Technology is evolving faster than ever, and customer expectations continue to rise. Businesses need solutions that not only solve today's challenges but also prepare them for tomorrow's opportunities.</p>
             <div className="ai-list">
               {items.map((item, index) => {
                 const isActive = index === activeIndex;

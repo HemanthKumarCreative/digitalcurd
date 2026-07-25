@@ -11,122 +11,124 @@ export default function HelpSectionGrid() {
       <div className="container">
         {/* Heading */}
         <div className="section-head">
-          <h2>Your Challenges. <em>Our Solutions</em></h2>
-          <p>We assess your current stage and align our delivery structure accordingly. Below are some scenarios where most businesses require our assistance.</p>
+          <h2>Strategy.  <em>Execution.</em> Optimization.</h2>
+          <p>We combine cutting-edge AI development with data-driven digital marketing to build scalable growth systems for forward-thinking businesses.</p>
         </div>
         {/* Cards */}
         <div className="help-grid">
-          <div className="help-card" data-key="1" style={{ display: 'block' }}>
+          
+          {/* Card 1 */}
+          <div className="help-card" data-key="1" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
             <div className="icon">
               <img src="https://www.valuecoders.com/wp-content/uploads/2026/07/You-need-to-accelerate-your-software-roadmap-1.svg" className="normal" alt="" />
               <img src="https://www.valuecoders.com/wp-content/uploads/2026/07/You-need-to-accelerate-your-software-roadmap-2.svg" className="hover" alt="" />
             </div>
-            <h3><Link href="/solutions/ship-your-roadmap">You Need to Accelerate Your Software Roadmap</Link></h3>
-            <p>You have a fixed deadline but you are falling behind your planned schedule.</p>
+            <h3><Link href="#">Digital Presence & Web</Link></h3>
+            <p>You need a high-performance, conversion-optimized website to scale your brand.</p>
             <h4>How We Help:</h4>
-            <ul>
-              <li>Rapid capacity scaling</li>
-              <li>Speedy deployment</li>
-              <li>Predictable velocity</li>
+            <ul style={{ flexGrow: 1 }}>
+              <li>Next.js & React Development</li>
+              <li>UI/UX & Brand Identity</li>
+              <li>Website Redesign & Migration</li>
             </ul>
             <div className="border-line"></div>
-            <Link href="/solutions/ship-your-roadmap" className="learn-more">Scale Engineering</Link>
           </div>
 
-          <div className="help-card" data-key="2" style={{ display: 'block' }}>
+          {/* Card 2 */}
+          <div className="help-card" data-key="2" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
             <div className="icon">
               <img src="https://www.valuecoders.com/wp-content/uploads/2026/07/You-need-to-modernise-legacy-systems.svg" className="normal" alt="" />
               <img src="https://www.valuecoders.com/wp-content/uploads/2026/07/You-need-to-modernise-legacy-systems-1.svg" className="hover" alt="" />
             </div>
-            <h3><Link href="/modernization-services">You Need to Modernize Legacy Systems</Link></h3>
-            <p>The platform you use needs an upgrade and blocking the next phase.</p>
+            <h3><Link href="#">Ecommerce Growth</Link></h3>
+            <p>Your storefront needs an upgrade to boost sales, speed, and customer experience.</p>
             <h4>How We Help:</h4>
-            <ul>
-              <li><Link href="/application-modernization">Application modernization</Link></li>
-              <li>Workflow automation</li>
-              <li>Incremental migration, zero downtime</li>
+            <ul style={{ flexGrow: 1 }}>
+              <li>Shopify & Shopify Plus</li>
+              <li>Custom Theme Development</li>
+              <li>Conversion Rate Optimization</li>
             </ul>
             <div className="border-line"></div>
-            <Link href="/modernization-services" className="learn-more">Modernise Legacy Systems</Link>
           </div>
 
-          <div className="help-card" data-key="3" style={{ display: 'block' }}>
+          {/* Card 3 */}
+          <div className="help-card" data-key="3" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
             <div className="icon">
               <img src="https://www.valuecoders.com/wp-content/uploads/2026/07/Scale-Your-India-Engineering-Center.svg" className="normal" alt="" />
               <img src="https://www.valuecoders.com/wp-content/uploads/2026/07/Scale-Your-India-Engineering-Center-1.svg" className="hover" alt="" />
             </div>
-            <h3><Link href="/offshore-software-development-center-india">You Need to Scale Your India Engineering Center</Link></h3>
-            <p>You want to build a GCC and are looking for a partner who can staff, onboard..</p>
+            <h3><Link href="#">AI & Automation</Link></h3>
+            <p>You want to leverage artificial intelligence to improve operational efficiency.</p>
             <h4>How We Help:</h4>
-            <ul>
-              <li><Link href="/dedicated-development-teams">Dedicated pods</Link></li>
-              <li><Link href="/it-staff-augmentation-services">Engineering capacity at scale</Link></li>
-              <li>Regulated excellence</li>
+            <ul style={{ flexGrow: 1 }}>
+              <li>Custom AI Agents</li>
+              <li>WhatsApp Automation</li>
+              <li>Workflow Optimization</li>
             </ul>
             <div className="border-line"></div>
-            <Link href="/offshore-software-development-center-india" className="learn-more">Scale Your India Centre</Link>
           </div>
 
-          <div className="help-card" data-key="4" style={{ display: isExpanded ? 'block' : 'none' }}>
+          {/* Card 4 */}
+          <div className="help-card" data-key="4" style={{ display: isExpanded ? 'flex' : 'none', flexDirection: 'column', height: '100%' }}>
             <div className="icon">
               <img src="https://www.valuecoders.com/wp-content/uploads/2026/07/You-Need-to-Validate-Your-Idea-with-a-Real-Product.svg" className="normal" alt="" />
               <img src="https://www.valuecoders.com/wp-content/uploads/2026/07/You-Need-to-Validate-Your-Idea-with-a-Real-Product-1.svg" className="hover" alt="" />
             </div>
-            <h3><Link href="/solutions/build-your-mvp">You Need to Validate Your Idea with a Real Product</Link></h3>
-            <p>You want to turn your business idea into a product and test it in a limited timeframe.</p>
+            <h3><Link href="#">Search & Visibility</Link></h3>
+            <p>Your brand is struggling to rank and be discovered by your target audience.</p>
             <h4>How We Help:</h4>
-            <ul>
-              <li><Link href="/mvp-app-development-company">MVP development</Link></li>
-              <li>Architecture that scales</li>
-              <li>Speed without shortcuts</li>
+            <ul style={{ flexGrow: 1 }}>
+              <li>Technical & Content SEO</li>
+              <li>AI Search Optimization (AISO)</li>
+              <li>Local & Global SEO Strategy</li>
             </ul>
             <div className="border-line"></div>
-            <Link href="/solutions/build-your-mvp" className="learn-more">Build Your MVP</Link>
           </div>
 
-          <div className="help-card" data-key="5" style={{ display: isExpanded ? 'block' : 'none' }}>
+          {/* Card 5 */}
+          <div className="help-card" data-key="5" style={{ display: isExpanded ? 'flex' : 'none', flexDirection: 'column', height: '100%' }}>
             <div className="icon">
               <img src="https://www.valuecoders.com/wp-content/uploads/2026/07/You-Need-to-Ship-AI-into-Production.svg" className="normal" alt="" />
               <img src="https://www.valuecoders.com/wp-content/uploads/2026/07/You-Need-to-Ship-AI-into-Production-1.svg" className="hover" alt="" />
             </div>
-            <h3><Link href="/ai">You Need to Ship AI into Production</Link></h3>
-            <p>You need engineers who can build LLM-powered products and ML systems.</p>
+            <h3><Link href="#">Performance Marketing</Link></h3>
+            <p>You need data-driven paid campaigns that deliver measurable ROI and revenue.</p>
             <h4>How We Help:</h4>
-            <ul>
-              <li>Generative AI app development</li>
-              <li><Link href="/machine-learning">ML engineering and deployment</Link></li>
-              <li><Link href="/ai/custom-ai-agent-development">AI agent</Link> and workflow automation</li>
+            <ul style={{ flexGrow: 1 }}>
+              <li>Google Ads & Performance Max</li>
+              <li>Meta & LinkedIn Advertising</li>
+              <li>ROAS & CAC Optimization</li>
             </ul>
             <div className="border-line"></div>
-            <Link href="/ai" className="learn-more">Explore AI Engineering</Link>
           </div>
 
-          <div className="help-card" data-key="6" style={{ display: isExpanded ? 'block' : 'none' }}>
+          {/* Card 6 */}
+          <div className="help-card" data-key="6" style={{ display: isExpanded ? 'flex' : 'none', flexDirection: 'column', height: '100%' }}>
             <div className="icon">
               <img src="https://www.valuecoders.com/wp-content/uploads/2026/07/Capa_1-1.svg" className="normal" alt="" />
               <img src="https://www.valuecoders.com/wp-content/uploads/2026/07/Capa_1-2.svg" className="hover" alt="" />
             </div>
-            <h3><Link href="/solutions/build-your-product">You Are Not Sure About the Kind of Software Help You Need</Link></h3>
-            <p>You are in a state of strategic uncertainty.</p>
+            <h3><Link href="#">Data & Analytics</Link></h3>
+            <p>You have data but need actionable insights to make informed business decisions.</p>
             <h4>How We Help:</h4>
-            <ul>
-              <li>Define your delivery problem</li>
-              <li>Scope a Discovery Sprint</li>
-              <li>Get a no-obligation assessment</li>
+            <ul style={{ flexGrow: 1 }}>
+              <li>Power BI Dashboards</li>
+              <li>Google Analytics 4 (GA4)</li>
+              <li>Marketing Attribution</li>
             </ul>
             <div className="border-line"></div>
-            <Link href="/solutions/build-your-product" className="learn-more">Talk to Our Team</Link>
           </div>
+
         </div>
 
         {!isExpanded && (
           <div className="bottom-append-part">
             <div className="btn-primary-two">
-              <button 
+              <button
                 onClick={(e) => {
                   e.preventDefault();
                   setIsExpanded(true);
-                }} 
+                }}
                 style={{ background: 'none', border: 'none', color: 'inherit', padding: 0, cursor: 'pointer', font: 'inherit' }}
               >
                 View All

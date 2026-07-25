@@ -7,7 +7,7 @@ export default function ClientLogosSlider() {
         <div className="dis-flex">
           <div className="logo-heading">
             <h4>
-              <span>Trusted by startups and Fortune <strong>500</strong> companies</span>
+              <span>Trusted by Businesses Ready to <strong>Grow</strong> Smarter</span>
             </h4>
           </div>
           <div className="logo-slider">
