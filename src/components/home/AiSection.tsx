@@ -47,9 +47,24 @@ export default function AiSection() {
   const duration = 4000;
   
   const items = [
-    { title: 'Integrated Growth', desc: 'At DigitalCurd, we deliver integrated growth solutions designed to help businesses attract more customers and increase revenue.' },
-    { title: 'Digital Foundation', desc: 'Improve operational efficiency and build a strong digital foundation for the future.' },
-    { title: 'Connected Ecosystem', desc: 'Explore our most in-demand solutions that combine AI, marketing, commerce, analytics, and modern engineering.' }
+    { 
+      title: 'Integrated Growth', 
+      desc: <p>At DigitalCurd, we deliver integrated growth solutions designed to help businesses attract more customers and increase revenue.</p> 
+    },
+    { 
+      title: 'Digital Foundation', 
+      desc: <p>Improve operational efficiency and build a strong digital foundation for the future.</p> 
+    },
+    { 
+      title: 'Connected Ecosystem', 
+      desc: (
+        <ul>
+          <li>AI, Analytics & Commerce</li>
+          <li>Performance Marketing</li>
+          <li>Modern Engineering Platform</li>
+        </ul>
+      )
+    }
   ];
 
   useEffect(() => {
@@ -76,7 +91,7 @@ export default function AiSection() {
 
       {/* RIGHT CONTENT */}
       <div className="ai-right">
-        <div className="container">
+        <div className="container w-full">
           <div className="ai-content">
             <h2>Powerful Solutions. Measurable Business Growth.</h2>
             <p>Technology is evolving faster than ever, and customer expectations continue to rise. Businesses need solutions that not only solve today's challenges but also prepare them for tomorrow's opportunities.</p>
@@ -90,7 +105,7 @@ export default function AiSection() {
                     onClick={() => setActiveIndex(index)}
                   >
                     <div className="title"><h4>{item.title}</h4></div>
-                    <div className="desc"><p>{item.desc}</p></div>
+                    <div className="desc">{item.desc}</div>
                     <ProgressBar isActive={isActive} duration={duration} />
                   </div>
                 );
