@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
-
-import AnimatedLogo from "./AnimatedLogo";
+import Link from "next/link"
+import { useState, useEffect } from "react"
+import { ArrowRight } from 'lucide-react'
+import AnimatedLogo from "./AnimatedLogo"
 
 export default function Header() {
   const [activePanel, setActivePanel] = useState<string | null>(null);
@@ -30,8 +30,17 @@ export default function Header() {
         setActivePanel(null);
       }
     };
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return
+      setActivePanel(null)
+      setIsMobileMenuOpen(false)
+    }
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    }
   }, []);
 
   const handlePanelToggle = (panelId: string) => {
@@ -41,7 +50,7 @@ export default function Header() {
   return (
     <header className={`nav nav-v9 ${activePanel ? 'has-open-panel' : ''} ${isScrolled ? 'header-bg' : ''}`} id="nav">
       <nav className="nav__bar" aria-label="Primary">
-        <Link className="logo" href="/" data-nav="logo" aria-label="ValueCoders — Home">
+        <Link className="logo" href="/" data-nav="logo" aria-label="Digital Curd — Home">
           <AnimatedLogo className="site-logo-dark" variant="dark" />
           <AnimatedLogo className="site-logo-light" variant="light" />
         </Link>
@@ -65,7 +74,7 @@ export default function Header() {
         <div className="get-connect">
           <Link href="/contact" className="btn-circle">
             <span className="text" data-text="Contact Us">Contact Us</span>
-            <span className="circle"><img src="https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/move-right.svg" alt="" /></span>
+            <span className="circle"><ArrowRight className="w-5 h-5 text-white" /></span>
           </Link>
         </div>
         <button className={`hamb ${isMobileMenuOpen ? 'is-open' : ''}`} id="hamb" aria-label="Open menu" aria-expanded={isMobileMenuOpen} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}><span></span><span></span><span></span></button>

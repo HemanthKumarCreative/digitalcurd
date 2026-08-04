@@ -1,6 +1,99 @@
+import Link from 'next/link'
+import { Briefcase, Camera, Play, Users } from 'lucide-react'
+import AnimatedLogo from './AnimatedLogo'
+
+const footerColumns = [
+  {
+    title: 'AI & Automation',
+    links: [
+      { label: 'AI Agents', href: '/ai/consulting-services-company' },
+      { label: 'AI Chatbots', href: '/ai/ai-augmented-software-development' },
+      { label: 'AI Search Optimization', href: '/ai/generative-ai-services' },
+      { label: 'Workflow Automation', href: '/ai/custom-ai-agent-development' },
+    ],
+  },
+  {
+    title: 'Growth Marketing',
+    links: [
+      { label: 'SEO', href: '/ai/custom-ai-agent-development' },
+      { label: 'Performance Marketing', href: '/ai/custom-ai-agent-development' },
+      { label: 'Google Ads', href: '/ai/custom-ai-agent-development' },
+      { label: 'WhatsApp Marketing', href: '/ai/custom-ai-agent-development' },
+    ],
+  },
+  {
+    title: 'Build',
+    links: [
+      { label: 'Website Development', href: '/salesforce' },
+      { label: 'Shopify', href: '/data-engineering' },
+      { label: 'Next.js', href: '/hire/sap-developers' },
+      { label: 'UI/UX', href: '/it-strategy-consulting-firms' },
+    ],
+  },
+]
+
+const socialLinks = [
+  { label: 'Facebook', href: '#', Icon: Users },
+  { label: 'LinkedIn', href: '#', Icon: Briefcase },
+  { label: 'Instagram', href: '#', Icon: Camera },
+  { label: 'YouTube', href: '#', Icon: Play },
+]
+
 export default function Footer() {
-  const htmlContent = "<footer data-rocket-location-hash=\"2f436074285f9fe2abd78a904b160aed\" class=\"footer\">\n  <div data-rocket-location-hash=\"52eb12f34b9d2535e70987e98a1ea1f6\" class=\"container\">\n    <div data-rocket-location-hash=\"9984d1240ea9f0eac724d28fbc8f7db6\" class=\"dis-flex footer-middle\">\n      <div class=\"flex-5\">\n        <h4>AI &amp; Automation</h4>\n        <ul>\n          <li><a href=\"/ai/consulting-services-company\">AI Agents</a></li>\n          <li><a href=\"/ai/ai-augmented-software-development\">AI Chatbots</a></li>\n          <li><a href=\"/ai/generative-ai-services\">AI Search Optimization (AEO/GEO)</a></li>\n          <li><a href=\"/ai/custom-ai-agent-development\">Workflow Automation</a></li>\n          <li><a href=\"/ai/custom-ai-agent-development\">AI for Customer Support</a></li>\n        </ul>\n      </div>\n      <div class=\"flex-5\">\n        <h4>Growth Marketing</h4>\n        <ul>\n          <li><a href=\"/ai/custom-ai-agent-development\">SEO</a></li>\n          <li><a href=\"/ai/custom-ai-agent-development\">Performance Marketing</a></li>\n          <li><a href=\"/ai/custom-ai-agent-development\">Google Ads</a></li>\n          <li><a href=\"/ai/custom-ai-agent-development\">Meta Ads</a></li>\n          <li><a href=\"/ai/custom-ai-agent-development\">LinkedIn Ads</a></li>\n          <li><a href=\"/ai/custom-ai-agent-development\">Content Marketing</a></li>\n          <li><a href=\"/ai/custom-ai-agent-development\">WhatsApp Marketing</a></li>\n        </ul>\n      </div>\n      <div class=\"flex-5\">\n        <h4>ECommerce</h4>\n        <ul>\n          <li><a href=\"/data-engineering\">Shopify Development</a></li>\n          <li><a href=\"/data-analytics\">WooCommerce</a></li>\n          <li><a href=\"/data/warehouse\">Wordpress</a></li>\n        </ul>\n      </div>\n      <div class=\"flex-5\">\n        <h4>Digital Engineering</h4>\n        <ul>\n          <li><a href=\"/salesforce\">Website Development</a></li>\n          <li><a href=\"/hire/sap-developers\">Next.js</a></li>\n          <li><a href=\"/servicenow-development\">React</a></li>\n          <li><a href=\"/microsoft-dynamics\">Headless CMS</a></li>\n          <li><a href=\"/services/system-integration\">API Integration</a></li>\n          <li><a href=\"/services/progressive-web-apps\">Progressive Web Apps</a></li>\n        </ul>\n      </div>\n      <div class=\"flex-5\">\n        <h4>Creative Studio</h4>\n        <ul>\n          <li><a href=\"/digital-transformation-services\">Brand Materials</a></li>\n          <li><a href=\"/it-strategy-consulting-firms\">UI/UX</a></li>\n          <li><a href=\"/services/cybersecurity\">Graphic Design</a></li>\n          <li><a href=\"/services/quality-engineering\">Video Production</a></li>\n        </ul>\n      </div>\n    </div>\n    <div data-rocket-location-hash=\"ff2b1e33cb798c9e700790fcd946d0f4\" class=\"dis-flex footer-bottom\">\n      <!-- <div class=\"flex-4 logo-box\">\n        <h3>PROUDLY BROUGHT TO YOU BY ValueCoders</h3>\n        <div class=\"dis-flex\">\n          <a href=\"https://www.invoicera.com/\" target=\"_blank\" rel=\"follow\">\n            <picture>\n              <img loading=\"lazy\" src=\"https://www.valuecoders.com/wp-content/themes/valuecoders/dev-img/invoicera-logo.svg\" width=\"156\" height=\"40\" alt=\"Invoicera\">\n            </picture>\n          </a>\n          <a href=\"https://www.workstatus.io/\" target=\"_blank\" rel=\"follow\">\n            <picture>\n              <img loading=\"lazy\" src=\"https://www.valuecoders.com/wp-content/themes/valuecoders/dev-img/workstatus-logo.svg\" width=\"188\" height=\"26\" alt=\"Workstatus\"> \n            </picture>\n          </a>\n        </div>\n      </div> -->\n      <div class=\"flex-4 social-box\">\n        <h3>Follow Us</h3>\n        <div class=\"dis-flex\">\n          <a href=\"https://www.facebook.com/ValueCoders\" target=\"_blank\" data-wpel-link=\"external\" rel=\"nofollow external noopener noreferrer\">\n            <picture>\n              <img loading=\"lazy\" src=\"https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/soc-01.svg\" width=\"29\" height=\"29\" alt=\"linkedin\">\n            </picture>\n          </a>\n          \n          <a href=\"https://www.linkedin.com/company/valuecoders\" target=\"_blank\" data-wpel-link=\"external\" rel=\"nofollow external noopener noreferrer\">\n            <picture>\n              <img loading=\"lazy\" src=\"https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/soc-03.svg\" width=\"29\" height=\"29\" alt=\"twitter\">\n            </picture>\n          </a>\n          <a href=\"https://www.instagram.com/valuecodersofficial_/?igshid=qfk286mq0wee\" target=\"_blank\" data-wpel-link=\"external\" rel=\"nofollow external noopener noreferrer\">\n            <picture>\n              <img loading=\"lazy\" src=\"https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/soc-04.svg\" width=\"29\" height=\"29\" alt=\"instagram\">\n            </picture>\n          </a>\n          <a href=\"https://www.youtube.com/channel/UCCnijyLczGPUGI8aBkK3pTw?sub_confirmation=1\" target=\"_blank\" data-wpel-link=\"external\" rel=\"nofollow external noopener noreferrer\">\n            <picture>\n              <img loading=\"lazy\" src=\"https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/home-images/soc-05.svg\" width=\"29\" height=\"29\" alt=\"youtube\">\n            </picture>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n    <div data-rocket-location-hash=\"9434b726b588c23e05ed0602b0754087\" class=\"footer-copyright\">\n  <div data-rocket-location-hash=\"d806a52b4fa243845e70ef9fd0f722a2\" class=\"container\">\n  <div class=\"copyrigh-cont\">  \n    <div class=\"cright\">Copyright &copy; 2026 Digital Curd, All Rights Reserved.</div>\n    <div class=\"cright-links\">\n    <ul>\n      <li><a href=\"https://www.valuecoders.com/privacy-policy\">Privacy Policy</a></li>\n      <li style=\"margin:0 10px;\"><a href=\"https://www.valuecoders.com/disclaimer\">Disclaimer</a></li>\n      <li style=\"margin:0 10px;\"><a href=\"https://www.valuecoders.com/terms-of-service\">Terms of Service</a></li>\n          </ul>  \n    </div> \n  </div>\n  </div>\n  </div>\n</footer>";
   return (
-    <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-  );
+    <footer className="dc-footer">
+      <div className="dc-footer__inner">
+        <div className="dc-footer__top">
+          <div className="dc-footer__brand">
+            <Link href="/" aria-label="Digital Curd — Home" className="dc-footer__logo">
+              <AnimatedLogo variant="light" />
+            </Link>
+            <p>
+              AI-powered growth systems for marketing, commerce, and modern digital products.
+            </p>
+            <a href="mailto:hello@digitalcurd.com" className="dc-footer__email">
+              hello@digitalcurd.com
+            </a>
+            <div className="dc-footer__social">
+              {socialLinks.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  target="_blank"
+                  rel="nofollow external noopener noreferrer"
+                >
+                  <Icon size={18} strokeWidth={2} aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="dc-footer__cols">
+            {footerColumns.map((column) => (
+              <div key={column.title} className="dc-footer__col">
+                <h4>{column.title}</h4>
+                <ul>
+                  {column.links.map((link) => (
+                    <li key={link.label}>
+                      <Link href={link.href}>{link.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="dc-footer__bottom">
+          <p>Copyright &copy; 2026 Digital Curd. All rights reserved.</p>
+          <ul>
+            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+            <li><Link href="/disclaimer">Disclaimer</Link></li>
+            <li><Link href="/terms-of-service">Terms of Service</Link></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  )
 }

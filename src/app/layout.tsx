@@ -8,8 +8,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Software Engineering Partner for Predictable Delivery | ValueCoders",
-  description: "ValueCoders is a software outsourcing partner providing AI-augmented and human-governed teams for product engineering and modernization.",
+  title: "AI-Powered Growth Partner for Marketing, Technology & Analytics | Digital Curd",
+  description: "DigitalCurd helps businesses grow with AI solutions, digital marketing, ecommerce, modern web engineering, and analytics—built as one connected growth system.",
 };
 
 import Header from "@/components/Header";
@@ -24,17 +24,15 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${plusJakartaSans.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <head>
         <link rel="stylesheet" href="/css/menu-v9.css" />
         <link rel="stylesheet" href="/css/index-v10.css" />
         <link rel="stylesheet" href="/css/dev-style.css" />
-        <link rel="stylesheet" href="/css/glide.core.css" />
-        <link rel="stylesheet" href="/css/swiper.css" />
-        <link rel="stylesheet" href="/css/form-county.css" />
       </head>
-      <body className="home wp-singular page-template page-template-page-templates page-template-tpl-home-v10 page-template-page-templatestpl-home-v10-php page page-id-29326 wp-theme-valuecoders no-sidebar" id="themeAdd" suppressHydrationWarning>
+      <body className="home wp-singular page-template page-template-page-templates page-template-tpl-home-v10 page-template-page-templatestpl-home-v10-php page page-id-29326 no-sidebar" id="themeAdd" suppressHydrationWarning>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

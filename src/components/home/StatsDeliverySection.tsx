@@ -1,50 +1,90 @@
-import React from 'react';
+'use client'
+
+import React, { useEffect, useState } from 'react'
+import homeContent from '@/content/home.json'
+import { useInViewMotion } from '@/hooks/useInViewMotion'
+
+const parseStat = (value: string) => {
+  const match = value.match(/^(\d+)(.*)$/)
+  if (!match) return { target: 0, suffix: value }
+  return { target: Number(match[1]), suffix: match[2] || '' }
+}
+
+const StatNumber = ({
+  value,
+  animate,
+}: {
+  value: string
+  animate: boolean
+}) => {
+  const { target, suffix } = parseStat(value)
+  const [display, setDisplay] = useState(animate ? 0 : target)
+
+  useEffect(() => {
+    if (!animate) {
+      setDisplay(target)
+      return
+    }
+
+    let frame = 0
+    const duration = 1100
+    const start = performance.now()
+
+    const tick = (now: number) => {
+      const progress = Math.min(1, (now - start) / duration)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      setDisplay(Math.round(target * eased))
+      if (progress < 1) frame = requestAnimationFrame(tick)
+    }
+
+    frame = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(frame)
+  }, [animate, target])
+
+  return (
+    <h3>
+      {display}
+      {suffix}
+    </h3>
+  )
+}
 
 export default function StatsDeliverySection() {
+  const { statsDeliverySection } = homeContent
+  const { ref, inView, reducedMotion } = useInViewMotion<HTMLElement>()
+
   return (
-    <section className="delivery-section padding-t-120 padding-b-120">
+    <section
+      ref={ref}
+      className={`delivery-section padding-t-120 padding-b-120 dc-fade-up ${inView ? 'is-in' : ''}`}
+    >
       <div className="container">
         <div className="inner-part">
-          
-          {/* Left: copy */}
           <div className="delivery-section__left">
-            <span>Helping businesses grow smarter</span>
+            <span>{statsDeliverySection.subtitle}</span>
             <h2>
-              One Partner for Marketing, Technology & Analytics<br />
+              {statsDeliverySection.title}
+              <br />
             </h2>
-            <p>From ambitious startups to established enterprises, we help organizations turn ideas into measurable business growth through AI, digital marketing, commerce, and intelligent technology.</p>
-            <p>From AI-powered automation and Shopify commerce to performance marketing, WhatsApp engagement, modern web development, and business intelligence—we create connected digital ecosystems that help businesses scale with confidence.</p>
+            {statsDeliverySection.paragraphs.map((p, index) => (
+              <p key={index}>{p}</p>
+            ))}
           </div>
-          
-          {/* Right: stats grid */}
+
           <div className="delivery-section__right">
-            {/* Card 1 */}
-            <div className="stat-card">
-              <div className="stat-card__number"><h3>15+</h3></div>
-              <div className="stat-card__label"><p>Years Industry Experience</p></div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="stat-card">
-              <div className="stat-card__number"><h3>100+</h3></div>
-              <div className="stat-card__label"><p>Successful Digital Projects</p></div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="stat-card">
-              <div className="stat-card__number"><h3>20+</h3></div>
-              <div className="stat-card__label"><p>Business Technologies</p></div>
-            </div>
-
-            {/* Card 4: Rating */}
-            <div className="stat-card">
-              <div className="stat-card__number"><h3>100%</h3></div>
-              <div className="stat-card__label"><p>AI Growth Strategy</p></div>
-            </div>
+            {statsDeliverySection.stats.map((stat, index) => (
+              <div key={index} className="stat-card">
+                <div className="stat-card__number">
+                  <StatNumber value={stat.number} animate={inView && !reducedMotion} />
+                </div>
+                <div className="stat-card__label">
+                  <p>{stat.label}</p>
+                </div>
+              </div>
+            ))}
           </div>
-          
         </div>
       </div>
     </section>
-  );
+  )
 }

@@ -1,314 +1,90 @@
-'use client';
+'use client'
 
-import React, { useState } from 'react';
+import React, { useState } from 'react'
+import { ChevronDown } from 'lucide-react'
+import homeContent from '@/content/home.json'
+
+const INITIAL_VISIBLE = 8
 
 export default function FaqAccordion() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0)
+  const [showAll, setShowAll] = useState(false)
+  const { faqAccordion } = homeContent
+  const faqs = faqAccordion.faqs
+  const visibleFaqs = showAll ? faqs : faqs.slice(0, INITIAL_VISIBLE)
 
-  const toggleAccordion = (index: number) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
-
-  const faqs = [
-  {
-    question: 'What is DigitalCurd?',
-    answer: <p>DigitalCurd is an AI-first digital transformation company that helps businesses accelerate growth through strategy, technology, marketing, and data. We specialize in AI solutions, modern web development, ecommerce, digital marketing, automation, analytics, and customer experience optimization. Our goal is to build scalable digital ecosystems that deliver measurable business outcomes, not just digital products.</p>
-  },
-  {
-    question: 'What services does DigitalCurd offer?',
-    answer: (
-      <>
-        <p>We provide end-to-end digital solutions, including:</p>
-        <ul>
-          <li>AI Consulting & AI Agent Development</li>
-          <li>Website Design & Development</li>
-          <li>Next.js & React Development</li>
-          <li>Shopify & Shopify Plus Development</li>
-          <li>Digital Marketing & Growth Strategy</li>
-          <li>Search Engine Optimization (SEO)</li>
-          <li>AI Search Optimization (AISO)</li>
-          <li>Google Ads & Performance Marketing</li>
-          <li>Meta & LinkedIn Advertising</li>
-          <li>Marketing Automation</li>
-          <li>WhatsApp Business Automation</li>
-          <li>Power BI & Business Intelligence</li>
-          <li>Google Analytics 4 (GA4) & GTM</li>
-          <li>UI/UX Design & Branding</li>
-          <li>CRM & API Integrations</li>
-          <li>Website Maintenance & Support</li>
-        </ul>
-      </>
-    )
-  },
-  {
-    question: 'Who do you work with?',
-    answer: <p>We partner with startups, small and medium-sized businesses (SMBs), enterprise organizations, ecommerce brands, healthcare and pharmaceutical companies, SaaS businesses, manufacturers, and professional service firms. Whether you're launching a new business or scaling globally, our solutions are tailored to your goals and industry.</p>
-  },
-  {
-    question: 'What makes DigitalCurd different from other digital agencies?',
-    answer: <p>Unlike traditional agencies that focus on a single service, DigitalCurd combines AI, engineering, digital marketing, analytics, automation, and creative design into one integrated strategy. We don't just deliver websites or campaigns—we build scalable digital solutions that improve customer experience, increase operational efficiency, and drive long-term business growth.</p>
-  },
-  {
-    question: 'Do you build custom websites?',
-    answer: <p>Yes. We design and develop high-performance, responsive, and SEO-friendly websites using modern technologies such as Next.js, React, Node.js, WordPress, and Shopify. Every website is built with scalability, security, performance, accessibility, and conversion optimization in mind.</p>
-  },
-  {
-    question: 'Can you redesign our existing website?',
-    answer: <p>Absolutely. Our website redesign services focus on improving user experience (UX), website speed, search engine visibility, accessibility, mobile responsiveness, and conversion rates. We modernize outdated websites while preserving your brand identity and business objectives.</p>
-  },
-  {
-    question: 'Do you build Shopify and Shopify Plus stores?',
-    answer: <p>Yes. We design, develop, migrate, and optimize Shopify and Shopify Plus stores. Our ecommerce services include custom theme development, store migration, payment gateway integration, subscription commerce, conversion rate optimization (CRO), third-party app integrations, and ongoing performance optimization.</p>
-  },
-  {
-    question: 'What AI solutions do you provide?',
-    answer: <p>We build practical AI solutions that improve productivity, customer engagement, and business efficiency. Our services include AI chatbots, AI agents, customer support automation, knowledge assistants, workflow automation, document intelligence, predictive analytics, and AI-powered business applications integrated with your existing systems.</p>
-  },
-  {
-    question: 'What is AI Search Optimization (AISO)?',
-    answer: <p>AI Search Optimization prepares your business for the future of search. We optimize your website, content, structured data, and digital presence so your business is discoverable in both traditional search engines and AI-powered search experiences. This helps improve visibility, authority, and brand discoverability as search continues to evolve.</p>
-  },
-  {
-    question: 'Do you provide SEO services?',
-    answer: <p>Yes. Our SEO services include technical SEO, on-page optimization, content strategy, local SEO, ecommerce SEO, international SEO, schema markup, Core Web Vitals optimization, link strategy, and ongoing performance monitoring. We focus on sustainable organic growth rather than short-term ranking improvements.</p>
-  },
-  {
-    question: 'Do you manage paid advertising campaigns?',
-    answer: <p>Yes. We manage Google Ads, Performance Max, Shopping Ads, Display Ads, YouTube Ads, Facebook Ads, Instagram Ads, LinkedIn Ads, and remarketing campaigns. Every campaign is optimized around measurable business goals such as qualified leads, return on ad spend (ROAS), customer acquisition cost (CAC), and revenue growth.</p>
-  },
-  {
-    question: 'What analytics and reporting solutions do you provide?',
-    answer: <p>We help businesses make data-driven decisions through Power BI dashboards, Google Analytics 4 (GA4), Google Tag Manager (GTM), marketing attribution, KPI dashboards, executive reporting, and business intelligence solutions. Our reports provide actionable insights that help improve marketing performance and operational efficiency.</p>
-  },
-  {
-    question: 'Can you integrate our existing systems?',
-    answer: <p>Yes. We integrate websites and applications with CRM platforms, ERP systems, payment gateways, marketing automation tools, ecommerce platforms, analytics solutions, APIs, cloud services, and third-party business applications to create seamless digital workflows.</p>
-  },
-  {
-    question: 'What is your project delivery process?',
-    answer: (
-      <>
-        <p>Every project follows a structured process:</p>
-        <ul>
-          <li>Discovery & Business Consultation</li>
-          <li>Strategy & Solution Planning</li>
-          <li>UX/UI Design</li>
-          <li>Development & Integration</li>
-          <li>Quality Assurance & Testing</li>
-          <li>Launch & Deployment</li>
-          <li>Training & Documentation</li>
-          <li>Ongoing Support & Optimization</li>
-        </ul>
-        <p>This ensures transparency, faster delivery, and successful project outcomes.</p>
-      </>
-    )
-  },
-  {
-    question: 'How long does a typical project take?',
-    answer: <p>Project timelines depend on complexity and scope. A business website typically takes 4–8 weeks, while ecommerce platforms, enterprise applications, or AI-driven digital transformation projects may require 8–16 weeks or more. A detailed project timeline is provided before development begins.</p>
-  },
-  {
-    question: 'Do you provide ongoing support and maintenance?',
-    answer: <p>Yes. We offer flexible support and maintenance plans that include performance monitoring, security updates, software upgrades, bug fixes, content updates, analytics reporting, SEO improvements, feature enhancements, and technical support to ensure your digital platforms continue to perform at their best.</p>
-  },
-  {
-    question: 'Do you work with international clients?',
-    answer: <p>Yes. We work with businesses across India, the United States, the United Kingdom, Australia, the Middle East, and other global markets. Our remote-first collaboration model, structured communication, and agile project management ensure seamless project delivery across different time zones.</p>
-  },
-  {
-    question: 'How do you ensure quality and security?',
-    answer: <p>Quality and security are integrated into every stage of our development process. We follow modern coding standards, responsive design principles, secure development practices, performance optimization, accessibility guidelines, code reviews, automated testing, and regular security updates to deliver reliable and scalable digital solutions.</p>
-  },
-  {
-    question: 'How is project success measured?',
-    answer: <p>Success is measured using clearly defined business KPIs established at the beginning of every project. Depending on your objectives, these may include website traffic, qualified leads, conversion rate, customer acquisition cost (CAC), return on investment (ROI), return on ad spend (ROAS), revenue growth, customer engagement, and operational efficiency.</p>
-  },
-  {
-    question: 'Why should businesses choose DigitalCurd?',
-    answer: <p>DigitalCurd combines business strategy, AI innovation, software engineering, digital marketing, ecommerce, analytics, and automation into one integrated partnership. Instead of delivering isolated services, we build scalable digital ecosystems that help businesses increase revenue, improve customer experiences, automate operations, and achieve sustainable long-term growth. Our commitment to transparency, measurable results, and continuous innovation makes us a trusted technology partner for ambitious organizations.</p>
+  const handleToggle = (index: number) => {
+    setActiveIndex(activeIndex === index ? null : index)
   }
-];
 
   return (
-    <section style={{ backgroundColor: '#f9fbfc', padding: '100px 0', fontFamily: 'sans-serif' }}>
-      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
-        <h2 style={{ 
-          fontSize: '40px', 
-          fontWeight: 'bold', 
-          marginBottom: '60px', 
-          color: '#1a1a1a',
-          textAlign: 'center'
-        }}>
-          Frequently Asked Questions
-        </h2>
-        
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '30px', alignItems: 'start' }}>
-          
-          {/* LEFT COLUMN */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            {faqs.slice(0, Math.ceil(faqs.length / 2)).map((faq, index) => {
-              const actualIndex = index;
-              const isActive = activeIndex === actualIndex;
-              return (
-                <div 
-                  key={actualIndex}
-                  style={{ 
-                    backgroundColor: '#ffffff', 
-                    borderRadius: '12px', 
-                    padding: '24px', 
-                    boxShadow: '0 4px 15px rgba(0,0,0,0.03)',
-                    transition: 'all 0.3s ease'
-                  }}
-                >
-                  <div 
-                    onClick={() => toggleAccordion(actualIndex)}
-                    style={{ 
-                      cursor: 'pointer', 
-                      display: 'flex', 
-                      justifyContent: 'space-between', 
-                      alignItems: 'center' 
-                    }}
-                  >
-                    <h3 style={{ 
-                      fontSize: '17px', 
-                      fontWeight: '600', 
-                      margin: 0, 
-                      color: '#1a1a1a',
-                      paddingRight: '20px',
-                      lineHeight: '1.4'
-                    }}>
-                      {faq.question}
-                    </h3>
-                    
-                    <div style={{
-                      minWidth: '32px',
-                      height: '32px',
-                      borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      border: isActive ? 'none' : '2px solid #00569c',
-                      backgroundColor: isActive ? '#00569c' : 'transparent',
-                      color: isActive ? '#ffffff' : '#00569c',
-                      transition: 'all 0.3s ease',
-                      flexShrink: 0
-                    }}>
-                      {isActive ? (
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                          <line x1="18" y1="6" x2="6" y2="18"></line>
-                          <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                      ) : (
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                          <line x1="12" y1="5" x2="12" y2="19"></line>
-                          <line x1="5" y1="12" x2="19" y2="12"></line>
-                        </svg>
-                      )}
-                    </div>
-                  </div>
-                  
-                  <div 
-                    style={{ 
-                      maxHeight: isActive ? '1000px' : '0', 
-                      overflow: 'hidden', 
-                      transition: 'max-height 0.3s ease-in-out',
-                      marginTop: isActive ? '16px' : '0',
-                      color: '#555',
-                      fontSize: '15px',
-                      lineHeight: '1.6'
-                    }}
-                  >
-                    {faq.answer}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+    <section className="dc-faq" aria-label="Frequently asked questions">
+      <div className="dc-faq__container">
+        <header className="dc-faq__header">
+          <p className="dc-faq__eyebrow">Support</p>
+          <h2 className="dc-faq__title">
+            {faqAccordion.titleLine1 || 'Frequently Asked'}{' '}
+            <em>{faqAccordion.titleEm || 'Questions'}</em>
+          </h2>
+          <p className="dc-faq__subtitle">
+            {faqAccordion.subtitle ||
+              'Here are answers to common questions before getting started. If you do not see yours, contact us and we will respond within 24 hours.'}
+          </p>
+        </header>
 
-          {/* RIGHT COLUMN */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            {faqs.slice(Math.ceil(faqs.length / 2)).map((faq, index) => {
-              const actualIndex = index + Math.ceil(faqs.length / 2);
-              const isActive = activeIndex === actualIndex;
-              return (
-                <div 
-                  key={actualIndex}
-                  style={{ 
-                    backgroundColor: '#ffffff', 
-                    borderRadius: '12px', 
-                    padding: '24px', 
-                    boxShadow: '0 4px 15px rgba(0,0,0,0.03)',
-                    transition: 'all 0.3s ease'
-                  }}
+        <div className="dc-faq__list">
+          {visibleFaqs.map((faq, index) => {
+            const isActive = activeIndex === index
+            return (
+              <div
+                key={index}
+                className={`dc-faq__item ${isActive ? 'is-open' : ''}`}
+              >
+                <button
+                  type="button"
+                  className="dc-faq__trigger"
+                  onClick={() => handleToggle(index)}
+                  aria-expanded={isActive}
+                  aria-controls={`dc-faq-panel-${index}`}
+                  id={`dc-faq-trigger-${index}`}
                 >
-                  <div 
-                    onClick={() => toggleAccordion(actualIndex)}
-                    style={{ 
-                      cursor: 'pointer', 
-                      display: 'flex', 
-                      justifyContent: 'space-between', 
-                      alignItems: 'center' 
-                    }}
-                  >
-                    <h3 style={{ 
-                      fontSize: '17px', 
-                      fontWeight: '600', 
-                      margin: 0, 
-                      color: '#1a1a1a',
-                      paddingRight: '20px',
-                      lineHeight: '1.4'
-                    }}>
-                      {faq.question}
-                    </h3>
-                    
-                    <div style={{
-                      minWidth: '32px',
-                      height: '32px',
-                      borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      border: isActive ? 'none' : '2px solid #00569c',
-                      backgroundColor: isActive ? '#00569c' : 'transparent',
-                      color: isActive ? '#ffffff' : '#00569c',
-                      transition: 'all 0.3s ease',
-                      flexShrink: 0
-                    }}>
-                      {isActive ? (
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                          <line x1="18" y1="6" x2="6" y2="18"></line>
-                          <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                      ) : (
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                          <line x1="12" y1="5" x2="12" y2="19"></line>
-                          <line x1="5" y1="12" x2="19" y2="12"></line>
-                        </svg>
-                      )}
-                    </div>
-                  </div>
-                  
-                  <div 
-                    style={{ 
-                      maxHeight: isActive ? '1000px' : '0', 
-                      overflow: 'hidden', 
-                      transition: 'max-height 0.3s ease-in-out',
-                      marginTop: isActive ? '16px' : '0',
-                      color: '#555',
-                      fontSize: '15px',
-                      lineHeight: '1.6'
-                    }}
-                  >
-                    {faq.answer}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+                  <span className="dc-faq__question">{faq.question}</span>
+                  <span className={`dc-faq__chevron ${isActive ? 'is-open' : ''}`} aria-hidden="true">
+                    <ChevronDown size={20} strokeWidth={2.25} />
+                  </span>
+                </button>
 
+                <div
+                  id={`dc-faq-panel-${index}`}
+                  role="region"
+                  aria-labelledby={`dc-faq-trigger-${index}`}
+                  className={`dc-faq__panel ${isActive ? 'is-open' : ''}`}
+                >
+                  <div
+                    className="dc-faq__answer"
+                    dangerouslySetInnerHTML={{ __html: faq.answer }}
+                  />
+                </div>
+              </div>
+            )
+          })}
         </div>
+
+        {faqs.length > INITIAL_VISIBLE && (
+          <div className="dc-faq__show-more">
+            <button
+              type="button"
+              onClick={() => {
+                setShowAll((prev) => !prev)
+                if (showAll) setActiveIndex(0)
+              }}
+              aria-expanded={showAll}
+            >
+              {showAll ? 'Show fewer questions' : 'Show all questions'}
+            </button>
+          </div>
+        )}
       </div>
     </section>
-  );
+  )
 }
-

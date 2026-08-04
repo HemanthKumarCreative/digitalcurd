@@ -21,7 +21,7 @@ p{margin-top:0}
 .form-control small,
 .user-input.form-control.verror:focus-visible{border-color:#e74c3c!important}.form-control.verror small{visibility:visible}
 .user-input.form-control.success input{color:#60b741!important}.user-input.form-control.verror input{color:red!important}
-.footer .star-icon{background:url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/footer-icons.png) 0 0 no-repeat;
+.footer .star-icon{background:url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) 0 0 no-repeat;
 width:18px; height:15px; display:inline-block;}
 .vlazy{background-image:none !important; background-color:#F1F1FA !important; background: none !important;}
 body.page-template-template-services .php-usage-sprite .box-3 h3 a{text-decoration: none;}
@@ -38,7 +38,7 @@ body.page-template-template-services .second-level-section .left-box p a:hover{t
 .grecaptcha-badge{visibility:hidden;}
 .glide { position: relative; width: 100%; box-sizing: border-box; } .glide * { box-sizing: inherit; } .glide__track { overflow: hidden; } .glide__slides { position: relative; width: 100%; list-style: none; backface-visibility: hidden; transform-style: preserve-3d; touch-action: pan-Y; overflow: hidden; padding: 0; white-space: nowrap; display: flex; flex-wrap: nowrap; will-change: transform; } .glide__slides--dragging { user-select: none; } .glide__slide { width: 100%; height: 100%; flex-shrink: 0; white-space: initial; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; } .glide__slide a { user-select: none; -webkit-user-drag: none; -moz-user-select: none; -ms-user-select: none; } .glide__arrows { -webkit-touch-callout: none; user-select: none; } .glide__bullets { -webkit-touch-callout: none; user-select: none; } .glide--rtl { direction: rtl;}
 body.page-template-template-contact-v8 .contact-us-section.full-width-form .head-txt .logo-box{
-background-image:url('https://www.valuecoders.com/wp-content/themes/valuecoders/dev-img/logo-small.svg');
+background-image:url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
 }
 a.ws-dotted{ border-bottom:1px dotted #000000; color:#000000; }
 a.ws-dotted:hover{text-decoration: none !important; color: #656565;}
@@ -66,7 +66,7 @@ a.ws-dotted:hover{text-decoration: none !important; color: #656565;}
 .copyrigh-cont .cright-links ul li{display: block; padding: 5px 0;}
 }
 .work-with .card-content ul li{margin: 0 0 10px;position: relative;padding-left: 22px;}
-.work-with .card-content ul li::before{content: ""; background: url('https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/list-check.svg') no-repeat;
+.work-with .card-content ul li::before{content: ""; background: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) no-repeat;
 width: 12px; height: 13px; position: absolute; top: 6px; left: 0;}
 
 body.page-template-template-hirepage .second-level-section .form-right-box .head.org-head{
@@ -85,9 +85,9 @@ body.page-template-template-hirepage .second-level-section .form-right-box .head
 .box-selserv .info-wrap .info-tip{margin-left:10px;display:inline-block;position:relative;cursor:pointer}
 .box-selserv .info-wrap .info-tip .info-content{width:315px;border-radius:10px;background:#fff;box-shadow:4px 4px 30px 0 rgba(63,63,63,.38);padding:15px;position:absolute;top:25px;left:-75px;opacity:0;transition:all .3s ease-in-out;visibility:hidden;text-align:left;line-height:initial;z-index:99999}
 .box-selserv .info-wrap .info-tip .info-content p{font-size:14px;line-height:24px;margin:0 0 10px;font-weight:500}
-.box-selserv .info-wrap .info-tip .info-content:before{content:"";clear:both;display:block;background:url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/poly.svg) 0 0 no-repeat;background-size:100%;width:25px;height:25px;position:absolute;top:-15px;left:70px}
+.box-selserv .info-wrap .info-tip .info-content:before{content:"";clear:both;display:block;background:url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) 0 0 no-repeat;background-size:100%;width:25px;height:25px;position:absolute;top:-15px;left:70px}
 .box-selserv .info-wrap .info-tip:hover .info-content{opacity:1;visibility:visible}
-.box-selserv .info-wrap .info-tip:after{content:"";content:"";width:16px;height:16px;background:url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/info-icn.svg) 0 0 no-repeat;position:absolute;top:0;transform:translateY(-50%);left:0}
+.box-selserv .info-wrap .info-tip:after{content:"";content:"";width:16px;height:16px;background:url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) 0 0 no-repeat;position:absolute;top:0;transform:translateY(-50%);left:0}
 .box-selserv .full-width-form .select-list ul em:hover~.info{opacity:1;visibility:visible}
 .box-selserv .info-box{display:inline-block}
 .box-selserv .info{position:absolute;top:-24px; left:5%;background:#f7f7f9;border:1px rgba(0,0,0,.1) solid;
@@ -108,7 +108,7 @@ transition:all .3s ease-in-out;z-index:1;font-weight:400;color:#000}
 .mvp-table-list-section .table-list:first-child ul li{text-align:left;padding-left:76px;justify-content:flex-start;font-weight:600;color:#05164d}
 .mvp-table-list-section .table-list:first-child ul li.title{color:#3f3f3f}
 .mvp-table-list-section .view-more a{min-width:144px;border-radius:7px;border:1px solid rgba(0,0,0,.08);background:#fff;padding:15px 20px;display:inline-block;font-weight:600;color:#ffb81d;position:relative}
-.mvp-table-list-section .view-more a:after{content:"";width:16px;height:9px;background:url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/view-icon.png) no-repeat center;display:inline-block;margin-left:8px;vertical-align:middle;cursor:pointer;transition:all .3s ease;background-size:100%}
+.mvp-table-list-section .view-more a:after{content:"";width:16px;height:9px;background:url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) no-repeat center;display:inline-block;margin-left:8px;vertical-align:middle;cursor:pointer;transition:all .3s ease;background-size:100%}
 .mvp-table-list-section .view-more a:hover{background:#f1f1f1}
 .mvp-table-list-section.show-all .table-list li:nth-child(n){display:block}
 .mvp-table-list-section .table-list li.mh-119{min-height:119px !important;}
@@ -223,8 +223,8 @@ body.page-id-8844 .three-column-section.dev-model .card-row .card.text-center p{
 .page-template-template-hirepage-v2 .success-slider-section .success-slider .industry-card:nth-child(2n) h4{color:#111827;}
 .page-template-template-hirepage-v2 .success-slider-section .success-slider .industry-card:nth-child(2n) p{color: #4B5563;}
 .page-template-template-hirepage-v2 .success-slider-section .success-slider .test-button .test-prev, .success-slider-section .success-slider .test-button .test-next{
-background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/dev-img/grey-arrow.svg) no-repeat center; border-color:#D1D5DB;}
-.page-template-template-hirepage-v2 .success-slider-section .success-slider .test-button .test-prev.test-next, .success-slider-section .success-slider .test-button .test-next.test-next{ background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/dev-img/grey-arrow.svg) no-repeat center; border-color:#D1D5DB;}
+background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) no-repeat center; border-color:#D1D5DB;}
+.page-template-template-hirepage-v2 .success-slider-section .success-slider .test-button .test-prev.test-next, .success-slider-section .success-slider .test-button .test-next.test-next{ background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) no-repeat center; border-color:#D1D5DB;}
 
 
 .three-column-section .card-row .card h3 a:hover{color: #4B5563; text-decoration: underline;}

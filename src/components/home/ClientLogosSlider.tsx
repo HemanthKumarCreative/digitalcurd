@@ -1,40 +1,110 @@
-import React from 'react';
+'use client'
+
+import React, { useEffect, useRef } from 'react'
+import homeContent from '@/content/home.json'
+
+type LogoItem = {
+  name: string
+  src: string
+}
+
+type ClientMark = {
+  name: string
+}
+
+const pauseTracksWhenOffscreen = (root: HTMLElement | null) => {
+  if (!root) return () => {}
+
+  const tracks = root.querySelectorAll<HTMLElement>('.logo-track')
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      tracks.forEach((track) => {
+        track.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused'
+      })
+    },
+    { threshold: 0.15 }
+  )
+
+  observer.observe(root)
+  return () => observer.disconnect()
+}
 
 export default function ClientLogosSlider() {
+  const { clientLogosSlider } = homeContent
+  const logos = clientLogosSlider.logos as LogoItem[]
+  const clients = (clientLogosSlider.clients || []) as ClientMark[]
+  const rootRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => pauseTracksWhenOffscreen(rootRef.current), [])
+
   return (
-    <div className="slide-logo-part dis-flex items-center justify-sb">
+    <div
+      ref={rootRef}
+      className="slide-logo-part dis-flex items-center justify-sb"
+      aria-label="Trusted platforms and businesses"
+    >
       <div className="container">
         <div className="dis-flex">
           <div className="logo-heading">
             <h4>
-              <span>Trusted by Businesses Ready to <strong>Grow</strong> Smarter</span>
+              <span>
+                {clientLogosSlider.headingText1}
+                <strong>{clientLogosSlider.headingStrong}</strong>
+                {clientLogosSlider.headingText2}
+              </span>
             </h4>
           </div>
-          <div className="logo-slider">
-            <div className="logo-track">
-              {/* Duplicate the array to create a seamless infinite scroll effect */}
-              {[...Array(2)].map((_, i) => (
-                <React.Fragment key={i}>
-                  {[
-                    "https://cdn.simpleicons.org/react",
-                    "https://cdn.simpleicons.org/nextdotjs/000000",
-                    "https://cdn.simpleicons.org/vercel/000000",
-                    "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
-                    "https://cdn.simpleicons.org/github/000000",
-                    "https://cdn.simpleicons.org/figma",
-                    "https://cdn.simpleicons.org/google",
-                    "https://cdn.simpleicons.org/googlecloud"
-                  ].map((src, index) => (
-                    <div key={index} className="logos">
-                      <img src={src} alt="Client Logo" loading="lazy" />
-                    </div>
-                  ))}
-                </React.Fragment>
-              ))}
+
+          <div className="trust-row">
+            <span className="trust-row__label">
+              {clientLogosSlider.toolsLabel || 'Platforms we build with'}
+            </span>
+            <div className="logo-slider">
+              <div className="logo-track logo-track--ltr">
+                {[...Array(2)].map((_, i) => (
+                  <React.Fragment key={`tools-${i}`}>
+                    {logos.map((logo, index) => (
+                      <div key={`${i}-${index}`} className="logos tool-logo">
+                        <img
+                          src={logo.src}
+                          alt={logo.name}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    ))}
+                  </React.Fragment>
+                ))}
+              </div>
             </div>
           </div>
+
+          {clients.length > 0 && (
+            <div className="trust-row">
+              <span className="trust-row__label">
+                {clientLogosSlider.clientsLabel || 'Businesses growing with us'}
+              </span>
+              <div className="logo-slider">
+                <div className="logo-track logo-track--rtl">
+                  {[...Array(2)].map((_, i) => (
+                    <React.Fragment key={`clients-${i}`}>
+                      {clients.map((client, index) => (
+                        <div
+                          key={`${i}-${index}`}
+                          className="logos client-wordmark"
+                          aria-label={client.name}
+                        >
+                          <span>{client.name}</span>
+                        </div>
+                      ))}
+                    </React.Fragment>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
-  );
+  )
 }

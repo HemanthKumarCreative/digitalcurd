@@ -1398,7 +1398,7 @@ a.col__head:hover .arr {
   content: "";
   position: absolute;
   inset: 0;
-  background: url(https://www.valuecoders.com/wp-content/themes/valuecoders/v6.0/images/index-v10/move-right.svg) center/20px no-repeat;
+  background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) center/20px no-repeat;
   transform: translateX(-150%);
   background-size: 50px;
   transition: transform 0.4s ease;

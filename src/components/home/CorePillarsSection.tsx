@@ -1,64 +1,54 @@
-import React from 'react';
-import Link from 'next/link';
+'use client'
+
+import React from 'react'
+import homeContent from '@/content/home.json'
+import { Bot, Globe, LineChart } from 'lucide-react'
+import { useInViewMotion } from '@/hooks/useInViewMotion'
+
+const pillarIcons = [Bot, Globe, LineChart]
 
 export default function CorePillarsSection() {
+  const { corePillarsSection } = homeContent
+  const { ref, inView } = useInViewMotion<HTMLElement>()
+
   return (
-    <section className="delivery-models padding-t-120 padding-b-120">
+    <section
+      ref={ref}
+      className={`delivery-models padding-t-120 padding-b-120 dc-fade-up ${inView ? 'is-in' : ''}`}
+      aria-label="Core pillars"
+    >
       <div className="container">
         <div className="section-header">
-          <h2>Our Three Core Pillars</h2>
-          <p>
-            We empower businesses to innovate and scale by combining AI, modern digital engineering, and data-driven marketing to deliver integrated solutions that drive measurable growth and long-term success.
-          </p>
+          <h2>{corePillarsSection.headerTitle}</h2>
+          <p>{corePillarsSection.headerDesc}</p>
         </div>
-        
+
         <div className="models-grid">
-          {/* Pillar 1: Innovate */}
-          <article className="model-card">
-            <div className="card-top">
-              <div className="icon-box" style={{ fontSize: '24px' }}>🤖</div>
-              <span className="badge">INNOVATE</span>
-            </div>
-            <h3><Link href="#">AI Solutions</Link></h3>
-            <p>
-              We help businesses unlock the full potential of Artificial Intelligence through intelligent automation, AI agents, conversational chatbots, predictive analytics, and custom AI solutions.
-            </p>
-            <div className="card-footer">
-              <p>Our AI-first approach streamlines operations, enhances decision-making, and creates smarter customer experiences that drive efficiency, innovation, and sustainable growth.</p>
-            </div>
-          </article>
-
-          {/* Pillar 2: Build (Highlighted) */}
-          <article className="model-card highlighted">
-            <div className="card-top">
-              <div className="icon-box" style={{ fontSize: '24px' }}>🌐</div>
-              <span className="badge">BUILD</span>
-            </div>
-            <h3><Link href="#">Digital Engineering</Link></h3>
-            <p>
-              We build high-performance websites, ecommerce platforms, and custom digital solutions using modern technologies like Next.js, React, Shopify, and cloud-native architectures.
-            </p>
-            <div className="card-footer">
-              <p>Every solution is designed for speed, scalability, security, and exceptional user experience, ensuring your digital foundation is ready for today's demands and tomorrow's opportunities.</p>
-            </div>
-          </article>
-
-          {/* Pillar 3: Scale */}
-          <article className="model-card">
-            <div className="card-top">
-              <div className="icon-box" style={{ fontSize: '24px' }}>📈</div>
-              <span className="badge">SCALE</span>
-            </div>
-            <h3><Link href="#">Digital Growth & Analytics</Link></h3>
-            <p>
-              We accelerate business growth through strategic digital marketing, AI Search Optimization, SEO, performance advertising, conversion optimization, and advanced analytics.
-            </p>
-            <div className="card-footer">
-              <p>By combining data-driven insights with proven growth strategies, we help businesses attract the right audience, maximize marketing ROI, and make confident decisions that fuel long-term success.</p>
-            </div>
-          </article>
+          {corePillarsSection.pillars.map((pillar, index) => {
+            const Icon = pillarIcons[index] || Bot
+            return (
+              <article
+                key={index}
+                className={`model-card ${pillar.highlighted ? 'highlighted' : ''} dc-fade-up ${inView ? 'is-in' : ''} dc-fade-up-delay-${index + 1}`}
+              >
+                <div className="card-top">
+                  <div className="icon-box" aria-hidden="true">
+                    <Icon size={22} strokeWidth={1.75} />
+                  </div>
+                  <span className="badge">{pillar.badge}</span>
+                </div>
+                <h3>
+                  <span className="pillar-title">{pillar.title}</span>
+                </h3>
+                <p>{pillar.desc}</p>
+                <div className="card-footer">
+                  <p>{pillar.footerText}</p>
+                </div>
+              </article>
+            )
+          })}
         </div>
       </div>
     </section>
-  );
+  )
 }

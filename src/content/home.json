@@ -1,0 +1,395 @@
+{
+  "heroSection": {
+    "backgroundUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80",
+    "title": "Transform Your Business for the AI Era",
+    "subtitle": "AI-Powered Growth. Intelligent Digital Experiences.",
+    "description": "We help startups, ecommerce brands, and enterprises attract customers, increase revenue, and automate operations with connected AI, marketing, and technology systems.",
+    "ctaText": "Schedule a Call",
+    "ctaLink": "/contact",
+    "awards": [
+      "Digital Transformation Consulting",
+      "AI Business Solutions",
+      "Digital Marketing",
+      "Shopify & Ecommerce",
+      "Website & Web Applications",
+      "WhatsApp Automation",
+      "Power BI & Business Intelligence",
+      "Marketing Automation",
+      "Branding & Creative"
+    ]
+  },
+  "clientLogosSlider": {
+    "headingText1": "Trusted by Businesses Ready to ",
+    "headingStrong": "Grow",
+    "headingText2": " Smarter",
+    "toolsLabel": "Platforms we build with",
+    "clientsLabel": "Businesses growing with us",
+    "logos": [
+      { "name": "Google", "src": "/assets/logos/google.svg" },
+      { "name": "Microsoft", "src": "/assets/logos/microsoft.svg" },
+      { "name": "Meta", "src": "/assets/logos/meta.svg" },
+      { "name": "LinkedIn", "src": "/assets/logos/linkedin.svg" },
+      { "name": "Google Ads", "src": "/assets/logos/googleads.svg" },
+      { "name": "Google Analytics", "src": "/assets/logos/googleanalytics.svg" },
+      { "name": "YouTube", "src": "/assets/logos/youtube.svg" },
+      { "name": "Shopify", "src": "/assets/logos/shopify.svg" },
+      { "name": "HubSpot", "src": "/assets/logos/hubspot.svg" },
+      { "name": "Mailchimp", "src": "/assets/logos/mailchimp.svg" },
+      { "name": "WhatsApp", "src": "/assets/logos/whatsapp.svg" },
+      { "name": "Power BI", "src": "/assets/logos/powerbi.svg" },
+      { "name": "WordPress", "src": "/assets/logos/wordpress.svg" },
+      { "name": "SEMrush", "src": "/assets/logos/semrush.svg" },
+      { "name": "Hotjar", "src": "/assets/logos/hotjar.svg" },
+      { "name": "TikTok", "src": "/assets/logos/tiktok.svg" },
+      { "name": "Instagram", "src": "/assets/logos/instagram.svg" },
+      { "name": "Facebook", "src": "/assets/logos/facebook.svg" },
+      { "name": "Zapier", "src": "/assets/logos/zapier.svg" },
+      { "name": "Figma", "src": "/assets/logos/figma.svg" }
+    ],
+    "clients": [
+      { "name": "Northline Retail" },
+      { "name": "Apex Health" },
+      { "name": "Orbit Commerce" },
+      { "name": "Lumen Labs" },
+      { "name": "BrightForge" },
+      { "name": "Cedar & Co" },
+      { "name": "Pulse Analytics" },
+      { "name": "NovaCraft" }
+    ]
+  },
+  "statsDeliverySection": {
+    "subtitle": "Helping businesses grow smarter",
+    "title": "One Partner for Marketing, Technology & Analytics",
+    "paragraphs": [
+      "From ambitious startups to established enterprises, we help organizations turn ideas into measurable business growth through AI, digital marketing, commerce, and intelligent technology.",
+      "From AI-powered automation and Shopify commerce to performance marketing, WhatsApp engagement, modern web development, and business intelligence—we create connected digital ecosystems that help businesses scale with confidence."
+    ],
+    "stats": [
+      {
+        "number": "15+",
+        "label": "Years Industry Experience"
+      },
+      {
+        "number": "100+",
+        "label": "Successful Digital Projects"
+      },
+      {
+        "number": "20+",
+        "label": "Business Technologies"
+      },
+      {
+        "number": "100%",
+        "label": "AI Growth Strategy"
+      }
+    ]
+  },
+  "helpSectionGrid": {
+    "headerTitle1": "Strategy. ",
+    "headerTitleEm": "Execution.",
+    "headerTitle2": " Optimization.",
+    "headerDesc": "We combine cutting-edge AI development with data-driven digital marketing to build scalable growth systems for forward-thinking businesses.",
+    "cards": [
+      {
+        "title": "Digital Presence & Web",
+        "link": "#",
+        "description": "You need a high-performance, conversion-optimized website to scale your brand.",
+        "howWeHelpTitle": "How We Help:",
+        "list": [
+          "Next.js & React Development",
+          "UI/UX & Brand Identity",
+          "Website Redesign & Migration"
+        ]
+      },
+      {
+        "title": "Ecommerce Growth",
+        "link": "#",
+        "description": "Your storefront needs an upgrade to boost sales, speed, and customer experience.",
+        "howWeHelpTitle": "How We Help:",
+        "list": [
+          "Shopify & Shopify Plus",
+          "Custom Theme Development",
+          "Conversion Rate Optimization"
+        ]
+      },
+      {
+        "title": "AI & Automation",
+        "link": "#",
+        "description": "You want to leverage artificial intelligence to improve operational efficiency.",
+        "howWeHelpTitle": "How We Help:",
+        "list": [
+          "Custom AI Agents",
+          "WhatsApp Automation",
+          "Workflow Optimization"
+        ]
+      },
+      {
+        "title": "Search & Visibility",
+        "link": "#",
+        "description": "Your brand is struggling to rank and be discovered by your target audience.",
+        "howWeHelpTitle": "How We Help:",
+        "list": [
+          "Technical & Content SEO",
+          "AI Search Optimization (AISO)",
+          "Local & Global SEO Strategy"
+        ]
+      },
+      {
+        "title": "Performance Marketing",
+        "link": "#",
+        "description": "You need data-driven paid campaigns that deliver measurable ROI and revenue.",
+        "howWeHelpTitle": "How We Help:",
+        "list": [
+          "Google Ads & Performance Max",
+          "Meta & LinkedIn Advertising",
+          "ROAS & CAC Optimization"
+        ]
+      },
+      {
+        "title": "Data & Analytics",
+        "link": "#",
+        "description": "You have data but need actionable insights to make informed business decisions.",
+        "howWeHelpTitle": "How We Help:",
+        "list": [
+          "Power BI Dashboards",
+          "Google Analytics 4 (GA4)",
+          "Marketing Attribution"
+        ]
+      }
+    ]
+  },
+  "aiSection": {
+    "imageUrl": "/assets/ai-section.jpg",
+    "title": "Powerful Solutions. Measurable Business Growth.",
+    "description": "Technology is evolving faster than ever, and customer expectations continue to rise. Businesses need solutions that not only solve today's challenges but also prepare them for tomorrow's opportunities.",
+    "items": [
+      {
+        "title": "Integrated Growth",
+        "desc": "At DigitalCurd, we deliver integrated growth solutions designed to help businesses attract more customers and increase revenue.",
+        "isList": false
+      },
+      {
+        "title": "Digital Foundation",
+        "desc": "Improve operational efficiency and build a strong digital foundation for the future.",
+        "isList": false
+      },
+      {
+        "title": "Connected Ecosystem",
+        "desc": "Unify AI, analytics & commerce, performance marketing, and a modern engineering platform into one connected growth ecosystem.",
+        "isList": false
+      }
+    ]
+  },
+  "corePillarsSection": {
+    "headerTitle": "Our Three Core Pillars",
+    "headerDesc": "We empower businesses to innovate and scale by combining AI, modern digital engineering, and data-driven marketing to deliver integrated solutions that drive measurable growth and long-term success.",
+    "pillars": [
+      {
+        "badge": "INNOVATE",
+        "title": "AI Solutions",
+        "link": "#",
+        "desc": "We help businesses unlock the full potential of Artificial Intelligence through intelligent automation, AI agents, conversational chatbots, predictive analytics, and custom AI solutions.",
+        "footerText": "Our AI-first approach streamlines operations, enhances decision-making, and creates smarter customer experiences that drive efficiency, innovation, and sustainable growth.",
+        "highlighted": false
+      },
+      {
+        "badge": "BUILD",
+        "title": "Digital Engineering",
+        "link": "#",
+        "desc": "We build high-performance websites, ecommerce platforms, and custom digital solutions using modern technologies like Next.js, React, Shopify, and cloud-native architectures.",
+        "footerText": "Every solution is designed for speed, scalability, security, and exceptional user experience, ensuring your digital foundation is ready for today's demands and tomorrow's opportunities.",
+        "highlighted": true
+      },
+      {
+        "badge": "SCALE",
+        "title": "Digital Growth & Analytics",
+        "link": "#",
+        "desc": "We accelerate business growth through strategic digital marketing, AI Search Optimization, SEO, performance advertising, conversion optimization, and advanced analytics.",
+        "footerText": "By combining data-driven insights with proven growth strategies, we help businesses attract the right audience, maximize marketing ROI, and make confident decisions that fuel long-term success.",
+        "highlighted": false
+      }
+    ]
+  },
+  "faqAccordion": {
+    "title": "Frequently Asked Questions",
+    "faqs": [
+      {
+        "question": "What is DigitalCurd?",
+        "answer": "<p>DigitalCurd is an AI-first digital transformation company that helps businesses accelerate growth through strategy, technology, marketing, and data. We specialize in AI solutions, modern web development, ecommerce, digital marketing, automation, analytics, and customer experience optimization. Our goal is to build scalable digital ecosystems that deliver measurable business outcomes, not just digital products.</p>"
+      },
+      {
+        "question": "What services does DigitalCurd offer?",
+        "answer": "<p>We provide end-to-end digital solutions, including:</p><ul><li>AI Consulting & AI Agent Development</li><li>Website Design & Development</li><li>Next.js & React Development</li><li>Shopify & Shopify Plus Development</li><li>Digital Marketing & Growth Strategy</li><li>Search Engine Optimization (SEO)</li><li>AI Search Optimization (AISO)</li><li>Google Ads & Performance Marketing</li><li>Meta & LinkedIn Advertising</li><li>Marketing Automation</li><li>WhatsApp Business Automation</li><li>Power BI & Business Intelligence</li><li>Google Analytics 4 (GA4) & GTM</li><li>UI/UX Design & Branding</li><li>CRM & API Integrations</li><li>Website Maintenance & Support</li></ul>"
+      },
+      {
+        "question": "Who do you work with?",
+        "answer": "<p>We partner with startups, small and medium-sized businesses (SMBs), enterprise organizations, ecommerce brands, healthcare and pharmaceutical companies, SaaS businesses, manufacturers, and professional service firms. Whether you're launching a new business or scaling globally, our solutions are tailored to your goals and industry.</p>"
+      },
+      {
+        "question": "What makes DigitalCurd different from other digital agencies?",
+        "answer": "<p>Unlike traditional agencies that focus on a single service, DigitalCurd combines AI, engineering, digital marketing, analytics, automation, and creative design into one integrated strategy. We don't just deliver websites or campaigns—we build scalable digital solutions that improve customer experience, increase operational efficiency, and drive long-term business growth.</p>"
+      },
+      {
+        "question": "Do you build custom websites?",
+        "answer": "<p>Yes. We design and develop high-performance, responsive, and SEO-friendly websites using modern technologies such as Next.js, React, Node.js, WordPress, and Shopify. Every website is built with scalability, security, performance, accessibility, and conversion optimization in mind.</p>"
+      },
+      {
+        "question": "Can you redesign our existing website?",
+        "answer": "<p>Absolutely. Our website redesign services focus on improving user experience (UX), website speed, search engine visibility, accessibility, mobile responsiveness, and conversion rates. We modernize outdated websites while preserving your brand identity and business objectives.</p>"
+      },
+      {
+        "question": "Do you build Shopify and Shopify Plus stores?",
+        "answer": "<p>Yes. We design, develop, migrate, and optimize Shopify and Shopify Plus stores. Our ecommerce services include custom theme development, store migration, payment gateway integration, subscription commerce, conversion rate optimization (CRO), third-party app integrations, and ongoing performance optimization.</p>"
+      },
+      {
+        "question": "What AI solutions do you provide?",
+        "answer": "<p>We build practical AI solutions that improve productivity, customer engagement, and business efficiency. Our services include AI chatbots, AI agents, customer support automation, knowledge assistants, workflow automation, document intelligence, predictive analytics, and AI-powered business applications integrated with your existing systems.</p>"
+      },
+      {
+        "question": "What is AI Search Optimization (AISO)?",
+        "answer": "<p>AI Search Optimization prepares your business for the future of search. We optimize your website, content, structured data, and digital presence so your business is discoverable in both traditional search engines and AI-powered search experiences. This helps improve visibility, authority, and brand discoverability as search continues to evolve.</p>"
+      },
+      {
+        "question": "Do you provide SEO services?",
+        "answer": "<p>Yes. Our SEO services include technical SEO, on-page optimization, content strategy, local SEO, ecommerce SEO, international SEO, schema markup, Core Web Vitals optimization, link strategy, and ongoing performance monitoring. We focus on sustainable organic growth rather than short-term ranking improvements.</p>"
+      },
+      {
+        "question": "Do you manage paid advertising campaigns?",
+        "answer": "<p>Yes. We manage Google Ads, Performance Max, Shopping Ads, Display Ads, YouTube Ads, Facebook Ads, Instagram Ads, LinkedIn Ads, and remarketing campaigns. Every campaign is optimized around measurable business goals such as qualified leads, return on ad spend (ROAS), customer acquisition cost (CAC), and revenue growth.</p>"
+      },
+      {
+        "question": "What analytics and reporting solutions do you provide?",
+        "answer": "<p>We help businesses make data-driven decisions through Power BI dashboards, Google Analytics 4 (GA4), Google Tag Manager (GTM), marketing attribution, KPI dashboards, executive reporting, and business intelligence solutions. Our reports provide actionable insights that help improve marketing performance and operational efficiency.</p>"
+      },
+      {
+        "question": "Can you integrate our existing systems?",
+        "answer": "<p>Yes. We integrate websites and applications with CRM platforms, ERP systems, payment gateways, marketing automation tools, ecommerce platforms, analytics solutions, APIs, cloud services, and third-party business applications to create seamless digital workflows.</p>"
+      },
+      {
+        "question": "What is your project delivery process?",
+        "answer": "<p>Every project follows a structured process:</p><ul><li>Discovery & Business Consultation</li><li>Strategy & Solution Planning</li><li>UX/UI Design</li><li>Development & Integration</li><li>Quality Assurance & Testing</li><li>Launch & Deployment</li><li>Training & Documentation</li><li>Ongoing Support & Optimization</li></ul><p>This ensures transparency, faster delivery, and successful project outcomes.</p>"
+      },
+      {
+        "question": "How long does a typical project take?",
+        "answer": "<p>Project timelines depend on complexity and scope. A business website typically takes 4–8 weeks, while ecommerce platforms, enterprise applications, or AI-driven digital transformation projects may require 8–16 weeks or more. A detailed project timeline is provided before development begins.</p>"
+      },
+      {
+        "question": "Do you provide ongoing support and maintenance?",
+        "answer": "<p>Yes. We offer flexible support and maintenance plans that include performance monitoring, security updates, software upgrades, bug fixes, content updates, analytics reporting, SEO improvements, feature enhancements, and technical support to ensure your digital platforms continue to perform at their best.</p>"
+      },
+      {
+        "question": "Do you work with international clients?",
+        "answer": "<p>Yes. We work with businesses across India, the United States, the United Kingdom, Australia, the Middle East, and other global markets. Our remote-first collaboration model, structured communication, and agile project management ensure seamless project delivery across different time zones.</p>"
+      },
+      {
+        "question": "How do you ensure quality and security?",
+        "answer": "<p>Quality and security are integrated into every stage of our development process. We follow modern coding standards, responsive design principles, secure development practices, performance optimization, accessibility guidelines, code reviews, automated testing, and regular security updates to deliver reliable and scalable digital solutions.</p>"
+      },
+      {
+        "question": "How is project success measured?",
+        "answer": "<p>Success is measured using clearly defined business KPIs established at the beginning of every project. Depending on your objectives, these may include website traffic, qualified leads, conversion rate, customer acquisition cost (CAC), return on investment (ROI), return on ad spend (ROAS), revenue growth, customer engagement, and operational efficiency.</p>"
+      },
+      {
+        "question": "Why should businesses choose DigitalCurd?",
+        "answer": "<p>DigitalCurd combines business strategy, AI innovation, software engineering, digital marketing, ecommerce, analytics, and automation into one integrated partnership. Instead of delivering isolated services, we build scalable digital ecosystems that help businesses increase revenue, improve customer experiences, automate operations, and achieve sustainable long-term growth. Our commitment to transparency, measurable results, and continuous innovation makes us a trusted technology partner for ambitious organizations.</p>"
+      }
+    ],
+    "subtitle": "Everything you need to know before partnering with DigitalCurd. Still unsure? Reach out and we will reply within 24 hours.",
+    "titleLine1": "Frequently Asked",
+    "titleEm": "Questions"
+  },
+  "contactForm": {
+    "title": "Book a Free Consultation",
+    "subtitle": "Share your goals — we respond within 8 business hours with a clear plan.",
+    "leftCol": {
+      "title": "Trusted by Innovative Brands & Ambitious Startups",
+      "bookCallLabel": "Schedule a Call",
+      "bookCallLink": "/contact",
+      "emailLabel": "Email us",
+      "email": "hello@digitalcurd.com",
+      "stats": [
+        {
+          "title": "15+ years of experience",
+          "description": "Delivering digital excellence"
+        },
+        {
+          "title": "100+ successful projects",
+          "description": "From concepts to measurable growth"
+        },
+        {
+          "title": "AI-first delivery team",
+          "description": "Strategy, engineering & marketing"
+        }
+      ],
+      "logos": [
+        {
+          "name": "Startups",
+          "src": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=200&h=80&q=80"
+        },
+        {
+          "name": "Ecommerce",
+          "src": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=200&h=80&q=80"
+        },
+        {
+          "name": "AI Teams",
+          "src": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=200&h=80&q=80"
+        },
+        {
+          "name": "Analytics",
+          "src": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=200&h=80&q=80"
+        },
+        {
+          "name": "Engineering",
+          "src": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=200&h=80&q=80"
+        },
+        {
+          "name": "Growth",
+          "src": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=200&h=80&q=80"
+        }
+      ]
+    },
+    "form": {
+      "namePlaceholder": "Full Name *",
+      "emailPlaceholder": "Email Address *",
+      "phonePlaceholder": "Phone Number (Optional)",
+      "countryPlaceholder": "Country *",
+      "servicePlaceholder": "Select Your Service *",
+      "requirementsPlaceholder": "Project Brief *",
+      "browseLabel": "Browse | Drop files here",
+      "services": [
+        {
+          "group": "Growth & Marketing",
+          "options": [
+            "SEO & AI Search Optimization",
+            "Performance Marketing (Google / Meta / LinkedIn)",
+            "WhatsApp & Marketing Automation"
+          ]
+        },
+        {
+          "group": "Digital Engineering",
+          "options": [
+            "Website / Next.js Development",
+            "Shopify & Ecommerce",
+            "UI/UX & Branding"
+          ]
+        },
+        {
+          "group": "AI & Data",
+          "options": [
+            "AI Agents & Chatbots",
+            "Power BI & Analytics",
+            "Workflow Automation"
+          ]
+        },
+        {
+          "group": "Other",
+          "options": [
+            "Not sure yet – I need guidance"
+          ]
+        }
+      ],
+      "submitButton": "Enquire Now",
+      "successMessage": "Thanks! Your enquiry was received. We will respond within 8 business hours."
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80"
+  }
+}
