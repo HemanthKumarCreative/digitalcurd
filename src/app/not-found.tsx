@@ -1,63 +1,70 @@
-'use client';
+'use client'
 
-import Link from 'next/link';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import { useEffect, useState } from 'react';
+import Link from 'next/link'
+import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+import { ArrowRight } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
 export default function NotFound() {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    setMounted(true)
+  }, [])
 
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      /* Use the exact brand Navy background so the transparent header looks perfect */
-      backgroundColor: '#05164D', 
-      position: 'relative',
-      overflow: 'hidden',
-      /* Safe padding to guarantee it never touches the fixed header (top) or the footer (bottom) */
-      paddingTop: '140px',
-      paddingBottom: '80px',
-      minHeight: '60vh'
-    }}>
-      {/* Background Decorative Gradient similar to Home Page Hero */}
-      <div style={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: '80vw',
-        height: '80vw',
-        background: 'radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(5, 22, 77, 0) 60%)',
-        zIndex: 0,
-        pointerEvents: 'none'
-      }} />
-
-      <div style={{ 
-        position: 'relative', 
-        zIndex: 1, 
-        display: 'flex', 
-        flexDirection: 'column', 
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        width: '100%'
-      }}>
-        {/* Lottie Animation Container - Constrained so it never overflows */}
-        <div style={{ 
-          width: '100%', 
-          maxWidth: '800px', 
-          maxHeight: '60vh', /* Prevents it from stretching too tall on large screens */
-          aspectRatio: '16/9', /* Gives it a nice wide aspect ratio fit */
+        backgroundColor: '#05164D',
+        position: 'relative',
+        overflow: 'hidden',
+        paddingTop: '140px',
+        paddingBottom: '80px',
+        minHeight: '60vh',
+      }}
+    >
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '80vw',
+          height: '80vw',
+          background:
+            'radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(5, 22, 77, 0) 60%)',
+          zIndex: 0,
+          pointerEvents: 'none',
+        }}
+      />
+
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 1,
           display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'center'
-        }}>
+          justifyContent: 'center',
+          width: '100%',
+          gap: 24,
+        }}
+      >
+        <div
+          style={{
+            width: '100%',
+            maxWidth: '800px',
+            maxHeight: '60vh',
+            aspectRatio: '16/9',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
           {mounted && (
             <DotLottieReact
               src="/under-construction.lottie"
@@ -67,7 +74,32 @@ export default function NotFound() {
             />
           )}
         </div>
+
+        <p
+          style={{
+            margin: 0,
+            color: 'rgba(226, 232, 240, 0.85)',
+            fontSize: 16,
+            textAlign: 'center',
+            maxWidth: 420,
+            padding: '0 20px',
+          }}
+        >
+          This page is not available. Head home or browse our services.
+        </p>
+
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'center' }}>
+          <Link href="/" className="dc-btn dc-btn--primary" aria-label="Go to homepage">
+            <span>Back to Home</span>
+            <span className="dc-btn__icon" aria-hidden="true">
+              <ArrowRight size={18} />
+            </span>
+          </Link>
+          <Link href="/services" className="dc-btn dc-btn--secondary" aria-label="View all services">
+            <span>View Services</span>
+          </Link>
+        </div>
       </div>
     </div>
-  );
+  )
 }

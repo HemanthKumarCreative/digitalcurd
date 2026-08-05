@@ -1,0 +1,10 @@
+{
+  "hero": {
+    "eyebrow": "Contact",
+    "title": "Let’s plan your next growth move",
+    "subtitle": "Free consultation. Clear next steps.",
+    "description": "Share a bit about your goals and we will respond within 8 business hours with practical recommendations.",
+    "backgroundUrl": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1920&q=80",
+    "cta": { "label": "Email us", "href": "mailto:hello@digitalcurd.com" }
+  }
+}

@@ -1,8 +1,8 @@
 'use client'
 
-import React from 'react'
+import Link from 'next/link'
 import homeContent from '@/content/home.json'
-import { Bot, Globe, LineChart } from 'lucide-react'
+import { Bot, Globe, LineChart, ArrowRight } from 'lucide-react'
 import { useInViewMotion } from '@/hooks/useInViewMotion'
 
 const pillarIcons = [Bot, Globe, LineChart]
@@ -38,11 +38,25 @@ export default function CorePillarsSection() {
                   <span className="badge">{pillar.badge}</span>
                 </div>
                 <h3>
-                  <span className="pillar-title">{pillar.title}</span>
+                  <Link
+                    href={pillar.link}
+                    className="pillar-title"
+                    aria-label={`Explore ${pillar.title}`}
+                  >
+                    {pillar.title}
+                  </Link>
                 </h3>
                 <p>{pillar.desc}</p>
                 <div className="card-footer">
                   <p>{pillar.footerText}</p>
+                  <Link
+                    href={pillar.link}
+                    className="pillar-cta"
+                    aria-label={`View ${pillar.title} services`}
+                  >
+                    Explore
+                    <ArrowRight size={16} aria-hidden="true" />
+                  </Link>
                 </div>
               </article>
             )

@@ -1,0 +1,42 @@
+{
+  "title": "Terms of Service",
+  "lastUpdated": "August 5, 2026",
+  "intro": "These Terms of Service govern access to the Digital Curd website. Placeholder copy for launch—replace with counsel-approved text before production. Project work is governed by a separate statement of work or master services agreement.",
+  "sections": [
+    {
+      "heading": "Acceptance of terms",
+      "paragraphs": [
+        "By accessing or using this website, you agree to these Terms. If you do not agree, please discontinue use of the site.",
+        "We may update these Terms periodically. Continued use after changes constitutes acceptance of the revised Terms."
+      ]
+    },
+    {
+      "heading": "Use of the website",
+      "paragraphs": [
+        "You agree to use the site lawfully and not to attempt unauthorized access, disrupt services, or misuse forms and content.",
+        "All trademarks, logos, text, and designs on this site are owned by Digital Curd or its licensors and may not be copied without permission."
+      ]
+    },
+    {
+      "heading": "Enquiries and proposals",
+      "paragraphs": [
+        "Submitting a contact form or enquiry does not create a binding contract. Any commercial engagement begins only when both parties execute a written agreement.",
+        "Information you submit should be accurate to the best of your knowledge."
+      ]
+    },
+    {
+      "heading": "Service engagements",
+      "paragraphs": [
+        "Deliverables, timelines, fees, and IP terms for client projects are defined in project-specific documents and prevail over website marketing copy.",
+        "Website descriptions of services are illustrative and may change as offerings evolve."
+      ]
+    },
+    {
+      "heading": "Governing law",
+      "paragraphs": [
+        "These Terms are governed by the laws applicable in the jurisdiction where Digital Curd primarily operates, without regard to conflict-of-law principles.",
+        "Questions about these Terms can be sent to hello@digitalcurd.com."
+      ]
+    }
+  ]
+}

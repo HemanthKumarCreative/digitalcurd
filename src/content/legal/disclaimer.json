@@ -1,0 +1,35 @@
+{
+  "title": "Disclaimer",
+  "lastUpdated": "August 5, 2026",
+  "intro": "This Disclaimer applies to the Digital Curd website and related materials. Placeholder copy for launch—replace with counsel-approved text before production.",
+  "sections": [
+    {
+      "heading": "General information",
+      "paragraphs": [
+        "Content on this website is provided for general informational purposes and does not constitute professional, legal, financial, or technical advice tailored to your situation.",
+        "While we aim for accuracy, Digital Curd makes no warranties that all content is complete, current, or free from error."
+      ]
+    },
+    {
+      "heading": "Results may vary",
+      "paragraphs": [
+        "Case studies, statistics, and examples describe illustrative outcomes. Past performance does not guarantee future results for any engagement.",
+        "Project outcomes depend on scope, timelines, market conditions, client collaboration, and other factors outside our exclusive control."
+      ]
+    },
+    {
+      "heading": "Third-party links and tools",
+      "paragraphs": [
+        "Our website may reference third-party platforms, products, or links. Digital Curd is not responsible for the content, policies, or practices of third parties.",
+        "Any reliance on third-party tools or content is at your own risk."
+      ]
+    },
+    {
+      "heading": "Limitation of liability",
+      "paragraphs": [
+        "To the fullest extent permitted by law, Digital Curd is not liable for indirect, incidental, or consequential damages arising from use of this website or reliance on its content.",
+        "If you need advice specific to your business, please contact us to discuss a formal engagement."
+      ]
+    }
+  ]
+}

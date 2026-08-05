@@ -1,0 +1,97 @@
+{
+  "hero": {
+    "eyebrow": "Careers",
+    "title": "Build the future of connected growth",
+    "subtitle": "Join a team where AI, marketing, and engineering ship together.",
+    "description": "At Digital Curd you work on real growth systems—not isolated campaigns or throwaway prototypes. We value clarity, craft, and measurable impact.",
+    "backgroundUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1920&q=80",
+    "cta": { "label": "View open roles", "href": "#open-roles" }
+  },
+  "culture": {
+    "eyebrow": "Life at Digital Curd",
+    "title": "How we work",
+    "description": "Small teams, high ownership, and a bias for shipping outcomes clients can feel.",
+    "items": [
+      {
+        "title": "Outcome ownership",
+        "description": "You own problems end to end—from insight to launch to learning.",
+        "icon": "target"
+      },
+      {
+        "title": "Cross-discipline craft",
+        "description": "Collaborate daily with marketers, engineers, designers, and AI specialists.",
+        "icon": "layers"
+      },
+      {
+        "title": "Continuous learning",
+        "description": "Time and support to deepen skills in AI, growth, and modern product stacks.",
+        "icon": "sparkles"
+      },
+      {
+        "title": "Remote-friendly rhythm",
+        "description": "Flexible collaboration with clear rituals, documentation, and async clarity.",
+        "icon": "globe"
+      }
+    ]
+  },
+  "benefits": {
+    "eyebrow": "Benefits",
+    "title": "Support that helps you do your best work",
+    "items": [
+      {
+        "title": "Competitive compensation",
+        "description": "Pay aligned to impact, experience, and market reality.",
+        "icon": "chart"
+      },
+      {
+        "title": "Learning stipend",
+        "description": "Budget for courses, books, and conferences that sharpen your craft.",
+        "icon": "zap"
+      },
+      {
+        "title": "Modern tooling",
+        "description": "The platforms and AI tools you need without unnecessary bureaucracy.",
+        "icon": "code"
+      }
+    ]
+  },
+  "jobs": [
+    {
+      "id": "senior-nextjs",
+      "title": "Senior Next.js Engineer",
+      "location": "Remote / Hybrid",
+      "type": "Full-time",
+      "blurb": "Build high-performance marketing sites and product experiences with Next.js, React, and modern APIs.",
+      "applyHref": "mailto:hello@digitalcurd.com?subject=Application%20-%20Senior%20Next.js%20Engineer"
+    },
+    {
+      "id": "growth-marketer",
+      "title": "Performance Marketing Lead",
+      "location": "Remote / Hybrid",
+      "type": "Full-time",
+      "blurb": "Own paid acquisition across Google, Meta, and LinkedIn with a ruthless focus on CAC and ROAS.",
+      "applyHref": "mailto:hello@digitalcurd.com?subject=Application%20-%20Performance%20Marketing%20Lead"
+    },
+    {
+      "id": "ai-automation",
+      "title": "AI Automation Specialist",
+      "location": "Remote",
+      "type": "Full-time",
+      "blurb": "Design agents, chatbots, and workflow automation that reduce manual work and improve conversion.",
+      "applyHref": "mailto:hello@digitalcurd.com?subject=Application%20-%20AI%20Automation%20Specialist"
+    },
+    {
+      "id": "product-designer",
+      "title": "Product Designer (UI/UX)",
+      "location": "Remote / Hybrid",
+      "type": "Full-time",
+      "blurb": "Craft conversion-minded interfaces and design systems for web, ecommerce, and AI products.",
+      "applyHref": "mailto:hello@digitalcurd.com?subject=Application%20-%20Product%20Designer"
+    }
+  ],
+  "cta": {
+    "title": "Don’t see the right role?",
+    "description": "Send your portfolio and a short note about how you want to contribute. We are always meeting great people.",
+    "cta": { "label": "Contact careers", "href": "/contact" }
+  }
+}

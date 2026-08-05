@@ -1,8 +1,8 @@
 'use client'
 
-import React from 'react'
+import Link from 'next/link'
 import homeContent from '@/content/home.json'
-import { Monitor, ShoppingCart, Bot, Search, TrendingUp, BarChart2, CheckCircle2 } from 'lucide-react'
+import { Monitor, ShoppingCart, Bot, Search, TrendingUp, BarChart2, CheckCircle2, ArrowRight } from 'lucide-react'
 import { useInViewMotion } from '@/hooks/useInViewMotion'
 
 const icons = [Monitor, ShoppingCart, Bot, Search, TrendingUp, BarChart2]
@@ -19,7 +19,9 @@ export default function HelpSectionGrid() {
           <Icon size={48} strokeWidth={1.5} />
         </div>
         <h3>
-          <span className="help-card-title">{card.title}</span>
+          <Link href={card.link} className="help-card-title" aria-label={`Explore ${card.title}`}>
+            {card.title}
+          </Link>
         </h3>
         <p>{card.description}</p>
         <h4>{card.howWeHelpTitle}</h4>
@@ -33,6 +35,14 @@ export default function HelpSectionGrid() {
             </li>
           ))}
         </ul>
+        <Link
+          href={card.link}
+          className="help-card__cta"
+          aria-label={`View ${card.title} services`}
+        >
+          Learn more
+          <ArrowRight size={16} aria-hidden="true" />
+        </Link>
         <div className="border-line"></div>
       </div>
     )

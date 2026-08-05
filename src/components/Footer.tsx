@@ -6,37 +6,37 @@ const footerColumns = [
   {
     title: 'AI & Automation',
     links: [
-      { label: 'AI Agents', href: '/ai/consulting-services-company' },
-      { label: 'AI Chatbots', href: '/ai/ai-augmented-software-development' },
-      { label: 'AI Search Optimization', href: '/ai/generative-ai-services' },
-      { label: 'Workflow Automation', href: '/ai/custom-ai-agent-development' },
+      { label: 'AI Agents', href: '/services/ai-agents' },
+      { label: 'AI Chatbots', href: '/services/ai-chatbots' },
+      { label: 'AI Search Optimization', href: '/services/ai-search-optimization' },
+      { label: 'Workflow Automation', href: '/services/workflow-automation' },
     ],
   },
   {
     title: 'Growth Marketing',
     links: [
-      { label: 'SEO', href: '/ai/custom-ai-agent-development' },
-      { label: 'Performance Marketing', href: '/ai/custom-ai-agent-development' },
-      { label: 'Google Ads', href: '/ai/custom-ai-agent-development' },
-      { label: 'WhatsApp Marketing', href: '/ai/custom-ai-agent-development' },
+      { label: 'SEO', href: '/services/seo' },
+      { label: 'Performance Marketing', href: '/services/performance-marketing' },
+      { label: 'Google Ads', href: '/services/google-ads' },
+      { label: 'WhatsApp Marketing', href: '/services/whatsapp-marketing' },
     ],
   },
   {
     title: 'Build',
     links: [
-      { label: 'Website Development', href: '/salesforce' },
-      { label: 'Shopify', href: '/data-engineering' },
-      { label: 'Next.js', href: '/hire/sap-developers' },
-      { label: 'UI/UX', href: '/it-strategy-consulting-firms' },
+      { label: 'Website Development', href: '/services/website-development' },
+      { label: 'Shopify', href: '/services/shopify-development' },
+      { label: 'Next.js', href: '/services/nextjs' },
+      { label: 'UI/UX', href: '/services/ui-ux' },
     ],
   },
 ]
 
 const socialLinks = [
-  { label: 'Facebook', href: '#', Icon: Users },
-  { label: 'LinkedIn', href: '#', Icon: Briefcase },
-  { label: 'Instagram', href: '#', Icon: Camera },
-  { label: 'YouTube', href: '#', Icon: Play },
+  { label: 'Facebook', href: 'https://facebook.com/', Icon: Users },
+  { label: 'LinkedIn', href: 'https://linkedin.com/', Icon: Briefcase },
+  { label: 'Instagram', href: 'https://instagram.com/', Icon: Camera },
+  { label: 'YouTube', href: 'https://youtube.com/', Icon: Play },
 ]
 
 export default function Footer() {
@@ -88,9 +88,15 @@ export default function Footer() {
         <div className="dc-footer__bottom">
           <p>Copyright &copy; 2026 Digital Curd. All rights reserved.</p>
           <ul>
-            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
-            <li><Link href="/disclaimer">Disclaimer</Link></li>
-            <li><Link href="/terms-of-service">Terms of Service</Link></li>
+            <li>
+              <Link href="/privacy-policy">Privacy Policy</Link>
+            </li>
+            <li>
+              <Link href="/disclaimer">Disclaimer</Link>
+            </li>
+            <li>
+              <Link href="/terms-of-service">Terms of Service</Link>
+            </li>
           </ul>
         </div>
       </div>

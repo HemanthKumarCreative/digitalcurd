@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "eyebrow": "Blog",
+    "title": "Ideas for AI-era growth",
+    "subtitle": "Practical notes on marketing, technology, and analytics.",
+    "description": "Short, actionable perspectives from the Digital Curd team—built for founders and growth leaders who want systems, not slogans.",
+    "backgroundUrl": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1920&q=80",
+    "cta": { "label": "Talk to an expert", "href": "/contact" }
+  },
+  "posts": [
+    {
+      "slug": "ai-agents-for-growth-teams",
+      "title": "How AI agents help growth teams ship faster",
+      "excerpt": "A practical look at where autonomous agents create leverage across research, ops, and customer journeys.",
+      "date": "2026-07-14",
+      "coverImage": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+      "category": "AI & Automation",
+      "body": [
+        "Growth teams are drowning in repetitive work: research summaries, lead triage, reporting, and handoffs between tools. AI agents are most valuable when they take ownership of a narrow workflow with clear inputs and outputs.",
+        "Start with one high-friction process—like qualifying inbound leads or assembling weekly performance briefs. Instrument the steps, define success criteria, then let an agent handle the first draft while humans approve edge cases.",
+        "The teams that win are not the ones with the most models. They are the ones who connect agents to clean data, clear brand rules, and the same KPIs their marketing and product orgs already trust."
+      ]
+    },
+    {
+      "slug": "seo-meets-ai-search",
+      "title": "SEO still matters—here is how AI search changes it",
+      "excerpt": "AEO and GEO do not replace SEO. They reward clearer structure, stronger entities, and answer-ready content.",
+      "date": "2026-06-28",
+      "coverImage": "https://images.unsplash.com/photo-1432821596592-e2c18b78144f?auto=format&fit=crop&w=1200&q=80",
+      "category": "Growth Marketing",
+      "body": [
+        "Classic SEO still compounds: technical health, topical authority, and intent-matched pages remain foundational. AI answer engines simply raise the bar for clarity and trust.",
+        "Structure content so machines and humans can extract the answer quickly. Use precise headings, original data, and entity-rich explanations of how your product solves a problem.",
+        "Treat AI search optimization as an extension of content quality—not a separate channel. When your site is the best source, both Google and generative answers tend to follow."
+      ]
+    },
+    {
+      "slug": "nextjs-for-conversion",
+      "title": "Why Next.js is a conversion engine, not just a framework",
+      "excerpt": "Performance, SEO, and experimentation loops make modern web stacks a growth lever.",
+      "date": "2026-06-02",
+      "coverImage": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80",
+      "category": "Digital Engineering",
+      "body": [
+        "Marketing sites fail quietly when they are slow, hard to iterate, or disconnected from analytics. Next.js helps teams ship fast experiences without sacrificing SEO or developer velocity.",
+        "Pair the framework with a design system, clean CMS content models, and event tracking from day one. That combination turns every launch into a measurable experiment.",
+        "The goal is not a prettier homepage. The goal is a durable platform where growth, product, and engineering can improve conversion together."
+      ]
+    },
+    {
+      "slug": "whatsapp-commerce-playbook",
+      "title": "A simple WhatsApp commerce playbook for ecommerce brands",
+      "excerpt": "Use conversational journeys to recover carts, support buyers, and nurture loyalty without spam.",
+      "date": "2026-05-18",
+      "coverImage": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
+      "category": "Ecommerce",
+      "body": [
+        "WhatsApp works when it feels helpful—order updates, size guidance, restock alerts—not when it becomes another noisy broadcast channel.",
+        "Map three journeys first: abandoned checkout recovery, post-purchase support, and VIP early access. Automate the repetitive steps and keep a human path for exceptions.",
+        "Connect WhatsApp events back to your analytics and CRM so conversational commerce informs ad spend, creative, and merchandising decisions."
+      ]
+    }
+  ]
+}

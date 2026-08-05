@@ -1,0 +1,77 @@
+{
+  "hero": {
+    "eyebrow": "About Digital Curd",
+    "title": "Growth systems for the AI era",
+    "subtitle": "Marketing, technology, and analytics—connected.",
+    "description": "We help startups, ecommerce brands, and enterprises attract customers, increase revenue, and automate operations with AI-powered digital systems.",
+    "backgroundUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80",
+    "cta": { "label": "Work with us", "href": "/contact" }
+  },
+  "story": {
+    "eyebrow": "Our story",
+    "title": "Built for measurable digital growth",
+    "paragraphs": [
+      "Digital Curd started with a simple belief: growth should not be fragmented across agencies, freelancers, and disconnected tools. Brands need one partner who understands acquisition, experience, and intelligence together.",
+      "Today we design connected systems—AI agents, performance marketing, ecommerce, modern web engineering, and creative—so every channel reinforces the next."
+    ]
+  },
+  "stats": [
+    { "number": "15+", "label": "Years industry experience" },
+    { "number": "100+", "label": "Successful digital projects" },
+    { "number": "20+", "label": "Business technologies" },
+    { "number": "100%", "label": "AI growth mindset" }
+  ],
+  "values": {
+    "eyebrow": "What guides us",
+    "title": "Principles that shape every engagement",
+    "items": [
+      {
+        "title": "Outcomes over output",
+        "description": "We define success in pipeline, revenue, efficiency, and experience—not slide decks.",
+        "icon": "target"
+      },
+      {
+        "title": "Connected by design",
+        "description": "Strategy, creative, engineering, and analytics stay aligned so insights compound.",
+        "icon": "layers"
+      },
+      {
+        "title": "AI as leverage",
+        "description": "We apply automation where it creates durable advantage—not novelty for its own sake.",
+        "icon": "sparkles"
+      },
+      {
+        "title": "Clear partnership",
+        "description": "Transparent roadmaps, honest trade-offs, and communication your team can act on.",
+        "icon": "globe"
+      }
+    ]
+  },
+  "team": {
+    "eyebrow": "Team",
+    "title": "Operators, builders, and growth specialists",
+    "description": "A cross-functional team spanning AI, marketing, ecommerce, engineering, and creative studio—collaborating as one delivery unit.",
+    "members": [
+      {
+        "name": "Growth Strategy",
+        "role": "Demand, SEO, and performance marketing",
+        "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "Digital Engineering",
+        "role": "Next.js, React, and platform builds",
+        "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "Creative Studio",
+        "role": "Brand, UI/UX, and visual storytelling",
+        "image": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Let’s build your growth system",
+    "description": "Tell us where you are today and where you want to be. We will map the shortest path.",
+    "cta": { "label": "Schedule a Call", "href": "/contact" }
+  }
+}

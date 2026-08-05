@@ -91,7 +91,7 @@
     "cards": [
       {
         "title": "Digital Presence & Web",
-        "link": "#",
+        "link": "/services/website-development",
         "description": "You need a high-performance, conversion-optimized website to scale your brand.",
         "howWeHelpTitle": "How We Help:",
         "list": [
@@ -102,7 +102,7 @@
       },
       {
         "title": "Ecommerce Growth",
-        "link": "#",
+        "link": "/services/shopify-development",
         "description": "Your storefront needs an upgrade to boost sales, speed, and customer experience.",
         "howWeHelpTitle": "How We Help:",
         "list": [
@@ -113,7 +113,7 @@
       },
       {
         "title": "AI & Automation",
-        "link": "#",
+        "link": "/services/ai-agents",
         "description": "You want to leverage artificial intelligence to improve operational efficiency.",
         "howWeHelpTitle": "How We Help:",
         "list": [
@@ -124,7 +124,7 @@
       },
       {
         "title": "Search & Visibility",
-        "link": "#",
+        "link": "/services/seo",
         "description": "Your brand is struggling to rank and be discovered by your target audience.",
         "howWeHelpTitle": "How We Help:",
         "list": [
@@ -135,7 +135,7 @@
       },
       {
         "title": "Performance Marketing",
-        "link": "#",
+        "link": "/services/performance-marketing",
         "description": "You need data-driven paid campaigns that deliver measurable ROI and revenue.",
         "howWeHelpTitle": "How We Help:",
         "list": [
@@ -146,7 +146,7 @@
       },
       {
         "title": "Data & Analytics",
-        "link": "#",
+        "link": "/services",
         "description": "You have data but need actionable insights to make informed business decisions.",
         "howWeHelpTitle": "How We Help:",
         "list": [
@@ -158,7 +158,7 @@
     ]
   },
   "aiSection": {
-    "imageUrl": "/assets/ai-section.jpg",
+    "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1600&q=80",
     "title": "Powerful Solutions. Measurable Business Growth.",
     "description": "Technology is evolving faster than ever, and customer expectations continue to rise. Businesses need solutions that not only solve today's challenges but also prepare them for tomorrow's opportunities.",
     "items": [
@@ -186,7 +186,7 @@
       {
         "badge": "INNOVATE",
         "title": "AI Solutions",
-        "link": "#",
+        "link": "/services/ai-agents",
         "desc": "We help businesses unlock the full potential of Artificial Intelligence through intelligent automation, AI agents, conversational chatbots, predictive analytics, and custom AI solutions.",
         "footerText": "Our AI-first approach streamlines operations, enhances decision-making, and creates smarter customer experiences that drive efficiency, innovation, and sustainable growth.",
         "highlighted": false
@@ -194,7 +194,7 @@
       {
         "badge": "BUILD",
         "title": "Digital Engineering",
-        "link": "#",
+        "link": "/services/website-development",
         "desc": "We build high-performance websites, ecommerce platforms, and custom digital solutions using modern technologies like Next.js, React, Shopify, and cloud-native architectures.",
         "footerText": "Every solution is designed for speed, scalability, security, and exceptional user experience, ensuring your digital foundation is ready for today's demands and tomorrow's opportunities.",
         "highlighted": true
@@ -202,7 +202,7 @@
       {
         "badge": "SCALE",
         "title": "Digital Growth & Analytics",
-        "link": "#",
+        "link": "/services/seo",
         "desc": "We accelerate business growth through strategic digital marketing, AI Search Optimization, SEO, performance advertising, conversion optimization, and advanced analytics.",
         "footerText": "By combining data-driven insights with proven growth strategies, we help businesses attract the right audience, maximize marketing ROI, and make confident decisions that fuel long-term success.",
         "highlighted": false
