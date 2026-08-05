@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Phone } from 'lucide-react'
 import type { PageHeroContent } from '@/types/content'
 
 type PageHeroProps = {
@@ -17,6 +17,8 @@ export default function PageHero({ content, compact = false }: PageHeroProps) {
     const frame = requestAnimationFrame(() => setEntered(true))
     return () => cancelAnimationFrame(frame)
   }, [])
+
+  const hasActions = Boolean(content.cta || content.secondaryCta || content.phone)
 
   return (
     <section
@@ -50,7 +52,7 @@ export default function PageHero({ content, compact = false }: PageHeroProps) {
             {content.description}
           </p>
         ) : null}
-        {(content.cta || content.secondaryCta) ? (
+        {hasActions ? (
           <div className={`dc-page-hero__actions dc-fade-up dc-fade-up-delay-3 ${entered ? 'is-in' : ''}`}>
             {content.cta ? (
               <Link
@@ -72,6 +74,18 @@ export default function PageHero({ content, compact = false }: PageHeroProps) {
               >
                 <span>{content.secondaryCta.label}</span>
               </Link>
+            ) : null}
+            {content.phone ? (
+              <a
+                href={content.phone.href}
+                className="dc-btn dc-btn--secondary dc-page-hero__phone"
+                aria-label={`Call ${content.phone.label}`}
+              >
+                <span className="dc-btn__icon" aria-hidden="true">
+                  <Phone size={16} strokeWidth={2.25} />
+                </span>
+                <span>{content.phone.label}</span>
+              </a>
             ) : null}
           </div>
         ) : null}

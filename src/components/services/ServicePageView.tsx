@@ -27,6 +27,10 @@ export default function ServicePageView({ service }: ServicePageViewProps) {
           backgroundUrl: service.heroImage,
           cta: service.cta,
           secondaryCta: { label: 'View all services', href: '/services' },
+          phone: {
+            label: '+91 80 4567 8900',
+            href: 'tel:+918045678900',
+          },
         }}
       />
 

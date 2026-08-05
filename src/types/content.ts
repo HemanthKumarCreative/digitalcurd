@@ -11,6 +11,10 @@ export type PageHeroContent = {
   backgroundUrl: string
   cta?: CtaLink
   secondaryCta?: CtaLink
+  phone?: {
+    label: string
+    href: string
+  }
 }
 
 export type FeatureItem = {

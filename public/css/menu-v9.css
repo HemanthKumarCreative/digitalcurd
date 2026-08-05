@@ -34,7 +34,7 @@
   /* Metrics */
   --nav-h:72px;
   --nav-h-m:60px;
-  --max-w:1480px;
+  --max-w:1160px;
 }
 
 /* ═══════════════════════ RESET ═══════════════════════ */
@@ -113,10 +113,12 @@ svg {
 }
 
 .nav__bar {
+  box-sizing: border-box;
+  width: 100%;
   max-width: var(--max-w);
   margin: 0 auto;
   height: 100%;
-  padding: 0 28px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -396,9 +398,11 @@ svg {
 }
 
 .panel__inner {
+  box-sizing: border-box;
+  width: 100%;
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 24px 28px 4px;
+  padding: 24px 20px 4px;
 }
 
 /* ── Unified BAND component (all four panels) ── */
@@ -695,9 +699,11 @@ a.col__head:hover .arr {
 
 /* ── Panel footer ── */
 .panel__foot {
+  box-sizing: border-box;
+  width: 100%;
   max-width: var(--max-w);
   margin: 20px auto 0;
-  padding: 16px 28px 22px;
+  padding: 16px 20px 22px;
   border-top: 1px solid var(--bd);
   display: flex;
   align-items: center;

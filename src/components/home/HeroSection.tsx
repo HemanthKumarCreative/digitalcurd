@@ -31,7 +31,7 @@ export default function HeroSection() {
           aria-hidden="true"
         />
 
-        <div className="container max-w-[1160px] mx-auto px-4 w-full">
+        <div className="dc-rail">
           <div className="dis-flex flex flex-wrap items-center">
             <div className="left-box basis-full lg:basis-[80%] text-left">
               <h1

@@ -64,60 +64,58 @@ export default function AiSection() {
   return (
     <section
       ref={ref}
-      className={`ai-production-loop dc-fade-up ${inView ? 'is-in' : ''}`}
+      className={`dc-ai dc-fade-up ${inView ? 'is-in' : ''}`}
       aria-label="Growth solutions"
     >
-      <div className="ai-left">
-        <img
-          src={imageUrl}
-          alt="Global digital technology network for marketing and AI solutions"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
+      <div className="dc-rail dc-ai__rail">
+        <div className="dc-ai__media">
+          <img
+            src={imageUrl}
+            alt="Global digital technology network for marketing and AI solutions"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
 
-      <div className="ai-right">
-        <div className="container w-full">
-          <div className="ai-content">
-            <h2>{aiSection.title}</h2>
-            <p>{aiSection.description}</p>
-            <div className="ai-list">
-              {items.map((item, index) => {
-                const isActive = index === activeIndex
-                return (
-                  <div
-                    key={index}
-                    className={`ai-item ${isActive ? 'active' : ''}`}
-                    onClick={() => setActiveIndex(index)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault()
-                        setActiveIndex(index)
-                      }
-                    }}
-                    role="button"
-                    tabIndex={0}
-                    aria-pressed={isActive}
-                    aria-label={item.title}
-                  >
-                    <div className="title">
-                      <h4>{item.title}</h4>
-                    </div>
-                    <div className="desc">
-                      {item.isList ? (
-                        <ul>
-                          {Array.isArray(item.desc) &&
-                            item.desc.map((li: string, i: number) => <li key={i}>{li}</li>)}
-                        </ul>
-                      ) : (
-                        <p>{item.desc as string}</p>
-                      )}
-                    </div>
-                    <ProgressBar isActive={isActive && canAutoRotate} duration={duration} />
+        <div className="dc-ai__content">
+          <h2>{aiSection.title}</h2>
+          <p>{aiSection.description}</p>
+          <div className="dc-ai__list">
+            {items.map((item, index) => {
+              const isActive = index === activeIndex
+              return (
+                <div
+                  key={index}
+                  className={`dc-ai__item ${isActive ? 'is-active' : ''}`}
+                  onClick={() => setActiveIndex(index)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      setActiveIndex(index)
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={isActive}
+                  aria-label={item.title}
+                >
+                  <div className="dc-ai__item-title">
+                    <h4>{item.title}</h4>
                   </div>
-                )
-              })}
-            </div>
+                  <div className="dc-ai__item-desc">
+                    {item.isList ? (
+                      <ul>
+                        {Array.isArray(item.desc) &&
+                          item.desc.map((li: string, i: number) => <li key={i}>{li}</li>)}
+                      </ul>
+                    ) : (
+                      <p>{item.desc as string}</p>
+                    )}
+                  </div>
+                  <ProgressBar isActive={isActive && canAutoRotate} duration={duration} />
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>
