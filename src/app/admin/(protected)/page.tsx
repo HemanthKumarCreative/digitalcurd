@@ -69,8 +69,8 @@ export default async function AdminDashboardPage() {
   ]
 
   return (
-    <div className="space-y-6">
-      <div className="relative overflow-hidden rounded-[var(--admin-radius)] border border-[var(--admin-border)] bg-[var(--admin-navy)] p-6 text-white shadow-[var(--admin-shadow)] lg:p-8">
+    <div className="space-y-4">
+      <div className="relative overflow-hidden rounded-[var(--admin-radius)] border border-[var(--admin-border)] bg-[var(--admin-navy)] p-5 text-white shadow-[var(--admin-shadow)] lg:p-6">
         <div
           className="pointer-events-none absolute -top-16 -right-10 h-48 w-48 rounded-full bg-[var(--admin-blue)]/40 blur-2xl"
           aria-hidden

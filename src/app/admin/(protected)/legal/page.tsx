@@ -16,7 +16,7 @@ export default async function AdminLegalPage() {
   )
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <PageHeader
         title="Legal"
         description="Privacy, terms, disclaimer, and more."

@@ -3102,6 +3102,9 @@
   --admin-danger-soft: #fef2f2;
   --admin-radius: 12px;
   --admin-radius-sm: 8px;
+  --admin-header-height: 3.5rem;
+  --admin-main-pad-y: 0.75rem;
+  --admin-main-pad-x: 1rem;
   --admin-shadow: 0 1px 2px rgb(15 23 42 / 4%), 0 4px 16px rgb(15 23 42 / 4%);
   --admin-shadow-lg: 0 8px 30px rgb(15 23 42 / 8%);
   --primary: var(--admin-navy);
@@ -3122,6 +3125,13 @@
   background: var(--admin-canvas);
   font-family: var(--font-plus-jakarta-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 1024px) {
+  .admin-app {
+    --admin-main-pad-y: 1rem;
+    --admin-main-pad-x: 1.5rem;
+  }
 }
 
 .admin-app *:focus-visible {

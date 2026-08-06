@@ -20,7 +20,7 @@ export default async function AdminJobsPage() {
   )
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <PageHeader
         title="Jobs"
         description={`${jobs.length} listings`}

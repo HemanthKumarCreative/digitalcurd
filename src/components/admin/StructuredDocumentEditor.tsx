@@ -378,8 +378,14 @@ export const StructuredDocumentEditor = ({
     }
   }, [values])
 
+  const modeHint = forceFormMode
+    ? 'Edit site-wide settings here. Footer and contact details publish with this document.'
+    : editMode === 'design'
+      ? 'Click highlighted text or images on the page. Switch to Form for SEO, reordering, and adding rows.'
+      : 'Best for SEO, reordering items, and adding/removing rows. Switch to Design to edit on the live page.'
+
   return (
-    <div className="pb-24 lg:pb-8">
+    <div className="pb-24 lg:pb-6">
       <StickyActionBar
         left={
           <div className="flex flex-wrap items-center gap-2">
@@ -483,14 +489,12 @@ export const StructuredDocumentEditor = ({
         ) : null}
       </StickyActionBar>
 
-      <PageHeader title={title} description={description} breadcrumbs={breadcrumbs} />
-      <p className="mb-4 text-sm text-[var(--admin-text-muted)]">
-        {forceFormMode
-          ? 'Edit site-wide settings here. Footer and contact details publish with this document.'
-          : editMode === 'design'
-            ? 'Click highlighted text or images on the page. Switch to Form for SEO, reordering, and adding rows.'
-            : 'Best for SEO, reordering items, and adding/removing rows. Switch to Design to edit on the live page.'}
-      </p>
+      <PageHeader
+        title={title}
+        description={description || modeHint}
+        breadcrumbs={breadcrumbs}
+        className="mb-3"
+      />
 
       {editMode === 'design' && previewPath && !forceFormMode ? (
         <DesignModeView
@@ -508,7 +512,7 @@ export const StructuredDocumentEditor = ({
 
       {editMode === 'form' ? (
       <>
-      <div className="space-y-4">
+      <div className="space-y-3">
         {sections.map((section) => {
           const raw = values[section.key]
 

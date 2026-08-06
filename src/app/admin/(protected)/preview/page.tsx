@@ -14,7 +14,7 @@ export default async function AdminPreviewPage({ searchParams }: PageProps) {
     process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : getSiteUrl()
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       <PageHeader
         title="Live preview"
         description="Read-only view of the site across devices — same as visitors see. No click-to-edit. To edit content, open a page and use Design mode. Optionally enable draft mode here to preview unpublished drafts."

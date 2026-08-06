@@ -1,6 +1,6 @@
 import { listDocumentsPreferDraft } from '@/lib/admin/data'
 import { ContentListSearch } from '@/components/admin/ContentListSearch'
-import { CreateDocumentButton } from '@/components/admin/CreateDocumentButton'
+import { CreatePostButton } from '@/components/admin/CreatePostButton'
 import { PageHeader } from '@/components/ui/page-header'
 
 type PostRow = {
@@ -20,12 +20,12 @@ export default async function AdminBlogPage() {
   )
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <PageHeader
         title="Articles"
         description={`${posts.length} posts`}
         breadcrumbs={[{ label: 'Content' }, { label: 'Articles' }]}
-        actions={<CreateDocumentButton kind="post" />}
+        actions={<CreatePostButton />}
       />
       <ContentListSearch
         emptyTitle="No posts yet"

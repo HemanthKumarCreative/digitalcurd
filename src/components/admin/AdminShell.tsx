@@ -122,13 +122,13 @@ export const AdminShell = ({ children, user }: AdminShellProps) => {
 
       <div className="flex min-h-screen">
         <aside className="hidden w-[264px] shrink-0 flex-col border-r border-[var(--admin-border)] bg-[var(--admin-panel)] lg:flex">
-          <div className="border-b border-[var(--admin-border)] px-5 py-5">
-            <Link href="/admin" className="block" aria-label="Digital Curd Admin home">
+          <div className="flex h-[var(--admin-header-height)] items-center border-b border-[var(--admin-border)] px-5">
+            <Link href="/admin" className="block min-w-0" aria-label="Digital Curd Admin home">
               <AnimatedLogo className="h-7 w-auto max-w-full" variant="dark" />
+              <p className="mt-0.5 text-[10px] font-semibold tracking-wide text-[var(--admin-text-muted)] uppercase">
+                Admin
+              </p>
             </Link>
-            <p className="mt-2 text-xs font-semibold tracking-wide text-[var(--admin-text-muted)] uppercase">
-              Admin
-            </p>
           </div>
           <Nav />
           <div className="mt-auto border-t border-[var(--admin-border)] p-4">
@@ -148,8 +148,10 @@ export const AdminShell = ({ children, user }: AdminShellProps) => {
         </aside>
 
         <div className="flex min-w-0 flex-1 flex-col">
-          <header className="sticky top-0 z-40 flex items-center justify-between border-b border-[var(--admin-border)] bg-[var(--admin-panel)]/95 px-4 py-3 backdrop-blur lg:px-6">
-            <div className="flex items-center gap-3">
+          <header
+            className="sticky top-0 z-40 flex h-[var(--admin-header-height)] items-center justify-between border-b border-[var(--admin-border)] bg-[var(--admin-panel)]/95 px-[var(--admin-main-pad-x)] backdrop-blur"
+          >
+            <div className="flex min-w-0 items-center gap-3">
               <Button
                 variant="ghost"
                 size="icon"
@@ -165,9 +167,11 @@ export const AdminShell = ({ children, user }: AdminShellProps) => {
                   Admin
                 </p>
               </div>
-              <div className="hidden lg:block">
-                <p className="text-sm font-bold text-[var(--admin-navy)]">Content Console</p>
-                <p className="text-xs text-[var(--admin-text-muted)]">
+              <div className="hidden min-w-0 lg:block">
+                <p className="text-sm font-bold leading-tight text-[var(--admin-navy)]">
+                  Content Console
+                </p>
+                <p className="text-xs leading-tight text-[var(--admin-text-muted)]">
                   Edit pages, media, and site settings
                 </p>
               </div>
@@ -183,7 +187,10 @@ export const AdminShell = ({ children, user }: AdminShellProps) => {
             </Button>
           </header>
 
-          <main id="admin-main" className="admin-scrollbar flex-1 overflow-x-hidden p-4 lg:p-6">
+          <main
+            id="admin-main"
+            className="admin-scrollbar min-w-0 flex-1 overflow-x-clip px-[var(--admin-main-pad-x)] py-[var(--admin-main-pad-y)]"
+          >
             {children}
           </main>
         </div>

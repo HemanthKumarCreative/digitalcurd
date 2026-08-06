@@ -113,7 +113,7 @@ export const MediaLibrary = ({ initialAssets, canEdit }: MediaLibraryProps) => {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <PageHeader
         title="Media"
         description="Upload and manage Sanity assets. Use Choose from media inside editors to insert images."

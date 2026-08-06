@@ -201,9 +201,9 @@ export const DesignModeView = ({
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       {showTip ? (
-        <div className="flex flex-wrap items-start justify-between gap-3 rounded-[var(--admin-radius-sm)] border border-[var(--admin-blue)]/30 bg-[var(--admin-blue-soft)] px-4 py-3 text-sm">
+        <div className="flex flex-wrap items-start justify-between gap-3 rounded-[var(--admin-radius-sm)] border border-[var(--admin-blue)]/30 bg-[var(--admin-blue-soft)] px-3 py-2.5 text-sm">
           <p className="text-[var(--admin-navy)]">
             <strong>Design mode:</strong> click outlined text or images on the page. Switch to{' '}
             <strong>Form</strong> for SEO, reordering, and adding rows.

@@ -44,7 +44,7 @@ const pages = [
 
 export default function AdminPagesIndex() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <PageHeader
         title="Pages"
         description="Edit marketing page sections with visual fields. Section order stays fixed on the public site."

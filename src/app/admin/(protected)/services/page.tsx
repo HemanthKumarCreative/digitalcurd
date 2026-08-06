@@ -19,7 +19,7 @@ export default async function AdminServicesPage() {
   )
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <PageHeader
         title="Services"
         description={`${services.length} services`}

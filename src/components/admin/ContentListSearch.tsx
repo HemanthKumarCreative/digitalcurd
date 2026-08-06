@@ -60,7 +60,7 @@ export const ContentListSearch = ({
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       <div className="relative max-w-md">
         <Search
           className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-[var(--admin-text-muted)]"
@@ -75,7 +75,7 @@ export const ContentListSearch = ({
         />
       </div>
       {filtered.length === 0 ? (
-        <p className="rounded-[var(--admin-radius-sm)] border border-dashed border-[var(--admin-border)] px-4 py-8 text-center text-sm text-[var(--admin-text-muted)]">
+        <p className="rounded-[var(--admin-radius-sm)] border border-dashed border-[var(--admin-border)] px-4 py-6 text-center text-sm text-[var(--admin-text-muted)]">
           No matches for “{query}”.
         </p>
       ) : (
@@ -84,7 +84,7 @@ export const ContentListSearch = ({
             <Link
               key={item.id}
               href={item.href}
-              className="group flex items-center justify-between gap-4 rounded-[var(--admin-radius)] border border-[var(--admin-border)] bg-white p-4 shadow-[var(--admin-shadow)] transition hover:border-[var(--admin-blue)]"
+              className="group flex items-center justify-between gap-4 rounded-[var(--admin-radius)] border border-[var(--admin-border)] bg-white px-4 py-3 shadow-[var(--admin-shadow)] transition hover:border-[var(--admin-blue)]"
             >
               <div className="min-w-0">
                 <p className="font-bold text-[var(--admin-navy)]">{item.title}</p>
