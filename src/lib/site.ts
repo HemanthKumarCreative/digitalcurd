@@ -25,6 +25,19 @@ export const isLocalHost = (host: string): boolean => {
   return h === 'localhost' || h === '127.0.0.1' || h.endsWith('.localhost')
 }
 
+/** Vercel production + preview URLs (e.g. digitalcurd.vercel.app). */
+export const isVercelDeploymentHost = (host: string): boolean => {
+  const h = host.split(':')[0]?.toLowerCase() || ''
+  return h === 'vercel.app' || h.endsWith('.vercel.app')
+}
+
+/**
+ * Hosts that expose admin at `/admin/*` (like localhost), instead of a dedicated admin domain.
+ * Public custom domains still block `/admin` and use `admin.digitalcurd.com` instead.
+ */
+export const allowsPathBasedAdmin = (host: string): boolean =>
+  isLocalHost(host) || isVercelDeploymentHost(host)
+
 export const isAdminHostName = (host: string): boolean => {
   const normalized = host.split(':')[0]?.toLowerCase() || ''
   const admin = getAdminHost().split(':')[0]?.toLowerCase() || ''

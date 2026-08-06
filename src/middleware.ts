@@ -2,7 +2,7 @@ import { type NextRequest, NextResponse } from 'next/server'
 import { checkRateLimit } from '@/lib/admin/rate-limit'
 import { ADMIN_SESSION_COOKIE } from '@/lib/auth/session'
 import { getSessionFromRequest } from '@/lib/auth/session'
-import { getAdminHost, isAdminHostName, isLocalHost } from '@/lib/site'
+import { allowsPathBasedAdmin, getAdminHost, isAdminHostName, isLocalHost } from '@/lib/site'
 
 const PUBLIC_FILE = /\.(.*)$/
 
@@ -10,6 +10,7 @@ export const middleware = async (request: NextRequest) => {
   const { pathname } = request.nextUrl
   const host = request.headers.get('host') || 'localhost:3000'
   const local = isLocalHost(host)
+  const pathAdmin = allowsPathBasedAdmin(host)
   const adminHost = isAdminHostName(host)
   const isProd = process.env.NODE_ENV === 'production'
 
@@ -37,15 +38,12 @@ export const middleware = async (request: NextRequest) => {
   }
 
   if (!adminHost && pathname.startsWith('/admin')) {
-    if (local) {
-      return NextResponse.next()
+    if (!pathAdmin) {
+      const url = request.nextUrl.clone()
+      url.pathname = '/'
+      return NextResponse.redirect(url)
     }
-    const url = request.nextUrl.clone()
-    url.pathname = '/'
-    return NextResponse.redirect(url)
-  }
-
-  if (!adminHost && pathname.startsWith('/studio')) {
+  } else if (!adminHost && pathname.startsWith('/studio')) {
     if (isProd && !local) {
       const url = request.nextUrl.clone()
       url.pathname = '/'
@@ -84,7 +82,7 @@ export const middleware = async (request: NextRequest) => {
     return NextResponse.rewrite(url)
   }
 
-  if (local && pathname.startsWith('/admin')) {
+  if (pathAdmin && pathname.startsWith('/admin')) {
     const isLogin = pathname === '/admin/login'
     if (!hasSession && !isLogin) {
       const loginUrl = request.nextUrl.clone()
