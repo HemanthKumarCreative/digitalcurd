@@ -12,7 +12,6 @@ import type { ServiceContent, ServiceMeta } from '@/types/content'
 type ServicePageViewProps = {
   service: ServiceContent & {
     _id?: string
-    phone?: { label: string; href: string }
   }
   related?: ServiceMeta[]
 }
@@ -30,7 +29,6 @@ export default function ServicePageView({ service, related = [] }: ServicePageVi
           backgroundUrl: service.heroImage,
           cta: service.cta,
           secondaryCta: { label: 'View all services', href: '/services' },
-          phone: service.phone,
         }}
         documentId={documentId}
         documentType="service"

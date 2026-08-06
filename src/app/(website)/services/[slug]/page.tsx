@@ -69,7 +69,6 @@ export default async function ServiceSlugPage({ params }: PageProps) {
   const mapped = {
     ...service,
     heroImage,
-    phone: service.phone || siteSettings.phone,
     relatedSlugs: (service.relatedSlugs || []) as string[],
   }
 
