@@ -37,6 +37,8 @@ import {
 } from './fallback'
 import type { PageHeroContent, SanityImageLike } from './types'
 import { resolveImageUrl } from './image'
+import { normalizeBlogPost } from '@/lib/blog/normalize'
+import type { BlogAuthor, BlogRelatedPost, BlogSection } from '@/types/blog'
 
 type HomePageData = typeof fallbackHomePage & {
   seo?: SeoFields
@@ -82,6 +84,13 @@ type PostData = (typeof fallbackPosts)[number] & {
   coverImage?: SanityImageLike
   body?: unknown
   seo?: SeoFields
+  sections?: BlogSection[]
+  faqs?: { question: string; answer: string }[]
+  relatedPosts?: BlogRelatedPost[]
+  author?: BlogAuthor
+  updatedAt?: string
+  readingMinutes?: number
+  cta?: { label: string; href: string }
 }
 
 type ServiceData = {
@@ -229,7 +238,97 @@ export const getBlogIndex = async () => {
 
 export const getPostBySlug = async (slug: string): Promise<PostData | null> => {
   const data = await sanityFetch<PostData>(postBySlugQuery, { slug }, ['blog', `post:${slug}`])
-  return (data || getFallbackPost(slug)) as PostData | null
+  const fallback = getFallbackPost(slug)
+  const raw = data || fallback
+  if (!raw) return null
+
+  // Prefer structured fallback content when CMS posts are still legacy paragraphs-only
+  const useFallbackStructure =
+    Boolean(fallback) &&
+    (!Array.isArray(raw.sections) || raw.sections.length === 0) &&
+    Array.isArray(fallback?.sections) &&
+    (fallback?.sections.length || 0) > 0
+
+  const source = useFallbackStructure
+    ? { ...raw, ...fallback, _id: raw._id }
+    : {
+        ...raw,
+        relatedServiceSlugs:
+          (raw as { relatedServiceSlugs?: string[] }).relatedServiceSlugs?.length
+            ? (raw as { relatedServiceSlugs?: string[] }).relatedServiceSlugs
+            : fallback?.relatedServiceSlugs,
+        cta: raw.cta || fallback?.cta,
+        faqs:
+          (fallback?.faqs?.length || 0) >= 10 &&
+          (!raw.faqs?.length || raw.faqs.length < 10)
+            ? fallback?.faqs
+            : raw.faqs?.length
+              ? raw.faqs
+              : fallback?.faqs,
+        author: raw.author || fallback?.author,
+      }
+
+  const coverImageUrl =
+    resolveImageUrl(source.coverImage, source.coverImageUrl) || source.coverImageUrl || ''
+
+  const relatedPosts = (source.relatedPosts || []).map((related) => ({
+    ...related,
+    coverImageUrl:
+      resolveImageUrl(
+        (related as { coverImage?: SanityImageLike }).coverImage,
+        related.coverImageUrl
+      ) ||
+      related.coverImageUrl ||
+      related.coverImage ||
+      '',
+  }))
+
+  const normalized = normalizeBlogPost(
+    {
+      _id: source._id,
+      title: source.title,
+      slug: source.slug,
+      excerpt: source.excerpt,
+      publishedAt: source.publishedAt,
+      updatedAt: source.updatedAt,
+      readingMinutes: source.readingMinutes,
+      category: source.category,
+      coverImageUrl,
+      bodyParagraphs: source.bodyParagraphs,
+      sections: source.sections,
+      faqs: source.faqs,
+      relatedPosts,
+      relatedServiceSlugs:
+        (source as { relatedServiceSlugs?: string[] }).relatedServiceSlugs ||
+        fallback?.relatedServiceSlugs,
+      author: source.author || fallback?.author,
+      cta: source.cta || fallback?.cta,
+      seo: source.seo,
+    },
+    relatedPosts.length ? relatedPosts : fallback?.relatedPosts || []
+  )
+
+  return {
+    ...source,
+    _id: raw._id,
+    title: normalized.title,
+    slug: normalized.slug,
+    excerpt: normalized.excerpt,
+    publishedAt: normalized.date,
+    updatedAt: normalized.updatedAt,
+    readingMinutes: normalized.readingMinutes,
+    category: normalized.category,
+    coverImage: source.coverImage ?? null,
+    coverImageUrl: normalized.coverImage,
+    bodyParagraphs: normalized.body || source.bodyParagraphs,
+    sections: normalized.sections,
+    faqs: normalized.faqs,
+    relatedPosts: normalized.relatedPosts,
+    relatedServiceSlugs: normalized.relatedServiceSlugs,
+    author: normalized.author,
+    cta: normalized.cta,
+    seo: normalized.seo,
+  } as unknown as PostData
 }
 
 export const getPostSlugs = async () => {

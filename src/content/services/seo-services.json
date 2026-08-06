@@ -69,15 +69,43 @@
   "faqs": [
     {
       "question": "How long does a typical SEO engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "answer": "Technical and on-page foundations usually take 4–8 weeks. Meaningful organic growth compounds over 3–6+ months of consistent execution."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We plug into your CMS, analytics, Search Console, and content workflows, and we collaborate with in-house marketers or founders."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Non-branded growth, conversions from organic, rankings for revenue terms, Core Web Vitals, and content ROI — reported monthly."
+    },
+    {
+      "question": "Do you do technical SEO and content?",
+      "answer": "Yes. Audits, crawl health, schema, internal linking, page templates, and an editorial roadmap tied to commercial intent."
+    },
+    {
+      "question": "Ecommerce SEO too?",
+      "answer": "Yes — collection/product architecture, facet strategy, duplicate control, and content that supports category demand."
+    },
+    {
+      "question": "How do you avoid risky shortcuts?",
+      "answer": "No PBNs, no fake engagement schemes. We build durable authority with useful content, technical excellence, and ethical link earning."
+    },
+    {
+      "question": "Will you rewrite our site copy?",
+      "answer": "Where it moves rankings and conversions. We prioritize high-impact templates and money pages before long-tail sprawl."
+    },
+    {
+      "question": "Local SEO included?",
+      "answer": "When relevant: Google Business Profile, location pages, citations hygiene, and review strategy aligned to your markets."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "We run a technical + content opportunity audit, then propose a 90-day sprint with clear owners and KPIs."
+    },
+    {
+      "question": "Who executes month to month?",
+      "answer": "An SEO lead with content and engineering support as needed; you approve priorities in a simple monthly cadence."
     }
   ],
   "relatedSlugs": [

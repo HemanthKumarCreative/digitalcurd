@@ -22,9 +22,9 @@ export default async function AdminBlogPage() {
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Blog"
+        title="Articles"
         description={`${posts.length} posts`}
-        breadcrumbs={[{ label: 'Content' }, { label: 'Blog' }]}
+        breadcrumbs={[{ label: 'Content' }, { label: 'Articles' }]}
         actions={<CreateDocumentButton kind="post" />}
       />
       <ContentListSearch

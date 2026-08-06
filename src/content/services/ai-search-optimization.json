@@ -68,16 +68,44 @@
   ],
   "faqs": [
     {
-      "question": "How long does a typical AI Search Optimization (AEO/GEO) engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "question": "How long does a typical AI Search Optimization engagement take?",
+      "answer": "Foundational AEO/GEO work usually takes 6–12 weeks, then ongoing content and entity optimization compounds visibility over subsequent quarters."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We collaborate with SEO, content, and engineering teams and extend your CMS, analytics, and schema tooling rather than forcing a rip-and-replace."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "We track branded and unbranded visibility in AI answers, citation share, organic conversions, entity coverage, and search demand for priority topics."
+    },
+    {
+      "question": "How is this different from traditional SEO?",
+      "answer": "Classic SEO optimizes rankings and clicks. AI Search Optimization also structures entities, evidence, and answer-ready content so AI systems can cite you accurately."
+    },
+    {
+      "question": "Do we still need SEO if we invest in AEO?",
+      "answer": "Yes. Technical health, crawlability, and authoritative pages remain the foundation. AEO builds on SEO — it does not replace it."
+    },
+    {
+      "question": "What content changes should we expect?",
+      "answer": "Clearer answer blocks, FAQs, comparisons, schema, internal linking, and evidence pages that make your expertise easy for both humans and AI systems to trust."
+    },
+    {
+      "question": "Will this help local or B2B brands?",
+      "answer": "Both. Local entities, service areas, and B2B product/category authority each get tailored entity and content playbooks."
+    },
+    {
+      "question": "How quickly can we see results?",
+      "answer": "Technical and content foundations show signal in weeks; durable citation and demand gains usually build over 1–2 quarters of consistent publishing."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "We audit your current search footprint, competitors, and entity gaps, then prioritize a 90-day roadmap tied to revenue topics."
+    },
+    {
+      "question": "Who owns the workstreams?",
+      "answer": "A search strategist leads; content and engineering support schema, page templates, and measurement instrumentation."
     }
   ],
   "relatedSlugs": [

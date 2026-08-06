@@ -14,18 +14,172 @@
       "href": "/contact"
     }
   },
+  "author": {
+    "name": "Digital Curd Editorial",
+    "slug": "digital-curd-editorial",
+    "role": "Growth Systems Team",
+    "avatarUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=400&q=80",
+    "bio": "Digital Curd Editorial covers AI, growth marketing, ecommerce, and modern engineering. We write practical guides for founders and operators who want systems that ship.",
+    "linkedinUrl": ""
+  },
   "posts": [
     {
       "slug": "ai-agents-for-growth-teams",
       "title": "How AI agents help growth teams ship faster",
-      "excerpt": "A practical look at where autonomous agents create leverage across research, ops, and customer journeys.",
+      "excerpt": "A practical look at where autonomous agents create leverage across research, ops, and customer journeys—and how to pilot them without chaos.",
       "date": "2026-07-14",
-      "coverImage": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+      "updatedAt": "2026-08-01",
+      "readingMinutes": 9,
+      "coverImage": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1600&q=80",
       "category": "AI & Automation",
+      "relatedSlugs": ["seo-meets-ai-search", "nextjs-for-conversion", "whatsapp-commerce-playbook"],
+      "relatedServiceSlugs": [
+        "ai-agent-development",
+        "workflow-automation",
+        "customer-support-ai"
+      ],
+      "cta": {
+        "title": "Ready to pilot AI agents with Digital Curd?",
+        "description": "We design and ship AI agent workflows for growth, ops, and support—tied to the KPIs your team already trusts.",
+        "label": "Explore AI Agents",
+        "href": "/services/ai-agent-development"
+      },
       "body": [
         "Growth teams are drowning in repetitive work: research summaries, lead triage, reporting, and handoffs between tools. AI agents are most valuable when they take ownership of a narrow workflow with clear inputs and outputs.",
         "Start with one high-friction process—like qualifying inbound leads or assembling weekly performance briefs. Instrument the steps, define success criteria, then let an agent handle the first draft while humans approve edge cases.",
         "The teams that win are not the ones with the most models. They are the ones who connect agents to clean data, clear brand rules, and the same KPIs their marketing and product orgs already trust."
+      ],
+      "sections": [
+        {
+          "_type": "blogProse",
+          "heading": "Why growth teams struggle with AI agents",
+          "headingId": "why-growth-teams-struggle-with-ai-agents",
+          "paragraphs": [
+            "Growth teams are drowning in repetitive work: research summaries, lead triage, reporting, and handoffs between tools. AI agents are most valuable when they take ownership of a narrow workflow with clear inputs and outputs.",
+            "Usually it is not one failure mode. An agent connected to messy CRM fields, vague brand rules, and no human review path will create more cleanup than leverage."
+          ]
+        },
+        {
+          "_type": "blogTable",
+          "heading": "Where agents create leverage",
+          "headingId": "where-agents-create-leverage",
+          "columns": ["Workflow", "Why agents help"],
+          "rows": [
+            ["Inbound lead triage", "Scores and routes leads from form fills with consistent criteria."],
+            ["Weekly performance briefs", "Pulls metrics, drafts narrative, and flags anomalies for humans."],
+            ["Competitive research", "Summarizes sources into a structured brief with citations."],
+            ["Customer journey QA", "Checks funnel steps and content consistency across pages."],
+            ["Experiment ops", "Tracks hypotheses, results, and next-test recommendations."],
+            ["Support handoffs", "Packages context so marketing and CX stay aligned."]
+          ]
+        },
+        {
+          "_type": "blogInlineCta",
+          "title": "Want an agent pilot that actually ships?",
+          "description": "Digital Curd’s [AI Agents](/services/ai-agent-development) and [Workflow Automation](/services/workflow-automation) teams help you scope one high-friction workflow, wire clean data, and launch with clear success criteria.",
+          "ctaLabel": "View AI Agents",
+          "ctaHref": "/services/ai-agent-development"
+        },
+        {
+          "_type": "blogGuide",
+          "heading": "How to pilot AI agents for growth",
+          "headingId": "how-to-pilot-ai-agents-for-growth",
+          "intro": "Start simple. Most successful pilots follow the same sequence: pick one workflow, define success, keep humans in the loop, then expand.",
+          "items": [
+            {
+              "title": "Pick one high-friction workflow",
+              "headingId": "pick-one-high-friction-workflow",
+              "paragraphs": [
+                "Choose a process your team already repeats every week with clear inputs and outputs—not a vague “automate marketing” goal."
+              ],
+              "steps": [
+                { "title": "List repetitive tasks", "body": "Capture research, triage, reporting, and handoff work that eats hours." },
+                { "title": "Score by friction", "body": "Prioritize tasks that are frequent, rules-based, and expensive when delayed." },
+                { "title": "Define the output", "body": "Decide the exact artifact the agent should produce (brief, score, ticket, summary)." }
+              ]
+            },
+            {
+              "title": "Instrument data and brand rules",
+              "headingId": "instrument-data-and-brand-rules",
+              "paragraphs": [
+                "Agents fail when data is dirty or brand guidance lives only in someone’s head. Document the rules before you automate."
+              ],
+              "steps": [
+                { "title": "Clean source fields", "body": "Normalize CRM, analytics, and content fields the agent will read." },
+                { "title": "Write approval criteria", "body": "Define what “good enough” looks like for a human reviewer." },
+                { "title": "Set guardrails", "body": "Block irreversible actions until the pilot proves reliability." }
+              ]
+            },
+            {
+              "title": "Run a human-in-the-loop pilot",
+              "headingId": "run-a-human-in-the-loop-pilot",
+              "paragraphs": [
+                "Let the agent draft; let humans approve. Expand autonomy only after quality and cycle time both improve."
+              ],
+              "bullets": [
+                "Track time saved per run",
+                "Track edit rate from human reviewers",
+                "Track impact on the same KPIs marketing already trusts"
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "blogCallout",
+          "variant": "tip",
+          "body": "The teams that win are not the ones with the most models. They connect agents to clean data, clear brand rules, and shared KPIs."
+        },
+        {
+          "_type": "blogProse",
+          "heading": "Conclusion",
+          "headingId": "conclusion",
+          "paragraphs": [
+            "AI agents help growth teams ship faster when the workflow is narrow, measured, and reviewed. Start with one process, prove the loop, then scale.",
+            "If you want a practical pilot mapped to your stack, start with Digital Curd [AI Agents](/services/ai-agent-development)—or pair agents with [AI for Customer Support](/services/customer-support-ai) when the first win is ticket deflection."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Where should a growth team start with AI agents?",
+          "answer": "Start with one high-friction, rules-based workflow such as inbound triage or weekly reporting. Digital Curd usually begins with a single agent use case before expanding into broader workflow automation."
+        },
+        {
+          "question": "Do AI agents replace growth marketers?",
+          "answer": "No. The best setups use agents for first drafts and repetitive ops while humans own strategy, brand judgment, and edge cases."
+        },
+        {
+          "question": "How do we know an agent pilot is working?",
+          "answer": "Measure cycle time, human edit rate, and impact on existing KPIs. Expand autonomy only when quality stays stable."
+        },
+        {
+          "question": "What tools do AI agents need to connect to?",
+          "answer": "Most pilots connect to CRM, analytics, support desks, and content systems. Start with the minimum integrations required for one workflow."
+        },
+        {
+          "question": "How long does a typical AI agent pilot take?",
+          "answer": "A focused pilot can show signal in a few weeks when the workflow is narrow and data is clean. Broader automation programs take longer because they need stronger guardrails."
+        },
+        {
+          "question": "Should agents act automatically or wait for approval?",
+          "answer": "Begin with human-in-the-loop approval. Move to supervised autonomy only after edit rates and quality metrics stabilize."
+        },
+        {
+          "question": "How is Digital Curd AI Agents different from a chatbot project?",
+          "answer": "Chatbots handle conversations. AI Agents own multi-step workflows with tools, memory, and outcomes—such as triage, research briefs, or support handoffs."
+        },
+        {
+          "question": "What data quality issues block agent success?",
+          "answer": "Inconsistent CRM fields, missing brand rules, duplicate records, and unclear ownership of KPIs. Clean those before scaling."
+        },
+        {
+          "question": "Can agents support customer support and growth at the same time?",
+          "answer": "Yes, but not in one launch. Pilot one domain first—growth ops or support—then reuse patterns through Workflow Automation."
+        },
+        {
+          "question": "How do we keep agents on-brand?",
+          "answer": "Document tone, offers, escalation rules, and forbidden actions. Review outputs weekly and update the rules as the agent expands."
+        }
       ],
       "seo": {
         "title": "How AI agents help growth teams ship faster",
@@ -37,12 +191,154 @@
       "title": "SEO still matters—here is how AI search changes it",
       "excerpt": "AEO and GEO do not replace SEO. They reward clearer structure, stronger entities, and answer-ready content.",
       "date": "2026-06-28",
-      "coverImage": "https://images.unsplash.com/photo-1432821596592-e2c18b78144f?auto=format&fit=crop&w=1200&q=80",
+      "updatedAt": "2026-07-20",
+      "readingMinutes": 8,
+      "coverImage": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
       "category": "Growth Marketing",
+      "relatedSlugs": ["ai-agents-for-growth-teams", "nextjs-for-conversion", "whatsapp-commerce-playbook"],
+      "relatedServiceSlugs": [
+        "ai-search-optimization",
+        "seo-services",
+        "content-marketing-services"
+      ],
+      "cta": {
+        "title": "Need an AI-ready SEO and content system?",
+        "description": "Digital Curd combines classic SEO with AEO/GEO so your pages rank, convert, and get cited in generative answers.",
+        "label": "Explore AI Search Optimization",
+        "href": "/services/ai-search-optimization"
+      },
       "body": [
         "Classic SEO still compounds: technical health, topical authority, and intent-matched pages remain foundational. AI answer engines simply raise the bar for clarity and trust.",
         "Structure content so machines and humans can extract the answer quickly. Use precise headings, original data, and entity-rich explanations of how your product solves a problem.",
         "Treat AI search optimization as an extension of content quality—not a separate channel. When your site is the best source, both Google and generative answers tend to follow."
+      ],
+      "sections": [
+        {
+          "_type": "blogProse",
+          "heading": "Why SEO still compounds in the AI era",
+          "headingId": "why-seo-still-compounds-in-the-ai-era",
+          "paragraphs": [
+            "Classic SEO still compounds: technical health, topical authority, and intent-matched pages remain foundational. AI answer engines simply raise the bar for clarity and trust.",
+            "If your pages are thin, vague, or hard to parse, both traditional rankings and generative answers will skip you."
+          ]
+        },
+        {
+          "_type": "blogTable",
+          "heading": "SEO vs AEO vs GEO",
+          "headingId": "seo-vs-aeo-vs-geo",
+          "columns": ["Approach", "What it rewards"],
+          "rows": [
+            ["SEO", "Crawlability, relevance, authority, and intent match."],
+            ["AEO", "Clear answers, FAQ structure, and extractable snippets."],
+            ["GEO", "Entity clarity, citations, and source trust for generative engines."],
+            ["Technical foundations", "Fast pages, clean indexation, and structured data."],
+            ["Content quality", "Original insight, proof, and useful depth."],
+            ["Measurement", "Rankings plus assisted conversions and citation share."]
+          ]
+        },
+        {
+          "_type": "blogInlineCta",
+          "title": "Need an AI-ready content system?",
+          "description": "Digital Curd’s [AI Search Optimization (AEO/GEO)](/services/ai-search-optimization), [SEO](/services/seo-services), and [Content Marketing](/services/content-marketing-services) teams rebuild information architecture, answer blocks, and entity-rich pages that win in classic and AI search.",
+          "ctaLabel": "View AEO / GEO services",
+          "ctaHref": "/services/ai-search-optimization"
+        },
+        {
+          "_type": "blogGuide",
+          "heading": "How to optimize for AI search without abandoning SEO",
+          "headingId": "how-to-optimize-for-ai-search",
+          "intro": "Treat AI search as an extension of content quality. The same page can rank, convert, and get cited when structure and proof are strong.",
+          "items": [
+            {
+              "title": "Make answers extractable",
+              "headingId": "make-answers-extractable",
+              "paragraphs": [
+                "Structure content so machines and humans can pull the answer quickly."
+              ],
+              "steps": [
+                { "title": "Lead with the answer", "body": "Open key sections with a concise definition or recommendation." },
+                { "title": "Use precise headings", "body": "Match real questions people ask, not clever but vague titles." },
+                { "title": "Add FAQ blocks", "body": "Cover follow-up questions with direct, scannable answers." }
+              ]
+            },
+            {
+              "title": "Strengthen entities and proof",
+              "headingId": "strengthen-entities-and-proof",
+              "paragraphs": [
+                "Generative engines prefer sources that clearly explain who you are, what you offer, and why you are credible."
+              ],
+              "bullets": [
+                "Original data and examples",
+                "Consistent product and brand naming",
+                "Expert bylines and updated dates",
+                "Internal links that reinforce topical clusters"
+              ]
+            },
+            {
+              "title": "Keep technical SEO healthy",
+              "headingId": "keep-technical-seo-healthy",
+              "paragraphs": [
+                "AI search does not forgive slow, blocked, or duplicate pages. Foundations still decide whether you are eligible to compete."
+              ],
+              "steps": [
+                { "title": "Audit indexation", "body": "Fix crawl waste, thin pages, and conflicting canonicals." },
+                { "title": "Improve Core Web Vitals", "body": "Ship fast templates so answer-worthy pages stay usable." },
+                { "title": "Validate structured data", "body": "Use Article, FAQ, and Organization schema where relevant." }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "blogProse",
+          "heading": "Conclusion",
+          "headingId": "conclusion",
+          "paragraphs": [
+            "AEO and GEO do not replace SEO. They reward clearer structure, stronger entities, and answer-ready content on top of the fundamentals you already know.",
+            "When your site is the best source, both Google and generative answers tend to follow. Digital Curd can help you operationalize that through [AI Search Optimization](/services/ai-search-optimization) and durable [SEO](/services/seo-services)."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Does AI search mean traditional SEO is dead?",
+          "answer": "No. Technical health, topical authority, and intent-matched pages still matter. AI search raises the bar for clarity and trust."
+        },
+        {
+          "question": "What is the difference between AEO and GEO?",
+          "answer": "AEO focuses on answer extraction and FAQ-style clarity. GEO focuses on becoming a trusted cited source inside generative engines."
+        },
+        {
+          "question": "Should we write separate content for AI search?",
+          "answer": "Usually no. Improve the same pages with better structure, proof, and entity clarity so one asset works across channels."
+        },
+        {
+          "question": "Which pages should we optimize first for AEO?",
+          "answer": "Start with high-intent service pages, comparison pages, and FAQs that already attract demand. Make answers extractable and evidence-backed."
+        },
+        {
+          "question": "Do we still need backlinks in the AI search era?",
+          "answer": "Yes. Authority and trust signals still matter. AI engines prefer credible sources, so links and brand mentions remain useful."
+        },
+        {
+          "question": "How does Digital Curd approach AI Search Optimization?",
+          "answer": "We combine technical SEO, entity-rich content, FAQ architecture, and measurement so pages can rank in Google and get cited in generative answers."
+        },
+        {
+          "question": "What schema markup helps AI search?",
+          "answer": "Article, FAQ, Organization, and Service schema help machines understand your pages. Schema supports clarity—it does not replace strong content."
+        },
+        {
+          "question": "How should content teams change their writing process?",
+          "answer": "Lead with the answer, use precise headings, add proof, and keep pages updated. Treat each section as something a model might quote."
+        },
+        {
+          "question": "Can content marketing and SEO still share one roadmap?",
+          "answer": "Yes. One roadmap should cover topical clusters, answer blocks, and conversion paths so SEO, AEO, and content reinforce each other."
+        },
+        {
+          "question": "How do we measure success beyond rankings?",
+          "answer": "Track organic conversions, assisted pipeline, citation appearances, and engagement on answer-led pages—not rankings alone."
+        }
       ],
       "seo": {
         "title": "SEO still matters—here is how AI search changes it",
@@ -52,14 +348,155 @@
     {
       "slug": "nextjs-for-conversion",
       "title": "Why Next.js is a conversion engine, not just a framework",
-      "excerpt": "Performance, SEO, and experimentation loops make modern web stacks a growth lever.",
+      "excerpt": "Performance, SEO, and experimentation loops make modern web stacks a growth lever—not just a developer preference.",
       "date": "2026-06-02",
-      "coverImage": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80",
+      "updatedAt": "2026-07-12",
+      "readingMinutes": 8,
+      "coverImage": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1600&q=80",
       "category": "Digital Engineering",
+      "relatedSlugs": ["ai-agents-for-growth-teams", "seo-meets-ai-search", "whatsapp-commerce-playbook"],
+      "relatedServiceSlugs": [
+        "nextjs-development",
+        "web-development",
+        "headless-cms-development"
+      ],
+      "cta": {
+        "title": "Need a conversion-ready Next.js platform?",
+        "description": "Digital Curd builds Next.js sites with design systems, headless CMS models, and analytics wired for growth from day one.",
+        "label": "Explore Next.js development",
+        "href": "/services/nextjs-development"
+      },
       "body": [
         "Marketing sites fail quietly when they are slow, hard to iterate, or disconnected from analytics. Next.js helps teams ship fast experiences without sacrificing SEO or developer velocity.",
         "Pair the framework with a design system, clean CMS content models, and event tracking from day one. That combination turns every launch into a measurable experiment.",
         "The goal is not a prettier homepage. The goal is a durable platform where growth, product, and engineering can improve conversion together."
+      ],
+      "sections": [
+        {
+          "_type": "blogProse",
+          "heading": "Why marketing sites leak conversion",
+          "headingId": "why-marketing-sites-leak-conversion",
+          "paragraphs": [
+            "Marketing sites fail quietly when they are slow, hard to iterate, or disconnected from analytics. Next.js helps teams ship fast experiences without sacrificing SEO or developer velocity.",
+            "The framework alone is not enough. Conversion improves when performance, content ops, and measurement share one stack."
+          ]
+        },
+        {
+          "_type": "blogTable",
+          "heading": "Conversion levers a modern stack unlocks",
+          "headingId": "conversion-levers",
+          "columns": ["Lever", "Why it matters"],
+          "rows": [
+            ["Performance", "Faster pages reduce bounce and improve qualified engagement."],
+            ["SEO readiness", "Server rendering and metadata keep acquisition channels healthy."],
+            ["Design system", "Reusable UI makes experiments safer and cheaper."],
+            ["CMS models", "Marketers ship content without engineering bottlenecks."],
+            ["Event tracking", "Every launch becomes a measurable experiment."],
+            ["Iteration speed", "Growth and engineering improve conversion together."]
+          ]
+        },
+        {
+          "_type": "blogInlineCta",
+          "title": "Need a conversion-ready web platform?",
+          "description": "Digital Curd’s [Next.js](/services/nextjs-development), [Website Development](/services/web-development), and [Headless CMS](/services/headless-cms-development) teams ship design systems, CMS models, and analytics wired for growth from day one.",
+          "ctaLabel": "View Next.js services",
+          "ctaHref": "/services/nextjs-development"
+        },
+        {
+          "_type": "blogGuide",
+          "heading": "How to make Next.js a growth platform",
+          "headingId": "how-to-make-nextjs-a-growth-platform",
+          "intro": "Treat the website as a product. Pair the framework with the operating layer growth teams need.",
+          "items": [
+            {
+              "title": "Ship a design system early",
+              "headingId": "ship-a-design-system-early",
+              "paragraphs": [
+                "Reusable components keep experiments consistent and reduce one-off UI debt."
+              ],
+              "steps": [
+                { "title": "Define core patterns", "body": "Buttons, forms, cards, heroes, and CTA bands first." },
+                { "title": "Document usage", "body": "Give marketing and engineering the same component language." },
+                { "title": "Gate new pages", "body": "Prefer composition over custom one-offs." }
+              ]
+            },
+            {
+              "title": "Model content for change",
+              "headingId": "model-content-for-change",
+              "paragraphs": [
+                "A clean CMS model lets teams update offers, FAQs, and landing sections without redeploying everything."
+              ],
+              "bullets": [
+                "Structured page sections",
+                "Reusable CTA objects",
+                "SEO fields on every key template"
+              ]
+            },
+            {
+              "title": "Instrument conversion from day one",
+              "headingId": "instrument-conversion-from-day-one",
+              "paragraphs": [
+                "If events are an afterthought, you cannot tell which launch improved pipeline."
+              ],
+              "steps": [
+                { "title": "Define key events", "body": "CTA clicks, form starts, form submits, and qualified leads." },
+                { "title": "Wire analytics", "body": "Connect page templates to your analytics and CRM destinations." },
+                { "title": "Review weekly", "body": "Use the same dashboard growth and engineering already trust." }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "blogProse",
+          "heading": "Conclusion",
+          "headingId": "conclusion",
+          "paragraphs": [
+            "The goal is not a prettier homepage. The goal is a durable platform where growth, product, and engineering can improve conversion together.",
+            "Next.js is the engine. Design systems, CMS models, and measurement turn it into a growth system—exactly what Digital Curd ships through [Next.js development](/services/nextjs-development)."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Is Next.js only for engineering teams?",
+          "answer": "No. With a design system and CMS, marketers can ship content quickly while engineers protect performance and quality."
+        },
+        {
+          "question": "How does Next.js help SEO?",
+          "answer": "Server rendering, metadata control, and fast templates make it easier to ship crawlable, high-performing marketing pages."
+        },
+        {
+          "question": "What should we wire before launch?",
+          "answer": "Core conversion events, CMS models for key sections, and a reusable CTA pattern so experiments are measurable."
+        },
+        {
+          "question": "Why choose Next.js over a page builder for growth sites?",
+          "answer": "Next.js gives better performance control, cleaner SEO foundations, and safer experimentation when paired with a design system and CMS."
+        },
+        {
+          "question": "Do we need a headless CMS with Next.js?",
+          "answer": "For most marketing sites, yes. A headless CMS lets teams update offers, FAQs, and landing sections without slow engineering bottlenecks."
+        },
+        {
+          "question": "How does Digital Curd keep Next.js sites conversion-focused?",
+          "answer": "We ship reusable UI, structured content models, analytics events, and clear CTA patterns so every launch can be measured and improved."
+        },
+        {
+          "question": "Can Next.js support both marketing pages and product experiences?",
+          "answer": "Yes. Many teams use Next.js for marketing sites, dashboards, and hybrid experiences when architecture and content models are planned early."
+        },
+        {
+          "question": "What performance metrics matter most for conversion?",
+          "answer": "Core Web Vitals, time to interactive on key landing pages, and form completion rates. Speed is a conversion feature, not a nice-to-have."
+        },
+        {
+          "question": "How should growth and engineering collaborate on a Next.js site?",
+          "answer": "Share one design system, one analytics contract, and a release cadence. Growth proposes experiments; engineering keeps the platform stable."
+        },
+        {
+          "question": "When should we rebuild instead of patching an old site?",
+          "answer": "When experiments are blocked by template debt, CMS limits, or performance issues that cannot be fixed without rewriting the core stack."
+        }
       ],
       "seo": {
         "title": "Why Next.js is a conversion engine, not just a framework",
@@ -71,12 +508,167 @@
       "title": "A simple WhatsApp commerce playbook for ecommerce brands",
       "excerpt": "Use conversational journeys to recover carts, support buyers, and nurture loyalty without spam.",
       "date": "2026-05-18",
-      "coverImage": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
-      "category": "Ecommerce",
+      "updatedAt": "2026-07-05",
+      "readingMinutes": 9,
+      "coverImage": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80",
+      "category": "Growth Marketing",
+      "relatedSlugs": ["ai-agents-for-growth-teams", "seo-meets-ai-search", "nextjs-for-conversion"],
+      "relatedServiceSlugs": [
+        "whatsapp-marketing",
+        "shopify-development",
+        "performance-marketing"
+      ],
+      "cta": {
+        "title": "Want WhatsApp journeys that convert?",
+        "description": "Digital Curd designs conversational commerce flows that recover carts, support buyers, and feed CRM insights—without spam.",
+        "label": "Explore WhatsApp Marketing",
+        "href": "/services/whatsapp-marketing"
+      },
       "body": [
         "WhatsApp works when it feels helpful—order updates, size guidance, restock alerts—not when it becomes another noisy broadcast channel.",
         "Map three journeys first: abandoned checkout recovery, post-purchase support, and VIP early access. Automate the repetitive steps and keep a human path for exceptions.",
         "Connect WhatsApp events back to your analytics and CRM so conversational commerce informs ad spend, creative, and merchandising decisions."
+      ],
+      "sections": [
+        {
+          "_type": "blogProse",
+          "heading": "Why WhatsApp commerce fails when it becomes spam",
+          "headingId": "why-whatsapp-commerce-fails",
+          "paragraphs": [
+            "WhatsApp works when it feels helpful—order updates, size guidance, restock alerts—not when it becomes another noisy broadcast channel.",
+            "Brands that win treat chat as a service layer connected to commerce data, not a blast list."
+          ]
+        },
+        {
+          "_type": "blogTable",
+          "heading": "Journeys that deserve automation first",
+          "headingId": "journeys-that-deserve-automation-first",
+          "columns": ["Journey", "Job to be done"],
+          "rows": [
+            ["Abandoned checkout recovery", "Bring shoppers back with useful context, not pressure."],
+            ["Post-purchase support", "Answer shipping, sizing, and return questions quickly."],
+            ["VIP early access", "Reward loyalty with exclusive drops and restocks."],
+            ["Order updates", "Reduce “where is my order?” tickets with proactive messages."],
+            ["Restock alerts", "Notify intent-rich buyers when inventory returns."],
+            ["Human escalation", "Route exceptions to agents with full order context."]
+          ]
+        },
+        {
+          "_type": "blogInlineCta",
+          "title": "Want a WhatsApp journey that converts?",
+          "description": "Pair Digital Curd [WhatsApp Marketing](/services/whatsapp-marketing) with [Shopify Development](/services/shopify-development) so conversational flows recover carts, support buyers, and feed CRM insights—without spam.",
+          "ctaLabel": "View WhatsApp Marketing",
+          "ctaHref": "/services/whatsapp-marketing"
+        },
+        {
+          "_type": "blogGuide",
+          "heading": "How to launch a WhatsApp commerce playbook",
+          "headingId": "how-to-launch-a-whatsapp-commerce-playbook",
+          "intro": "Map three journeys first. Automate the repetitive steps and keep a human path for exceptions.",
+          "items": [
+            {
+              "title": "Recover abandoned checkouts",
+              "headingId": "recover-abandoned-checkouts",
+              "paragraphs": [
+                "Use helpful reminders with product context, inventory truth, and an easy path back to checkout."
+              ],
+              "steps": [
+                { "title": "Trigger on intent", "body": "Message after meaningful cart activity, not every browse." },
+                { "title": "Personalize lightly", "body": "Include product, size, or offer context without sounding creepy." },
+                { "title": "Offer help", "body": "Give a one-tap path to a human if the shopper is stuck." }
+              ]
+            },
+            {
+              "title": "Support buyers after purchase",
+              "headingId": "support-buyers-after-purchase",
+              "paragraphs": [
+                "Post-purchase chat reduces tickets and builds trust when answers are fast and accurate."
+              ],
+              "bullets": [
+                "Shipping and delivery updates",
+                "Size and product guidance",
+                "Return and exchange paths",
+                "Escalation to a human agent"
+              ]
+            },
+            {
+              "title": "Connect chat to CRM and analytics",
+              "headingId": "connect-chat-to-crm-and-analytics",
+              "paragraphs": [
+                "Conversational commerce only compounds when events inform ads, creative, and merchandising."
+              ],
+              "steps": [
+                { "title": "Log key events", "body": "Track opt-ins, recovered carts, support resolutions, and VIP conversions." },
+                { "title": "Sync customer profiles", "body": "Keep consent, preferences, and order history aligned." },
+                { "title": "Feed growth decisions", "body": "Use chat insights to improve offers and creative tests." }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "blogList",
+          "heading": "Signals your WhatsApp program is healthy",
+          "headingId": "signals-your-whatsapp-program-is-healthy",
+          "style": "bullet",
+          "items": [
+            "Reply times stay short on support threads",
+            "Opt-out rates stay low because messages feel useful",
+            "Recovered revenue is attributed cleanly",
+            "Agents have order context before they reply",
+            "VIP journeys feel exclusive, not noisy"
+          ]
+        },
+        {
+          "_type": "blogProse",
+          "heading": "Conclusion",
+          "headingId": "conclusion",
+          "paragraphs": [
+            "A simple WhatsApp commerce playbook beats a noisy broadcast calendar. Start with recovery, support, and VIP journeys—then connect the data loop.",
+            "If you want help designing flows that feel useful and measurable, start with Digital Curd [WhatsApp Marketing](/services/whatsapp-marketing) and connect it to your storefront and [Performance Marketing](/services/performance-marketing) stack."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What WhatsApp journeys should ecommerce brands launch first?",
+          "answer": "Start with abandoned checkout recovery, post-purchase support, and VIP early access. These create clear value without becoming spam."
+        },
+        {
+          "question": "How do we avoid WhatsApp feeling like another broadcast channel?",
+          "answer": "Message on intent, keep replies helpful, offer human escalation, and measure opt-outs as a quality signal."
+        },
+        {
+          "question": "Should WhatsApp events connect to CRM?",
+          "answer": "Yes. Sync consent, preferences, and conversion events so conversational commerce informs ads, creative, and merchandising."
+        },
+        {
+          "question": "Can WhatsApp Marketing work with Shopify stores?",
+          "answer": "Yes. Connecting WhatsApp journeys to Shopify order and inventory data makes recovery and support messages accurate and timely."
+        },
+        {
+          "question": "How often should brands message customers on WhatsApp?",
+          "answer": "Only when there is clear utility—order updates, restocks, cart help, or VIP access. Frequency should follow intent, not a blast calendar."
+        },
+        {
+          "question": "What consent rules matter for WhatsApp commerce?",
+          "answer": "Collect explicit opt-in, honor opt-outs immediately, and keep message categories transparent so trust and deliverability stay healthy."
+        },
+        {
+          "question": "How does Digital Curd measure WhatsApp program success?",
+          "answer": "We track recovered revenue, support deflection, response times, opt-out rate, and CRM-attributed conversions—not just message volume."
+        },
+        {
+          "question": "Should humans still handle some WhatsApp conversations?",
+          "answer": "Yes. Automate repetitive paths, then escalate exceptions to agents with full order context for better CX."
+        },
+        {
+          "question": "How do WhatsApp journeys support paid ads?",
+          "answer": "Chat events and preference data improve audience quality, creative feedback, and remarketing when connected to Performance Marketing."
+        },
+        {
+          "question": "What is a good first 30-day WhatsApp rollout?",
+          "answer": "Week 1: consent and order updates. Week 2: abandoned checkout. Week 3: post-purchase support. Week 4: one VIP or restock journey with reporting."
+        }
       ],
       "seo": {
         "title": "A simple WhatsApp commerce playbook for ecommerce brands",

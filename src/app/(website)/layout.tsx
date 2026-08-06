@@ -1,11 +1,13 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import SupportChatMount from '@/components/support-chat-mount'
 import JsonLd from '@/components/seo/JsonLd'
 import { DesignModeProvider } from '@/components/design-mode/DesignModeProvider'
 import { organizationJsonLd, webSiteJsonLd } from '@/lib/seo'
 import { DESIGN_MODE_COOKIE } from '@/lib/design-mode/constants'
 import { getServerSession } from '@/lib/auth/session'
 import { getServiceCatalog, getSiteSettings } from '@/sanity/lib/fetch'
+import { getWhatsAppNumber } from '@/lib/support-chat'
 import { cookies, draftMode } from 'next/headers'
 
 export default async function WebsiteLayout({
@@ -20,6 +22,8 @@ export default async function WebsiteLayout({
     cookies(),
     getServerSession(),
   ])
+
+  const whatsappNumber = getWhatsAppNumber()
 
   // Cookies alone are not enough — DesignModeProvider only activates inside the admin iframe.
   const designEligible =
@@ -36,6 +40,7 @@ export default async function WebsiteLayout({
         <link rel="stylesheet" href="/css/menu-v9.css" />
         <link rel="stylesheet" href="/css/index-v10.css" />
         <link rel="stylesheet" href="/css/dev-style.css" />
+        <link rel="stylesheet" href="/css/support-chat.css" />
         <JsonLd
           data={[
             organizationJsonLd({
@@ -50,6 +55,7 @@ export default async function WebsiteLayout({
         <Header services={serviceCatalog} />
         <main className="flex-1">{children}</main>
         <Footer settings={siteSettings} services={serviceCatalog} />
+        <SupportChatMount whatsappNumber={whatsappNumber} />
       </div>
     </DesignModeProvider>
   )

@@ -133,7 +133,7 @@ export const listDocumentsPreferDraft = async <T extends { _id: string }>(
 }
 
 export const resolveIdBySlug = async (
-  type: 'service' | 'post',
+  type: 'service' | 'post' | 'author',
   slug: string
 ): Promise<string | null> => {
   try {

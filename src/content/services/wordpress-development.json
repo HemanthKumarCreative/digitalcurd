@@ -68,16 +68,44 @@
   ],
   "faqs": [
     {
-      "question": "How long does a typical WordPress engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "question": "How long does a typical WordPress Development engagement take?",
+      "answer": "Marketing sites typically take 3–8 weeks. Custom blocks, memberships, or complex CMS models can take longer."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We train editors on Gutenberg/ACF patterns and integrate forms, CRM, and analytics cleanly."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Performance, editorial velocity, SEO readiness, uptime, and conversion on priority landing pages."
+    },
+    {
+      "question": "Custom theme or page builder?",
+      "answer": "We prefer maintainable block themes or carefully constrained builders — avoiding plugin sprawl that becomes fragile."
+    },
+    {
+      "question": "Headless WordPress an option?",
+      "answer": "Yes when you need a modern front end. We also ship excellent classic WP when that is the faster path to value."
+    },
+    {
+      "question": "How do you keep WordPress secure?",
+      "answer": "Hardened hosting, limited plugins, 2FA, backups, staging, and disciplined update workflows."
+    },
+    {
+      "question": "Can non-developers edit content safely?",
+      "answer": "Yes. We design editable patterns and field groups so teams update content without breaking layout."
+    },
+    {
+      "question": "Migrations from older WP sites?",
+      "answer": "Common. We migrate content, redirects, and SEO signals with a QA checklist before DNS cutover."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Share sitemap goals and must-have integrations. We propose IA, design, and a build timeline with milestones."
+    },
+    {
+      "question": "Who supports post-launch?",
+      "answer": "Optional care plans covering updates, uptime checks, and small enhancements."
     }
   ],
   "relatedSlugs": [

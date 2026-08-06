@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { ArrowRight } from 'lucide-react'
 import AnimatedLogo from './AnimatedLogo'
@@ -14,7 +15,23 @@ type HeaderProps = {
   services?: ServiceMeta[]
 }
 
+const isLightSurfacePath = (pathname: string) => {
+  if (pathname === '/') return false
+  return (
+    pathname.startsWith('/blog') ||
+    pathname.startsWith('/services') ||
+    pathname.startsWith('/about') ||
+    pathname.startsWith('/careers') ||
+    pathname.startsWith('/contact') ||
+    pathname.startsWith('/privacy') ||
+    pathname.startsWith('/disclaimer') ||
+    pathname.startsWith('/terms')
+  )
+}
+
 export default function Header({ services = [] }: HeaderProps) {
+  const pathname = usePathname() || '/'
+  const forceSolidHeader = isLightSurfacePath(pathname)
   const [activePanel, setActivePanel] = useState<string | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -57,7 +74,7 @@ export default function Header({ services = [] }: HeaderProps) {
 
   return (
     <header
-      className={`nav nav-v9 ${activePanel ? 'has-open-panel' : ''} ${isScrolled ? 'header-bg' : ''}`}
+      className={`nav nav-v9 ${activePanel ? 'has-open-panel' : ''} ${isScrolled || forceSolidHeader ? 'header-bg' : ''}`}
       id="nav"
     >
       <nav className="nav__bar" aria-label="Primary">
@@ -90,7 +107,7 @@ export default function Header({ services = [] }: HeaderProps) {
             Careers
           </Link>
           <Link href="/blog" className="trigger" onClick={() => setActivePanel(null)}>
-            Blogs
+            Articles
           </Link>
         </div>
 
@@ -234,7 +251,7 @@ export default function Header({ services = [] }: HeaderProps) {
             style={{ textDecoration: 'none' }}
             onClick={handleCloseMobile}
           >
-            Blog
+            Articles
           </Link>
         </div>
         <div className="drawer__ft">

@@ -68,16 +68,44 @@
   ],
   "faqs": [
     {
-      "question": "How long does a typical AI Agents engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "question": "How long does a typical AI Agent Development engagement take?",
+      "answer": "Most discovery-to-launch cycles run 6–14 weeks depending on tool access, data readiness, and the number of agent workflows. Ongoing optimization then improves accuracy and automation coverage month over month."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We plug into your CRM, helpdesk, knowledge bases, and internal APIs, and we collaborate with your product, ops, and engineering stakeholders rather than replacing them."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "We define KPIs at kickoff — task completion rate, handle-time reduction, deflection, conversion lift, or cost per resolved request — and report against them with clear baselines."
+    },
+    {
+      "question": "What kind of AI agents do you build?",
+      "answer": "We build task-focused agents for research, lead qualification, support triage, internal ops, and multi-step workflows — grounded in your data and tools, not generic chat demos."
+    },
+    {
+      "question": "Do agents need clean data before we start?",
+      "answer": "Helpful, but not a blocker. Discovery maps data gaps early; we often start with a high-ROI workflow while improving knowledge sources and permissions in parallel."
+    },
+    {
+      "question": "How do you keep agents accurate and safe?",
+      "answer": "We use grounded retrieval, tool allowlists, human-in-the-loop checkpoints for sensitive actions, evaluation sets, and monitoring so drift and hallucinations are caught early."
+    },
+    {
+      "question": "Can agents hand off to humans?",
+      "answer": "Yes. Escalation rules, transcript context, and CRM/helpdesk tickets are part of the design so agents assist your team instead of trapping customers in loops."
+    },
+    {
+      "question": "What do we get at launch?",
+      "answer": "A production agent workflow, admin/runbooks, evaluation baselines, analytics hooks, and a 30-day optimization plan focused on the KPIs we agreed on."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Share your use case on WhatsApp or the contact form. We run a discovery call, propose a scoped pilot, and confirm timeline, owners, and success metrics before build starts."
+    },
+    {
+      "question": "Who works on the engagement?",
+      "answer": "A solution lead, AI/automation engineer, and integration specialist — with design or marketing partners when the agent touches customer-facing journeys."
     }
   ],
   "relatedSlugs": [

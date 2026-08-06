@@ -68,16 +68,44 @@
   ],
   "faqs": [
     {
-      "question": "How long does a typical UI/UX engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "question": "How long does a typical UI/UX Design engagement take?",
+      "answer": "Focused product or website UX usually takes 3–8 weeks from research through high-fidelity UI, depending on scope."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We work in Figma, align to your design system, and partner closely with engineering for feasible specs."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Task success, conversion lift, usability findings resolved, design QA pass rates, and stakeholder clarity on flows."
+    },
+    {
+      "question": "Research included?",
+      "answer": "Lightweight research by default — interviews, analytics review, heuristic audit — scaled up when risk warrants deeper studies."
+    },
+    {
+      "question": "Do you deliver prototypes?",
+      "answer": "Yes. Clickable prototypes validate flows before expensive engineering builds the wrong thing."
+    },
+    {
+      "question": "Design systems or one-off screens?",
+      "answer": "We prefer reusable components. Even small projects get tokens and patterns that prevent UI drift."
+    },
+    {
+      "question": "Can you improve conversion without a full redesign?",
+      "answer": "Often. CRO-focused UX on key funnels can outperform a cosmetic redesign."
+    },
+    {
+      "question": "Handoff to developers?",
+      "answer": "Annotated Figma, states/variants, and redlines — plus availability during build for design QA."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Share product goals and current pain points. We propose a UX plan with milestones and review cadence."
+    },
+    {
+      "question": "Who designs?",
+      "answer": "Product/visual designers with UX leadership; content design support when microcopy is blocking conversion."
     }
   ],
   "relatedSlugs": [

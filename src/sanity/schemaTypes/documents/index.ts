@@ -376,6 +376,28 @@ export const service = defineType({
   },
 })
 
+export const author = defineType({
+  name: 'author',
+  title: 'Author',
+  type: 'document',
+  fields: [
+    defineField({ name: 'name', type: 'string', validation: (r) => r.required() }),
+    defineField({
+      name: 'slug',
+      type: 'slug',
+      options: { source: 'name', maxLength: 96 },
+      validation: (r) => r.required(),
+    }),
+    defineField({ name: 'role', type: 'string' }),
+    defineField({ name: 'avatarUrl', type: 'url', title: 'Avatar URL' }),
+    defineField({ name: 'bio', type: 'text', rows: 4 }),
+    defineField({ name: 'linkedinUrl', type: 'url', title: 'LinkedIn URL' }),
+  ],
+  preview: {
+    select: { title: 'name', subtitle: 'role' },
+  },
+})
+
 export const post = defineType({
   name: 'post',
   title: 'Blog Post',
@@ -390,9 +412,30 @@ export const post = defineType({
     }),
     defineField({ name: 'excerpt', type: 'text', rows: 3 }),
     defineField({ name: 'publishedAt', type: 'datetime' }),
+    defineField({ name: 'updatedAt', type: 'datetime', title: 'Updated at' }),
+    defineField({ name: 'readingMinutes', type: 'number', title: 'Reading minutes' }),
     defineField({ name: 'category', type: 'string' }),
+    defineField({
+      name: 'author',
+      type: 'reference',
+      to: [{ type: 'author' }],
+    }),
     defineField({ name: 'coverImage', type: 'image', options: { hotspot: true } }),
     defineField({ name: 'coverImageUrl', type: 'url' }),
+    defineField({
+      name: 'sections',
+      title: 'Article sections',
+      type: 'array',
+      of: [
+        { type: 'blogProse' },
+        { type: 'blogTable' },
+        { type: 'blogGuide' },
+        { type: 'blogSteps' },
+        { type: 'blogList' },
+        { type: 'blogInlineCta' },
+        { type: 'blogCallout' },
+      ],
+    }),
     defineField({
       name: 'body',
       type: 'array',
@@ -409,9 +452,32 @@ export const post = defineType({
     }),
     defineField({
       name: 'bodyParagraphs',
-      title: 'Body paragraphs (simple)',
+      title: 'Body paragraphs (legacy)',
       type: 'array',
       of: [{ type: 'text' }],
+    }),
+    defineField({ name: 'faqs', type: 'array', of: [{ type: 'faqItem' }] }),
+    defineField({
+      name: 'relatedPosts',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'post' }] }],
+    }),
+    defineField({
+      name: 'relatedServiceSlugs',
+      title: 'Related service slugs',
+      type: 'array',
+      of: [{ type: 'string' }],
+      description: 'Service page slugs such as ai-agent-development',
+    }),
+    defineField({
+      name: 'cta',
+      type: 'object',
+      fields: [
+        defineField({ name: 'title', type: 'string' }),
+        defineField({ name: 'description', type: 'text', rows: 3 }),
+        defineField({ name: 'label', type: 'string' }),
+        defineField({ name: 'href', type: 'string' }),
+      ],
     }),
     defineField({ name: 'seo', type: 'seo' }),
   ],

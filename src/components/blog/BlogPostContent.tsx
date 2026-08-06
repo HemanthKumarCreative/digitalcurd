@@ -1,46 +1,113 @@
 'use client'
 
 import Link from 'next/link'
+import { ArticleAuthorCard } from '@/components/blog/ArticleAuthorCard'
+import { ArticleHelpful } from '@/components/blog/ArticleHelpful'
+import { ArticleSectionRenderer } from '@/components/blog/ArticleSectionRenderer'
+import { ArticleShareBar } from '@/components/blog/ArticleShareBar'
+import { ArticleToc } from '@/components/blog/ArticleToc'
+import { RelatedPosts } from '@/components/blog/RelatedPosts'
 import CtaBand from '@/components/shared/CtaBand'
+import RelatedServices from '@/components/shared/RelatedServices'
+import SimpleFaq from '@/components/shared/SimpleFaq'
 import { DesignModeDocument } from '@/components/design-mode/DesignModeProvider'
 import { EditableImage } from '@/components/design-mode/EditableImage'
 import { EditableText } from '@/components/design-mode/EditableText'
+import { buildTocFromSections } from '@/lib/blog/utils'
+import type {
+  BlogAuthor,
+  BlogRelatedPost,
+  BlogSection,
+} from '@/types/blog'
+import type { FaqItem, ServiceMeta } from '@/types/content'
+
+type BlogCta = {
+  title?: string
+  description?: string
+  label?: string
+  href?: string
+  cta?: { label?: string; href?: string }
+}
 
 type BlogPostContentProps = {
   documentId: string
+  slug: string
   title: string
+  excerpt: string
   category: string
   publishedAt: string
+  updatedAt?: string
+  readingMinutes?: number
   coverImageUrl: string
-  bodyParagraphs: string[]
+  shareUrl: string
+  author?: BlogAuthor
+  sections: BlogSection[]
+  faqs: FaqItem[]
+  relatedPosts: BlogRelatedPost[]
+  relatedServices?: ServiceMeta[]
+  cta?: BlogCta
+}
+
+const formatDate = (value?: string) => {
+  if (!value) return ''
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) return value.slice(0, 10)
+  return date.toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
 }
 
 export default function BlogPostContent({
   documentId,
+  slug,
   title,
+  excerpt,
   category,
   publishedAt,
+  updatedAt,
+  readingMinutes,
   coverImageUrl,
-  bodyParagraphs,
+  shareUrl,
+  author,
+  sections,
+  faqs,
+  relatedPosts,
+  relatedServices = [],
+  cta,
 }: BlogPostContentProps) {
+  const toc = buildTocFromSections(
+    sections,
+    faqs.length ? [{ id: 'faqs', label: 'FAQs' }] : []
+  )
+  const updatedLabel = formatDate(updatedAt || publishedAt)
+  const publishedLabel = formatDate(publishedAt)
+  const ctaTitle =
+    cta?.title || 'Want this applied to your business?'
+  const ctaDescription =
+    cta?.description ||
+    'Book a free consultation and we will map a practical next step.'
+  const ctaLabel = cta?.cta?.label || cta?.label || 'Schedule a Call'
+  const ctaHref = cta?.cta?.href || cta?.href || '/contact'
+
   return (
     <DesignModeDocument documentId={documentId} documentType="post">
       <article className="dc-article" aria-label={title}>
         <div className="dc-article__inner">
-          <p className="dc-article__meta">
-            <Link href="/blog" style={{ color: 'inherit', textDecoration: 'none' }}>
-              Blog
-            </Link>
-            {' · '}
+          <nav className="dc-article__breadcrumb" aria-label="Breadcrumb">
+            <Link href="/">Home</Link>
+            <span aria-hidden>›</span>
+            <Link href="/blog">Articles</Link>
+            <span aria-hidden>›</span>
             <EditableText
               as="span"
               path="category"
               label="Post → Category"
               value={category}
             />
-            {' · '}
-            {publishedAt?.slice?.(0, 10) || publishedAt}
-          </p>
+          </nav>
+
           <EditableText
             as="h1"
             path="title"
@@ -48,32 +115,91 @@ export default function BlogPostContent({
             value={title}
             className="dc-article__title"
           />
-          <EditableImage
-            path="coverImageUrl"
-            label="Post → Cover"
-            value={coverImageUrl}
-            alt=""
-            className="dc-article__cover"
-          />
-          <div className="dc-article__body">
-            {bodyParagraphs.map((paragraph, index) => (
-              <EditableText
-                key={`p-${index}`}
-                as="p"
-                path={`bodyParagraphs[${index}]`}
-                label={`Post → Paragraph ${index + 1}`}
-                value={paragraph}
-                multiline
-              />
-            ))}
+
+          {excerpt ? (
+            <EditableText
+              as="p"
+              path="excerpt"
+              label="Post → Excerpt"
+              value={excerpt}
+              className="dc-article__lead"
+              multiline
+            />
+          ) : null}
+
+          <div className="dc-article__meta-strip">
+            <div>
+              <span className="dc-article__meta-label">Author</span>
+              <span className="dc-article__meta-value">
+                {author?.name || 'Digital Curd'}
+              </span>
+            </div>
+            <div>
+              <span className="dc-article__meta-label">Updated</span>
+              <span className="dc-article__meta-value">{updatedLabel || publishedLabel}</span>
+            </div>
+            <div>
+              <span className="dc-article__meta-label">Reading time</span>
+              <span className="dc-article__meta-value">
+                {readingMinutes ? `${readingMinutes} min` : '—'}
+              </span>
+            </div>
+          </div>
+
+          <ArticleShareBar title={title} url={shareUrl} />
+
+          {coverImageUrl ? (
+            <EditableImage
+              path="coverImageUrl"
+              label="Post → Cover"
+              value={coverImageUrl}
+              alt={title}
+              className="dc-article__cover"
+            />
+          ) : null}
+
+          <div className="dc-article__layout">
+            <ArticleToc items={toc} />
+            <div className="dc-article__main">
+              <ArticleSectionRenderer sections={sections} />
+              <ArticleHelpful slug={slug} />
+            </div>
           </div>
         </div>
+
+        {faqs.length ? (
+          <div id="faqs">
+            <SimpleFaq
+              title="Frequently Asked Questions"
+              faqs={faqs}
+              documentId={documentId}
+              documentType="post"
+              pathPrefix="faqs"
+            />
+          </div>
+        ) : null}
+
+        {author ? (
+          <div className="dc-article__inner">
+            <ArticleAuthorCard author={author} />
+          </div>
+        ) : null}
       </article>
 
+      <RelatedPosts posts={relatedPosts} />
+
+      {relatedServices.length ? (
+        <RelatedServices title="Related services" services={relatedServices} />
+      ) : null}
+
       <CtaBand
-        title="Want this applied to your business?"
-        description="Book a free consultation and we will map a practical next step."
-        cta={{ label: 'Schedule a Call', href: '/contact' }}
+        title={ctaTitle}
+        description={ctaDescription}
+        cta={{
+          label: ctaLabel,
+          href: ctaHref,
+        }}
+        pathPrefix="cta"
       />
     </DesignModeDocument>
   )

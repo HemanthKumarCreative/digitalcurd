@@ -69,15 +69,43 @@
   "faqs": [
     {
       "question": "How long does a typical Performance Marketing engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "answer": "Account setup and first campaigns can launch in 2–4 weeks. Learning and profitable scale usually take another 4–8 weeks of iteration."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We work inside your ad accounts, analytics, and CRM — and we partner with your creative or product teams when needed."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "CAC, ROAS/MER, qualified pipeline, payback period, and creative efficiency — not spend for its own sake."
+    },
+    {
+      "question": "Which channels do you manage?",
+      "answer": "Google, Meta, LinkedIn, and supporting remarketing — selected by audience economics, not by fashion."
+    },
+    {
+      "question": "Do you need our creatives?",
+      "answer": "We can brief, produce, or optimize existing assets. Strong creative testing is part of the growth loop."
+    },
+    {
+      "question": "How do you handle tracking?",
+      "answer": "GA4, GTM, platform pixels, and CRM offline conversions where possible so optimization mirrors real revenue."
+    },
+    {
+      "question": "What if we have a limited budget?",
+      "answer": "We start narrow: one primary channel, clear offer, tight audiences, and weekly kill/scale decisions."
+    },
+    {
+      "question": "Landing pages included?",
+      "answer": "We diagnose and recommend CRO changes; build/design support is available when pages are the bottleneck."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Share goals, margins, and current accounts. We audit, propose a test plan, then launch with transparent reporting."
+    },
+    {
+      "question": "Who runs the accounts day to day?",
+      "answer": "A performance lead owns strategy and pacing; specialists execute channel work with weekly optimization reviews."
     }
   ],
   "relatedSlugs": [

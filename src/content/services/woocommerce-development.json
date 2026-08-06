@@ -68,16 +68,44 @@
   ],
   "faqs": [
     {
-      "question": "How long does a typical WooCommerce engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "question": "How long does a typical WooCommerce Development engagement take?",
+      "answer": "Most store builds or major upgrades take 4–12 weeks depending on catalog complexity, plugins, and custom checkout needs."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We stabilize your WordPress/Woo stack, prune risky plugins, and align with your hosting and marketing tools."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Conversion rate, page speed, checkout reliability, uptime, and ease of catalog operations for your team."
+    },
+    {
+      "question": "Should we stay on Woo or move to Shopify?",
+      "answer": "We advise honestly. If Woo fits ops/cost, we harden it; if growth is blocked, we scope a clean migration."
+    },
+    {
+      "question": "How do you handle performance?",
+      "answer": "Caching, image strategy, lean plugins, server tuning, and Critical path fixes for Core Web Vitals on key templates."
+    },
+    {
+      "question": "Custom product logic possible?",
+      "answer": "Yes — variable products, B2B pricing, subscriptions, and ERP sync via well-structured custom code or trusted extensions."
+    },
+    {
+      "question": "Security and updates?",
+      "answer": "Hardening, least-privilege access, backup strategy, and a maintenance cadence so updates do not break checkout."
+    },
+    {
+      "question": "Can you redesign without replatforming?",
+      "answer": "Often yes. A modern theme/block approach can lift UX while preserving catalog and order history."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "We audit plugins, hosting, and conversion funnels, then propose a fix/build plan with risk-ranked priorities."
+    },
+    {
+      "question": "Who maintains Woo after launch?",
+      "answer": "Optional retainer for updates, monitoring, and feature iterations — recommended for ecommerce reliability."
     }
   ],
   "relatedSlugs": [

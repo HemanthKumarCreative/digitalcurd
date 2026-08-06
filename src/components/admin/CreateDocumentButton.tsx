@@ -119,6 +119,7 @@ export const CreateDocumentButton = ({ kind }: CreateDocumentButtonProps) => {
 
         if (kind === 'post') {
           id = documentIdFor('post', slugValue)
+          const now = new Date().toISOString()
           await createDocument({
             id,
             type: 'post',
@@ -128,15 +129,96 @@ export const CreateDocumentButton = ({ kind }: CreateDocumentButtonProps) => {
               slug: { _type: 'slug', current: slugValue },
               excerpt: 'Short summary for cards and SEO. Update before publishing.',
               category: category || 'Insights',
-              publishedAt: new Date().toISOString(),
+              publishedAt: now,
+              updatedAt: now,
+              readingMinutes: 5,
               coverImageUrl:
                 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80',
-              bodyParagraphs: [
-                'Write your first paragraph here. This post is saved as a draft until you publish.',
+              sections: [
+                {
+                  _type: 'blogProse',
+                  _key: 'intro',
+                  heading: 'Overview',
+                  headingId: 'overview',
+                  paragraphs: [
+                    'Write your introduction here. Explain the problem and what the reader will learn.',
+                  ],
+                },
+                {
+                  _type: 'blogTable',
+                  _key: 'table',
+                  heading: 'Key comparisons',
+                  headingId: 'key-comparisons',
+                  columns: ['Topic', 'Why it matters'],
+                  rows: [
+                    {
+                      _key: 'row-1',
+                      cells: ['Example topic', 'Describe why this matters for your service.'],
+                    },
+                  ],
+                },
+                {
+                  _type: 'blogInlineCta',
+                  _key: 'mid-cta',
+                  title: 'Need help applying this?',
+                  description:
+                    'Explore the related Digital Curd service, or book a consultation.',
+                  ctaLabel: 'View related service',
+                  ctaHref: '/services',
+                },
+                {
+                  _type: 'blogGuide',
+                  _key: 'guide',
+                  heading: 'How to put this into practice',
+                  headingId: 'how-to-put-this-into-practice',
+                  intro: 'Start with one practical win, then expand.',
+                  items: [
+                    {
+                      title: 'First action',
+                      headingId: 'first-action',
+                      paragraphs: ['Describe the first action clearly.'],
+                      steps: [
+                        { title: 'Prepare', body: 'Gather the inputs you need.' },
+                        { title: 'Execute', body: 'Run the first controlled change.' },
+                      ],
+                      bullets: [],
+                    },
+                    {
+                      title: 'Second action',
+                      headingId: 'second-action',
+                      paragraphs: ['Describe the follow-up action.'],
+                      steps: [{ title: 'Review', body: 'Check quality and impact.' }],
+                      bullets: [],
+                    },
+                  ],
+                },
+                {
+                  _type: 'blogProse',
+                  _key: 'conclusion',
+                  heading: 'Conclusion',
+                  headingId: 'conclusion',
+                  paragraphs: [
+                    'Summarize the takeaway and point readers to the matching Digital Curd service.',
+                  ],
+                },
               ],
+              faqs: [
+                {
+                  _key: 'faq-1',
+                  question: 'What is the first step?',
+                  answer: 'Start with one narrow workflow and define success criteria.',
+                },
+              ],
+              relatedServiceSlugs: [],
+              cta: {
+                title: 'Want this applied to your business?',
+                description: 'Talk to Digital Curd about the service that matches this playbook.',
+                label: 'Explore services',
+                href: '/services',
+              },
               seo: {
                 title: trimmedTitle,
-                description: 'Draft post. Update excerpt and body before publishing.',
+                description: 'Draft post. Update excerpt and sections before publishing.',
               },
             },
           })

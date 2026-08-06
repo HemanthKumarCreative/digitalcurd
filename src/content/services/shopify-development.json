@@ -69,15 +69,43 @@
   "faqs": [
     {
       "question": "How long does a typical Shopify Development engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "answer": "Theme builds and migrations commonly take 4–10 weeks. Shopify Plus or complex app ecosystems can run 8–16 weeks."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We collaborate with your merchants, marketers, and apps stack — and we extend Shopify rather than fighting it."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Conversion rate, speed, checkout completion, AOV, and operational efficiency for merchandising updates."
+    },
+    {
+      "question": "New store, redesign, or migration?",
+      "answer": "All three. We handle theme development, UX redesigns, and migrations from WooCommerce or other platforms with SEO redirects."
+    },
+    {
+      "question": "Shopify Plus experience?",
+      "answer": "Yes — checkout extensibility, B2B features, scripting/workflows, and performance patterns suited to higher volume brands."
+    },
+    {
+      "question": "Custom apps when needed?",
+      "answer": "When native apps fall short. We build lightweight apps/integrations for unique pricing, subscriptions, or ops workflows."
+    },
+    {
+      "question": "How do you protect SEO during rebuilds?",
+      "answer": "URL mapping, redirect plans, metadata parity, structured data, and post-launch crawl monitoring."
+    },
+    {
+      "question": "Can marketers edit pages easily?",
+      "answer": "We set up sections, metafields, and content models so merchandising does not require a developer for routine updates."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Share your catalog size, apps, and goals. We propose architecture, timeline, and a phased launch plan."
+    },
+    {
+      "question": "Who builds the store?",
+      "answer": "Shopify developers + UX, with QA on real devices and a structured UAT checklist before go-live."
     }
   ],
   "relatedSlugs": [

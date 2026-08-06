@@ -35,10 +35,20 @@ export const postsQuery = `*[_type == "post"] | order(publishedAt desc){
   "slug": slug.current,
   excerpt,
   publishedAt,
+  updatedAt,
+  readingMinutes,
   category,
   coverImage,
   coverImageUrl,
-  bodyParagraphs
+  bodyParagraphs,
+  "author": author->{
+    name,
+    "slug": slug.current,
+    role,
+    avatarUrl,
+    bio,
+    linkedinUrl
+  }
 }`
 
 export const postBySlugQuery = `*[_type == "post" && slug.current == $slug][0]{
@@ -47,12 +57,59 @@ export const postBySlugQuery = `*[_type == "post" && slug.current == $slug][0]{
   "slug": slug.current,
   excerpt,
   publishedAt,
+  updatedAt,
+  readingMinutes,
   category,
   coverImage,
   coverImageUrl,
   body,
   bodyParagraphs,
+  sections[]{
+    ...,
+    rows[]{
+      ...,
+      cells
+    },
+    items[]{
+      ...,
+      steps[],
+      paragraphs,
+      bullets
+    },
+    steps[]
+  },
+  faqs[],
+  cta,
+  relatedServiceSlugs,
+  "author": author->{
+    name,
+    "slug": slug.current,
+    role,
+    avatarUrl,
+    bio,
+    linkedinUrl
+  },
+  "relatedPosts": relatedPosts[]->{
+    title,
+    "slug": slug.current,
+    excerpt,
+    publishedAt,
+    category,
+    readingMinutes,
+    coverImage,
+    coverImageUrl
+  },
   seo
+}`
+
+export const authorsQuery = `*[_type == "author"] | order(name asc){
+  _id,
+  name,
+  "slug": slug.current,
+  role,
+  avatarUrl,
+  bio,
+  linkedinUrl
 }`
 
 export const serviceCatalogQuery = `*[_type == "service"] | order(category asc, title asc){

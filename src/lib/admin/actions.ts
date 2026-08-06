@@ -134,6 +134,11 @@ export const deleteDocument = async (opts: { id: string; type: string }) => {
     revalidatePath('/admin/blog')
     revalidateTag('blog', 'max')
   }
+  if (opts.type === 'author') {
+    revalidatePath('/admin/authors')
+    revalidatePath('/blog')
+    revalidateTag('blog', 'max')
+  }
   if (opts.type === 'job') {
     revalidatePath('/careers')
     revalidatePath('/admin/jobs')
@@ -168,7 +173,10 @@ export const createDocument = async (opts: {
       ? String((opts.data.slug as { current?: string }).current || '')
       : ''
 
-          if (slugCurrent && (opts.type === 'service' || opts.type === 'post')) {
+  if (
+    slugCurrent &&
+    (opts.type === 'service' || opts.type === 'post' || opts.type === 'author')
+  ) {
     const clash = await client.fetch<number>(
       `count(*[_type == $type && slug.current == $slug])`,
       { type: opts.type, slug: slugCurrent }
@@ -199,6 +207,11 @@ export const createDocument = async (opts: {
   if (opts.type === 'post') {
     revalidatePath('/blog')
     revalidatePath('/admin/blog')
+    revalidateTag('blog', 'max')
+  }
+  if (opts.type === 'author') {
+    revalidatePath('/admin/authors')
+    revalidatePath('/blog')
     revalidateTag('blog', 'max')
   }
   if (opts.type === 'job') {

@@ -86,6 +86,8 @@ export type BlogPost = {
   title: string
   excerpt: string
   date: string
+  updatedAt?: string
+  readingMinutes?: number
   coverImage: string
   category: string
   body: string[]

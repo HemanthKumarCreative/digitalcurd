@@ -68,16 +68,44 @@
   ],
   "faqs": [
     {
-      "question": "How long does a typical Progressive Web Apps engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "question": "How long does a typical Progressive Web App engagement take?",
+      "answer": "MVPs often launch in 6–12 weeks depending on offline needs, auth, and device feature scope."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We align with your design system, backend APIs, and release process, and we train stakeholders on PWA constraints."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Install/engagement rates, offline task completion, performance on mid-tier mobiles, and conversion vs your prior mobile web."
+    },
+    {
+      "question": "When is a PWA better than a native app?",
+      "answer": "When distribution speed, shared web codebase, and installability matter more than deep OS integrations. We advise honestly either way."
+    },
+    {
+      "question": "Offline support included?",
+      "answer": "Where it creates value — caching strategies, background sync, and clear UX for offline/online transitions."
+    },
+    {
+      "question": "Push notifications?",
+      "answer": "Supported where browsers and consent flows allow. We implement permission UX carefully to protect trust."
+    },
+    {
+      "question": "iOS limitations?",
+      "answer": "We design around known Safari/PWA constraints and set stakeholder expectations early — no surprise feature gaps."
+    },
+    {
+      "question": "Can you wrap an existing Next.js site?",
+      "answer": "Often yes. We add service workers, manifest, and resilient data patterns without rewriting the entire product."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Define must-have mobile journeys. We prototype critical flows and validate performance on real devices."
+    },
+    {
+      "question": "Who ships the PWA?",
+      "answer": "Front-end engineers specializing in performance and mobile UX, with QA across devices and network conditions."
     }
   ],
   "relatedSlugs": [

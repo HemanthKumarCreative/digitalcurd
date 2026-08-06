@@ -68,16 +68,44 @@
   ],
   "faqs": [
     {
-      "question": "How long does a typical Google Ads engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "question": "How long does a typical Google Ads Management engagement take?",
+      "answer": "Rebuild or launch usually takes 2–4 weeks. Continuous testing and scale run as a monthly retainer thereafter."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We manage inside your Google Ads and Analytics properties and coordinate with your SEO and landing page owners."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Qualified CPA, ROAS, impression share on priority terms, conversion rate, and lead quality from CRM feedback."
+    },
+    {
+      "question": "Search, Shopping, Performance Max, or YouTube?",
+      "answer": "We pick the mix from your margins and funnel. Lead-gen often starts with Search; ecommerce may lean Shopping/PMax with guardrails."
+    },
+    {
+      "question": "Will you fix our account structure?",
+      "answer": "Yes — cleaner campaigns, intent-based grouping, negatives, and bidding aligned to business outcomes."
+    },
+    {
+      "question": "How do you prevent wasted spend?",
+      "answer": "Query mining, geo/device controls, audience exclusions, schedule tests, and ruthless creative/ad copy iteration."
+    },
+    {
+      "question": "Do you write ad copy?",
+      "answer": "Yes. RSA assets, extensions, and landing message match are part of management — not an afterthought."
+    },
+    {
+      "question": "What reporting should we expect?",
+      "answer": "Clear weekly/monthly views: spend, efficiency, winners/losers, and next experiments — without vanity dashboards."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Grant access to Google Ads and GA4. We audit, prioritize fixes, and launch a 30-day optimization plan."
+    },
+    {
+      "question": "Who manages the account?",
+      "answer": "A Google Ads specialist with a performance lead reviewing strategy, budgets, and landing-page gaps."
     }
   ],
   "relatedSlugs": [

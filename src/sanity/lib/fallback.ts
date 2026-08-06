@@ -8,6 +8,8 @@ import disclaimerJson from '@/content/legal/disclaimer.json'
 import termsJson from '@/content/legal/terms-of-service.json'
 import catalogJson from '@/content/services/catalog.json'
 import { getServiceContent as getLocalService } from '@/content/services'
+import { normalizeBlogPost } from '@/lib/blog/normalize'
+import type { BlogAuthor, BlogRelatedPost, BlogSection } from '@/types/blog'
 import type { ServiceMeta } from '@/types/content'
 
 export type SeoFields = {
@@ -66,18 +68,65 @@ export const fallbackBlogIndex: WithSeo<{ hero: typeof blogJson.hero }> = {
   hero: blogJson.hero,
   seo: blogJson.seo,
 }
-export const fallbackPosts = blogJson.posts.map((p) => ({
-  _id: p.slug,
-  title: p.title,
+
+const fallbackAuthor = blogJson.author as BlogAuthor
+
+const relatedLookup: BlogRelatedPost[] = blogJson.posts.map((p) => ({
   slug: p.slug,
+  title: p.title,
   excerpt: p.excerpt,
   publishedAt: p.date,
+  date: p.date,
   category: p.category,
-  coverImage: null as null,
+  readingMinutes: p.readingMinutes,
   coverImageUrl: p.coverImage,
-  bodyParagraphs: p.body,
-  seo: p.seo,
 }))
+
+export const fallbackPosts = blogJson.posts.map((p) => {
+  const normalized = normalizeBlogPost(
+    {
+      slug: p.slug,
+      title: p.title,
+      excerpt: p.excerpt,
+      publishedAt: p.date,
+      updatedAt: p.updatedAt,
+      readingMinutes: p.readingMinutes,
+      category: p.category,
+      coverImageUrl: p.coverImage,
+      bodyParagraphs: p.body,
+      sections: p.sections as BlogSection[],
+      faqs: p.faqs,
+      relatedSlugs: p.relatedSlugs,
+      relatedServiceSlugs: p.relatedServiceSlugs,
+      cta: p.cta,
+      seo: p.seo,
+      author: fallbackAuthor,
+    },
+    relatedLookup,
+    fallbackAuthor
+  )
+  return {
+    _id: p.slug,
+    title: normalized.title,
+    slug: normalized.slug,
+    excerpt: normalized.excerpt,
+    publishedAt: normalized.date,
+    updatedAt: normalized.updatedAt,
+    readingMinutes: normalized.readingMinutes,
+    category: normalized.category,
+    coverImage: null as null,
+    coverImageUrl: normalized.coverImage,
+    bodyParagraphs: normalized.body || p.body,
+    sections: normalized.sections,
+    faqs: normalized.faqs,
+    relatedPosts: normalized.relatedPosts,
+    relatedServiceSlugs: normalized.relatedServiceSlugs,
+    author: normalized.author,
+    cta: normalized.cta,
+    seo: normalized.seo,
+  }
+})
+
 export const fallbackServicesIndex: WithSeo<{
   hero: {
     eyebrow: string
@@ -134,19 +183,12 @@ export const getFallbackLegal = (slug: string) => {
 }
 
 export const getFallbackPost = (slug: string) => {
-  const post = blogJson.posts.find((p) => p.slug === slug)
+  const post = fallbackPosts.find((p) => p.slug === slug)
   if (!post) return null
   return {
-    _id: post.slug,
-    title: post.title,
-    slug: post.slug,
-    excerpt: post.excerpt,
-    publishedAt: post.date,
-    category: post.category,
-    coverImage: null,
-    coverImageUrl: post.coverImage,
+    ...post,
     body: null,
-    bodyParagraphs: post.body,
-    seo: post.seo,
   }
 }
+
+export const fallbackAuthors = [fallbackAuthor]

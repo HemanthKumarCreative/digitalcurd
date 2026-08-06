@@ -69,15 +69,43 @@
   "faqs": [
     {
       "question": "How long does a typical Website Development engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "answer": "Most marketing sites launch in 4–8 weeks. Larger content systems or multi-locale sites often take 8–12+ weeks."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We integrate with your CRM, analytics, CMS preferences, and brand guidelines, and we collaborate with internal stakeholders."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Core Web Vitals, conversion rate, lead quality, SEO readiness, and how easily your team can update content."
+    },
+    {
+      "question": "Which stack do you recommend?",
+      "answer": "We choose based on goals — often Next.js for performance/SEO, WordPress for editorial speed, or Shopify when commerce is core."
+    },
+    {
+      "question": "Do you handle UX and development together?",
+      "answer": "Yes. Design and engineering stay connected so the site ships beautiful and buildable — no throw-over-the-wall comps."
+    },
+    {
+      "question": "Will the site be accessible?",
+      "answer": "We aim for WCAG-minded structure: semantics, contrast, keyboard use, and forms that work with assistive tech."
+    },
+    {
+      "question": "SEO foundations included?",
+      "answer": "Yes — metadata, sitemap/robots, schema basics, performance, and clean URL architecture from day one."
+    },
+    {
+      "question": "Can you redesign an existing site?",
+      "answer": "Absolutely. We modernize UX and tech while protecting SEO equity with redirects and content mapping."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Book a discovery call via WhatsApp or the contact form. You get a scoped proposal with timeline and investment."
+    },
+    {
+      "question": "Who is on the project team?",
+      "answer": "A delivery lead, designer, and engineers — plus SEO/marketing specialists when growth outcomes are in scope."
     }
   ],
   "relatedSlugs": [

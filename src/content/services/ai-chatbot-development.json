@@ -68,16 +68,44 @@
   ],
   "faqs": [
     {
-      "question": "How long does a typical AI Chatbots engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "question": "How long does a typical AI Chatbot Development engagement take?",
+      "answer": "Most chatbot projects launch in 4–10 weeks: discovery, conversation design, integrations, testing, and go-live. Complex multi-channel bots may take longer."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We integrate with websites, WhatsApp, helpdesks, CRMs, and your content systems, and we train your team to iterate intents and responses."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "We track containment rate, CSAT, first-response time, lead capture quality, and escalation quality — not vanity chat volume."
+    },
+    {
+      "question": "Website, WhatsApp, or both?",
+      "answer": "Both. We design channel-aware flows so tone, latency, and handoff fit web widgets and WhatsApp Business without duplicating messy logic."
+    },
+    {
+      "question": "Will the bot sound on-brand?",
+      "answer": "Yes. We write conversation UX against your brand voice, with guardrails, fallbacks, and approved knowledge sources — not generic LLM filler."
+    },
+    {
+      "question": "Can it capture and qualify leads?",
+      "answer": "Absolutely. Bots can ask discovery questions, score intent, book calls, and sync qualified leads into your CRM with source attribution."
+    },
+    {
+      "question": "What happens when the bot is unsure?",
+      "answer": "Clear fallbacks, clarification prompts, and one-tap human handoff with full transcript context so customers never feel stuck."
+    },
+    {
+      "question": "Do you support multilingual bots?",
+      "answer": "Yes, where content and moderation are ready. We prioritize languages that matter to your audience and keep quality bar high before expanding."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Send your top FAQs and channels. We propose a pilot scope (usually one primary journey), then expand after proving containment and conversion."
+    },
+    {
+      "question": "Who will maintain the bot after launch?",
+      "answer": "Your team can update content, or we can retain for content ops, analytics reviews, and model/prompt improvements."
     }
   ],
   "relatedSlugs": [

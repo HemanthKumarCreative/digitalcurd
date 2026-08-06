@@ -68,16 +68,44 @@
   ],
   "faqs": [
     {
-      "question": "How long does a typical React engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "question": "How long does a typical React Development engagement take?",
+      "answer": "Component systems and marketing UIs can ship in 3–6 weeks. Complex SPAs or design systems often take 8–14 weeks."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We adopt your linting, design tokens, and component libraries, or help establish them if missing."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "UI reliability, accessibility, performance budgets, design-system adoption, and delivery velocity."
+    },
+    {
+      "question": "Design system from scratch?",
+      "answer": "We can extract a practical component library from your brand — focused on reuse, not an academic mega-system."
+    },
+    {
+      "question": "React with Next.js or standalone?",
+      "answer": "Both. Many products sit in Next.js; some dashboards remain SPA. We recommend based on SEO and routing needs."
+    },
+    {
+      "question": "State management approach?",
+      "answer": "Keep it simple: server state tools and local UI state first; introduce heavier libraries only when complexity demands it."
+    },
+    {
+      "question": "Accessibility is non-negotiable?",
+      "answer": "Correct. Keyboard flows, ARIA where needed, focus management, and usable forms are part of definition of done."
+    },
+    {
+      "question": "Can you modernize a legacy React app?",
+      "answer": "Yes — dependency upgrades, performance profiling, and incremental refactors without a risky big-bang rewrite."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "We review current UI debt and roadmap, then propose a sprint plan with visible demos every week or two."
+    },
+    {
+      "question": "Who ships the UI?",
+      "answer": "React engineers paired with design for QA against real breakpoints and interaction states."
     }
   ],
   "relatedSlugs": [

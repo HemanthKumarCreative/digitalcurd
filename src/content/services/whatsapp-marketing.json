@@ -69,15 +69,43 @@
   "faqs": [
     {
       "question": "How long does a typical WhatsApp Marketing engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "answer": "Business setup, templates, and first journeys usually launch in 2–5 weeks depending on BSP approval and CRM integrations."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We connect WhatsApp to your CRM/ecommerce stack and train your team on template ops and conversation etiquette."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Opt-in growth, read/response rates, conversion from campaigns, support deflection, and revenue attributed to WhatsApp journeys."
+    },
+    {
+      "question": "Broadcasts, automation, or commerce?",
+      "answer": "We design the mix: utility notifications, abandoned carts, nurture sequences, and human-assisted sales chats where high touch wins."
+    },
+    {
+      "question": "Do you help with WhatsApp Business API setup?",
+      "answer": "Yes — BSP selection, number strategy, template submission, quality rating hygiene, and green-tick readiness where eligible."
+    },
+    {
+      "question": "How do you stay compliant?",
+      "answer": "Opt-in capture, category-correct templates, quiet hours where required, and clear opt-out — protecting quality rating and trust."
+    },
+    {
+      "question": "Can chats hand off to sales or support?",
+      "answer": "Yes. Routing rules, canned replies, and CRM notes keep conversations owned by the right teammate."
+    },
+    {
+      "question": "Will this replace email/SMS?",
+      "answer": "Not usually. WhatsApp shines for high-intent and conversational moments; we place it inside an omnichannel system."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Share your use cases (support, sales, alerts). We map journeys, approve templates, and pilot one high-ROI flow first."
+    },
+    {
+      "question": "Who runs campaigns after launch?",
+      "answer": "Your team can operate with our playbooks, or we retain for journey iteration, creative templates, and analytics."
     }
   ],
   "relatedSlugs": [

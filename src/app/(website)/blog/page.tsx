@@ -43,8 +43,10 @@ export default async function BlogIndexPage() {
               excerpt: string
               category: string
               publishedAt: string
+              readingMinutes?: number
               coverImage?: unknown
               coverImageUrl?: string
+              author?: { name?: string }
             }) => (
               <Link
                 key={post.slug}
@@ -59,15 +61,21 @@ export default async function BlogIndexPage() {
                     post.coverImageUrl ||
                     ''
                   }
-                  alt=""
+                  alt={post.title}
                   width={800}
                   height={500}
                   className="dc-blog-card__img"
                 />
                 <div className="dc-blog-card__body">
                   <span className="dc-blog-card__meta">
-                    {post.category} ·{' '}
-                    {post.publishedAt?.slice?.(0, 10) || post.publishedAt}
+                    {[
+                      post.category,
+                      post.publishedAt?.slice?.(0, 10) || post.publishedAt,
+                      post.readingMinutes ? `${post.readingMinutes} min` : '',
+                      post.author?.name,
+                    ]
+                      .filter(Boolean)
+                      .join(' · ')}
                   </span>
                   <h3 className="dc-blog-card__title">{post.title}</h3>
                   <p className="dc-blog-card__excerpt">{post.excerpt}</p>

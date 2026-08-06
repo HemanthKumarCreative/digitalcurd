@@ -6,7 +6,7 @@ import { EditableHtml } from '@/components/design-mode/EditableHtml'
 import { EditableText } from '@/components/design-mode/EditableText'
 import { useDesignMode } from '@/components/design-mode/DesignModeProvider'
 
-const INITIAL_VISIBLE = 8
+const INITIAL_VISIBLE = 10
 
 type FaqData = {
   title?: string
@@ -118,7 +118,9 @@ export default function FaqAccordion({ data: faqAccordion }: { data: FaqData }) 
               }}
               aria-expanded={showAll}
             >
-              {showAll ? 'Show fewer questions' : 'Show all questions'}
+              {showAll
+                ? `Show fewer questions (${INITIAL_VISIBLE})`
+                : `Show remaining ${faqs.length - INITIAL_VISIBLE} questions`}
             </button>
           </div>
         )}

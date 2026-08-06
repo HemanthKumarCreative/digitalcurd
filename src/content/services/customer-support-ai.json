@@ -69,15 +69,43 @@
   "faqs": [
     {
       "question": "How long does a typical AI for Customer Support engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "answer": "Most support AI pilots launch in 4–10 weeks, including knowledge cleanup, integrations, and agent assist / deflection flows."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We integrate with Zendesk, Freshdesk, Intercom, HubSpot, and custom helpdesks, and we train agents on the new workflows."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Deflection rate, average handle time, CSAT/NPS, first-contact resolution, and agent adoption of assist tools."
+    },
+    {
+      "question": "Agent assist or full automation?",
+      "answer": "Both are options. Many teams start with assist (draft replies, macros, retrieval) then expand automation where confidence is high."
+    },
+    {
+      "question": "What if our knowledge base is messy?",
+      "answer": "Common. Discovery includes a knowledge triage: prioritize high-volume intents, rewrite answer sources, and retire conflicting articles."
+    },
+    {
+      "question": "How do you protect brand and compliance?",
+      "answer": "Approved sources only, tone guidelines, restricted actions, audit logs, and escalation for refunds, legal, or account-sensitive topics."
+    },
+    {
+      "question": "Can this reduce after-hours backlog?",
+      "answer": "Yes. Self-serve deflection and async triage keep nights/weekends from piling up while preserving human coverage for priority cases."
+    },
+    {
+      "question": "Will agents trust the system?",
+      "answer": "We design with agents, not around them — visible citations, editable drafts, and clear override paths drive adoption."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Share ticket volume themes and your helpdesk stack. We propose a pilot on the top 10 intents with clear success gates."
+    },
+    {
+      "question": "Who is on the delivery team?",
+      "answer": "CX/automation lead, conversation designer, and integration engineer, with weekly reviews against support KPIs."
     }
   ],
   "relatedSlugs": [

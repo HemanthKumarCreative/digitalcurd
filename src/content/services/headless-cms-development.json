@@ -68,16 +68,44 @@
   ],
   "faqs": [
     {
-      "question": "How long does a typical Headless CMS engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "question": "How long does a typical Headless CMS Development engagement take?",
+      "answer": "Schema + front-end foundations usually take 5–10 weeks. Multi-brand or localization programs take longer and are phased."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We train editors, integrate your design system, and connect preview/publishing into your existing workflows."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Time-to-publish, content reuse, page performance, preview reliability, and reduction in developer tickets for content changes."
+    },
+    {
+      "question": "Which CMS do you recommend?",
+      "answer": "Often Sanity for structured content flexibility; WordPress headless when editorial familiarity matters. We decide after content modeling workshops."
+    },
+    {
+      "question": "Will marketing still preview pages?",
+      "answer": "Yes. Draft/preview workflows are a first-class requirement, not a nice-to-have."
+    },
+    {
+      "question": "Can one CMS power web and app?",
+      "answer": "That is the point of headless — shared content models with channel-specific presentations."
+    },
+    {
+      "question": "Migration from a page-builder site?",
+      "answer": "We map pages to structured sections, migrate content carefully, and keep redirects so SEO equity survives."
+    },
+    {
+      "question": "Governance for large teams?",
+      "answer": "Roles, workflows, validation, and component guardrails so brand stays consistent as more editors join."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "A content model workshop clarifies types and relationships before any UI is built — saving expensive rework."
+    },
+    {
+      "question": "Who delivers the CMS build?",
+      "answer": "CMS architect + front-end engineers, with editor training and documentation at handover."
     }
   ],
   "relatedSlugs": [

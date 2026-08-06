@@ -21,6 +21,15 @@ import {
   StatsDeliveryEditor,
   StringListEditor,
 } from '@/components/admin/editors/HomeSectionEditors'
+import { BlogSectionsEditor } from '@/components/admin/editors/BlogSectionsEditor'
+import {
+  AuthorRefEditor,
+  type AuthorOption,
+} from '@/components/admin/editors/AuthorRefEditor'
+import {
+  RelatedPostsEditor,
+  type RelatedPostOption,
+} from '@/components/admin/editors/RelatedPostsEditor'
 import {
   FEATURE_ICON_OPTIONS,
   SERVICE_CATEGORY_OPTIONS,
@@ -71,6 +80,10 @@ export type SectionKind =
   | 'process'
   | 'socialLinks'
   | 'json'
+  | 'blogSections'
+  | 'authorRef'
+  | 'relatedPosts'
+  | 'number'
 
 export type SectionDef = {
   key: string
@@ -78,6 +91,8 @@ export type SectionDef = {
   description?: string
   kind: SectionKind
   defaultOpen?: boolean
+  authors?: AuthorOption[]
+  posts?: RelatedPostOption[]
 }
 
 type StructuredDocumentEditorProps = {
@@ -284,6 +299,26 @@ export const StructuredDocumentEditor = ({
               return
             }
           }
+          if (section.key === 'relatedServiceSlugs') {
+            if (typeof value === 'string') {
+              value = value
+                .split('\n')
+                .map((line) => line.trim())
+                .filter(Boolean)
+            } else if (!Array.isArray(value)) {
+              value = []
+            }
+          }
+          if (section.kind === 'cta' && value && typeof value === 'object') {
+            const obj = asObject(value)
+            const nested = asObject(obj.cta)
+            value = {
+              title: String(obj.title || ''),
+              description: String(obj.description || ''),
+              label: String(nested.label || obj.label || ''),
+              href: String(nested.href || obj.href || ''),
+            }
+          }
           set[section.key] = value
         }
         await patchDocument({
@@ -482,7 +517,7 @@ export const StructuredDocumentEditor = ({
               key={section.key}
               title={section.title}
               description={section.description}
-              defaultOpen={section.defaultOpen !== false}
+              defaultOpen={section.defaultOpen === true}
             >
               {section.kind === 'hero' || section.kind === 'homeHero' ? (
                 <HeroEditor
@@ -672,6 +707,48 @@ export const StructuredDocumentEditor = ({
                 />
               ) : null}
 
+              {section.kind === 'blogSections' ? (
+                <BlogSectionsEditor
+                  value={raw}
+                  disabled={readOnly}
+                  onChange={(items) => setKey(section.key, items)}
+                />
+              ) : null}
+
+              {section.kind === 'authorRef' ? (
+                <AuthorRefEditor
+                  value={raw}
+                  options={section.authors || []}
+                  disabled={readOnly}
+                  onChange={(next) => setKey(section.key, next)}
+                />
+              ) : null}
+
+              {section.kind === 'relatedPosts' ? (
+                <RelatedPostsEditor
+                  value={raw}
+                  options={section.posts || []}
+                  disabled={readOnly}
+                  onChange={(items) => setKey(section.key, items)}
+                />
+              ) : null}
+
+              {section.kind === 'number' ? (
+                <div>
+                  <Label>{section.title}</Label>
+                  <Input
+                    type="number"
+                    min={1}
+                    value={raw === undefined || raw === null ? '' : String(raw)}
+                    disabled={readOnly}
+                    onChange={(e) => {
+                      const next = e.target.value
+                      setKey(section.key, next === '' ? undefined : Number(next))
+                    }}
+                  />
+                </div>
+              ) : null}
+
               {section.kind === 'socialLinks' ? (
                 <RepeatableListEditor
                   label="Social links"
@@ -794,8 +871,8 @@ export const StructuredDocumentEditor = ({
 
               {section.kind === 'cta' ? (
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <div>
-                    <Label>Title</Label>
+                  <div className="sm:col-span-2">
+                    <Label>Headline</Label>
                     <Input
                       value={String(asObject(raw).title || '')}
                       disabled={readOnly}
@@ -804,9 +881,10 @@ export const StructuredDocumentEditor = ({
                       }
                     />
                   </div>
-                  <div>
-                    <Label>Description</Label>
-                    <Input
+                  <div className="sm:col-span-2">
+                    <Label>Supporting text</Label>
+                    <Textarea
+                      rows={3}
                       value={String(asObject(raw).description || '')}
                       disabled={readOnly}
                       onChange={(e) =>
@@ -826,14 +904,8 @@ export const StructuredDocumentEditor = ({
                       disabled={readOnly}
                       onChange={(e) => {
                         const obj = asObject(raw)
-                        if (obj.cta || obj.title) {
-                          setKey(section.key, {
-                            ...obj,
-                            cta: { ...asObject(obj.cta), label: e.target.value },
-                          })
-                        } else {
-                          setKey(section.key, { ...obj, label: e.target.value })
-                        }
+                        const { cta: _nested, ...rest } = obj
+                        setKey(section.key, { ...rest, label: e.target.value })
                       }}
                     />
                   </div>
@@ -846,16 +918,13 @@ export const StructuredDocumentEditor = ({
                       disabled={readOnly}
                       onChange={(e) => {
                         const obj = asObject(raw)
-                        if (obj.cta || obj.title) {
-                          setKey(section.key, {
-                            ...obj,
-                            cta: { ...asObject(obj.cta), href: e.target.value },
-                          })
-                        } else {
-                          setKey(section.key, { ...obj, href: e.target.value })
-                        }
+                        const { cta: _nested, ...rest } = obj
+                        setKey(section.key, { ...rest, href: e.target.value })
                       }}
                     />
+                    <p className="mt-1 text-xs text-[var(--admin-text-muted)]">
+                      Prefer a service page like `/services/ai-agent-development`, or `/contact`.
+                    </p>
                   </div>
                 </div>
               ) : null}

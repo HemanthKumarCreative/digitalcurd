@@ -68,16 +68,44 @@
   ],
   "faqs": [
     {
-      "question": "How long does a typical LinkedIn Ads engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "question": "How long does a typical LinkedIn Ads Management engagement take?",
+      "answer": "B2B account setup and first campaigns typically launch in 2–4 weeks, with pipeline learning over the following 6–8 weeks."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We sync with your sales/CRM process and marketing ops so LinkedIn spend maps to qualified opportunities."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Cost per qualified lead/opportunity, pipeline influenced, CPL trends, and creative CTR quality — not cheap form fills alone."
+    },
+    {
+      "question": "Is LinkedIn right for our ACV?",
+      "answer": "If ACV and sales cycle support higher CPCs, yes. We pressure-test economics before scaling spend."
+    },
+    {
+      "question": "Lead gen forms or landing pages?",
+      "answer": "We test both. Native forms boost volume; landing pages often improve qualification when messaging needs depth."
+    },
+    {
+      "question": "How do you target accounts?",
+      "answer": "Job titles, functions, company lists, retargeting, and matched audiences — always with exclusion hygiene."
+    },
+    {
+      "question": "Thought leadership ads included?",
+      "answer": "When they support pipeline. We treat organic + paid amplification as one narrative, not disconnected posts."
+    },
+    {
+      "question": "What creative works on LinkedIn?",
+      "answer": "Clear problem/outcome messaging, proof, and offer specificity. We avoid vague brand fluff that burns budget."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Define ICP and offer. We audit Campaign Manager, connect conversion tracking, and launch a controlled pilot."
+    },
+    {
+      "question": "Who owns weekly optimization?",
+      "answer": "A LinkedIn-focused performance specialist with sales feedback loops baked into the cadence."
     }
   ],
   "relatedSlugs": [

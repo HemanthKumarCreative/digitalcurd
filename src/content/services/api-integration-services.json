@@ -69,15 +69,43 @@
   "faqs": [
     {
       "question": "How long does a typical API Integration engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "answer": "Single-system integrations often take 2–6 weeks. Multi-system programs are phased by criticality and data complexity."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We work with your vendors’ APIs, sandboxes, and security requirements, and we document everything for your engineers."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Reliability (error rates), latency, sync freshness, operational hours saved, and successful business process completion."
+    },
+    {
+      "question": "What systems do you commonly connect?",
+      "answer": "CRMs, ERPs, payment gateways, marketing automation, ecommerce platforms, support desks, and custom internal APIs."
+    },
+    {
+      "question": "Realtime or batch sync?",
+      "answer": "We choose per use case — webhooks/events for immediacy, scheduled jobs for heavy reconciliation, with clear idempotency."
+    },
+    {
+      "question": "How do you handle auth and secrets?",
+      "answer": "Least privilege, rotated credentials, environment separation, and no secrets in client code."
+    },
+    {
+      "question": "What if a vendor API is unstable?",
+      "answer": "Retries with backoff, circuit breakers, queueing, and alerting — plus vendor escalation paths documented."
+    },
+    {
+      "question": "Do you provide API documentation?",
+      "answer": "Yes — sequence diagrams, field mappings, error catalogs, and runbooks your team can operate."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "List systems and the business workflow to automate. We propose an integration design and a thin vertical slice first."
+    },
+    {
+      "question": "Who builds integrations?",
+      "answer": "Integration engineers with a tech lead reviewing architecture, security, and observability."
     }
   ],
   "relatedSlugs": [

@@ -17,7 +17,7 @@ const devices = [
 const pathChips = [
   { label: 'Home', path: '/' },
   { label: 'Services', path: '/services' },
-  { label: 'Blog', path: '/blog' },
+  { label: 'Articles', path: '/blog' },
   { label: 'About', path: '/about' },
   { label: 'Contact', path: '/contact' },
   { label: 'Careers', path: '/careers' },

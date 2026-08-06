@@ -69,15 +69,43 @@
   "faqs": [
     {
       "question": "How long does a typical Workflow Automation engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "answer": "Focused automations often ship in 3–8 weeks. Multi-system orchestration programs run longer and are phased by ROI."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We automate around HubSpot, Zapier, Make, custom APIs, CRMs, ERPs, and internal tools your team already trusts."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Hours saved, error rates, cycle time, SLA adherence, and revenue ops throughput — with before/after baselines."
+    },
+    {
+      "question": "What processes are good automation candidates?",
+      "answer": "Lead routing, onboarding, invoice ops, reporting, ticket triage, enrichment, and any repetitive handoff that burns specialist time."
+    },
+    {
+      "question": "No-code, low-code, or custom?",
+      "answer": "We choose the lightest durable stack. Many flows start in Zapier/Make/HubSpot; complex logic moves to APIs or services when reliability demands it."
+    },
+    {
+      "question": "How do you handle failures and alerts?",
+      "answer": "Retries, dead-letter paths, owner alerts, and runbooks are designed in — silent broken automations are not acceptable."
+    },
+    {
+      "question": "Will automation replace our team?",
+      "answer": "No. We remove busywork so specialists focus on judgment-heavy work. Change management and training are part of delivery."
+    },
+    {
+      "question": "Can you document everything for our ops team?",
+      "answer": "Yes. You get flow diagrams, credentials ownership notes, monitoring checklists, and handover sessions."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Pick one painful workflow. We map it, estimate ROI, and pilot a production automation before expanding the roadmap."
+    },
+    {
+      "question": "Who builds and supports the flows?",
+      "answer": "Automation engineers with a delivery lead; optional retainer for monitoring, enhancements, and new workflow backlog."
     }
   ],
   "relatedSlugs": [

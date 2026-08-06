@@ -15,6 +15,7 @@ import {
   Newspaper,
   Scale,
   Settings,
+  Users,
 } from 'lucide-react'
 import AnimatedLogo from '@/components/AnimatedLogo'
 import { Button } from '@/components/ui/button'
@@ -31,7 +32,8 @@ const navGroups = [
     items: [
       { href: '/admin/pages', label: 'Pages', icon: Layers },
       { href: '/admin/services', label: 'Services', icon: Briefcase },
-      { href: '/admin/blog', label: 'Blog', icon: Newspaper },
+      { href: '/admin/blog', label: 'Articles', icon: Newspaper },
+      { href: '/admin/authors', label: 'Authors', icon: Users },
       { href: '/admin/jobs', label: 'Jobs', icon: FileText },
       { href: '/admin/legal', label: 'Legal', icon: Scale },
     ],

@@ -69,15 +69,43 @@
   "faqs": [
     {
       "question": "How long does a typical Content Marketing engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "answer": "Strategy and operating rhythm usually stand up in 3–6 weeks. Compounding traffic and pipeline effects build over subsequent quarters."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We fit your CMS, editorial calendar, design system, and SME interview process."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Organic conversions, assisted pipeline, topic authority growth, engagement quality, and content production velocity."
+    },
+    {
+      "question": "Blog posts only or full funnel content?",
+      "answer": "Full funnel — landing narratives, comparison pages, case studies, email nurture, and distribution — not random blogging."
+    },
+    {
+      "question": "Do you need subject-matter interviews?",
+      "answer": "Ideally yes. Expert input is how we keep content differentiated and cite-worthy for search and AI answers."
+    },
+    {
+      "question": "Can you match our brand voice?",
+      "answer": "Yes. We build a short voice guide from your best assets and enforce it across drafts and edits."
+    },
+    {
+      "question": "How do you pick topics?",
+      "answer": "Revenue intent first: demand from customers/sales, keyword opportunity, and competitive gaps — scored together."
+    },
+    {
+      "question": "Design and visuals included?",
+      "answer": "Basic editorial visuals are included; larger design systems or video can be scoped with our creative studio."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "We audit existing content, define pillars, and ship a 90-day calendar with owners and distribution plan."
+    },
+    {
+      "question": "Who writes and edits?",
+      "answer": "Strategist + writers/editors. You approve key pieces; we keep a predictable review SLA."
     }
   ],
   "relatedSlugs": [

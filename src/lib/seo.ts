@@ -146,8 +146,13 @@ export const articleJsonLd = (post: {
   excerpt: string
   slug: string
   publishedAt?: string
+  updatedAt?: string
   coverImageUrl?: string
   category?: string
+  author?: {
+    name: string
+    url?: string
+  }
 }) => ({
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -155,11 +160,18 @@ export const articleJsonLd = (post: {
   description: post.excerpt,
   url: absoluteUrl(`/blog/${post.slug}`),
   datePublished: post.publishedAt,
-  author: {
-    '@type': 'Organization',
-    name: DEFAULT_SITE_NAME,
-    url: getSiteUrl(),
-  },
+  ...(post.updatedAt ? { dateModified: post.updatedAt } : {}),
+  author: post.author?.name
+    ? {
+        '@type': 'Person',
+        name: post.author.name,
+        ...(post.author.url ? { url: post.author.url } : {}),
+      }
+    : {
+        '@type': 'Organization',
+        name: DEFAULT_SITE_NAME,
+        url: getSiteUrl(),
+      },
   publisher: {
     '@type': 'Organization',
     name: DEFAULT_SITE_NAME,

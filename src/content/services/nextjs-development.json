@@ -68,16 +68,44 @@
   ],
   "faqs": [
     {
-      "question": "How long does a typical Next.js engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "question": "How long does a typical Next.js Development engagement take?",
+      "answer": "Marketing sites often take 4–8 weeks. App-like products or CMS-heavy builds commonly run 8–16 weeks."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We pair with your engineers, work in your repos, and integrate Sanity, WordPress headless, or other CMS options."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Lighthouse/Core Web Vitals, TTFB, conversion metrics, DX for your team, and reliability of preview/deploy workflows."
+    },
+    {
+      "question": "App Router and modern Next.js?",
+      "answer": "Yes. We build on current Next.js conventions, server components where they help, and careful client boundaries for interactivity."
+    },
+    {
+      "question": "Can you migrate from WordPress or CRA?",
+      "answer": "Yes. We plan content models, routing, redirects, and incremental migration paths to reduce cutover risk."
+    },
+    {
+      "question": "CMS options you support?",
+      "answer": "Sanity, headless WordPress, and other headless CMSs — chosen for editorial UX and content shape, not hype."
+    },
+    {
+      "question": "Hosting and CI/CD?",
+      "answer": "Vercel or equivalent, preview deployments, env hygiene, and basic observability for production confidence."
+    },
+    {
+      "question": "Do you write tests?",
+      "answer": "Critical paths get coverage — smoke tests, key UI flows, and lint/type gates in CI appropriate to project size."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Share product goals and any existing design system. We propose architecture, milestones, and a demo cadence."
+    },
+    {
+      "question": "Who builds it?",
+      "answer": "Senior Next.js engineers with design collaboration and a tech lead owning architecture decisions."
     }
   ],
   "relatedSlugs": [

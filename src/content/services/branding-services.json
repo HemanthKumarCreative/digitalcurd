@@ -68,16 +68,44 @@
   ],
   "faqs": [
     {
-      "question": "How long does a typical Brand Materials engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "question": "How long does a typical Branding engagement take?",
+      "answer": "Brand foundations usually take 3–6 weeks. Full identity systems with rollout kits often take 6–10 weeks."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We interview stakeholders, audit current assets, and deliver files your marketing and product teams can actually use."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Clarity of positioning, consistency across touchpoints, stakeholder alignment, and faster creative production after handover."
+    },
+    {
+      "question": "Startup brand or rebrand?",
+      "answer": "Both. We clarify audience and offer first, then craft identity — avoiding logo-first vanity projects."
+    },
+    {
+      "question": "What deliverables are included?",
+      "answer": "Positioning notes, logo suite, color/type systems, usage rules, and core templates (social, deck, or web starter as scoped)."
+    },
+    {
+      "question": "Do you write messaging too?",
+      "answer": "Yes when needed — taglines, value props, and voice guidelines that marketing can execute without guessing."
+    },
+    {
+      "question": "Will this work digitally and in print?",
+      "answer": "Systems are built for screen-first brands with print-safe variants where required."
+    },
+    {
+      "question": "How collaborative is the process?",
+      "answer": "Structured workshops and timed feedback rounds so decisions move forward without endless revision loops."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Share audience, competitors, and constraints. We propose a brand sprint with clear checkpoints."
+    },
+    {
+      "question": "Who leads branding?",
+      "answer": "A brand designer/strategist with copy support; engineering partners when identity must land in a live product UI."
     }
   ],
   "relatedSlugs": [

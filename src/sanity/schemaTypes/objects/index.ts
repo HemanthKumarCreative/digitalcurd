@@ -221,3 +221,181 @@ export const serviceCategoryValues = [
   { title: 'Digital Engineering', value: 'Digital Engineering' },
   { title: 'Creative Studio', value: 'Creative Studio' },
 ]
+
+export const blogStepItem = defineType({
+  name: 'blogStepItem',
+  title: 'Blog step',
+  type: 'object',
+  fields: [
+    defineField({ name: 'title', type: 'string', validation: (r) => r.required() }),
+    defineField({ name: 'body', type: 'text', rows: 3 }),
+  ],
+})
+
+export const blogGuideItem = defineType({
+  name: 'blogGuideItem',
+  title: 'Guide item',
+  type: 'object',
+  fields: [
+    defineField({ name: 'title', type: 'string', validation: (r) => r.required() }),
+    defineField({ name: 'headingId', type: 'string', title: 'Anchor id' }),
+    defineField({ name: 'paragraphs', type: 'array', of: [{ type: 'text' }] }),
+    defineField({ name: 'steps', type: 'array', of: [{ type: 'blogStepItem' }] }),
+    defineField({ name: 'bullets', type: 'array', of: [{ type: 'string' }] }),
+  ],
+})
+
+export const blogProse = defineType({
+  name: 'blogProse',
+  title: 'Prose section',
+  type: 'object',
+  fields: [
+    defineField({ name: 'heading', type: 'string' }),
+    defineField({ name: 'headingId', type: 'string', title: 'Anchor id' }),
+    defineField({ name: 'paragraphs', type: 'array', of: [{ type: 'text' }] }),
+  ],
+  preview: {
+    select: { title: 'heading' },
+    prepare: ({ title }) => ({ title: title || 'Prose section' }),
+  },
+})
+
+export const blogTable = defineType({
+  name: 'blogTable',
+  title: 'Table section',
+  type: 'object',
+  fields: [
+    defineField({ name: 'heading', type: 'string' }),
+    defineField({ name: 'headingId', type: 'string', title: 'Anchor id' }),
+    defineField({ name: 'columns', type: 'array', of: [{ type: 'string' }] }),
+    defineField({
+      name: 'rows',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'blogTableRow',
+          fields: [
+            defineField({
+              name: 'cells',
+              type: 'array',
+              of: [{ type: 'string' }],
+            }),
+          ],
+          preview: {
+            select: { cells: 'cells' },
+            prepare: ({ cells }) => ({
+              title: Array.isArray(cells) ? cells.join(' · ') : 'Row',
+            }),
+          },
+        },
+      ],
+    }),
+  ],
+  preview: {
+    select: { title: 'heading' },
+    prepare: ({ title }) => ({ title: title || 'Table section' }),
+  },
+})
+
+export const blogGuide = defineType({
+  name: 'blogGuide',
+  title: 'Guide section',
+  type: 'object',
+  fields: [
+    defineField({ name: 'heading', type: 'string' }),
+    defineField({ name: 'headingId', type: 'string', title: 'Anchor id' }),
+    defineField({ name: 'intro', type: 'text', rows: 3 }),
+    defineField({ name: 'items', type: 'array', of: [{ type: 'blogGuideItem' }] }),
+  ],
+  preview: {
+    select: { title: 'heading' },
+    prepare: ({ title }) => ({ title: title || 'Guide section' }),
+  },
+})
+
+export const blogSteps = defineType({
+  name: 'blogSteps',
+  title: 'Steps section',
+  type: 'object',
+  fields: [
+    defineField({ name: 'heading', type: 'string' }),
+    defineField({ name: 'headingId', type: 'string', title: 'Anchor id' }),
+    defineField({ name: 'intro', type: 'text', rows: 2 }),
+    defineField({ name: 'steps', type: 'array', of: [{ type: 'blogStepItem' }] }),
+  ],
+  preview: {
+    select: { title: 'heading' },
+    prepare: ({ title }) => ({ title: title || 'Steps section' }),
+  },
+})
+
+export const blogList = defineType({
+  name: 'blogList',
+  title: 'List section',
+  type: 'object',
+  fields: [
+    defineField({ name: 'heading', type: 'string' }),
+    defineField({ name: 'headingId', type: 'string', title: 'Anchor id' }),
+    defineField({
+      name: 'style',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Bullet', value: 'bullet' },
+          { title: 'Numbered', value: 'numbered' },
+        ],
+      },
+      initialValue: 'bullet',
+    }),
+    defineField({ name: 'items', type: 'array', of: [{ type: 'string' }] }),
+  ],
+  preview: {
+    select: { title: 'heading' },
+    prepare: ({ title }) => ({ title: title || 'List section' }),
+  },
+})
+
+export const blogInlineCta = defineType({
+  name: 'blogInlineCta',
+  title: 'Inline CTA',
+  type: 'object',
+  fields: [
+    defineField({ name: 'title', type: 'string' }),
+    defineField({ name: 'description', type: 'text', rows: 3 }),
+    defineField({ name: 'ctaLabel', type: 'string' }),
+    defineField({ name: 'ctaHref', type: 'string' }),
+  ],
+  preview: {
+    select: { title: 'title' },
+    prepare: ({ title }) => ({ title: title || 'Inline CTA' }),
+  },
+})
+
+export const blogCallout = defineType({
+  name: 'blogCallout',
+  title: 'Callout',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'variant',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Tip', value: 'tip' },
+          { title: 'Note', value: 'note' },
+          { title: 'Warning', value: 'warning' },
+        ],
+      },
+      initialValue: 'tip',
+    }),
+    defineField({ name: 'body', type: 'text', rows: 3 }),
+  ],
+  preview: {
+    select: { title: 'variant', subtitle: 'body' },
+    prepare: ({ title, subtitle }) => ({
+      title: title ? `Callout (${title})` : 'Callout',
+      subtitle,
+    }),
+  },
+})

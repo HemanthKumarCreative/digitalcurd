@@ -69,15 +69,43 @@
   "faqs": [
     {
       "question": "How long does a typical Video Production engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "answer": "Short-form campaign videos often take 2–5 weeks end-to-end. Multi-video shoots or brand films may take 5–10 weeks."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We collaborate with marketing on scripts, brand guidelines, and distribution plans across YouTube, social, and web."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "Completion rate, click-through, assisted conversions, and message recall — matched to the funnel stage of each video."
+    },
+    {
+      "question": "What types of videos do you produce?",
+      "answer": "Product explainers, ads, testimonials, founder stories, event recaps, and short-form social cutdowns from master shoots."
+    },
+    {
+      "question": "Script to final edit?",
+      "answer": "Yes — concept, script/storyboard, production, edit, color/sound, and platform-specific exports."
+    },
+    {
+      "question": "Remote or on-location?",
+      "answer": "Both. Many B2B videos are hybrid: remote interviews plus designed motion graphics."
+    },
+    {
+      "question": "Do you handle talent and locations?",
+      "answer": "We can coordinate within scope — or work with your cast/locations. Logistics are planned during pre-production."
+    },
+    {
+      "question": "Subtitles and accessibility?",
+      "answer": "Burned-in or sidecar captions, clear audio, and safe framing for vertical platforms are standard practice."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Share goal, audience, and deadline. We propose concept options, budget bands, and a production schedule."
+    },
+    {
+      "question": "Who is on the crew?",
+      "answer": "Producer/director, editor, and motion support as needed — sized to the project rather than a bloated default crew."
     }
   ],
   "relatedSlugs": [

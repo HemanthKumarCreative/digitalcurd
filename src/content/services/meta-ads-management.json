@@ -68,16 +68,44 @@
   ],
   "faqs": [
     {
-      "question": "How long does a typical Meta Ads engagement take?",
-      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+      "question": "How long does a typical Meta Ads Management engagement take?",
+      "answer": "Pixel/setup and first campaigns usually launch in 2–3 weeks, then creative testing compounds results over subsequent cycles."
     },
     {
       "question": "Do you work with existing teams and tools?",
-      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+      "answer": "Yes. We work in your Meta Business Manager and coordinate creatives, offers, and CRM events with your team."
     },
     {
       "question": "How do you measure success?",
-      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+      "answer": "CPA/CAC, ROAS, frequency health, creative fatigue signals, and downstream lead or purchase quality."
+    },
+    {
+      "question": "Prospecting and remarketing both?",
+      "answer": "Yes. We design full-funnel structures with clean audiences, exclusions, and creative matched to awareness stage."
+    },
+    {
+      "question": "How important is creative?",
+      "answer": "Critical. We run structured creative tests (hooks, angles, formats) because Meta rewards message-market fit more than micro-bidding tweaks alone."
+    },
+    {
+      "question": "Can you manage Instagram and Facebook together?",
+      "answer": "Yes — placements are optimized within campaigns while brand safety and creative variants stay intentional."
+    },
+    {
+      "question": "What about iOS attribution gaps?",
+      "answer": "We tighten events, use modeled conversions carefully, and triangulate with GA4/CRM so decisions are not blindly platform-optimistic."
+    },
+    {
+      "question": "Do you need product catalogs?",
+      "answer": "For ecommerce DPA/Advantage+ shopping, catalogs help. We can audit feed health or start with non-catalog prospecting if needed."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Share Business Manager access, offers, and creative inventory. We audit tracking, then launch a focused test matrix."
+    },
+    {
+      "question": "Who produces creatives?",
+      "answer": "We can brief your designers, produce iterations, or partner with our creative studio depending on bandwidth."
     }
   ],
   "relatedSlugs": [
