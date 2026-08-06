@@ -3,6 +3,10 @@
   "category": "Ecommerce",
   "title": "Shopify Development",
   "subtitle": "High-converting Shopify and Shopify Plus storefronts.",
+  "seo": {
+    "title": "Shopify Development",
+    "description": "High-converting Shopify and Shopify Plus storefronts."
+  },
   "description": "Digital Curd designs and delivers Shopify Development as part of a connected growth system—so marketing, technology, and AI work together instead of in silos. We focus on measurable outcomes: more qualified demand, smoother operations, and digital experiences that convert.",
   "heroImage": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1920&q=80",
   "outcomes": [
@@ -77,11 +81,67 @@
     }
   ],
   "relatedSlugs": [
-    "woocommerce",
-    "wordpress"
+    "woocommerce-development",
+    "wordpress-development"
   ],
   "cta": {
     "label": "Talk about Shopify Development",
     "href": "/contact"
+  },
+  "featuresSection": {
+    "title": "Key features of Shopify Development",
+    "description": "Explore the capabilities that make Shopify Development effective for measurable growth—built to work with your wider Digital Curd system.",
+    "items": [
+      {
+        "title": "Conversion-first storefronts",
+        "description": "Build Shopify Development experiences optimized for speed, clarity, and checkout completion.",
+        "icon": "target"
+      },
+      {
+        "title": "Catalog and merchandising flexibility",
+        "description": "Structure products, collections, and rules that support growth campaigns.",
+        "icon": "layers"
+      },
+      {
+        "title": "Payment and checkout reliability",
+        "description": "Integrate gateways and flows that reduce friction and failed transactions.",
+        "icon": "checkCircle"
+      },
+      {
+        "title": "Mobile-ready shopping",
+        "description": "Deliver responsive, app-like browsing that performs on real devices.",
+        "icon": "monitor"
+      },
+      {
+        "title": "Inventory-aware journeys",
+        "description": "Sync stock and availability so customers see accurate options.",
+        "icon": "hardDrive"
+      },
+      {
+        "title": "Marketing stack hooks",
+        "description": "Connect email, ads, and analytics for lifecycle and acquisition loops.",
+        "icon": "workflow"
+      },
+      {
+        "title": "Performance and Core Web Vitals",
+        "description": "Ship themes and apps that stay fast under promotional traffic.",
+        "icon": "zap"
+      },
+      {
+        "title": "Secure customer data",
+        "description": "Protect accounts, orders, and PII with platform best practices.",
+        "icon": "shield"
+      },
+      {
+        "title": "Search and discovery",
+        "description": "Improve findability with search, filters, and recommendations that convert.",
+        "icon": "search"
+      },
+      {
+        "title": "Post-purchase experience",
+        "description": "Enable tracking, returns, and support touchpoints that drive repeat sales.",
+        "icon": "users"
+      }
+    ]
   }
 }

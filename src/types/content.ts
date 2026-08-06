@@ -1,3 +1,8 @@
+export type SeoFields = {
+  title?: string
+  description?: string
+}
+
 export type CtaLink = {
   label: string
   href: string
@@ -39,9 +44,15 @@ export type ServiceContent = {
   title: string
   subtitle: string
   description: string
+  seo?: SeoFields
   heroImage: string
   outcomes: FeatureItem[]
   capabilities: FeatureItem[]
+  featuresSection?: {
+    title: string
+    description: string
+    items: FeatureItem[]
+  }
   process: ProcessStep[]
   faqs: FaqItem[]
   relatedSlugs: string[]
@@ -72,6 +83,7 @@ export type BlogPost = {
   coverImage: string
   category: string
   body: string[]
+  seo?: SeoFields
 }
 
 export type LegalSection = {

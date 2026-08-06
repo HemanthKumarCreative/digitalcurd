@@ -1,21 +1,21 @@
 import PageHero from '@/components/shared/PageHero'
 import ContentSection from '@/components/shared/ContentSection'
 import FeatureGrid from '@/components/shared/FeatureGrid'
+import FeatureList from '@/components/shared/FeatureList'
 import ProcessSteps from '@/components/shared/ProcessSteps'
 import SimpleFaq from '@/components/shared/SimpleFaq'
 import RelatedServices from '@/components/shared/RelatedServices'
 import CtaBand from '@/components/shared/CtaBand'
-import ContactForm from '@/components/home/ContactForm'
-import { getRelatedServices } from '@/content/services'
-import type { ServiceContent } from '@/types/content'
+import type { ServiceContent, ServiceMeta } from '@/types/content'
 
 type ServicePageViewProps = {
-  service: ServiceContent
+  service: ServiceContent & {
+    phone?: { label: string; href: string }
+  }
+  related?: ServiceMeta[]
 }
 
-export default function ServicePageView({ service }: ServicePageViewProps) {
-  const related = getRelatedServices(service.relatedSlugs)
-
+export default function ServicePageView({ service, related = [] }: ServicePageViewProps) {
   return (
     <>
       <PageHero
@@ -27,10 +27,7 @@ export default function ServicePageView({ service }: ServicePageViewProps) {
           backgroundUrl: service.heroImage,
           cta: service.cta,
           secondaryCta: { label: 'View all services', href: '/services' },
-          phone: {
-            label: '+91 80 4567 8900',
-            href: 'tel:+918045678900',
-          },
+          phone: service.phone,
         }}
       />
 
@@ -52,6 +49,14 @@ export default function ServicePageView({ service }: ServicePageViewProps) {
         <FeatureGrid items={service.capabilities} columns={4} />
       </ContentSection>
 
+      {service.featuresSection?.items?.length ? (
+        <FeatureList
+          title={service.featuresSection.title}
+          description={service.featuresSection.description}
+          items={service.featuresSection.items}
+        />
+      ) : null}
+
       <ContentSection
         eyebrow="Process"
         title="A clear path from idea to impact"
@@ -69,8 +74,6 @@ export default function ServicePageView({ service }: ServicePageViewProps) {
         description="Book a free consultation and we will map the fastest path to measurable growth."
         cta={{ label: 'Schedule a Call', href: '/contact' }}
       />
-
-      <ContactForm />
     </>
   )
 }

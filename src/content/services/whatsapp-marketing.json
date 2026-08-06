@@ -3,6 +3,10 @@
   "category": "Growth Marketing",
   "title": "WhatsApp Marketing",
   "subtitle": "Conversational commerce and nurture on WhatsApp Business.",
+  "seo": {
+    "title": "WhatsApp Marketing",
+    "description": "Conversational commerce and nurture on WhatsApp Business."
+  },
   "description": "Digital Curd designs and delivers WhatsApp Marketing as part of a connected growth system—so marketing, technology, and AI work together instead of in silos. We focus on measurable outcomes: more qualified demand, smoother operations, and digital experiences that convert.",
   "heroImage": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80",
   "outcomes": [
@@ -77,12 +81,68 @@
     }
   ],
   "relatedSlugs": [
-    "seo",
+    "seo-services",
     "performance-marketing",
-    "google-ads"
+    "google-ads-management"
   ],
   "cta": {
     "label": "Talk about WhatsApp Marketing",
     "href": "/contact"
+  },
+  "featuresSection": {
+    "title": "Key features of WhatsApp Marketing",
+    "description": "Explore the capabilities that make WhatsApp Marketing effective for measurable growth—built to work with your wider Digital Curd system.",
+    "items": [
+      {
+        "title": "Full-funnel measurement",
+        "description": "Attribute WhatsApp Marketing activity to pipeline and revenue—not vanity clicks.",
+        "icon": "chart"
+      },
+      {
+        "title": "Audience precision",
+        "description": "Build and refine segments from first-party data, intent signals, and CRM insights.",
+        "icon": "users"
+      },
+      {
+        "title": "Creative testing system",
+        "description": "Run structured experiments on hooks, offers, and formats with clear learnings.",
+        "icon": "megaphone"
+      },
+      {
+        "title": "Landing experience alignment",
+        "description": "Match ad promise to on-page experience so conversion rates compound.",
+        "icon": "monitor"
+      },
+      {
+        "title": "Budget efficiency",
+        "description": "Shift spend toward winning channels and cut waste with weekly optimization cadences.",
+        "icon": "target"
+      },
+      {
+        "title": "Tracking integrity",
+        "description": "Instrument pixels, conversions, and consent so reporting stays trustworthy.",
+        "icon": "search"
+      },
+      {
+        "title": "Cross-channel orchestration",
+        "description": "Coordinate paid, organic, and lifecycle programs so messages reinforce each other.",
+        "icon": "layers"
+      },
+      {
+        "title": "Competitive visibility",
+        "description": "Monitor auction pressure, share of voice, and creative trends that affect results.",
+        "icon": "globe"
+      },
+      {
+        "title": "Secure account governance",
+        "description": "Protect ad accounts, billing, and access with role-based controls.",
+        "icon": "lock"
+      },
+      {
+        "title": "Transparent reporting",
+        "description": "Share dashboards stakeholders can act on without a media-buying background.",
+        "icon": "checkCircle"
+      }
+    ]
   }
 }

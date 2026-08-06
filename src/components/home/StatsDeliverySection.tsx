@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import homeContent from '@/content/home.json'
 import { useInViewMotion } from '@/hooks/useInViewMotion'
 
 const parseStat = (value: string) => {
@@ -49,8 +48,16 @@ const StatNumber = ({
   )
 }
 
-export default function StatsDeliverySection() {
-  const { statsDeliverySection } = homeContent
+export default function StatsDeliverySection({
+  data: statsDeliverySection,
+}: {
+  data: {
+    subtitle: string
+    title: string
+    paragraphs: string[]
+    stats: { number: string; label: string }[]
+  }
+}) {
   const { ref, inView, reducedMotion } = useInViewMotion<HTMLElement>()
 
   return (

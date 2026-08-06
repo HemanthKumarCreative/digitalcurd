@@ -1,14 +1,25 @@
 'use client'
 
 import Link from 'next/link'
-import homeContent from '@/content/home.json'
 import { Bot, Globe, LineChart, ArrowRight } from 'lucide-react'
 import { useInViewMotion } from '@/hooks/useInViewMotion'
 
 const pillarIcons = [Bot, Globe, LineChart]
 
-export default function CorePillarsSection() {
-  const { corePillarsSection } = homeContent
+type PillarsData = {
+  headerTitle: string
+  headerDesc: string
+  pillars: {
+    badge: string
+    title: string
+    link: string
+    desc: string
+    footerText: string
+    highlighted?: boolean
+  }[]
+}
+
+export default function CorePillarsSection({ data: corePillarsSection }: { data: PillarsData }) {
   const { ref, inView } = useInViewMotion<HTMLElement>()
 
   return (

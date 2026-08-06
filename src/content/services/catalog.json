@@ -1,13 +1,13 @@
 {
   "services": [
     {
-      "slug": "ai-agents",
+      "slug": "ai-agent-development",
       "title": "AI Agents",
       "category": "AI & Automation",
       "shortDescription": "Autonomous agents that handle complex business workflows."
     },
     {
-      "slug": "ai-chatbots",
+      "slug": "ai-chatbot-development",
       "title": "AI Chatbots",
       "category": "AI & Automation",
       "shortDescription": "Conversational AI that qualifies leads and supports customers."
@@ -25,13 +25,13 @@
       "shortDescription": "Connect tools and automate repetitive operations end to end."
     },
     {
-      "slug": "ai-customer-support",
+      "slug": "customer-support-ai",
       "title": "AI for Customer Support",
       "category": "AI & Automation",
       "shortDescription": "Deflect tickets and resolve issues faster with AI support."
     },
     {
-      "slug": "seo",
+      "slug": "seo-services",
       "title": "SEO",
       "category": "Growth Marketing",
       "shortDescription": "Technical and content SEO that compounds organic growth."
@@ -43,25 +43,25 @@
       "shortDescription": "Full-funnel paid growth measured against revenue goals."
     },
     {
-      "slug": "google-ads",
+      "slug": "google-ads-management",
       "title": "Google Ads",
       "category": "Growth Marketing",
       "shortDescription": "Search, Shopping, and Performance Max campaigns that convert."
     },
     {
-      "slug": "meta-ads",
+      "slug": "meta-ads-management",
       "title": "Meta Ads",
       "category": "Growth Marketing",
       "shortDescription": "Facebook and Instagram campaigns built for acquisition."
     },
     {
-      "slug": "linkedin-ads",
+      "slug": "linkedin-ads-management",
       "title": "LinkedIn Ads",
       "category": "Growth Marketing",
       "shortDescription": "B2B demand gen with precise professional targeting."
     },
     {
-      "slug": "content-marketing",
+      "slug": "content-marketing-services",
       "title": "Content Marketing",
       "category": "Growth Marketing",
       "shortDescription": "Strategic content that educates buyers and builds authority."
@@ -79,73 +79,73 @@
       "shortDescription": "High-converting Shopify and Shopify Plus storefronts."
     },
     {
-      "slug": "woocommerce",
+      "slug": "woocommerce-development",
       "title": "WooCommerce",
       "category": "Ecommerce",
       "shortDescription": "Flexible WordPress commerce tailored to your catalog."
     },
     {
-      "slug": "wordpress",
+      "slug": "wordpress-development",
       "title": "WordPress",
       "category": "Ecommerce",
       "shortDescription": "Fast, maintainable WordPress sites for content and commerce."
     },
     {
-      "slug": "website-development",
+      "slug": "web-development",
       "title": "Website Development",
       "category": "Digital Engineering",
       "shortDescription": "Conversion-focused websites engineered for performance."
     },
     {
-      "slug": "nextjs",
+      "slug": "nextjs-development",
       "title": "Next.js",
       "category": "Digital Engineering",
       "shortDescription": "Modern Next.js apps with speed, SEO, and scalability."
     },
     {
-      "slug": "react",
+      "slug": "react-development",
       "title": "React",
       "category": "Digital Engineering",
       "shortDescription": "Interactive React experiences and product interfaces."
     },
     {
-      "slug": "headless-cms",
+      "slug": "headless-cms-development",
       "title": "Headless CMS",
       "category": "Digital Engineering",
       "shortDescription": "Decoupled content platforms for multi-channel delivery."
     },
     {
-      "slug": "api-integration",
+      "slug": "api-integration-services",
       "title": "API Integration",
       "category": "Digital Engineering",
       "shortDescription": "Reliable integrations across CRM, ERP, and growth tools."
     },
     {
-      "slug": "progressive-web-apps",
+      "slug": "progressive-web-app-development",
       "title": "Progressive Web Apps",
       "category": "Digital Engineering",
       "shortDescription": "App-like PWAs that work offline and convert on mobile."
     },
     {
-      "slug": "brand-materials",
+      "slug": "branding-services",
       "title": "Brand Materials",
       "category": "Creative Studio",
       "shortDescription": "Cohesive brand systems, kits, and campaign assets."
     },
     {
-      "slug": "ui-ux",
+      "slug": "ui-ux-design",
       "title": "UI/UX",
       "category": "Creative Studio",
       "shortDescription": "Research-led product and website experience design."
     },
     {
-      "slug": "graphic-design",
+      "slug": "graphic-design-services",
       "title": "Graphic Design",
       "category": "Creative Studio",
       "shortDescription": "Visual design for digital, social, and print surfaces."
     },
     {
-      "slug": "video-production",
+      "slug": "video-production-services",
       "title": "Video Production",
       "category": "Creative Studio",
       "shortDescription": "Brand films, product videos, and social motion content."

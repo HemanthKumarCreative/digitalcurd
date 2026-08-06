@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useEffect, useRef } from 'react'
-import homeContent from '@/content/home.json'
 
 type LogoItem = {
   name: string
@@ -10,6 +9,16 @@ type LogoItem = {
 
 type ClientMark = {
   name: string
+}
+
+type LogosData = {
+  headingText1: string
+  headingStrong: string
+  headingText2: string
+  toolsLabel?: string
+  clientsLabel?: string
+  logos: LogoItem[]
+  clients?: ClientMark[]
 }
 
 const pauseTracksWhenOffscreen = (root: HTMLElement | null) => {
@@ -29,8 +38,7 @@ const pauseTracksWhenOffscreen = (root: HTMLElement | null) => {
   return () => observer.disconnect()
 }
 
-export default function ClientLogosSlider() {
-  const { clientLogosSlider } = homeContent
+export default function ClientLogosSlider({ data: clientLogosSlider }: { data: LogosData }) {
   const logos = clientLogosSlider.logos as LogoItem[]
   const clients = (clientLogosSlider.clients || []) as ClientMark[]
   const rootRef = useRef<HTMLDivElement>(null)

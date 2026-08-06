@@ -2,14 +2,20 @@
 
 import React, { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
-import homeContent from '@/content/home.json'
 
 const INITIAL_VISIBLE = 8
 
-export default function FaqAccordion() {
+type FaqData = {
+  title?: string
+  titleLine1?: string
+  titleEm?: string
+  subtitle?: string
+  faqs: { question: string; answer: string }[]
+}
+
+export default function FaqAccordion({ data: faqAccordion }: { data: FaqData }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(0)
   const [showAll, setShowAll] = useState(false)
-  const { faqAccordion } = homeContent
   const faqs = faqAccordion.faqs
   const visibleFaqs = showAll ? faqs : faqs.slice(0, INITIAL_VISIBLE)
 

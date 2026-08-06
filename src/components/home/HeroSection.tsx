@@ -3,10 +3,18 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, MessageCircle } from 'lucide-react'
-import homeContent from '@/content/home.json'
 
-export default function HeroSection() {
-  const { heroSection } = homeContent
+type HeroData = {
+  backgroundUrl: string
+  title: string
+  subtitle: string
+  description: string
+  ctaText: string
+  ctaLink: string
+  awards: string[]
+}
+
+export default function HeroSection({ data: heroSection }: { data: HeroData }) {
   const [entered, setEntered] = useState(false)
 
   useEffect(() => {

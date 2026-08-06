@@ -1,0 +1,148 @@
+{
+  "slug": "branding-services",
+  "category": "Creative Studio",
+  "title": "Brand Materials",
+  "subtitle": "Cohesive brand systems, kits, and campaign assets.",
+  "seo": {
+    "title": "Brand Materials",
+    "description": "Cohesive brand systems, kits, and campaign assets."
+  },
+  "description": "Digital Curd designs and delivers Brand Materials as part of a connected growth system—so marketing, technology, and AI work together instead of in silos. We focus on measurable outcomes: more qualified demand, smoother operations, and digital experiences that convert.",
+  "heroImage": "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1920&q=80",
+  "outcomes": [
+    {
+      "title": "Clear growth outcomes",
+      "description": "We align Brand Materials work to pipeline, revenue, efficiency, or experience KPIs from day one.",
+      "icon": "target"
+    },
+    {
+      "title": "Connected delivery",
+      "description": "Strategy, build, and optimization stay linked so insights from one channel improve the rest.",
+      "icon": "layers"
+    },
+    {
+      "title": "AI-ready foundation",
+      "description": "We structure data, content, and workflows so automation and AI can compound results over time.",
+      "icon": "sparkles"
+    }
+  ],
+  "capabilities": [
+    {
+      "title": "Discovery & strategy",
+      "description": "Audit current state, competitors, and opportunities to define a practical roadmap.",
+      "icon": "palette"
+    },
+    {
+      "title": "Build & integration",
+      "description": "Implement the stack, journeys, and experiences needed to make Brand Materials perform.",
+      "icon": "code"
+    },
+    {
+      "title": "Measurement & learning",
+      "description": "Instrument analytics and feedback loops so every sprint improves conversion and ROI.",
+      "icon": "chart"
+    },
+    {
+      "title": "Ongoing optimization",
+      "description": "Iterate creatives, flows, and technical performance with a continuous improvement cadence.",
+      "icon": "zap"
+    }
+  ],
+  "process": [
+    {
+      "title": "Align",
+      "description": "Clarify goals, audience, constraints, and success metrics for Brand Materials."
+    },
+    {
+      "title": "Design",
+      "description": "Map the experience, architecture, and growth system required to deliver."
+    },
+    {
+      "title": "Launch",
+      "description": "Ship production-ready work with QA, tracking, and stakeholder enablement."
+    },
+    {
+      "title": "Scale",
+      "description": "Optimize against live data and expand what is already working."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How long does a typical Brand Materials engagement take?",
+      "answer": "Most discovery-to-launch cycles run 4–12 weeks depending on scope. Ongoing optimization retainers then refine performance month over month."
+    },
+    {
+      "question": "Do you work with existing teams and tools?",
+      "answer": "Yes. We integrate with your marketing, product, and engineering workflows and prefer to extend your current stack when it is fit for purpose."
+    },
+    {
+      "question": "How do you measure success?",
+      "answer": "We define KPIs during kickoff—such as qualified leads, ROAS, conversion rate, ticket deflection, or page performance—and report against them clearly."
+    }
+  ],
+  "relatedSlugs": [
+    "ui-ux-design",
+    "graphic-design-services",
+    "video-production-services"
+  ],
+  "cta": {
+    "label": "Talk about Brand Materials",
+    "href": "/contact"
+  },
+  "featuresSection": {
+    "title": "Key features of Brand Materials",
+    "description": "Explore the capabilities that make Brand Materials effective for measurable growth—built to work with your wider Digital Curd system.",
+    "items": [
+      {
+        "title": "Brand-consistent systems",
+        "description": "Create Brand Materials assets that stay on-brand across every channel.",
+        "icon": "palette"
+      },
+      {
+        "title": "Conversion-aware design",
+        "description": "Prioritize clarity, hierarchy, and CTAs that support business goals.",
+        "icon": "target"
+      },
+      {
+        "title": "Multi-format production",
+        "description": "Deliver web, social, print, and motion variants from a coherent system.",
+        "icon": "layers"
+      },
+      {
+        "title": "Fast creative iteration",
+        "description": "Explore concepts quickly and refine based on stakeholder and market feedback.",
+        "icon": "zap"
+      },
+      {
+        "title": "Accessible visual language",
+        "description": "Design for readability, contrast, and inclusive experiences.",
+        "icon": "users"
+      },
+      {
+        "title": "Motion with purpose",
+        "description": "Use animation to guide attention—not decorate without intent.",
+        "icon": "sparkles"
+      },
+      {
+        "title": "Asset organization",
+        "description": "Hand off libraries and guidelines teams can reuse without starting over.",
+        "icon": "hardDrive"
+      },
+      {
+        "title": "Campaign storytelling",
+        "description": "Shape narratives that connect product value to audience needs.",
+        "icon": "megaphone"
+      },
+      {
+        "title": "Quality production craft",
+        "description": "Ship polished visuals with consistent spacing, type, and imagery standards.",
+        "icon": "checkCircle"
+      },
+      {
+        "title": "Collaborative reviews",
+        "description": "Keep feedback structured so decisions move forward without endless revisions.",
+        "icon": "workflow"
+      }
+    ]
+  }
+}

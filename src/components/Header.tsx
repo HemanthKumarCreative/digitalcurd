@@ -4,9 +4,17 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { ArrowRight } from 'lucide-react'
 import AnimatedLogo from './AnimatedLogo'
-import { getServicesByCategory, serviceCategories } from '@/content/services'
+import {
+  getServicesByCategory,
+  serviceCategories,
+} from '@/sanity/lib/catalog'
+import type { ServiceMeta } from '@/types/content'
 
-export default function Header() {
+type HeaderProps = {
+  services?: ServiceMeta[]
+}
+
+export default function Header({ services = [] }: HeaderProps) {
   const [activePanel, setActivePanel] = useState<string | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -122,7 +130,7 @@ export default function Header() {
               <div key={category} className="col rv">
                 <span className="col__head">{category}</span>
                 <ul>
-                  {getServicesByCategory(category).map((service) => (
+                  {getServicesByCategory(services, category).map((service) => (
                     <li key={service.slug}>
                       <Link
                         className="lnk"
@@ -163,13 +171,12 @@ export default function Header() {
         </div>
         <div className="drawer__scroll">
           {serviceCategories.map((category) => {
-            const accId = category
-            const isOpen = activeMobileAcc === accId
+            const isOpen = activeMobileAcc === category
             return (
               <div key={category}>
                 <button
                   className={`acc ${isOpen ? 'is-open' : ''}`}
-                  onClick={() => setActiveMobileAcc(isOpen ? null : accId)}
+                  onClick={() => setActiveMobileAcc(isOpen ? null : category)}
                 >
                   {category}
                   <svg viewBox="0 0 12 12" fill="none">
@@ -183,7 +190,7 @@ export default function Header() {
                   </svg>
                 </button>
                 <div className={`acc-body ${isOpen ? 'is-open' : ''}`}>
-                  {getServicesByCategory(category).map((service) => (
+                  {getServicesByCategory(services, category).map((service) => (
                     <Link
                       key={service.slug}
                       href={`/services/${service.slug}`}

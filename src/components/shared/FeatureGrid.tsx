@@ -1,36 +1,8 @@
 'use client'
 
-import {
-  Bot,
-  ChartLine,
-  Code2,
-  Globe,
-  Layers,
-  Megaphone,
-  Palette,
-  Search,
-  Sparkles,
-  Target,
-  Workflow,
-  Zap,
-} from 'lucide-react'
 import { useInViewMotion } from '@/hooks/useInViewMotion'
+import { resolveServiceIcon } from '@/lib/serviceIcons'
 import type { FeatureItem } from '@/types/content'
-
-const iconMap = {
-  bot: Bot,
-  chart: ChartLine,
-  code: Code2,
-  globe: Globe,
-  layers: Layers,
-  megaphone: Megaphone,
-  palette: Palette,
-  search: Search,
-  sparkles: Sparkles,
-  target: Target,
-  workflow: Workflow,
-  zap: Zap,
-} as const
 
 type FeatureGridProps = {
   items: FeatureItem[]
@@ -47,8 +19,7 @@ export default function FeatureGrid({ items, columns = 3 }: FeatureGridProps) {
       role="list"
     >
       {items.map((item, index) => {
-        const Icon =
-          (item.icon && iconMap[item.icon as keyof typeof iconMap]) || Sparkles
+        const Icon = resolveServiceIcon(item.icon)
         const delay = (index % 3) + 1
         return (
           <article

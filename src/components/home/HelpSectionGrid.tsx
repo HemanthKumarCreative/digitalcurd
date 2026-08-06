@@ -1,14 +1,26 @@
 'use client'
 
 import Link from 'next/link'
-import homeContent from '@/content/home.json'
 import { Monitor, ShoppingCart, Bot, Search, TrendingUp, BarChart2, CheckCircle2, ArrowRight } from 'lucide-react'
 import { useInViewMotion } from '@/hooks/useInViewMotion'
 
 const icons = [Monitor, ShoppingCart, Bot, Search, TrendingUp, BarChart2]
 
-export default function HelpSectionGrid() {
-  const { helpSectionGrid } = homeContent
+type HelpData = {
+  headerTitle1: string
+  headerTitleEm: string
+  headerTitle2: string
+  headerDesc: string
+  cards: {
+    title: string
+    link: string
+    description: string
+    howWeHelpTitle: string
+    list: string[]
+  }[]
+}
+
+export default function HelpSectionGrid({ data: helpSectionGrid }: { data: HelpData }) {
   const { ref, inView } = useInViewMotion<HTMLElement>()
 
   const renderCard = (card: (typeof helpSectionGrid.cards)[number], index: number) => {

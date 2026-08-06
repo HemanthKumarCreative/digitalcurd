@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Digital Curd
 
-## Getting Started
+Next.js marketing site with **Sanity CMS** for all page content and media.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Site: [http://localhost:3000](http://localhost:3000)
+- Studio: [http://localhost:3000/studio](http://localhost:3000/studio)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Until Sanity credentials are configured, pages load from local JSON fallbacks in `src/content/` so the site still builds and runs.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Sanity setup
 
-## Learn More
+1. Create a project at [sanity.io/manage](https://www.sanity.io/manage) (or run `npx sanity@latest login` then create a project).
+2. Put values in `.env.local`:
 
-To learn more about Next.js, take a look at the following resources:
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=yourProjectId
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2025-01-01
+SANITY_API_WRITE_TOKEN=yourEditorToken
+SANITY_REVALIDATE_SECRET=aLongRandomString
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Open `/studio` and confirm the schema loads.
+4. Seed existing content (JSON + Unsplash/local media uploads):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run sanity:seed
+```
 
-## Deploy on Vercel
+The seed script uploads hero/cover/team images from Unsplash and logo SVGs from `public/assets/logos/` into the Sanity asset CDN, then creates all page/service/blog/job/legal documents.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. In Sanity Manage → API → CORS origins, add `http://localhost:3000` (and your production domain).
+6. Optional webhook: point Sanity to `POST /api/revalidate?secret=YOUR_SECRET` on publish so Next.js cache tags refresh (`revalidateTag(..., 'max')`).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Content model
+
+| Studio area | Types |
+|-------------|--------|
+| Pages | `homePage`, `aboutPage`, `careersPage`, `contactPage`, `blogIndex`, `servicesIndex` |
+| Services | `service` (25+ documents) |
+| Blog | `post` |
+| Careers | `job` |
+| Legal | `legalPage` |
+| Settings | `siteSettings` (email, phone, socials, footer) |
+
+Hero/cover images support Sanity `image` assets plus URL fallbacks used by the seed script.
+
+## Scripts
+
+| Command | Purpose |
+|---------|---------|
+| `npm run dev` | Next.js + embedded Studio |
+| `npm run build` | Production build |
+| `npm run sanity:seed` | Migrate `src/content/**` into Sanity |
+
+## Stack
+
+- Next.js 16 (App Router)
+- Sanity v3 + `next-sanity`
+- Tailwind CSS 4

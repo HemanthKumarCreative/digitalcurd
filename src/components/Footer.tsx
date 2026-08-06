@@ -1,45 +1,64 @@
 import Link from 'next/link'
 import { Briefcase, Camera, Play, Users } from 'lucide-react'
 import AnimatedLogo from './AnimatedLogo'
+import type { ServiceMeta } from '@/types/content'
+import { getServicesByCategory } from '@/sanity/lib/catalog'
 
-const footerColumns = [
-  {
-    title: 'AI & Automation',
-    links: [
-      { label: 'AI Agents', href: '/services/ai-agents' },
-      { label: 'AI Chatbots', href: '/services/ai-chatbots' },
-      { label: 'AI Search Optimization', href: '/services/ai-search-optimization' },
-      { label: 'Workflow Automation', href: '/services/workflow-automation' },
-    ],
-  },
-  {
-    title: 'Growth Marketing',
-    links: [
-      { label: 'SEO', href: '/services/seo' },
-      { label: 'Performance Marketing', href: '/services/performance-marketing' },
-      { label: 'Google Ads', href: '/services/google-ads' },
-      { label: 'WhatsApp Marketing', href: '/services/whatsapp-marketing' },
-    ],
-  },
-  {
-    title: 'Build',
-    links: [
-      { label: 'Website Development', href: '/services/website-development' },
-      { label: 'Shopify', href: '/services/shopify-development' },
-      { label: 'Next.js', href: '/services/nextjs' },
-      { label: 'UI/UX', href: '/services/ui-ux' },
-    ],
-  },
-]
+type SiteSettings = {
+  email?: string
+  footerBlurb?: string
+  socialLinks?: { label: string; href: string }[]
+}
 
-const socialLinks = [
-  { label: 'Facebook', href: 'https://facebook.com/', Icon: Users },
-  { label: 'LinkedIn', href: 'https://linkedin.com/', Icon: Briefcase },
-  { label: 'Instagram', href: 'https://instagram.com/', Icon: Camera },
-  { label: 'YouTube', href: 'https://youtube.com/', Icon: Play },
-]
+type FooterProps = {
+  settings?: SiteSettings
+  services?: ServiceMeta[]
+}
 
-export default function Footer() {
+const socialIcons = {
+  Facebook: Users,
+  LinkedIn: Briefcase,
+  Instagram: Camera,
+  YouTube: Play,
+} as const
+
+export default function Footer({ settings, services = [] }: FooterProps) {
+  const email = settings?.email || 'hello@digitalcurd.com'
+  const blurb =
+    settings?.footerBlurb ||
+    'AI-powered growth systems for marketing, commerce, and modern digital products.'
+  const socialLinks = settings?.socialLinks?.length
+    ? settings.socialLinks
+    : [
+        { label: 'Facebook', href: 'https://facebook.com/' },
+        { label: 'LinkedIn', href: 'https://linkedin.com/' },
+        { label: 'Instagram', href: 'https://instagram.com/' },
+        { label: 'YouTube', href: 'https://youtube.com/' },
+      ]
+
+  const footerColumns = [
+    {
+      title: 'AI & Automation',
+      links: getServicesByCategory(services, 'AI & Automation')
+        .slice(0, 4)
+        .map((s) => ({ label: s.title, href: `/services/${s.slug}` })),
+    },
+    {
+      title: 'Growth Marketing',
+      links: getServicesByCategory(services, 'Growth Marketing')
+        .slice(0, 4)
+        .map((s) => ({ label: s.title, href: `/services/${s.slug}` })),
+    },
+    {
+      title: 'Build',
+      links: [
+        ...getServicesByCategory(services, 'Digital Engineering').slice(0, 2),
+        ...getServicesByCategory(services, 'Ecommerce').slice(0, 1),
+        ...getServicesByCategory(services, 'Creative Studio').slice(0, 1),
+      ].map((s) => ({ label: s.title, href: `/services/${s.slug}` })),
+    },
+  ]
+
   return (
     <footer className="dc-footer">
       <div className="dc-footer__inner">
@@ -48,24 +67,26 @@ export default function Footer() {
             <Link href="/" aria-label="Digital Curd — Home" className="dc-footer__logo">
               <AnimatedLogo variant="light" />
             </Link>
-            <p>
-              AI-powered growth systems for marketing, commerce, and modern digital products.
-            </p>
-            <a href="mailto:hello@digitalcurd.com" className="dc-footer__email">
-              hello@digitalcurd.com
+            <p>{blurb}</p>
+            <a href={`mailto:${email}`} className="dc-footer__email">
+              {email}
             </a>
             <div className="dc-footer__social">
-              {socialLinks.map(({ label, href, Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  target="_blank"
-                  rel="nofollow external noopener noreferrer"
-                >
-                  <Icon size={18} strokeWidth={2} aria-hidden="true" />
-                </a>
-              ))}
+              {socialLinks.map(({ label, href }) => {
+                const Icon =
+                  socialIcons[label as keyof typeof socialIcons] || Users
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    target="_blank"
+                    rel="nofollow external noopener noreferrer"
+                  >
+                    <Icon size={18} strokeWidth={2} aria-hidden="true" />
+                  </a>
+                )
+              })}
             </div>
           </div>
 

@@ -3,6 +3,10 @@
   "category": "AI & Automation",
   "title": "AI Search Optimization (AEO/GEO)",
   "subtitle": "Get discovered in AI answers, AEO, and generative search.",
+  "seo": {
+    "title": "AI Search Optimization (AEO/GEO)",
+    "description": "Get discovered in AI answers, AEO, and generative search."
+  },
   "description": "Digital Curd designs and delivers AI Search Optimization (AEO/GEO) as part of a connected growth system—so marketing, technology, and AI work together instead of in silos. We focus on measurable outcomes: more qualified demand, smoother operations, and digital experiences that convert.",
   "heroImage": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1920&q=80",
   "outcomes": [
@@ -77,12 +81,68 @@
     }
   ],
   "relatedSlugs": [
-    "ai-agents",
-    "ai-chatbots",
+    "ai-agent-development",
+    "ai-chatbot-development",
     "workflow-automation"
   ],
   "cta": {
     "label": "Talk about AI Search Optimization (AEO/GEO)",
     "href": "/contact"
+  },
+  "featuresSection": {
+    "title": "Key features of AI Search Optimization (AEO/GEO)",
+    "description": "Explore the capabilities that make AI Search Optimization (AEO/GEO) effective for measurable growth—built to work with your wider Digital Curd system.",
+    "items": [
+      {
+        "title": "Autonomous task execution",
+        "description": "Design AI Search Optimization (AEO/GEO) workflows that complete multi-step work with clear guardrails and human checkpoints.",
+        "icon": "bot"
+      },
+      {
+        "title": "Secure data handling",
+        "description": "Keep prompts, memory, and integrations within approved data boundaries and access controls.",
+        "icon": "shield"
+      },
+      {
+        "title": "Fast iteration cycles",
+        "description": "Prototype, evaluate, and ship improvements quickly with measurable quality gates.",
+        "icon": "zap"
+      },
+      {
+        "title": "Tool and API connectivity",
+        "description": "Connect CRMs, helpdesks, and internal systems so agents and bots can take real action.",
+        "icon": "workflow"
+      },
+      {
+        "title": "Human-in-the-loop controls",
+        "description": "Escalate edge cases to people with full context and audit trails.",
+        "icon": "users"
+      },
+      {
+        "title": "Analytics and monitoring",
+        "description": "Track success rates, latency, deflection, and cost so performance stays visible.",
+        "icon": "chart"
+      },
+      {
+        "title": "Knowledge-grounded answers",
+        "description": "Ground responses in your docs, FAQs, and product data to reduce hallucinations.",
+        "icon": "fileSearch"
+      },
+      {
+        "title": "Scalable operations",
+        "description": "Run reliably across peak volumes without proportional headcount growth.",
+        "icon": "layers"
+      },
+      {
+        "title": "Compliance-ready logging",
+        "description": "Retain interaction history needed for training, audits, and continuous improvement.",
+        "icon": "lock"
+      },
+      {
+        "title": "Clear ROI framing",
+        "description": "Tie every automation to ticket deflection, speed-to-lead, or revenue impact.",
+        "icon": "target"
+      }
+    ]
   }
 }

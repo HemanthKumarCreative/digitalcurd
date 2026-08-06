@@ -3,6 +3,10 @@
   "category": "Growth Marketing",
   "title": "Performance Marketing",
   "subtitle": "Full-funnel paid growth measured against revenue goals.",
+  "seo": {
+    "title": "Performance Marketing",
+    "description": "Full-funnel paid growth measured against revenue goals."
+  },
   "description": "Digital Curd designs and delivers Performance Marketing as part of a connected growth system—so marketing, technology, and AI work together instead of in silos. We focus on measurable outcomes: more qualified demand, smoother operations, and digital experiences that convert.",
   "heroImage": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80",
   "outcomes": [
@@ -77,12 +81,68 @@
     }
   ],
   "relatedSlugs": [
-    "seo",
-    "google-ads",
-    "meta-ads"
+    "seo-services",
+    "google-ads-management",
+    "meta-ads-management"
   ],
   "cta": {
     "label": "Talk about Performance Marketing",
     "href": "/contact"
+  },
+  "featuresSection": {
+    "title": "Key features of Performance Marketing",
+    "description": "A practical set of strengths that make Performance Marketing measurable, efficient, and ready to scale with your growth system.",
+    "items": [
+      {
+        "title": "Revenue-tied campaign structure",
+        "description": "Organize accounts and funnels around pipeline and ROAS goals from day one.",
+        "icon": "target"
+      },
+      {
+        "title": "Full-funnel paid coverage",
+        "description": "Connect prospecting, retargeting, and conversion campaigns into one system.",
+        "icon": "layers"
+      },
+      {
+        "title": "Creative testing frameworks",
+        "description": "Systematically test hooks, offers, and formats to find durable winners.",
+        "icon": "megaphone"
+      },
+      {
+        "title": "Landing page alignment",
+        "description": "Match ad messaging to on-page experience so conversion rates improve together.",
+        "icon": "monitor"
+      },
+      {
+        "title": "Trusted measurement",
+        "description": "Instrument conversions, consent, and attribution so decisions stay evidence-based.",
+        "icon": "chart"
+      },
+      {
+        "title": "Budget pacing controls",
+        "description": "Protect efficiency with clear spend rules, alerts, and weekly reallocation.",
+        "icon": "clock"
+      },
+      {
+        "title": "Audience refinement",
+        "description": "Expand and exclude audiences using CRM, first-party, and engagement signals.",
+        "icon": "users"
+      },
+      {
+        "title": "Cross-channel insight sharing",
+        "description": "Feed paid learnings into SEO, lifecycle, and creative so every channel improves.",
+        "icon": "workflow"
+      },
+      {
+        "title": "Account security hygiene",
+        "description": "Govern access, billing, and change history to reduce operational risk.",
+        "icon": "lock"
+      },
+      {
+        "title": "Stakeholder-ready reporting",
+        "description": "Share dashboards that explain what happened and what to do next.",
+        "icon": "checkCircle"
+      }
+    ]
   }
 }

@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "AI-Powered Growth Partner for Marketing, Technology & Analytics",
+    "description": "We help startups, ecommerce brands, and enterprises attract customers, increase revenue, and automate operations with connected AI, marketing, and technology systems."
+  },
   "heroSection": {
     "backgroundUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80",
     "title": "Transform Your Business for the AI Era",
@@ -37,7 +41,7 @@
       { "name": "Mailchimp", "src": "/assets/logos/mailchimp.svg" },
       { "name": "WhatsApp", "src": "/assets/logos/whatsapp.svg" },
       { "name": "Power BI", "src": "/assets/logos/powerbi.svg" },
-      { "name": "WordPress", "src": "/assets/logos/wordpress.svg" },
+      { "name": "WordPress", "src": "/assets/logos/wordpress-development.svg" },
       { "name": "SEMrush", "src": "/assets/logos/semrush.svg" },
       { "name": "Hotjar", "src": "/assets/logos/hotjar.svg" },
       { "name": "TikTok", "src": "/assets/logos/tiktok.svg" },
@@ -91,7 +95,7 @@
     "cards": [
       {
         "title": "Digital Presence & Web",
-        "link": "/services/website-development",
+        "link": "/services/web-development",
         "description": "You need a high-performance, conversion-optimized website to scale your brand.",
         "howWeHelpTitle": "How We Help:",
         "list": [
@@ -113,7 +117,7 @@
       },
       {
         "title": "AI & Automation",
-        "link": "/services/ai-agents",
+        "link": "/services/ai-agent-development",
         "description": "You want to leverage artificial intelligence to improve operational efficiency.",
         "howWeHelpTitle": "How We Help:",
         "list": [
@@ -124,7 +128,7 @@
       },
       {
         "title": "Search & Visibility",
-        "link": "/services/seo",
+        "link": "/services/seo-services",
         "description": "Your brand is struggling to rank and be discovered by your target audience.",
         "howWeHelpTitle": "How We Help:",
         "list": [
@@ -186,7 +190,7 @@
       {
         "badge": "INNOVATE",
         "title": "AI Solutions",
-        "link": "/services/ai-agents",
+        "link": "/services/ai-agent-development",
         "desc": "We help businesses unlock the full potential of Artificial Intelligence through intelligent automation, AI agents, conversational chatbots, predictive analytics, and custom AI solutions.",
         "footerText": "Our AI-first approach streamlines operations, enhances decision-making, and creates smarter customer experiences that drive efficiency, innovation, and sustainable growth.",
         "highlighted": false
@@ -194,7 +198,7 @@
       {
         "badge": "BUILD",
         "title": "Digital Engineering",
-        "link": "/services/website-development",
+        "link": "/services/web-development",
         "desc": "We build high-performance websites, ecommerce platforms, and custom digital solutions using modern technologies like Next.js, React, Shopify, and cloud-native architectures.",
         "footerText": "Every solution is designed for speed, scalability, security, and exceptional user experience, ensuring your digital foundation is ready for today's demands and tomorrow's opportunities.",
         "highlighted": true
@@ -202,7 +206,7 @@
       {
         "badge": "SCALE",
         "title": "Digital Growth & Analytics",
-        "link": "/services/seo",
+        "link": "/services/seo-services",
         "desc": "We accelerate business growth through strategic digital marketing, AI Search Optimization, SEO, performance advertising, conversion optimization, and advanced analytics.",
         "footerText": "By combining data-driven insights with proven growth strategies, we help businesses attract the right audience, maximize marketing ROI, and make confident decisions that fuel long-term success.",
         "highlighted": false

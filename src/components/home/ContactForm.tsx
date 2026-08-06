@@ -2,7 +2,6 @@
 
 import React, { useEffect, useId, useRef, useState } from 'react'
 import { ArrowRight, Check, CheckCircle2, ChevronDown, Clock3, Mail } from 'lucide-react'
-import homeContent from '@/content/home.json'
 
 type FormFields = {
   name: string
@@ -20,8 +19,26 @@ const trustPoints = [
   { icon: CheckCircle2, label: 'Free consult — clear next steps' },
 ]
 
-export default function ContactForm() {
-  const { contactForm } = homeContent
+type ContactFormData = {
+  title: string
+  subtitle?: string
+  leftCol: {
+    email: string
+    emailLabel?: string
+  }
+  form: {
+    namePlaceholder: string
+    emailPlaceholder: string
+    servicePlaceholder: string
+    requirementsPlaceholder: string
+    submitButton: string
+    successMessage: string
+    services: { group: string; options: string[] }[]
+  }
+  imageUrl?: string
+}
+
+export default function ContactForm({ data: contactForm }: { data: ContactFormData }) {
   const listboxId = useId()
   const serviceRef = useRef<HTMLDivElement>(null)
 

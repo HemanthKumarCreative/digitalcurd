@@ -1,24 +1,43 @@
-import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next'
+import { Plus_Jakarta_Sans } from 'next/font/google'
+import {
+  DEFAULT_SITE_DESCRIPTION,
+  DEFAULT_SITE_NAME,
+  resolveOgImage,
+} from '@/lib/seo'
+import { getSiteUrl } from '@/lib/site'
+import './globals.css'
 
 const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta-sans",
-  subsets: ["latin"],
-});
+  variable: '--font-plus-jakarta-sans',
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
-  title: "AI-Powered Growth Partner for Marketing, Technology & Analytics | Digital Curd",
-  description: "DigitalCurd helps businesses grow with AI solutions, digital marketing, ecommerce, modern web engineering, and analytics—built as one connected growth system.",
-};
-
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+  metadataBase: new URL(getSiteUrl()),
+  title: {
+    default: `AI-Powered Growth Partner for Marketing, Technology & Analytics | ${DEFAULT_SITE_NAME}`,
+    template: `%s | ${DEFAULT_SITE_NAME}`,
+  },
+  description: DEFAULT_SITE_DESCRIPTION,
+  openGraph: {
+    siteName: DEFAULT_SITE_NAME,
+    type: 'website',
+    images: [{ url: resolveOgImage(), width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html
@@ -32,11 +51,13 @@ export default function RootLayout({
         <link rel="stylesheet" href="/css/index-v10.css" />
         <link rel="stylesheet" href="/css/dev-style.css" />
       </head>
-      <body className="home wp-singular page-template page-template-page-templates page-template-tpl-home-v10 page-template-page-templatestpl-home-v10-php page page-id-29326 no-sidebar" id="themeAdd" suppressHydrationWarning>
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+      <body
+        className="home wp-singular page-template page-template-page-templates page-template-tpl-home-v10 page-template-page-templatestpl-home-v10-php page page-id-29326 no-sidebar min-h-full flex flex-col"
+        id="themeAdd"
+        suppressHydrationWarning
+      >
+        {children}
       </body>
     </html>
-  );
+  )
 }
