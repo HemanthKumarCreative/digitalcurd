@@ -61,7 +61,7 @@ export default function SimpleFaq({
                   <EditableText
                     as="span"
                     path={`${pathPrefix}[${index}].question`}
-                    label={`FAQ ${index + 1} → Question`}
+                    label={`FAQ ${index + 1} — question`}
                     value={faq.question}
                     className="dc-faq__question"
                   />
@@ -81,7 +81,7 @@ export default function SimpleFaq({
                   {isHtml ? (
                     <EditableHtml
                       path={`${pathPrefix}[${index}].answer`}
-                      label={`FAQ ${index + 1} → Answer`}
+                      label={`FAQ ${index + 1} — answer`}
                       html={answer}
                       className="dc-faq__answer"
                     />
@@ -89,7 +89,7 @@ export default function SimpleFaq({
                     <EditableText
                       as="div"
                       path={`${pathPrefix}[${index}].answer`}
-                      label={`FAQ ${index + 1} → Answer`}
+                      label={`FAQ ${index + 1} — answer`}
                       value={answer}
                       multiline
                       className="dc-faq__answer"

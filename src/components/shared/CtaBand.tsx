@@ -29,7 +29,7 @@ export default function CtaBand({ title, description, cta, pathPrefix }: CtaBand
               <EditableText
                 as="h2"
                 path={`${pathPrefix}.title`}
-                label="CTA → Title"
+                label="Footer CTA — headline"
                 value={title}
                 className="dc-cta-band__title"
               />
@@ -37,7 +37,7 @@ export default function CtaBand({ title, description, cta, pathPrefix }: CtaBand
                 <EditableText
                   as="p"
                   path={`${pathPrefix}.description`}
-                  label="CTA → Description"
+                  label="Footer CTA — supporting text"
                   value={description}
                   className="dc-cta-band__desc"
                   multiline
@@ -60,7 +60,7 @@ export default function CtaBand({ title, description, cta, pathPrefix }: CtaBand
             <EditableText
               as="span"
               path={`${pathPrefix}.cta.label`}
-              label="CTA → Button"
+              label="Footer CTA — button label"
               value={cta.label}
             />
           ) : (

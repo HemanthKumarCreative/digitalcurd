@@ -103,7 +103,7 @@ export default function BlogPostContent({
             <EditableText
               as="span"
               path="category"
-              label="Post → Category"
+              label="Category (topic label)"
               value={category}
             />
           </nav>
@@ -111,7 +111,7 @@ export default function BlogPostContent({
           <EditableText
             as="h1"
             path="title"
-            label="Post → Title"
+            label="Article title"
             value={title}
             className="dc-article__title"
           />
@@ -120,7 +120,7 @@ export default function BlogPostContent({
             <EditableText
               as="p"
               path="excerpt"
-              label="Post → Excerpt"
+              label="Short summary (under the title)"
               value={excerpt}
               className="dc-article__lead"
               multiline
@@ -151,7 +151,7 @@ export default function BlogPostContent({
           {coverImageUrl ? (
             <EditableImage
               path="coverImageUrl"
-              label="Post → Cover"
+              label="Cover image (click to change)"
               value={coverImageUrl}
               alt={title}
               className="dc-article__cover"

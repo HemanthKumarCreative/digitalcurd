@@ -23,19 +23,19 @@ export default async function AdminBlogPage() {
     <div className="space-y-4">
       <PageHeader
         title="Articles"
-        description={`${posts.length} posts`}
+        description={`${posts.length} article${posts.length === 1 ? '' : 's'} · Open one to edit in Design or Form mode`}
         breadcrumbs={[{ label: 'Content' }, { label: 'Articles' }]}
         actions={<CreatePostButton />}
       />
       <ContentListSearch
-        emptyTitle="No posts yet"
-        emptyDescription="Create your first post to start writing."
-        placeholder="Search posts…"
+        emptyTitle="No articles yet"
+        emptyDescription="Create your first article. You’ll get a draft with starter sections you can replace."
+        placeholder="Search articles…"
         items={posts.map((post) => ({
           id: post._id,
           href: `/admin/blog/${post.slug || post._id}`,
-          title: post.title || 'Untitled',
-          subtitle: `/${post.slug}`,
+          title: post.title || 'Untitled article',
+          subtitle: `/blog/${post.slug}`,
           badges: [
             ...(post.isDraft
               ? [{ label: 'Draft', tone: 'warning' as const }]

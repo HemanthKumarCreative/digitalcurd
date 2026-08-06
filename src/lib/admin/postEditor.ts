@@ -183,41 +183,124 @@ export const getPostEditorSections = ({
   authors?: PostAuthorOption[]
   posts?: PostRelatedOption[]
 } = {}): SectionDef[] => [
-  { key: 'title', title: 'Title', kind: 'string', defaultOpen: true },
-  { key: 'slug', title: 'URL slug', kind: 'slug' },
-  { key: 'excerpt', title: 'Excerpt', kind: 'textarea' },
-  { key: 'category', title: 'Category', kind: 'string' },
-  { key: 'publishedAt', title: 'Published at', kind: 'datetime' },
-  { key: 'updatedAt', title: 'Updated at', kind: 'datetime' },
-  { key: 'readingMinutes', title: 'Reading minutes', kind: 'number' },
-  { key: 'coverImageUrl', title: 'Cover image', kind: 'imageUrl' },
+  {
+    key: 'title',
+    title: 'Article title',
+    description: 'Main headline at the top of the article page.',
+    helper: 'Write a clear title readers will understand in one glance.',
+    placeholder: 'e.g. How to choose an AI development partner',
+    kind: 'string',
+    defaultOpen: true,
+  },
+  {
+    key: 'slug',
+    title: 'URL slug',
+    description: 'The end of the public link: /blog/your-slug.',
+    helper:
+      'Use lowercase words with hyphens (no spaces). Changing this updates the public URL after you publish.',
+    placeholder: 'how-to-choose-an-ai-partner',
+    kind: 'slug',
+  },
+  {
+    key: 'excerpt',
+    title: 'Short summary',
+    description: 'Shown under the title and on article cards in the blog list.',
+    helper:
+      '1–2 sentences (about 140–180 characters). Also used for SEO if meta description is empty.',
+    placeholder: 'A short teaser that makes someone want to open the article…',
+    kind: 'textarea',
+  },
+  {
+    key: 'category',
+    title: 'Category',
+    description: 'Topic label shown in the breadcrumb above the title.',
+    helper: 'Keep it short — e.g. Insights, AI, Engineering, Product.',
+    placeholder: 'Insights',
+    kind: 'string',
+  },
+  {
+    key: 'publishedAt',
+    title: 'Publish date',
+    description: 'When the article first went live. Used for sorting on the blog list.',
+    helper: 'Set this before publishing. Leave as-is for drafts if you are not sure yet.',
+    kind: 'datetime',
+  },
+  {
+    key: 'updatedAt',
+    title: 'Last updated',
+    description: 'Optional. Shown as “Updated” in the article meta strip.',
+    helper: 'Update this when you meaningfully revise the article after launch.',
+    kind: 'datetime',
+  },
+  {
+    key: 'readingMinutes',
+    title: 'Reading time (minutes)',
+    description: 'Approximate time to read, shown next to the author.',
+    helper: 'Whole number only — e.g. 5 for a five-minute read.',
+    placeholder: '5',
+    kind: 'number',
+  },
+  {
+    key: 'coverImageUrl',
+    title: 'Cover image',
+    description: 'Large image under the title on the article page.',
+    helper: 'Prefer a wide landscape image (around 1600×900). Pick from Media or paste a URL.',
+    kind: 'imageUrl',
+  },
   {
     key: 'author',
     title: 'Author',
+    description: 'Who wrote this article. Shown in the meta strip and author card.',
     kind: 'authorRef',
     authors,
   },
   {
     key: 'sections',
-    title: 'Article sections',
+    title: 'Article body',
     description:
-      'Recommended order: prose intro → comparison table → inline CTA → guide → conclusion. Use markdown lightly: **bold**, `code`, [label](/services/slug).',
+      'Build the main content with sections in reading order. Tip: start with Prose (intro), then add Table / Guide / Steps as needed, and end with a conclusion Prose. Light markdown works: **bold**, `code`, [link text](/services/slug).',
     kind: 'blogSections',
     defaultOpen: true,
   },
-  { key: 'faqs', title: 'FAQs', kind: 'faqs' },
+  {
+    key: 'faqs',
+    title: 'FAQs',
+    description:
+      'Common questions shown near the bottom of the article. Add 3–6 clear Q&As when useful.',
+    kind: 'faqs',
+  },
   {
     key: 'relatedPosts',
-    title: 'Related posts',
+    title: 'Related articles',
+    description:
+      'Other articles suggested after this one. Tick 2–4 posts that help the reader go deeper.',
     kind: 'relatedPosts',
     posts,
   },
   {
     key: 'relatedServiceSlugs',
-    title: 'Related service slugs',
-    description: 'One service slug per line, e.g. ai-agent-development',
+    title: 'Related services',
+    description:
+      'Service pages to show under the article (links readers to what you sell).',
+    helper:
+      'Enter one service slug per line — the part after /services/. Example: ai-agent-development',
+    placeholder: 'ai-agent-development\ncustom-software-development',
     kind: 'textarea',
   },
-  { key: 'cta', title: 'Footer CTA', kind: 'cta', defaultOpen: false },
-  { key: 'seo', title: 'SEO', kind: 'seo' },
+  {
+    key: 'cta',
+    title: 'Footer call-to-action',
+    description:
+      'Banner at the bottom that invites readers to contact you or open a service page.',
+    helper: 'Use a path like `/services/ai-agent-development` or `/contact`.',
+    kind: 'cta',
+    defaultOpen: false,
+  },
+  {
+    key: 'seo',
+    title: 'Search & social (SEO)',
+    description:
+      'Controls how this article appears in Google and when shared on LinkedIn, X, etc. Leave blank to fall back to the title and summary above.',
+    kind: 'seo',
+  },
 ]

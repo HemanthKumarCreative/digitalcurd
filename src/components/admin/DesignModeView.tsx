@@ -205,8 +205,19 @@ export const DesignModeView = ({
       {showTip ? (
         <div className="flex flex-wrap items-start justify-between gap-3 rounded-[var(--admin-radius-sm)] border border-[var(--admin-blue)]/30 bg-[var(--admin-blue-soft)] px-3 py-2.5 text-sm">
           <p className="text-[var(--admin-navy)]">
-            <strong>Design mode:</strong> click outlined text or images on the page. Switch to{' '}
-            <strong>Form</strong> for SEO, reordering, and adding rows.
+            {documentType === 'post' ? (
+              <>
+                <strong>Design mode:</strong> hover an outlined field to see its name, then
+                click to edit — title, short summary, category, cover image, FAQs, and footer
+                CTA. Switch to <strong>Form</strong> to write article body sections, set
+                author/dates, related articles, and SEO.
+              </>
+            ) : (
+              <>
+                <strong>Design mode:</strong> click outlined text or images on the page. Switch
+                to <strong>Form</strong> for SEO, reordering, and adding rows.
+              </>
+            )}
           </p>
           <button
             type="button"

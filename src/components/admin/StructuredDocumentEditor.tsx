@@ -89,6 +89,9 @@ export type SectionDef = {
   key: string
   title: string
   description?: string
+  /** Shown under the main input for simple field kinds */
+  helper?: string
+  placeholder?: string
   kind: SectionKind
   defaultOpen?: boolean
   authors?: AuthorOption[]
@@ -380,9 +383,18 @@ export const StructuredDocumentEditor = ({
 
   const modeHint = forceFormMode
     ? 'Edit site-wide settings here. Footer and contact details publish with this document.'
-    : editMode === 'design'
-      ? 'Click highlighted text or images on the page. Switch to Form for SEO, reordering, and adding rows.'
-      : 'Best for SEO, reordering items, and adding/removing rows. Switch to Design to edit on the live page.'
+    : documentType === 'post'
+      ? editMode === 'design'
+        ? 'Design: click outlined title, summary, category, cover, FAQs, or footer CTA. Switch to Form to write body sections, author, related posts, dates, and SEO.'
+        : 'Form: fill each section below. Use Article body for the main content. Switch to Design to edit title/cover on the live page.'
+      : editMode === 'design'
+        ? 'Click highlighted text or images on the page. Switch to Form for SEO, reordering, and adding rows.'
+        : 'Best for SEO, reordering items, and adding/removing rows. Switch to Design to edit on the live page.'
+
+  const pageDescription =
+    documentType === 'post'
+      ? [description, modeHint].filter(Boolean).join(' ')
+      : description || modeHint
 
   return (
     <div className="pb-24 lg:pb-6">
@@ -491,7 +503,7 @@ export const StructuredDocumentEditor = ({
 
       <PageHeader
         title={title}
-        description={description || modeHint}
+        description={pageDescription}
         breadcrumbs={breadcrumbs}
         className="mb-3"
       />
@@ -611,13 +623,22 @@ export const StructuredDocumentEditor = ({
                   />
                 ) : (
                   <RepeatableListEditor
-                    label="FAQs"
+                    label="Questions readers often ask"
                     items={asArray(raw)}
                     disabled={readOnly}
-                    addLabel="Add FAQ"
+                    addLabel="Add question"
                     fields={[
-                      { key: 'question', label: 'Question' },
-                      { key: 'answer', label: 'Answer', type: 'textarea' },
+                      {
+                        key: 'question',
+                        label: 'Question',
+                        placeholder: 'e.g. How long does a typical project take?',
+                      },
+                      {
+                        key: 'answer',
+                        label: 'Answer',
+                        type: 'textarea',
+                        placeholder: 'Write a clear, helpful answer in 1–3 sentences.',
+                      },
                     ]}
                     onChange={(items) => setKey(section.key, items)}
                   />
@@ -739,8 +760,9 @@ export const StructuredDocumentEditor = ({
 
               {section.kind === 'number' ? (
                 <div>
-                  <Label>{section.title}</Label>
+                  <Label htmlFor={`field-${section.key}`}>{section.title}</Label>
                   <Input
+                    id={`field-${section.key}`}
                     type="number"
                     min={1}
                     value={raw === undefined || raw === null ? '' : String(raw)}
@@ -749,7 +771,13 @@ export const StructuredDocumentEditor = ({
                       const next = e.target.value
                       setKey(section.key, next === '' ? undefined : Number(next))
                     }}
+                    placeholder={section.placeholder}
                   />
+                  {section.helper ? (
+                    <p className="mt-1 text-xs text-[var(--admin-text-muted)]">
+                      {section.helper}
+                    </p>
+                  ) : null}
                 </div>
               ) : null}
 
@@ -860,15 +888,17 @@ export const StructuredDocumentEditor = ({
 
               {section.kind === 'slug' ? (
                 <div>
-                  <Label>URL slug</Label>
+                  <Label htmlFor={`field-${section.key}`}>URL slug</Label>
                   <Input
+                    id={`field-${section.key}`}
                     value={String(raw || '')}
                     disabled={readOnly}
                     onChange={(e) => setKey(section.key, slugify(e.target.value))}
-                    placeholder="url-friendly-name"
+                    placeholder={section.placeholder || 'url-friendly-name'}
                   />
                   <p className="mt-1 text-xs text-[var(--admin-text-muted)]">
-                    Changing the slug updates the public URL after you publish.
+                    {section.helper ||
+                      'Changing the slug updates the public URL after you publish.'}
                   </p>
                 </div>
               ) : null}
@@ -883,7 +913,11 @@ export const StructuredDocumentEditor = ({
                       onChange={(e) =>
                         setKey(section.key, { ...asObject(raw), title: e.target.value })
                       }
+                      placeholder="e.g. Want this applied to your business?"
                     />
+                    <p className="mt-1 text-xs text-[var(--admin-text-muted)]">
+                      Short invitation shown in the banner at the bottom of the page.
+                    </p>
                   </div>
                   <div className="sm:col-span-2">
                     <Label>Supporting text</Label>
@@ -897,7 +931,11 @@ export const StructuredDocumentEditor = ({
                           description: e.target.value,
                         })
                       }
+                      placeholder="One sentence explaining what happens next."
                     />
+                    <p className="mt-1 text-xs text-[var(--admin-text-muted)]">
+                      Optional detail under the headline. Keep it to one short sentence.
+                    </p>
                   </div>
                   <div>
                     <Label>Button label</Label>
@@ -911,7 +949,11 @@ export const StructuredDocumentEditor = ({
                         const { cta: _nested, ...rest } = obj
                         setKey(section.key, { ...rest, label: e.target.value })
                       }}
+                      placeholder="e.g. Schedule a Call"
                     />
+                    <p className="mt-1 text-xs text-[var(--admin-text-muted)]">
+                      Text on the button (2–4 words works best).
+                    </p>
                   </div>
                   <div>
                     <Label>Button link</Label>
@@ -925,9 +967,11 @@ export const StructuredDocumentEditor = ({
                         const { cta: _nested, ...rest } = obj
                         setKey(section.key, { ...rest, href: e.target.value })
                       }}
+                      placeholder="/contact"
                     />
                     <p className="mt-1 text-xs text-[var(--admin-text-muted)]">
-                      Prefer a service page like `/services/ai-agent-development`, or `/contact`.
+                      {section.helper ||
+                        'Use a site path like `/services/ai-agent-development` or `/contact`.'}
                     </p>
                   </div>
                 </div>
@@ -978,21 +1022,29 @@ export const StructuredDocumentEditor = ({
 
               {section.kind === 'imageUrl' ? (
                 <ImageField
-                  label="Image"
+                  label={section.title}
                   value={String(raw || '')}
                   disabled={readOnly}
                   onChange={(url) => setKey(section.key, url)}
+                  helper={section.helper}
                 />
               ) : null}
 
               {section.kind === 'string' ? (
                 <div>
-                  <Label>{section.title}</Label>
+                  <Label htmlFor={`field-${section.key}`}>{section.title}</Label>
                   <Input
+                    id={`field-${section.key}`}
                     value={String(raw || '')}
                     disabled={readOnly}
                     onChange={(e) => setKey(section.key, e.target.value)}
+                    placeholder={section.placeholder}
                   />
+                  {section.helper ? (
+                    <p className="mt-1 text-xs text-[var(--admin-text-muted)]">
+                      {section.helper}
+                    </p>
+                  ) : null}
                 </div>
               ) : null}
 
@@ -1018,25 +1070,38 @@ export const StructuredDocumentEditor = ({
 
               {section.kind === 'datetime' ? (
                 <div>
-                  <Label>{section.title}</Label>
+                  <Label htmlFor={`field-${section.key}`}>{section.title}</Label>
                   <Input
+                    id={`field-${section.key}`}
                     type="datetime-local"
                     value={String(raw || '').slice(0, 16)}
                     disabled={readOnly}
                     onChange={(e) => setKey(section.key, e.target.value)}
                   />
+                  {section.helper ? (
+                    <p className="mt-1 text-xs text-[var(--admin-text-muted)]">
+                      {section.helper}
+                    </p>
+                  ) : null}
                 </div>
               ) : null}
 
               {section.kind === 'textarea' ? (
                 <div>
-                  <Label>{section.title}</Label>
+                  <Label htmlFor={`field-${section.key}`}>{section.title}</Label>
                   <Textarea
+                    id={`field-${section.key}`}
                     rows={4}
                     value={String(raw || '')}
                     disabled={readOnly}
                     onChange={(e) => setKey(section.key, e.target.value)}
+                    placeholder={section.placeholder}
                   />
+                  {section.helper ? (
+                    <p className="mt-1 text-xs text-[var(--admin-text-muted)]">
+                      {section.helper}
+                    </p>
+                  ) : null}
                 </div>
               ) : null}
 

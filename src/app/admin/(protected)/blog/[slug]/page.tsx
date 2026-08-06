@@ -60,7 +60,7 @@ export default async function AdminBlogEditorPage({ params }: PageProps) {
       documentId={documentId}
       documentType="post"
       title={String(doc.title || slug)}
-      description="Design edits the live article layout. Form handles sections, author, related posts, and SEO."
+      description="Edit this article for the public blog."
       previewPath={`/blog/${slugCurrent}`}
       allowDelete
       listHref="/admin/blog"

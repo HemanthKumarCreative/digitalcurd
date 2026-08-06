@@ -32,8 +32,9 @@ export const AuthorRefEditor = ({
 
   return (
     <div className="space-y-2">
-      <Label>Author</Label>
+      <Label htmlFor="post-author">Author name</Label>
       <select
+        id="post-author"
         className="flex h-10 w-full rounded-md border border-[var(--admin-border)] bg-transparent px-3 text-sm"
         disabled={disabled}
         value={current}
@@ -45,8 +46,9 @@ export const AuthorRefEditor = ({
           }
           onChange({ _type: 'reference', _ref: next })
         }}
+        aria-label="Author name"
       >
-        <option value="">No author</option>
+        <option value="">No author selected</option>
         {options.map((author) => (
           <option key={author.id} value={author.id}>
             {author.name}
@@ -55,7 +57,7 @@ export const AuthorRefEditor = ({
         ))}
       </select>
       <p className="text-xs text-[var(--admin-text-muted)]">
-        Manage authors in{' '}
+        Shown in the article meta strip and author card. Add or edit people under{' '}
         <Link href="/admin/authors" className="underline">
           Authors
         </Link>

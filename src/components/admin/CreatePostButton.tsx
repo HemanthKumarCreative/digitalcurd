@@ -8,9 +8,9 @@ const SubmitButton = () => {
   const { pending } = useFormStatus()
 
   return (
-    <Button type="submit" disabled={pending} aria-label="New post">
+    <Button type="submit" disabled={pending} aria-label="Create new article">
       <Plus className="h-4 w-4" aria-hidden />
-      {pending ? 'Creating…' : 'New post'}
+      {pending ? 'Creating…' : 'New article'}
     </Button>
   )
 }
