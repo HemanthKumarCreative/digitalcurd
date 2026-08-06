@@ -84,8 +84,7 @@ export const DocumentEditor = ({
   const schema = useMemo(() => buildSchema(fields), [fields])
 
   const form = useForm<Record<string, unknown>>({
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    resolver: zodResolver(schema) as any,
+    resolver: zodResolver(schema),
     defaultValues: flattenInitial(fields, initialValues),
   })
 
