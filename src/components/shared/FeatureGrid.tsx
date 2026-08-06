@@ -1,5 +1,7 @@
 'use client'
 
+import { EditableIcon } from '@/components/design-mode/EditableIcon'
+import { EditableText } from '@/components/design-mode/EditableText'
 import { useInViewMotion } from '@/hooks/useInViewMotion'
 import { resolveServiceIcon } from '@/lib/serviceIcons'
 import type { FeatureItem } from '@/types/content'
@@ -7,9 +9,14 @@ import type { FeatureItem } from '@/types/content'
 type FeatureGridProps = {
   items: FeatureItem[]
   columns?: 2 | 3 | 4
+  pathPrefix?: string
 }
 
-export default function FeatureGrid({ items, columns = 3 }: FeatureGridProps) {
+export default function FeatureGrid({
+  items,
+  columns = 3,
+  pathPrefix,
+}: FeatureGridProps) {
   const { ref, inView } = useInViewMotion<HTMLDivElement>()
 
   return (
@@ -21,17 +28,49 @@ export default function FeatureGrid({ items, columns = 3 }: FeatureGridProps) {
       {items.map((item, index) => {
         const Icon = resolveServiceIcon(item.icon)
         const delay = (index % 3) + 1
+        const base = pathPrefix ? `${pathPrefix}[${index}]` : null
         return (
           <article
-            key={item.title}
+            key={`${item.title}-${index}`}
             role="listitem"
             className={`dc-feature-card dc-fade-up ${inView ? 'is-in' : ''} dc-fade-up-delay-${delay}`}
           >
-            <div className="dc-feature-card__icon" aria-hidden="true">
-              <Icon size={22} strokeWidth={1.75} />
+            <div className="dc-feature-card__icon" aria-hidden={!base}>
+              {base ? (
+                <EditableIcon
+                  path={`${base}.icon`}
+                  label={`Feature ${index + 1} → Icon`}
+                  value={item.icon}
+                  size={22}
+                />
+              ) : (
+                <Icon size={22} strokeWidth={1.75} />
+              )}
             </div>
-            <h3 className="dc-feature-card__title">{item.title}</h3>
-            <p className="dc-feature-card__desc">{item.description}</p>
+            {base ? (
+              <>
+                <EditableText
+                  as="h3"
+                  path={`${base}.title`}
+                  label={`Feature ${index + 1} → Title`}
+                  value={item.title}
+                  className="dc-feature-card__title"
+                />
+                <EditableText
+                  as="p"
+                  path={`${base}.description`}
+                  label={`Feature ${index + 1} → Description`}
+                  value={item.description}
+                  className="dc-feature-card__desc"
+                  multiline
+                />
+              </>
+            ) : (
+              <>
+                <h3 className="dc-feature-card__title">{item.title}</h3>
+                <p className="dc-feature-card__desc">{item.description}</p>
+              </>
+            )}
           </article>
         )
       })}

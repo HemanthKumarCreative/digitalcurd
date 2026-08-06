@@ -25,6 +25,8 @@ export default async function DisclaimerPage() {
       lastUpdated={page.lastUpdated}
       intro={page.intro}
       sections={page.sections}
+      documentId={page._id}
+      documentType="legalPage"
     />
   )
 }

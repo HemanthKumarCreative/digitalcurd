@@ -27,7 +27,7 @@ export default async function BlogIndexPage() {
 
   return (
     <>
-      <PageHero content={hero} compact />
+      <PageHero content={hero} compact documentId="blogIndex" documentType="blogIndex" />
 
       <ContentSection
         eyebrow="Latest"

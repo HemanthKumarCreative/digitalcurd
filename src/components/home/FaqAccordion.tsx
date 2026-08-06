@@ -2,6 +2,9 @@
 
 import React, { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
+import { EditableHtml } from '@/components/design-mode/EditableHtml'
+import { EditableText } from '@/components/design-mode/EditableText'
+import { useDesignMode } from '@/components/design-mode/DesignModeProvider'
 
 const INITIAL_VISIBLE = 8
 
@@ -14,33 +17,54 @@ type FaqData = {
 }
 
 export default function FaqAccordion({ data: faqAccordion }: { data: FaqData }) {
+  const { enabled: designOn } = useDesignMode()
   const [activeIndex, setActiveIndex] = useState<number | null>(0)
   const [showAll, setShowAll] = useState(false)
   const faqs = faqAccordion.faqs
-  const visibleFaqs = showAll ? faqs : faqs.slice(0, INITIAL_VISIBLE)
+  const visibleFaqs = designOn || showAll ? faqs : faqs.slice(0, INITIAL_VISIBLE)
 
   const handleToggle = (index: number) => {
+    if (designOn) return
     setActiveIndex(activeIndex === index ? null : index)
   }
 
   return (
-    <section className="dc-faq" aria-label="Frequently asked questions">
+    <section id="dc-section-faqs" className="dc-faq" aria-label="Frequently asked questions">
       <div className="dc-faq__container">
         <header className="dc-faq__header">
           <p className="dc-faq__eyebrow">Support</p>
           <h2 className="dc-faq__title">
-            {faqAccordion.titleLine1 || 'Frequently Asked'}{' '}
-            <em>{faqAccordion.titleEm || 'Questions'}</em>
+            <EditableText
+              as="span"
+              path="faqAccordion.titleLine1"
+              label="FAQs → Title"
+              value={faqAccordion.titleLine1 || 'Frequently Asked'}
+            />{' '}
+            <em>
+              <EditableText
+                as="span"
+                path="faqAccordion.titleEm"
+                label="FAQs → Emphasis"
+                value={faqAccordion.titleEm || 'Questions'}
+              />
+            </em>
           </h2>
-          <p className="dc-faq__subtitle">
-            {faqAccordion.subtitle ||
-              'Here are answers to common questions before getting started. If you do not see yours, contact us and we will respond within 24 hours.'}
-          </p>
+          <EditableText
+            as="p"
+            path="faqAccordion.subtitle"
+            label="FAQs → Subtitle"
+            value={
+              faqAccordion.subtitle ||
+              'Here are answers to common questions before getting started. If you do not see yours, contact us and we will respond within 24 hours.'
+            }
+            multiline
+            className="dc-faq__subtitle"
+          />
         </header>
 
         <div className="dc-faq__list">
           {visibleFaqs.map((faq, index) => {
-            const isActive = activeIndex === index
+            const isActive = designOn || activeIndex === index
             return (
               <div
                 key={index}
@@ -54,7 +78,13 @@ export default function FaqAccordion({ data: faqAccordion }: { data: FaqData }) 
                   aria-controls={`dc-faq-panel-${index}`}
                   id={`dc-faq-trigger-${index}`}
                 >
-                  <span className="dc-faq__question">{faq.question}</span>
+                  <EditableText
+                    as="span"
+                    path={`faqAccordion.faqs[${index}].question`}
+                    label={`FAQ ${index + 1} → Question`}
+                    value={faq.question}
+                    className="dc-faq__question"
+                  />
                   <span className={`dc-faq__chevron ${isActive ? 'is-open' : ''}`} aria-hidden="true">
                     <ChevronDown size={20} strokeWidth={2.25} />
                   </span>
@@ -66,9 +96,11 @@ export default function FaqAccordion({ data: faqAccordion }: { data: FaqData }) 
                   aria-labelledby={`dc-faq-trigger-${index}`}
                   className={`dc-faq__panel ${isActive ? 'is-open' : ''}`}
                 >
-                  <div
+                  <EditableHtml
+                    path={`faqAccordion.faqs[${index}].answer`}
+                    label={`FAQ ${index + 1} → Answer`}
+                    html={faq.answer}
                     className="dc-faq__answer"
-                    dangerouslySetInnerHTML={{ __html: faq.answer }}
                   />
                 </div>
               </div>
@@ -76,7 +108,7 @@ export default function FaqAccordion({ data: faqAccordion }: { data: FaqData }) 
           })}
         </div>
 
-        {faqs.length > INITIAL_VISIBLE && (
+        {!designOn && faqs.length > INITIAL_VISIBLE && (
           <div className="dc-faq__show-more">
             <button
               type="button"

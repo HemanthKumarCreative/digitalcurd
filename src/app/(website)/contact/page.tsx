@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import PageHero from '@/components/shared/PageHero'
 import ContactForm from '@/components/home/ContactForm'
+import { DesignModeDocument } from '@/components/design-mode/DesignModeProvider'
 import { buildPageMetadata } from '@/lib/seo'
 import { getContactPage, getHomePage } from '@/sanity/lib/fetch'
 import { toPageHero } from '@/sanity/lib/hero'
@@ -24,8 +25,10 @@ export default async function ContactPage() {
 
   return (
     <div className="dc-contact-page">
-      <PageHero content={hero} compact />
-      <ContactForm data={home.contactForm!} />
+      <PageHero content={hero} compact documentId="contactPage" documentType="contactPage" />
+      <DesignModeDocument documentId="homePage" documentType="homePage">
+        <ContactForm data={home.contactForm!} />
+      </DesignModeDocument>
     </div>
   )
 }

@@ -1,5 +1,7 @@
+import { draftMode } from 'next/headers'
+import { createClient } from 'next-sanity'
 import { client } from './client'
-import { hasSanityConfig } from '../env'
+import { apiVersion, dataset, hasSanityConfig, projectId } from '../env'
 import {
   aboutPageQuery,
   blogIndexQuery,
@@ -34,6 +36,7 @@ import {
   type SeoFields,
 } from './fallback'
 import type { PageHeroContent, SanityImageLike } from './types'
+import { resolveImageUrl } from './image'
 
 type HomePageData = typeof fallbackHomePage & {
   seo?: SeoFields
@@ -82,6 +85,7 @@ type PostData = (typeof fallbackPosts)[number] & {
 }
 
 type ServiceData = {
+  _id?: string
   title: string
   subtitle?: string
   description?: string
@@ -107,6 +111,7 @@ type ServiceData = {
 }
 
 type LegalData = {
+  _id?: string
   title: string
   slug: string
   lastUpdated: string
@@ -115,15 +120,42 @@ type LegalData = {
   seo?: SeoFields
 }
 
+const getFetchClient = async () => {
+  if (!hasSanityConfig || !client) return null
+  try {
+    const { isEnabled } = await draftMode()
+    if (!isEnabled) return client
+    const token = process.env.SANITY_API_READ_TOKEN || process.env.SANITY_API_WRITE_TOKEN
+    if (!token || !projectId) return client
+    return createClient({
+      projectId,
+      dataset,
+      apiVersion,
+      useCdn: false,
+      token,
+      perspective: 'previewDrafts',
+    })
+  } catch {
+    return client
+  }
+}
+
 async function sanityFetch<T>(
   query: string,
   params: Record<string, unknown> = {},
   tags: string[] = []
 ): Promise<T | null> {
-  if (!client || !hasSanityConfig) return null
+  const fetchClient = await getFetchClient()
+  if (!fetchClient || !hasSanityConfig) return null
   try {
-    return await client.fetch<T>(query, params, {
-      next: { tags, revalidate: 60 },
+    let isEnabled = false
+    try {
+      isEnabled = (await draftMode()).isEnabled
+    } catch {
+      isEnabled = false
+    }
+    return await fetchClient.fetch<T>(query, params, {
+      next: isEnabled ? { revalidate: 0 } : { tags, revalidate: 60 },
     })
   } catch (error) {
     console.warn('[sanity] fetch failed, using fallback', error)
@@ -140,7 +172,31 @@ export const getSiteSettings = async () => {
 
 export const getHomePage = async (): Promise<HomePageData> => {
   const data = await sanityFetch<HomePageData>(homePageQuery, {}, ['home'])
-  return (data || fallbackHomePage) as HomePageData
+  const page = (data || fallbackHomePage) as HomePageData
+  const hero = page.heroSection
+  if (hero) {
+    const backgroundUrl =
+      resolveImageUrl(
+        (hero as { backgroundImage?: SanityImageLike }).backgroundImage,
+        hero.backgroundUrl
+      ) || hero.backgroundUrl
+    page.heroSection = { ...hero, backgroundUrl }
+  }
+  if (page.aiSection) {
+    const ai = page.aiSection as { image?: SanityImageLike; imageUrl?: string }
+    page.aiSection = {
+      ...page.aiSection,
+      imageUrl: resolveImageUrl(ai.image, ai.imageUrl) || ai.imageUrl || '',
+    }
+  }
+  if (page.contactForm) {
+    const cf = page.contactForm as { image?: SanityImageLike; imageUrl?: string }
+    page.contactForm = {
+      ...page.contactForm,
+      imageUrl: resolveImageUrl(cf.image, cf.imageUrl) || cf.imageUrl || '',
+    }
+  }
+  return page
 }
 
 export const getAboutPage = async (): Promise<AboutPageData> => {

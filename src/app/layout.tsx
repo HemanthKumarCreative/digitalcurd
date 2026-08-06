@@ -46,16 +46,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
-      <head>
-        <link rel="stylesheet" href="/css/menu-v9.css" />
-        <link rel="stylesheet" href="/css/index-v10.css" />
-        <link rel="stylesheet" href="/css/dev-style.css" />
-      </head>
-      <body
-        className="home wp-singular page-template page-template-page-templates page-template-tpl-home-v10 page-template-page-templatestpl-home-v10-php page page-id-29326 no-sidebar min-h-full flex flex-col"
-        id="themeAdd"
-        suppressHydrationWarning
-      >
+      <body className="min-h-full font-sans antialiased" suppressHydrationWarning>
         {children}
       </body>
     </html>

@@ -3,14 +3,29 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { ArrowRight, Phone } from 'lucide-react'
+import { EditableImage } from '@/components/design-mode/EditableImage'
+import { EditableText } from '@/components/design-mode/EditableText'
+import { DesignModeDocument } from '@/components/design-mode/DesignModeProvider'
 import type { PageHeroContent } from '@/types/content'
 
 type PageHeroProps = {
   content: PageHeroContent
   compact?: boolean
+  documentId?: string
+  documentType?: string
+  pathPrefix?: string
+  /** Sanity path for background image when it differs from `${pathPrefix}.backgroundUrl` */
+  backgroundPath?: string
 }
 
-export default function PageHero({ content, compact = false }: PageHeroProps) {
+export default function PageHero({
+  content,
+  compact = false,
+  documentId,
+  documentType,
+  pathPrefix = 'hero',
+  backgroundPath,
+}: PageHeroProps) {
   const [entered, setEntered] = useState(false)
 
   useEffect(() => {
@@ -19,38 +34,60 @@ export default function PageHero({ content, compact = false }: PageHeroProps) {
   }, [])
 
   const hasActions = Boolean(content.cta || content.secondaryCta || content.phone)
+  const pathFor = (key: string) => (pathPrefix ? `${pathPrefix}.${key}` : key)
+  const bgPath = backgroundPath || pathFor('backgroundUrl')
 
-  return (
+  const inner = (
     <section
+      id="dc-section-hero"
       className={`dc-page-hero ${compact ? 'dc-page-hero--compact' : ''}`}
       aria-label={content.title}
     >
-      <div
+      <EditableImage
+        path={bgPath}
+        label="Hero → Background"
+        value={content.backgroundUrl}
+        asBackground
         className="dc-page-hero__bg"
-        style={{ backgroundImage: `url('${content.backgroundUrl}')` }}
-        role="img"
-        aria-label=""
+        alt=""
       />
-      <div className="dc-page-hero__overlay" aria-hidden="true" />
+      <div className="dc-page-hero__overlay dc-design-overlay-pass" aria-hidden="true" />
 
-      <div className="dc-page-hero__inner">
+      <div className="dc-page-hero__inner dc-design-content-layer">
         {content.eyebrow ? (
-          <p className={`dc-page-hero__eyebrow dc-fade-up ${entered ? 'is-in' : ''}`}>
-            {content.eyebrow}
-          </p>
+          <EditableText
+            as="p"
+            path={pathFor('eyebrow')}
+            label="Hero → Eyebrow"
+            value={content.eyebrow}
+            className={`dc-page-hero__eyebrow dc-fade-up ${entered ? 'is-in' : ''}`}
+          />
         ) : null}
-        <h1 className={`dc-page-hero__title dc-fade-up ${entered ? 'is-in' : ''}`}>
-          {content.title}
-        </h1>
+        <EditableText
+          as="h1"
+          path={pathFor('title')}
+          label="Hero → Title"
+          value={content.title}
+          className={`dc-page-hero__title dc-fade-up ${entered ? 'is-in' : ''}`}
+        />
         {content.subtitle ? (
-          <p className={`dc-page-hero__subtitle dc-fade-up dc-fade-up-delay-1 ${entered ? 'is-in' : ''}`}>
-            {content.subtitle}
-          </p>
+          <EditableText
+            as="p"
+            path={pathFor('subtitle')}
+            label="Hero → Subtitle"
+            value={content.subtitle}
+            className={`dc-page-hero__subtitle dc-fade-up dc-fade-up-delay-1 ${entered ? 'is-in' : ''}`}
+          />
         ) : null}
         {content.description ? (
-          <p className={`dc-page-hero__desc dc-fade-up dc-fade-up-delay-2 ${entered ? 'is-in' : ''}`}>
-            {content.description}
-          </p>
+          <EditableText
+            as="p"
+            path={pathFor('description')}
+            label="Hero → Description"
+            value={content.description}
+            multiline
+            className={`dc-page-hero__desc dc-fade-up dc-fade-up-delay-2 ${entered ? 'is-in' : ''}`}
+          />
         ) : null}
         {hasActions ? (
           <div className={`dc-page-hero__actions dc-fade-up dc-fade-up-delay-3 ${entered ? 'is-in' : ''}`}>
@@ -60,7 +97,12 @@ export default function PageHero({ content, compact = false }: PageHeroProps) {
                 className="dc-btn dc-btn--primary"
                 aria-label={content.cta.label}
               >
-                <span>{content.cta.label}</span>
+                <EditableText
+                  as="span"
+                  path={pathFor('cta.label')}
+                  label="Hero → CTA"
+                  value={content.cta.label}
+                />
                 <span className="dc-btn__icon" aria-hidden="true">
                   <ArrowRight size={18} />
                 </span>
@@ -72,7 +114,12 @@ export default function PageHero({ content, compact = false }: PageHeroProps) {
                 className="dc-btn dc-btn--secondary"
                 aria-label={content.secondaryCta.label}
               >
-                <span>{content.secondaryCta.label}</span>
+                <EditableText
+                  as="span"
+                  path={pathFor('secondaryCta.label')}
+                  label="Hero → Secondary CTA"
+                  value={content.secondaryCta.label}
+                />
               </Link>
             ) : null}
             {content.phone ? (
@@ -84,7 +131,12 @@ export default function PageHero({ content, compact = false }: PageHeroProps) {
                 <span className="dc-btn__icon" aria-hidden="true">
                   <Phone size={16} strokeWidth={2.25} />
                 </span>
-                <span>{content.phone.label}</span>
+                <EditableText
+                  as="span"
+                  path={pathFor('phone.label')}
+                  label="Hero → Phone"
+                  value={content.phone.label}
+                />
               </a>
             ) : null}
           </div>
@@ -92,4 +144,14 @@ export default function PageHero({ content, compact = false }: PageHeroProps) {
       </div>
     </section>
   )
+
+  if (documentId && documentType) {
+    return (
+      <DesignModeDocument documentId={documentId} documentType={documentType}>
+        {inner}
+      </DesignModeDocument>
+    )
+  }
+
+  return inner
 }

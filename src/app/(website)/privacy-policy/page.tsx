@@ -25,6 +25,8 @@ export default async function PrivacyPolicyPage() {
       lastUpdated={page.lastUpdated}
       intro={page.intro}
       sections={page.sections}
+      documentId={page._id}
+      documentType="legalPage"
     />
   )
 }

@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react'
 import { useInViewMotion } from '@/hooks/useInViewMotion'
+import { EditableText } from '@/components/design-mode/EditableText'
+import { useDesignMode } from '@/components/design-mode/DesignModeProvider'
 
 const parseStat = (value: string) => {
   const match = value.match(/^(\d+)(.*)$/)
@@ -59,6 +61,7 @@ export default function StatsDeliverySection({
   }
 }) {
   const { ref, inView, reducedMotion } = useInViewMotion<HTMLElement>()
+  const { enabled: designOn } = useDesignMode()
 
   return (
     <section
@@ -68,13 +71,32 @@ export default function StatsDeliverySection({
       <div className="container">
         <div className="inner-part">
           <div className="delivery-section__left">
-            <span>{statsDeliverySection.subtitle}</span>
+            <span>
+              <EditableText
+                as="span"
+                path="statsDeliverySection.subtitle"
+                label="Stats → Subtitle"
+                value={statsDeliverySection.subtitle}
+              />
+            </span>
             <h2>
-              {statsDeliverySection.title}
+              <EditableText
+                as="span"
+                path="statsDeliverySection.title"
+                label="Stats → Title"
+                value={statsDeliverySection.title}
+              />
               <br />
             </h2>
             {statsDeliverySection.paragraphs.map((p, index) => (
-              <p key={index}>{p}</p>
+              <EditableText
+                key={index}
+                as="p"
+                path={`statsDeliverySection.paragraphs[${index}]`}
+                label={`Stats → Paragraph ${index + 1}`}
+                value={p}
+                multiline
+              />
             ))}
           </div>
 
@@ -82,10 +104,24 @@ export default function StatsDeliverySection({
             {statsDeliverySection.stats.map((stat, index) => (
               <div key={index} className="stat-card">
                 <div className="stat-card__number">
-                  <StatNumber value={stat.number} animate={inView && !reducedMotion} />
+                  {designOn ? (
+                    <EditableText
+                      as="h3"
+                      path={`statsDeliverySection.stats[${index}].number`}
+                      label={`Stat ${index + 1} → Number`}
+                      value={stat.number}
+                    />
+                  ) : (
+                    <StatNumber value={stat.number} animate={inView && !reducedMotion} />
+                  )}
                 </div>
                 <div className="stat-card__label">
-                  <p>{stat.label}</p>
+                  <EditableText
+                    as="p"
+                    path={`statsDeliverySection.stats[${index}].label`}
+                    label={`Stat ${index + 1} → Label`}
+                    value={stat.label}
+                  />
                 </div>
               </div>
             ))}

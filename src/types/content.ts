@@ -1,6 +1,12 @@
 export type SeoFields = {
   title?: string
   description?: string
+  canonical?: string
+  keywords?: string[]
+  robots?: string
+  ogImageUrl?: string
+  twitterImageUrl?: string
+  schemaJson?: string
 }
 
 export type CtaLink = {

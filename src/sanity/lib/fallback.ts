@@ -13,6 +13,12 @@ import type { ServiceMeta } from '@/types/content'
 export type SeoFields = {
   title?: string
   description?: string
+  canonical?: string
+  keywords?: string[]
+  robots?: string
+  ogImageUrl?: string
+  twitterImageUrl?: string
+  schemaJson?: string
 }
 
 export type WithSeo<T> = T & { seo?: SeoFields }

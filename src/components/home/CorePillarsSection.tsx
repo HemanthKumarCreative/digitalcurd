@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { Bot, Globe, LineChart, ArrowRight } from 'lucide-react'
+import { EditableText } from '@/components/design-mode/EditableText'
 import { useInViewMotion } from '@/hooks/useInViewMotion'
 
 const pillarIcons = [Bot, Globe, LineChart]
@@ -30,8 +31,19 @@ export default function CorePillarsSection({ data: corePillarsSection }: { data:
     >
       <div className="container">
         <div className="section-header">
-          <h2>{corePillarsSection.headerTitle}</h2>
-          <p>{corePillarsSection.headerDesc}</p>
+          <EditableText
+            as="h2"
+            path="corePillarsSection.headerTitle"
+            label="Pillars → Title"
+            value={corePillarsSection.headerTitle}
+          />
+          <EditableText
+            as="p"
+            path="corePillarsSection.headerDesc"
+            label="Pillars → Description"
+            value={corePillarsSection.headerDesc}
+            multiline
+          />
         </div>
 
         <div className="models-grid">
@@ -46,7 +58,13 @@ export default function CorePillarsSection({ data: corePillarsSection }: { data:
                   <div className="icon-box" aria-hidden="true">
                     <Icon size={22} strokeWidth={1.75} />
                   </div>
-                  <span className="badge">{pillar.badge}</span>
+                  <EditableText
+                    as="span"
+                    path={`corePillarsSection.pillars[${index}].badge`}
+                    label={`Pillar ${index + 1} → Badge`}
+                    value={pillar.badge}
+                    className="badge"
+                  />
                 </div>
                 <h3>
                   <Link
@@ -54,12 +72,29 @@ export default function CorePillarsSection({ data: corePillarsSection }: { data:
                     className="pillar-title"
                     aria-label={`Explore ${pillar.title}`}
                   >
-                    {pillar.title}
+                    <EditableText
+                      as="span"
+                      path={`corePillarsSection.pillars[${index}].title`}
+                      label={`Pillar ${index + 1} → Title`}
+                      value={pillar.title}
+                    />
                   </Link>
                 </h3>
-                <p>{pillar.desc}</p>
+                <EditableText
+                  as="p"
+                  path={`corePillarsSection.pillars[${index}].desc`}
+                  label={`Pillar ${index + 1} → Description`}
+                  value={pillar.desc}
+                  multiline
+                />
                 <div className="card-footer">
-                  <p>{pillar.footerText}</p>
+                  <EditableText
+                    as="p"
+                    path={`corePillarsSection.pillars[${index}].footerText`}
+                    label={`Pillar ${index + 1} → Footer`}
+                    value={pillar.footerText}
+                    multiline
+                  />
                   <Link
                     href={pillar.link}
                     className="pillar-cta"

@@ -2547,3 +2547,64 @@
   }
 }
 
+/* —— Admin CMS design system (scoped; does not affect public site) —— */
+.admin-app {
+  --admin-navy: #05164d;
+  --admin-navy-soft: #0a2266;
+  --admin-blue: #1d5bc4;
+  --admin-blue-soft: #e8f0fb;
+  --admin-amber: #fbbf24;
+  --admin-amber-deep: #f0a000;
+  --admin-canvas: #f3f5f9;
+  --admin-panel: #ffffff;
+  --admin-elevated: #ffffff;
+  --admin-border: #e2e8f0;
+  --admin-border-strong: #cbd5e1;
+  --admin-text: #0f172a;
+  --admin-text-secondary: #475569;
+  --admin-text-muted: #64748b;
+  --admin-success: #059669;
+  --admin-success-soft: #ecfdf5;
+  --admin-warning: #d97706;
+  --admin-warning-soft: #fffbeb;
+  --admin-danger: #dc2626;
+  --admin-danger-soft: #fef2f2;
+  --admin-radius: 12px;
+  --admin-radius-sm: 8px;
+  --admin-shadow: 0 1px 2px rgb(15 23 42 / 4%), 0 4px 16px rgb(15 23 42 / 4%);
+  --admin-shadow-lg: 0 8px 30px rgb(15 23 42 / 8%);
+  --primary: var(--admin-navy);
+  --primary-foreground: #ffffff;
+  --secondary: var(--admin-blue);
+  --secondary-foreground: #ffffff;
+  --muted: #f1f5f9;
+  --muted-foreground: var(--admin-text-muted);
+  --border: var(--admin-border);
+  --input: var(--admin-border);
+  --ring: var(--admin-blue);
+  --destructive: var(--admin-danger);
+  --background: var(--admin-canvas);
+  --foreground: var(--admin-text);
+  --card: var(--admin-panel);
+  --card-foreground: var(--admin-text);
+  color: var(--admin-text);
+  background: var(--admin-canvas);
+  font-family: var(--font-plus-jakarta-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.admin-app *:focus-visible {
+  outline: 2px solid var(--admin-blue);
+  outline-offset: 2px;
+}
+
+.admin-app .admin-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.admin-app .admin-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+

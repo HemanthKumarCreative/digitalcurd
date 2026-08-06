@@ -1,6 +1,9 @@
 'use client'
 
 import React, { useEffect, useRef } from 'react'
+import { EditableImage } from '@/components/design-mode/EditableImage'
+import { EditableText } from '@/components/design-mode/EditableText'
+import { useDesignMode } from '@/components/design-mode/DesignModeProvider'
 
 type LogoItem = {
   name: string
@@ -42,8 +45,13 @@ export default function ClientLogosSlider({ data: clientLogosSlider }: { data: L
   const logos = clientLogosSlider.logos as LogoItem[]
   const clients = (clientLogosSlider.clients || []) as ClientMark[]
   const rootRef = useRef<HTMLDivElement>(null)
+  const { enabled } = useDesignMode()
+  const copies = enabled ? 1 : 2
 
-  useEffect(() => pauseTracksWhenOffscreen(rootRef.current), [])
+  useEffect(() => {
+    if (enabled) return
+    return pauseTracksWhenOffscreen(rootRef.current)
+  }, [enabled])
 
   return (
     <div
@@ -56,29 +64,59 @@ export default function ClientLogosSlider({ data: clientLogosSlider }: { data: L
           <div className="logo-heading">
             <h4>
               <span>
-                {clientLogosSlider.headingText1}
-                <strong>{clientLogosSlider.headingStrong}</strong>
-                {clientLogosSlider.headingText2}
+                <EditableText
+                  as="span"
+                  path="clientLogosSlider.headingText1"
+                  label="Logos → Heading start"
+                  value={clientLogosSlider.headingText1}
+                />
+                <EditableText
+                  as="span"
+                  path="clientLogosSlider.headingStrong"
+                  label="Logos → Heading strong"
+                  value={clientLogosSlider.headingStrong}
+                  className="font-bold"
+                />
+                <EditableText
+                  as="span"
+                  path="clientLogosSlider.headingText2"
+                  label="Logos → Heading end"
+                  value={clientLogosSlider.headingText2}
+                />
               </span>
             </h4>
           </div>
 
           <div className="trust-row">
-            <span className="trust-row__label">
-              {clientLogosSlider.toolsLabel || 'Platforms we build with'}
-            </span>
+            <EditableText
+              as="span"
+              path="clientLogosSlider.toolsLabel"
+              label="Logos → Tools label"
+              value={clientLogosSlider.toolsLabel || 'Platforms we build with'}
+              className="trust-row__label"
+            />
             <div className="logo-slider">
               <div className="logo-track logo-track--ltr">
-                {[...Array(2)].map((_, i) => (
+                {[...Array(copies)].map((_, i) => (
                   <React.Fragment key={`tools-${i}`}>
                     {logos.map((logo, index) => (
                       <div key={`${i}-${index}`} className="logos tool-logo">
-                        <img
-                          src={logo.src}
-                          alt={logo.name}
-                          loading="lazy"
-                          decoding="async"
-                        />
+                        {i === 0 ? (
+                          <EditableImage
+                            path={`clientLogosSlider.logos[${index}].src`}
+                            label={`Logo → ${logo.name || index + 1}`}
+                            value={logo.src}
+                            alt={logo.name}
+                          />
+                        ) : (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={logo.src}
+                            alt={logo.name}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        )}
                       </div>
                     ))}
                   </React.Fragment>
@@ -89,12 +127,16 @@ export default function ClientLogosSlider({ data: clientLogosSlider }: { data: L
 
           {clients.length > 0 && (
             <div className="trust-row">
-              <span className="trust-row__label">
-                {clientLogosSlider.clientsLabel || 'Businesses growing with us'}
-              </span>
+              <EditableText
+                as="span"
+                path="clientLogosSlider.clientsLabel"
+                label="Logos → Clients label"
+                value={clientLogosSlider.clientsLabel || 'Businesses growing with us'}
+                className="trust-row__label"
+              />
               <div className="logo-slider">
                 <div className="logo-track logo-track--rtl">
-                  {[...Array(2)].map((_, i) => (
+                  {[...Array(copies)].map((_, i) => (
                     <React.Fragment key={`clients-${i}`}>
                       {clients.map((client, index) => (
                         <div
@@ -102,7 +144,16 @@ export default function ClientLogosSlider({ data: clientLogosSlider }: { data: L
                           className="logos client-wordmark"
                           aria-label={client.name}
                         >
-                          <span>{client.name}</span>
+                          {i === 0 ? (
+                            <EditableText
+                              as="span"
+                              path={`clientLogosSlider.clients[${index}].name`}
+                              label={`Client → ${index + 1}`}
+                              value={client.name}
+                            />
+                          ) : (
+                            <span>{client.name}</span>
+                          )}
                         </div>
                       ))}
                     </React.Fragment>

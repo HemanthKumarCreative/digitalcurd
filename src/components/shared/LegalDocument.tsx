@@ -1,3 +1,7 @@
+'use client'
+
+import { EditableText } from '@/components/design-mode/EditableText'
+import { DesignModeDocument } from '@/components/design-mode/DesignModeProvider'
 import type { LegalSection } from '@/types/content'
 
 type LegalDocumentProps = {
@@ -5,6 +9,8 @@ type LegalDocumentProps = {
   lastUpdated: string
   intro?: string
   sections: LegalSection[]
+  documentId?: string
+  documentType?: string
 }
 
 export default function LegalDocument({
@@ -12,26 +18,63 @@ export default function LegalDocument({
   lastUpdated,
   intro,
   sections,
+  documentId,
+  documentType,
 }: LegalDocumentProps) {
-  return (
+  const inner = (
     <article className="dc-legal" aria-label={title}>
       <header className="dc-legal__banner">
         <div className="dc-legal__banner-inner">
           <p className="dc-legal__eyebrow">Legal</p>
-          <h1 className="dc-legal__title">{title}</h1>
-          <p className="dc-legal__updated">Last updated: {lastUpdated}</p>
+          <EditableText
+            as="h1"
+            path="title"
+            label="Legal → Title"
+            value={title}
+            className="dc-legal__title"
+          />
+          <p className="dc-legal__updated">
+            Last updated:{' '}
+            <EditableText
+              as="span"
+              path="lastUpdated"
+              label="Legal → Last updated"
+              value={lastUpdated}
+            />
+          </p>
         </div>
       </header>
 
       <div className="dc-legal__inner">
-        {intro ? <p className="dc-legal__intro">{intro}</p> : null}
+        {intro ? (
+          <EditableText
+            as="p"
+            path="intro"
+            label="Legal → Intro"
+            value={intro}
+            multiline
+            className="dc-legal__intro"
+          />
+        ) : null}
 
         <div className="dc-legal__body">
-          {sections.map((section) => (
+          {sections.map((section, sIndex) => (
             <section key={section.heading} className="dc-legal__section">
-              <h2>{section.heading}</h2>
-              {section.paragraphs.map((p) => (
-                <p key={p.slice(0, 32)}>{p}</p>
+              <EditableText
+                as="h2"
+                path={`sections[${sIndex}].heading`}
+                label={`Section ${sIndex + 1} → Heading`}
+                value={section.heading}
+              />
+              {section.paragraphs.map((p, pIndex) => (
+                <EditableText
+                  key={`${sIndex}-${pIndex}`}
+                  as="p"
+                  path={`sections[${sIndex}].paragraphs[${pIndex}]`}
+                  label={`Section ${sIndex + 1} → Paragraph ${pIndex + 1}`}
+                  value={p}
+                  multiline
+                />
               ))}
             </section>
           ))}
@@ -39,4 +82,14 @@ export default function LegalDocument({
       </div>
     </article>
   )
+
+  if (documentId && documentType) {
+    return (
+      <DesignModeDocument documentId={documentId} documentType={documentType}>
+        {inner}
+      </DesignModeDocument>
+    )
+  }
+
+  return inner
 }

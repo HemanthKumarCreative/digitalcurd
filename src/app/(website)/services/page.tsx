@@ -28,7 +28,7 @@ export default async function ServicesIndexPage() {
 
   return (
     <>
-      <PageHero content={hero} compact />
+      <PageHero content={hero} compact documentId="servicesIndex" documentType="servicesIndex" />
 
       <section className="dc-services-index" aria-label="All services">
         <div className="dc-services-index__inner">

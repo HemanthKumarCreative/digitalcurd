@@ -1,6 +1,9 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import { EditableImage } from '@/components/design-mode/EditableImage'
+import { EditableText } from '@/components/design-mode/EditableText'
+import { useDesignMode } from '@/components/design-mode/DesignModeProvider'
 import { useInViewMotion } from '@/hooks/useInViewMotion'
 
 type AiData = {
@@ -48,6 +51,7 @@ export default function AiSection({ data: aiSection }: { data: AiData }) {
   const duration = 4000
   const items = aiSection.items
   const imageUrl = aiSection.imageUrl
+  const { enabled: designOn } = useDesignMode()
   const { ref, inView, reducedMotion } = useInViewMotion<HTMLElement>({ once: false })
 
   useEffect(() => {
@@ -56,7 +60,7 @@ export default function AiSection({ data: aiSection }: { data: AiData }) {
     return () => document.removeEventListener('visibilitychange', handleVisibility)
   }, [])
 
-  const canAutoRotate = inView && !reducedMotion && !tabHidden
+  const canAutoRotate = inView && !reducedMotion && !tabHidden && !designOn
 
   useEffect(() => {
     if (!canAutoRotate) return
@@ -66,6 +70,10 @@ export default function AiSection({ data: aiSection }: { data: AiData }) {
     return () => clearTimeout(timer)
   }, [activeIndex, canAutoRotate, items.length])
 
+  useEffect(() => {
+    if (designOn) setActiveIndex(0)
+  }, [designOn])
+
   return (
     <section
       ref={ref}
@@ -73,28 +81,43 @@ export default function AiSection({ data: aiSection }: { data: AiData }) {
       aria-label="Growth solutions"
     >
       <div className="ai-left">
-        <img
-          src={imageUrl}
+        <EditableImage
+          path="aiSection.imageUrl"
+          label="AI section → Image"
+          value={imageUrl}
           alt="Global digital technology network for marketing and AI solutions"
-          loading="lazy"
-          decoding="async"
+          className="h-full w-full object-cover"
         />
       </div>
 
       <div className="ai-right">
         <div className="container w-full">
           <div className="ai-content">
-            <h2>{aiSection.title}</h2>
-            <p>{aiSection.description}</p>
+            <EditableText
+              as="h2"
+              path="aiSection.title"
+              label="AI section → Title"
+              value={aiSection.title}
+            />
+            <EditableText
+              as="p"
+              path="aiSection.description"
+              label="AI section → Description"
+              value={aiSection.description}
+              multiline
+            />
             <div className="ai-list">
               {items.map((item, index) => {
-                const isActive = index === activeIndex
+                const isActive = designOn || index === activeIndex
                 return (
                   <div
                     key={index}
                     className={`ai-item ${isActive ? 'active' : ''}`}
-                    onClick={() => setActiveIndex(index)}
+                    onClick={() => {
+                      if (!designOn) setActiveIndex(index)
+                    }}
                     onKeyDown={(e) => {
+                      if (designOn) return
                       if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault()
                         setActiveIndex(index)
@@ -106,16 +129,36 @@ export default function AiSection({ data: aiSection }: { data: AiData }) {
                     aria-label={item.title}
                   >
                     <div className="title">
-                      <h4>{item.title}</h4>
+                      <EditableText
+                        as="h4"
+                        path={`aiSection.items[${index}].title`}
+                        label={`AI item ${index + 1} → Title`}
+                        value={item.title}
+                      />
                     </div>
                     <div className="desc">
                       {item.isList ? (
                         <ul>
                           {Array.isArray(item.desc) &&
-                            item.desc.map((li: string, i: number) => <li key={i}>{li}</li>)}
+                            item.desc.map((li: string, i: number) => (
+                              <li key={i}>
+                                <EditableText
+                                  as="span"
+                                  path={`aiSection.items[${index}].desc[${i}]`}
+                                  label={`AI item ${index + 1} → Bullet ${i + 1}`}
+                                  value={li}
+                                />
+                              </li>
+                            ))}
                         </ul>
                       ) : (
-                        <p>{item.desc as string}</p>
+                        <EditableText
+                          as="p"
+                          path={`aiSection.items[${index}].desc`}
+                          label={`AI item ${index + 1} → Description`}
+                          value={item.desc as string}
+                          multiline
+                        />
                       )}
                     </div>
                     <ProgressBar isActive={isActive && canAutoRotate} duration={duration} />

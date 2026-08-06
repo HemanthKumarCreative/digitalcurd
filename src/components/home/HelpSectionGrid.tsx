@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { Monitor, ShoppingCart, Bot, Search, TrendingUp, BarChart2, CheckCircle2, ArrowRight } from 'lucide-react'
+import { EditableText } from '@/components/design-mode/EditableText'
 import { useInViewMotion } from '@/hooks/useInViewMotion'
 
 const icons = [Monitor, ShoppingCart, Bot, Search, TrendingUp, BarChart2]
@@ -32,18 +33,39 @@ export default function HelpSectionGrid({ data: helpSectionGrid }: { data: HelpD
         </div>
         <h3>
           <Link href={card.link} className="help-card-title" aria-label={`Explore ${card.title}`}>
-            {card.title}
+            <EditableText
+              as="span"
+              path={`helpSectionGrid.cards[${index}].title`}
+              label={`Help card ${index + 1} → Title`}
+              value={card.title}
+            />
           </Link>
         </h3>
-        <p>{card.description}</p>
-        <h4>{card.howWeHelpTitle}</h4>
+        <EditableText
+          as="p"
+          path={`helpSectionGrid.cards[${index}].description`}
+          label={`Help card ${index + 1} → Description`}
+          value={card.description}
+          multiline
+        />
+        <EditableText
+          as="h4"
+          path={`helpSectionGrid.cards[${index}].howWeHelpTitle`}
+          label={`Help card ${index + 1} → List title`}
+          value={card.howWeHelpTitle}
+        />
         <ul className="help-card__list">
           {card.list.map((li, i) => (
             <li key={i}>
               <span className="help-card__check" aria-hidden="true">
                 <CheckCircle2 size={20} strokeWidth={2} />
               </span>
-              <span>{li}</span>
+              <EditableText
+                as="span"
+                path={`helpSectionGrid.cards[${index}].list[${i}]`}
+                label={`Help card ${index + 1} → Item ${i + 1}`}
+                value={li}
+              />
             </li>
           ))}
         </ul>
@@ -69,11 +91,34 @@ export default function HelpSectionGrid({ data: helpSectionGrid }: { data: HelpD
       <div className="container">
         <div className="section-head">
           <h2>
-            {helpSectionGrid.headerTitle1}
-            <em>{helpSectionGrid.headerTitleEm}</em>
-            {helpSectionGrid.headerTitle2}
+            <EditableText
+              as="span"
+              path="helpSectionGrid.headerTitle1"
+              label="Help → Title start"
+              value={helpSectionGrid.headerTitle1}
+            />
+            <em>
+              <EditableText
+                as="span"
+                path="helpSectionGrid.headerTitleEm"
+                label="Help → Title emphasis"
+                value={helpSectionGrid.headerTitleEm}
+              />
+            </em>
+            <EditableText
+              as="span"
+              path="helpSectionGrid.headerTitle2"
+              label="Help → Title end"
+              value={helpSectionGrid.headerTitle2}
+            />
           </h2>
-          <p>{helpSectionGrid.headerDesc}</p>
+          <EditableText
+            as="p"
+            path="helpSectionGrid.headerDesc"
+            label="Help → Description"
+            value={helpSectionGrid.headerDesc}
+            multiline
+          />
         </div>
 
         <div className="help-grid">

@@ -96,6 +96,7 @@ export const serviceBySlugQuery = `*[_type == "service" && slug.current == $slug
 export const serviceSlugsQuery = `*[_type == "service" && defined(slug.current)].slug.current`
 
 export const legalBySlugQuery = `*[_type == "legalPage" && slug.current == $slug][0]{
+  _id,
   title,
   "slug": slug.current,
   lastUpdated,

@@ -2,6 +2,8 @@
 
 import React, { useEffect, useId, useRef, useState } from 'react'
 import { ArrowRight, Check, CheckCircle2, ChevronDown, Clock3, Mail } from 'lucide-react'
+import { EditableImage } from '@/components/design-mode/EditableImage'
+import { EditableText } from '@/components/design-mode/EditableText'
 
 type FormFields = {
   name: string
@@ -168,15 +170,34 @@ export default function ContactForm({ data: contactForm }: { data: ContactFormDa
   return (
     <section className="dc-contact" id="form" aria-label="Book a free consultation">
       <div className="dc-contact__bg" aria-hidden="true">
-        <img src={imageUrl} alt="" />
-        <div className="dc-contact__overlay" />
+        <EditableImage
+          path="contactForm.imageUrl"
+          label="Contact → Background"
+          value={imageUrl}
+          alt=""
+          className="h-full w-full object-cover"
+        />
+        <div className="dc-contact__overlay dc-design-overlay-pass" />
       </div>
 
-      <div className="dc-contact__container dc-contact__container--slim">
+      <div className="dc-contact__container dc-contact__container--slim dc-design-content-layer">
         <div className="dc-contact__intro">
           <p className="dc-contact__eyebrow">Let&apos;s talk</p>
-          <h2 className="dc-contact__title">{contactForm.title}</h2>
-          <p className="dc-contact__subtitle">{contactForm.subtitle}</p>
+          <EditableText
+            as="h2"
+            path="contactForm.title"
+            label="Contact → Title"
+            value={contactForm.title}
+            className="dc-contact__title"
+          />
+          <EditableText
+            as="p"
+            path="contactForm.subtitle"
+            label="Contact → Subtitle"
+            value={contactForm.subtitle || ''}
+            className="dc-contact__subtitle"
+            multiline
+          />
 
           <ul className="dc-contact__trust">
             {trustPoints.map((item) => (
@@ -189,7 +210,12 @@ export default function ContactForm({ data: contactForm }: { data: ContactFormDa
 
           <a href={`mailto:${contactForm.leftCol.email}`} className="dc-contact__quick-link">
             <Mail size={16} aria-hidden="true" />
-            {contactForm.leftCol.email}
+            <EditableText
+              as="span"
+              path="contactForm.leftCol.email"
+              label="Contact → Email"
+              value={contactForm.leftCol.email}
+            />
           </a>
         </div>
 
@@ -198,7 +224,13 @@ export default function ContactForm({ data: contactForm }: { data: ContactFormDa
             <div className="dc-contact__success" role="status">
               <CheckCircle2 size={40} strokeWidth={1.75} aria-hidden="true" />
               <h3>You&apos;re all set</h3>
-              <p>{contactForm.form.successMessage}</p>
+              <EditableText
+                as="p"
+                path="contactForm.form.successMessage"
+                label="Contact → Success message"
+                value={contactForm.form.successMessage}
+                multiline
+              />
               <button
                 type="button"
                 className="dc-contact__secondary-btn"
@@ -321,7 +353,14 @@ export default function ContactForm({ data: contactForm }: { data: ContactFormDa
                 className="dc-contact__submit"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Sending…' : contactForm.form.submitButton}
+                {isSubmitting ? 'Sending…' : (
+                  <EditableText
+                    as="span"
+                    path="contactForm.form.submitButton"
+                    label="Contact → Submit"
+                    value={contactForm.form.submitButton}
+                  />
+                )}
                 {!isSubmitting && <ArrowRight size={18} aria-hidden="true" />}
               </button>
 

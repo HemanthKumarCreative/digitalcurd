@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import CtaBand from '@/components/shared/CtaBand'
+import BlogPostContent from '@/components/blog/BlogPostContent'
 import JsonLd from '@/components/seo/JsonLd'
 import { articleJsonLd, breadcrumbJsonLd, buildPageMetadata } from '@/lib/seo'
 import { getPostBySlug, getPostSlugs } from '@/sanity/lib/fetch'
@@ -50,6 +48,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const cover =
     resolveImageUrl(post.coverImage, post.coverImageUrl) || post.coverImageUrl || ''
   const paragraphs: string[] = post.bodyParagraphs || []
+  const documentId = (post as { _id?: string })._id || `post-${slug}`
 
   return (
     <>
@@ -70,38 +69,13 @@ export default async function BlogPostPage({ params }: PageProps) {
           }),
         ]}
       />
-      <article className="dc-article" aria-label={post.title}>
-        <div className="dc-article__inner">
-          <p className="dc-article__meta">
-            <Link href="/blog" style={{ color: 'inherit', textDecoration: 'none' }}>
-              Blog
-            </Link>
-            {' · '}
-            {post.category} · {post.publishedAt?.slice?.(0, 10) || post.publishedAt}
-          </p>
-          <h1 className="dc-article__title">{post.title}</h1>
-          {cover ? (
-            <Image
-              src={cover}
-              alt=""
-              width={1200}
-              height={675}
-              className="dc-article__cover"
-              priority
-            />
-          ) : null}
-          <div className="dc-article__body">
-            {paragraphs.map((paragraph: string) => (
-              <p key={paragraph.slice(0, 40)}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
-      </article>
-
-      <CtaBand
-        title="Want this applied to your business?"
-        description="Book a free consultation and we will map a practical next step."
-        cta={{ label: 'Schedule a Call', href: '/contact' }}
+      <BlogPostContent
+        documentId={documentId}
+        title={post.title}
+        category={post.category}
+        publishedAt={post.publishedAt}
+        coverImageUrl={cover}
+        bodyParagraphs={paragraphs}
       />
     </>
   )

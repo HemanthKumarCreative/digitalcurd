@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { Briefcase, Camera, Play, Users } from 'lucide-react'
 import AnimatedLogo from './AnimatedLogo'
@@ -60,7 +62,7 @@ export default function Footer({ settings, services = [] }: FooterProps) {
   ]
 
   return (
-    <footer className="dc-footer">
+    <footer className="dc-footer" id="dc-section-footer">
       <div className="dc-footer__inner">
         <div className="dc-footer__top">
           <div className="dc-footer__brand">
@@ -72,12 +74,11 @@ export default function Footer({ settings, services = [] }: FooterProps) {
               {email}
             </a>
             <div className="dc-footer__social">
-              {socialLinks.map(({ label, href }) => {
-                const Icon =
-                  socialIcons[label as keyof typeof socialIcons] || Users
+              {socialLinks.map(({ label, href }, index) => {
+                const Icon = socialIcons[label as keyof typeof socialIcons] || Users
                 return (
                   <a
-                    key={label}
+                    key={`${label}-${index}`}
                     href={href}
                     aria-label={label}
                     target="_blank"

@@ -11,23 +11,30 @@
     "sanity:studio": "echo Open http://localhost:3000/studio after npm run dev"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.10.0",
     "@lottiefiles/dotlottie-react": "^0.19.9",
     "@sanity/client": "^7.26.2",
     "@sanity/image-url": "^2.1.1",
     "@sanity/vision": "^6.9.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "lucide-react": "^1.28.0",
     "next": "16.2.10",
     "next-sanity": "^13.3.1",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "react-hook-form": "^7.84.0",
     "sanity": "^6.9.0",
-    "styled-components": "^6.5.0"
+    "styled-components": "^6.5.0",
+    "tailwind-merge": "^3.6.0",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^17.4.2",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "tailwindcss": "^4",

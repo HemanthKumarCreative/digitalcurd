@@ -6,17 +6,20 @@ import ProcessSteps from '@/components/shared/ProcessSteps'
 import SimpleFaq from '@/components/shared/SimpleFaq'
 import RelatedServices from '@/components/shared/RelatedServices'
 import CtaBand from '@/components/shared/CtaBand'
+import { DesignModeDocument } from '@/components/design-mode/DesignModeProvider'
 import type { ServiceContent, ServiceMeta } from '@/types/content'
 
 type ServicePageViewProps = {
   service: ServiceContent & {
+    _id?: string
     phone?: { label: string; href: string }
   }
   related?: ServiceMeta[]
 }
 
 export default function ServicePageView({ service, related = [] }: ServicePageViewProps) {
-  return (
+  const documentId = service._id
+  const body = (
     <>
       <PageHero
         content={{
@@ -29,6 +32,10 @@ export default function ServicePageView({ service, related = [] }: ServicePageVi
           secondaryCta: { label: 'View all services', href: '/services' },
           phone: service.phone,
         }}
+        documentId={documentId}
+        documentType="service"
+        pathPrefix=""
+        backgroundPath="heroImageUrl"
       />
 
       <ContentSection
@@ -37,7 +44,7 @@ export default function ServicePageView({ service, related = [] }: ServicePageVi
         description="Every engagement is scoped around business results—not just deliverables."
         tone="surface"
       >
-        <FeatureGrid items={service.outcomes} columns={3} />
+        <FeatureGrid items={service.outcomes} columns={3} pathPrefix="outcomes" />
       </ContentSection>
 
       <ContentSection
@@ -46,7 +53,7 @@ export default function ServicePageView({ service, related = [] }: ServicePageVi
         description="A practical mix of strategy, build, measurement, and continuous improvement."
         tone="light"
       >
-        <FeatureGrid items={service.capabilities} columns={4} />
+        <FeatureGrid items={service.capabilities} columns={4} pathPrefix="capabilities" />
       </ContentSection>
 
       {service.featuresSection?.items?.length ? (
@@ -54,6 +61,9 @@ export default function ServicePageView({ service, related = [] }: ServicePageVi
           title={service.featuresSection.title}
           description={service.featuresSection.description}
           items={service.featuresSection.items}
+          pathPrefix="featuresSection.items"
+          titlePath="featuresSection.title"
+          descriptionPath="featuresSection.description"
         />
       ) : null}
 
@@ -62,10 +72,15 @@ export default function ServicePageView({ service, related = [] }: ServicePageVi
         title="A clear path from idea to impact"
         tone="surface"
       >
-        <ProcessSteps steps={service.process} />
+        <ProcessSteps steps={service.process} pathPrefix="process" />
       </ContentSection>
 
-      <SimpleFaq faqs={service.faqs} />
+      <SimpleFaq
+        faqs={service.faqs}
+        documentId={documentId}
+        documentType="service"
+        pathPrefix="faqs"
+      />
 
       <RelatedServices services={related} />
 
@@ -76,4 +91,14 @@ export default function ServicePageView({ service, related = [] }: ServicePageVi
       />
     </>
   )
+
+  if (documentId) {
+    return (
+      <DesignModeDocument documentId={documentId} documentType="service">
+        {body}
+      </DesignModeDocument>
+    )
+  }
+
+  return body
 }

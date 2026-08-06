@@ -30,8 +30,34 @@ export const seo = defineType({
   title: 'SEO',
   type: 'object',
   fields: [
-    defineField({ name: 'title', type: 'string' }),
-    defineField({ name: 'description', type: 'text', rows: 3 }),
+    defineField({ name: 'title', type: 'string', title: 'Meta title' }),
+    defineField({ name: 'description', type: 'text', rows: 3, title: 'Meta description' }),
+    defineField({ name: 'canonical', type: 'url', title: 'Canonical URL' }),
+    defineField({ name: 'keywords', type: 'array', of: [{ type: 'string' }], title: 'Keywords' }),
+    defineField({
+      name: 'robots',
+      type: 'string',
+      title: 'Robots',
+      options: {
+        list: [
+          { title: 'Index, follow', value: 'index,follow' },
+          { title: 'No index, follow', value: 'noindex,follow' },
+          { title: 'Index, no follow', value: 'index,nofollow' },
+          { title: 'No index, no follow', value: 'noindex,nofollow' },
+        ],
+      },
+    }),
+    defineField({ name: 'ogImage', type: 'image', title: 'Open Graph image', options: { hotspot: true } }),
+    defineField({ name: 'ogImageUrl', type: 'url', title: 'Open Graph image URL' }),
+    defineField({ name: 'twitterImage', type: 'image', title: 'Twitter image', options: { hotspot: true } }),
+    defineField({ name: 'twitterImageUrl', type: 'url', title: 'Twitter image URL' }),
+    defineField({
+      name: 'schemaJson',
+      type: 'text',
+      title: 'Custom JSON-LD',
+      rows: 6,
+      description: 'Optional raw JSON-LD object/array string',
+    }),
   ],
 })
 
