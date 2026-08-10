@@ -1,4 +1,4 @@
-export const DEFAULT_WHATSAPP_NUMBER = '918510944812'
+export const DEFAULT_WHATSAPP_NUMBER = '918510932094'
 export const COMPANY_NAME = 'Digital Curd'
 export const MUTE_STORAGE_KEY = 'dc-support-chat-muted'
 

@@ -1,4 +1,4 @@
-const DEFAULT_WHATSAPP_NUMBER = '918510944812'
+const DEFAULT_WHATSAPP_NUMBER = '918510932094'
 const COMPANY_NAME = 'Digital Curd'
 
 const getWhatsAppNumber = (override) => {
@@ -56,7 +56,7 @@ const buildQueryWhatsAppMessage = (opts) => {
   ].join('\n')
 }
 
-const number = getWhatsAppNumber('918510944812')
+const number = getWhatsAppNumber('918510932094')
 const text = buildQueryWhatsAppMessage({
   name: 'Jane Doe',
   email: 'jane@acme.com',
