@@ -1,5 +1,6 @@
 'use client'
 
+import { useId } from 'react'
 import { HtmlTextField } from '@/components/admin/editors/HtmlTextField'
 import { FEATURE_ICON_OPTIONS } from '@/components/admin/editors/fieldOptions'
 import { ImageField } from '@/components/admin/ImageField'
@@ -23,6 +24,55 @@ type Props = {
 const asArray = (value: unknown): RepeatableItem[] =>
   Array.isArray(value) ? (value as RepeatableItem[]) : []
 
+type TextFieldProps = {
+  label: string
+  value: string
+  onChange: (next: string) => void
+  disabled?: boolean
+  textarea?: boolean
+  rows?: number
+  placeholder?: string
+  helper?: string
+}
+
+/** Label + input/textarea pair with a generated id so labels are announced correctly. */
+const TextField = ({
+  label,
+  value,
+  onChange,
+  disabled,
+  textarea,
+  rows = 3,
+  placeholder,
+  helper,
+}: TextFieldProps) => {
+  const id = useId()
+  return (
+    <div>
+      <Label htmlFor={id}>{label}</Label>
+      {textarea ? (
+        <Textarea
+          id={id}
+          rows={rows}
+          value={value}
+          disabled={disabled}
+          placeholder={placeholder}
+          onChange={(e) => onChange(e.target.value)}
+        />
+      ) : (
+        <Input
+          id={id}
+          value={value}
+          disabled={disabled}
+          placeholder={placeholder}
+          onChange={(e) => onChange(e.target.value)}
+        />
+      )}
+      {helper ? <p className="mt-1 text-xs text-[var(--admin-text-muted)]">{helper}</p> : null}
+    </div>
+  )
+}
+
 export const LogosSliderEditor = ({ value, onChange, disabled }: Props) => (
   <div className="space-y-4">
     <div className="grid gap-4 sm:grid-cols-2">
@@ -35,14 +85,13 @@ export const LogosSliderEditor = ({ value, onChange, disabled }: Props) => (
           ['clientsLabel', 'Clients label'],
         ] as const
       ).map(([key, label]) => (
-        <div key={key}>
-          <Label>{label}</Label>
-          <Input
-            value={String(value[key] || '')}
-            disabled={disabled}
-            onChange={(e) => onChange({ ...value, [key]: e.target.value })}
-          />
-        </div>
+        <TextField
+          key={key}
+          label={label}
+          value={String(value[key] || '')}
+          disabled={disabled}
+          onChange={(next) => onChange({ ...value, [key]: next })}
+        />
       ))}
     </div>
     <RepeatableListEditor
@@ -69,39 +118,34 @@ export const LogosSliderEditor = ({ value, onChange, disabled }: Props) => (
 
 export const StatsDeliveryEditor = ({ value, onChange, disabled }: Props) => (
   <div className="space-y-4">
-    <div>
-      <Label>Subtitle</Label>
-      <Input
-        value={String(value.subtitle || '')}
-        disabled={disabled}
-        onChange={(e) => onChange({ ...value, subtitle: e.target.value })}
-      />
-    </div>
-    <div>
-      <Label>Title</Label>
-      <Input
-        value={String(value.title || '')}
-        disabled={disabled}
-        onChange={(e) => onChange({ ...value, title: e.target.value })}
-      />
-    </div>
-    <div>
-      <Label>Paragraphs (one per blank line)</Label>
-      <Textarea
-        rows={5}
-        value={asArray(value.paragraphs).map(String).join('\n\n')}
-        disabled={disabled}
-        onChange={(e) =>
-          onChange({
-            ...value,
-            paragraphs: e.target.value
-              .split(/\n\n+/)
-              .map((p) => p.trim())
-              .filter(Boolean),
-          })
-        }
-      />
-    </div>
+    <TextField
+      label="Subtitle"
+      value={String(value.subtitle || '')}
+      disabled={disabled}
+      onChange={(next) => onChange({ ...value, subtitle: next })}
+    />
+    <TextField
+      label="Title"
+      value={String(value.title || '')}
+      disabled={disabled}
+      onChange={(next) => onChange({ ...value, title: next })}
+    />
+    <TextField
+      label="Paragraphs (one per blank line)"
+      textarea
+      rows={5}
+      value={asArray(value.paragraphs).map(String).join('\n\n')}
+      disabled={disabled}
+      onChange={(next) =>
+        onChange({
+          ...value,
+          paragraphs: next
+            .split(/\n\n+/)
+            .map((p) => p.trim())
+            .filter(Boolean),
+        })
+      }
+    />
     <RepeatableListEditor
       label="Stats"
       items={asArray(value.stats)}
@@ -126,25 +170,22 @@ export const HelpGridEditor = ({ value, onChange, disabled }: Props) => (
           ['headerTitle2', 'Header title 2'],
         ] as const
       ).map(([key, label]) => (
-        <div key={key}>
-          <Label>{label}</Label>
-          <Input
-            value={String(value[key] || '')}
-            disabled={disabled}
-            onChange={(e) => onChange({ ...value, [key]: e.target.value })}
-          />
-        </div>
+        <TextField
+          key={key}
+          label={label}
+          value={String(value[key] || '')}
+          disabled={disabled}
+          onChange={(next) => onChange({ ...value, [key]: next })}
+        />
       ))}
     </div>
-    <div>
-      <Label>Header description</Label>
-      <Textarea
-        rows={3}
-        value={String(value.headerDesc || '')}
-        disabled={disabled}
-        onChange={(e) => onChange({ ...value, headerDesc: e.target.value })}
-      />
-    </div>
+    <TextField
+      label="Header description"
+      textarea
+      value={String(value.headerDesc || '')}
+      disabled={disabled}
+      onChange={(next) => onChange({ ...value, headerDesc: next })}
+    />
     <RepeatableListEditor
       label="Help cards"
       items={asArray(value.cards)}
@@ -170,23 +211,19 @@ export const AiBlockEditor = ({ value, onChange, disabled }: Props) => (
       disabled={disabled}
       onChange={(url) => onChange({ ...value, imageUrl: url })}
     />
-    <div>
-      <Label>Title</Label>
-      <Input
-        value={String(value.title || '')}
-        disabled={disabled}
-        onChange={(e) => onChange({ ...value, title: e.target.value })}
-      />
-    </div>
-    <div>
-      <Label>Description</Label>
-      <Textarea
-        rows={3}
-        value={String(value.description || '')}
-        disabled={disabled}
-        onChange={(e) => onChange({ ...value, description: e.target.value })}
-      />
-    </div>
+    <TextField
+      label="Title"
+      value={String(value.title || '')}
+      disabled={disabled}
+      onChange={(next) => onChange({ ...value, title: next })}
+    />
+    <TextField
+      label="Description"
+      textarea
+      value={String(value.description || '')}
+      disabled={disabled}
+      onChange={(next) => onChange({ ...value, description: next })}
+    />
     <RepeatableListEditor
       label="AI items"
       items={asArray(value.items)}
@@ -204,23 +241,19 @@ export const AiBlockEditor = ({ value, onChange, disabled }: Props) => (
 
 export const PillarsEditor = ({ value, onChange, disabled }: Props) => (
   <div className="space-y-4">
-    <div>
-      <Label>Header title</Label>
-      <Input
-        value={String(value.headerTitle || '')}
-        disabled={disabled}
-        onChange={(e) => onChange({ ...value, headerTitle: e.target.value })}
-      />
-    </div>
-    <div>
-      <Label>Header description</Label>
-      <Textarea
-        rows={3}
-        value={String(value.headerDesc || '')}
-        disabled={disabled}
-        onChange={(e) => onChange({ ...value, headerDesc: e.target.value })}
-      />
-    </div>
+    <TextField
+      label="Header title"
+      value={String(value.headerTitle || '')}
+      disabled={disabled}
+      onChange={(next) => onChange({ ...value, headerTitle: next })}
+    />
+    <TextField
+      label="Header description"
+      textarea
+      value={String(value.headerDesc || '')}
+      disabled={disabled}
+      onChange={(next) => onChange({ ...value, headerDesc: next })}
+    />
     <RepeatableListEditor
       label="Pillars"
       items={asArray(value.pillars)}
@@ -251,23 +284,20 @@ export const ContactFormBlockEditor = ({ value, onChange, disabled }: Props) => 
         <p className="text-xs font-bold tracking-wide text-[var(--admin-text-muted)] uppercase">
           Section header
         </p>
-        <div>
-          <Label>Title</Label>
-          <Input
-            value={String(value.title || '')}
-            disabled={disabled}
-            onChange={(e) => onChange({ ...value, title: e.target.value })}
-          />
-        </div>
-        <div>
-          <Label>Subtitle</Label>
-          <Textarea
-            rows={2}
-            value={String(value.subtitle || '')}
-            disabled={disabled}
-            onChange={(e) => onChange({ ...value, subtitle: e.target.value })}
-          />
-        </div>
+        <TextField
+          label="Title"
+          value={String(value.title || '')}
+          disabled={disabled}
+          onChange={(next) => onChange({ ...value, title: next })}
+        />
+        <TextField
+          label="Subtitle"
+          textarea
+          rows={2}
+          value={String(value.subtitle || '')}
+          disabled={disabled}
+          onChange={(next) => onChange({ ...value, subtitle: next })}
+        />
         <ImageField
           label="Side image"
           value={String(value.imageUrl || '')}
@@ -289,16 +319,15 @@ export const ContactFormBlockEditor = ({ value, onChange, disabled }: Props) => 
             ['email', 'Email'],
           ] as const
         ).map(([key, label]) => (
-          <div key={key}>
-            <Label>{label}</Label>
-            <Input
-              value={String(leftCol[key] || '')}
-              disabled={disabled}
-              onChange={(e) =>
-                onChange({ ...value, leftCol: { ...leftCol, [key]: e.target.value } })
-              }
-            />
-          </div>
+          <TextField
+            key={key}
+            label={label}
+            value={String(leftCol[key] || '')}
+            disabled={disabled}
+            onChange={(next) =>
+              onChange({ ...value, leftCol: { ...leftCol, [key]: next } })
+            }
+          />
         ))}
         <RepeatableListEditor
           label="Trust items"
@@ -342,26 +371,24 @@ export const ContactFormBlockEditor = ({ value, onChange, disabled }: Props) => 
             ['submitButton', 'Submit button'],
           ] as const
         ).map(([key, label]) => (
-          <div key={key}>
-            <Label>{label}</Label>
-            <Input
-              value={String(form[key] || '')}
-              disabled={disabled}
-              onChange={(e) => onChange({ ...value, form: { ...form, [key]: e.target.value } })}
-            />
-          </div>
-        ))}
-        <div>
-          <Label>Success message</Label>
-          <Textarea
-            rows={2}
-            value={String(form.successMessage || '')}
+          <TextField
+            key={key}
+            label={label}
+            value={String(form[key] || '')}
             disabled={disabled}
-            onChange={(e) =>
-              onChange({ ...value, form: { ...form, successMessage: e.target.value } })
-            }
+            onChange={(next) => onChange({ ...value, form: { ...form, [key]: next } })}
           />
-        </div>
+        ))}
+        <TextField
+          label="Success message"
+          textarea
+          rows={2}
+          value={String(form.successMessage || '')}
+          disabled={disabled}
+          onChange={(next) =>
+            onChange({ ...value, form: { ...form, successMessage: next } })
+          }
+        />
         <RepeatableListEditor
           label="Service groups"
           items={asArray(form.services)}
@@ -388,25 +415,23 @@ export const FaqSectionEditor = ({ value, onChange, disabled }: Props) => (
           ['titleEm', 'Title emphasis'],
         ] as const
       ).map(([key, label]) => (
-        <div key={key}>
-          <Label>{label}</Label>
-          <Input
-            value={String(value[key] || '')}
-            disabled={disabled}
-            onChange={(e) => onChange({ ...value, [key]: e.target.value })}
-          />
-        </div>
+        <TextField
+          key={key}
+          label={label}
+          value={String(value[key] || '')}
+          disabled={disabled}
+          onChange={(next) => onChange({ ...value, [key]: next })}
+        />
       ))}
     </div>
-    <div>
-      <Label>Subtitle</Label>
-      <Textarea
-        rows={2}
-        value={String(value.subtitle || '')}
-        disabled={disabled}
-        onChange={(e) => onChange({ ...value, subtitle: e.target.value })}
-      />
-    </div>
+    <TextField
+      label="Subtitle"
+      textarea
+      rows={2}
+      value={String(value.subtitle || '')}
+      disabled={disabled}
+      onChange={(next) => onChange({ ...value, subtitle: next })}
+    />
     <div className="space-y-3">
       <div className="flex items-center justify-between gap-3">
         <Label className="mb-0">FAQs</Label>
@@ -457,19 +482,17 @@ export const FaqSectionEditor = ({ value, onChange, disabled }: Props) => (
                 Remove
               </Button>
             </div>
-            <div>
-              <Label>Question</Label>
-              <Input
-                value={String(faq.question || '')}
-                disabled={disabled}
-                onChange={(e) => {
-                  const faqs = asArray(value.faqs).map((item, i) =>
-                    i === index ? { ...item, question: e.target.value } : item
-                  )
-                  onChange({ ...value, faqs })
-                }}
-              />
-            </div>
+            <TextField
+              label="Question"
+              value={String(faq.question || '')}
+              disabled={disabled}
+              onChange={(next) => {
+                const faqs = asArray(value.faqs).map((item, i) =>
+                  i === index ? { ...item, question: next } : item
+                )
+                onChange({ ...value, faqs })
+              }}
+            />
             <HtmlTextField
               label="Answer"
               value={String(faq.answer || '')}
@@ -501,26 +524,23 @@ export const StringListEditor = ({
 }) => {
   const list = Array.isArray(value) ? value.map(String) : []
   return (
-    <div>
-      <Label>{label}</Label>
-      <Textarea
-        rows={10}
-        value={list.join('\n\n')}
-        disabled={disabled}
-        placeholder="Separate paragraphs with a blank line"
-        onChange={(e) =>
-          onChange(
-            e.target.value
-              .split(/\n\n+/)
-              .map((p) => p.trim())
-              .filter(Boolean)
-          )
-        }
-      />
-      <p className="mt-1 text-xs text-[var(--admin-text-muted)]">
-        One paragraph per block. Separate with a blank line.
-      </p>
-    </div>
+    <TextField
+      label={label}
+      textarea
+      rows={10}
+      value={list.join('\n\n')}
+      disabled={disabled}
+      placeholder="Separate paragraphs with a blank line"
+      helper="One paragraph per block. Separate with a blank line."
+      onChange={(next) =>
+        onChange(
+          next
+            .split(/\n\n+/)
+            .map((p) => p.trim())
+            .filter(Boolean)
+        )
+      }
+    />
   )
 }
 
@@ -566,23 +586,19 @@ export const LegalSectionsEditor = ({
 
 export const FeaturesSectionEditor = ({ value, onChange, disabled }: Props) => (
   <div className="space-y-4">
-    <div>
-      <Label>Section title</Label>
-      <Input
-        value={String(value.title || '')}
-        disabled={disabled}
-        onChange={(e) => onChange({ ...value, title: e.target.value })}
-      />
-    </div>
-    <div>
-      <Label>Description</Label>
-      <Textarea
-        rows={3}
-        value={String(value.description || value.subtitle || '')}
-        disabled={disabled}
-        onChange={(e) => onChange({ ...value, description: e.target.value })}
-      />
-    </div>
+    <TextField
+      label="Section title"
+      value={String(value.title || '')}
+      disabled={disabled}
+      onChange={(next) => onChange({ ...value, title: next })}
+    />
+    <TextField
+      label="Description"
+      textarea
+      value={String(value.description || value.subtitle || '')}
+      disabled={disabled}
+      onChange={(next) => onChange({ ...value, description: next })}
+    />
     <RepeatableListEditor
       label="Feature items"
       items={asArray(value.items)}

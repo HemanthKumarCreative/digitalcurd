@@ -31,7 +31,7 @@ export default function HeroSection({ data: heroSection }: { data: HeroData }) {
     <>
       <section
         id="dc-section-hero"
-        className="hero-section relative isolate flex items-center pt-[145px] pb-[70px] min-h-[100vh] lg:min-h-[auto] w-full"
+        className="hero-section relative isolate flex items-center pt-[110px] pb-[48px] md:pt-[145px] md:pb-[70px] min-h-[auto] w-full"
         aria-label="Hero"
       >
         <EditableImage
@@ -55,14 +55,14 @@ export default function HeroSection({ data: heroSection }: { data: HeroData }) {
                 path="heroSection.title"
                 label="Hero → Title"
                 value={heroSection.title}
-                className={`text-[40px] leading-[50px] lg:text-[70px] lg:leading-[1.3] !text-white mb-5 font-bold drop-shadow-sm dc-fade-up ${entered ? 'is-in' : ''}`}
+                className={`text-[34px] leading-[1.25] sm:text-[40px] sm:leading-[50px] md:text-[52px] md:leading-[1.25] lg:text-[70px] lg:leading-[1.3] !text-white mb-5 font-bold drop-shadow-sm dc-fade-up ${entered ? 'is-in' : ''}`}
               />
               <EditableText
                 as="h3"
                 path="heroSection.subtitle"
                 label="Hero → Subtitle"
                 value={heroSection.subtitle}
-                className={`!text-[#FBBF24] mb-5 text-[22px] lg:text-[26px] font-semibold tracking-tight dc-fade-up dc-fade-up-delay-1 ${entered ? 'is-in' : ''}`}
+                className={`!text-[#FBBF24] mb-5 text-[19px] sm:text-[22px] lg:text-[26px] font-semibold tracking-tight dc-fade-up dc-fade-up-delay-1 ${entered ? 'is-in' : ''}`}
               />
               <EditableText
                 as="p"
@@ -74,7 +74,7 @@ export default function HeroSection({ data: heroSection }: { data: HeroData }) {
               />
 
               <div
-                className={`mt-[30px] mb-[70px] hero-cta-group dc-fade-up dc-fade-up-delay-3 ${entered ? 'is-in' : ''}`}
+                className={`mt-[30px] mb-[40px] md:mb-[70px] hero-cta-group dc-fade-up dc-fade-up-delay-3 ${entered ? 'is-in' : ''}`}
               >
                 <Link
                   href={heroSection.ctaLink}

@@ -37,7 +37,14 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants>
 
 export const Button = ({ className, variant, size, type = 'button', ...props }: ButtonProps) => (
-  <button type={type} className={cn(buttonVariants({ variant, size }), className)} {...props} />
+  <button
+    type={type}
+    // Browser extensions inject attributes (e.g. fdprocessedid) into form controls,
+    // which otherwise triggers dev-only hydration mismatch warnings.
+    suppressHydrationWarning
+    className={cn(buttonVariants({ variant, size }), className)}
+    {...props}
+  />
 )
 
 export { buttonVariants }

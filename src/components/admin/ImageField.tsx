@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import { ImagePlus, Trash2 } from 'lucide-react'
 import { MediaPickerDialog, type MediaAsset } from '@/components/admin/MediaPickerDialog'
 import { Button } from '@/components/ui/button'
@@ -17,6 +17,7 @@ type ImageFieldProps = {
 
 export const ImageField = ({ label, value, onChange, disabled, helper }: ImageFieldProps) => {
   const [open, setOpen] = useState(false)
+  const inputId = useId()
 
   const handleSelect = (asset: MediaAsset) => {
     if (asset.url) onChange(asset.url)
@@ -24,12 +25,12 @@ export const ImageField = ({ label, value, onChange, disabled, helper }: ImageFi
 
   return (
     <div>
-      <Label>{label}</Label>
+      <Label htmlFor={inputId}>{label}</Label>
       <div className="mt-1.5 flex flex-col gap-3 sm:flex-row">
         <div className="flex aspect-video w-full max-w-[220px] items-center justify-center overflow-hidden rounded-[var(--admin-radius-sm)] border border-dashed border-[var(--admin-border-strong)] bg-slate-50">
           {value ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={value} alt="" className="h-full w-full object-cover" />
+            <img src={value} alt={`${label} preview`} className="h-full w-full object-cover" />
           ) : (
             <div className="flex flex-col items-center gap-1 text-[var(--admin-text-muted)]">
               <ImagePlus className="h-6 w-6" aria-hidden />
@@ -39,6 +40,7 @@ export const ImageField = ({ label, value, onChange, disabled, helper }: ImageFi
         </div>
         <div className="min-w-0 flex-1 space-y-2">
           <Input
+            id={inputId}
             value={value || ''}
             onChange={(e) => onChange(e.target.value)}
             disabled={disabled}

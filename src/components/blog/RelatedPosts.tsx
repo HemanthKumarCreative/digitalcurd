@@ -1,20 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { formatDate } from '@/lib/blog/utils'
 import type { BlogRelatedPost } from '@/types/blog'
 
 type RelatedPostsProps = {
   posts: BlogRelatedPost[]
-}
-
-const formatDate = (value?: string) => {
-  if (!value) return ''
-  const date = new Date(value)
-  if (Number.isNaN(date.getTime())) return value.slice(0, 10)
-  return date.toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  })
 }
 
 export const RelatedPosts = ({ posts }: RelatedPostsProps) => {
@@ -27,7 +17,7 @@ export const RelatedPosts = ({ posts }: RelatedPostsProps) => {
         <div className="dc-article__related-grid">
           {posts.map((post) => {
             const cover = post.coverImageUrl || post.coverImage || ''
-            const date = formatDate(post.publishedAt || post.date)
+            const date = formatDate(post.publishedAt || post.date, 'short')
             return (
               <Link
                 key={post.slug}

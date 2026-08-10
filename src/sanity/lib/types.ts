@@ -1,11 +1,12 @@
-import type { SeoFields } from './fallback'
+import type { SeoFields } from '@/types/content'
 
 export type SanityImageLike = {
   asset?: { _ref?: string; _type?: string }
   [key: string]: unknown
 } | null
 
-export type PageHeroContent = {
+/** CMS-shaped hero before mapping through `toPageHero`. */
+export type CmsPageHero = {
   eyebrow?: string
   title?: string
   subtitle?: string
@@ -17,6 +18,6 @@ export type PageHeroContent = {
 
 export type CmsDocument = {
   seo?: SeoFields
-  hero?: PageHeroContent
+  hero?: CmsPageHero
   [key: string]: unknown
 }

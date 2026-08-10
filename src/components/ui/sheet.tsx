@@ -58,7 +58,7 @@ export const Sheet = ({
       >
         {title ? (
           <div className="flex items-center justify-between border-b border-[var(--admin-border)] px-4 py-3">
-            <p className="font-bold text-[var(--admin-navy)]">{title}</p>
+            <p className="min-w-0 truncate font-bold text-[var(--admin-navy)]">{title}</p>
             <Button
               id="admin-sheet-close"
               variant="ghost"

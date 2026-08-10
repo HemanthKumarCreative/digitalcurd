@@ -22,8 +22,8 @@ export default function NotFoundAnimation() {
         backgroundColor: '#05164D',
         position: 'relative',
         overflow: 'hidden',
-        paddingTop: '140px',
-        paddingBottom: '80px',
+        paddingTop: 'clamp(96px, 12vh, 140px)',
+        paddingBottom: 'clamp(48px, 8vh, 80px)',
         minHeight: '60vh',
       }}
     >

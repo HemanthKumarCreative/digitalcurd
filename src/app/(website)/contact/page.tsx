@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import PageHero from '@/components/shared/PageHero'
-import ContactForm from '@/components/home/ContactForm'
+import ContactForm from '@/components/contact/ContactForm'
 import { DesignModeDocument } from '@/components/design-mode/DesignModeProvider'
 import { buildPageMetadata } from '@/lib/seo'
 import { getContactPage, getHomePage } from '@/sanity/lib/fetch'

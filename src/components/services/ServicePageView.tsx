@@ -30,8 +30,6 @@ export default function ServicePageView({ service, related = [] }: ServicePageVi
           cta: service.cta,
           secondaryCta: { label: 'View all services', href: '/services' },
         }}
-        documentId={documentId}
-        documentType="service"
         pathPrefix=""
         backgroundPath="heroImageUrl"
       />
@@ -75,8 +73,6 @@ export default function ServicePageView({ service, related = [] }: ServicePageVi
 
       <SimpleFaq
         faqs={service.faqs}
-        documentId={documentId}
-        documentType="service"
         pathPrefix="faqs"
       />
 

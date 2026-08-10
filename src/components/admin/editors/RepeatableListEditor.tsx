@@ -87,11 +87,11 @@ export const RepeatableListEditor = ({
             key={index}
             className="space-y-3 rounded-[var(--admin-radius-sm)] border border-[var(--admin-border)] bg-slate-50/70 p-3"
           >
-            <div className="flex items-center justify-between gap-2">
+            <div className="flex flex-wrap items-center justify-between gap-2">
               <p className="text-xs font-bold tracking-wide text-[var(--admin-text-muted)] uppercase">
                 Item {index + 1}
               </p>
-              <div className="flex items-center gap-1">
+              <div className="flex flex-wrap items-center gap-1">
                 <Button
                   type="button"
                   variant="ghost"

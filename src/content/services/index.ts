@@ -34,13 +34,7 @@ export type ServiceSlug = keyof typeof serviceModules
 
 export const serviceCatalog: ServiceMeta[] = catalog.services
 
-export const serviceCategories = [
-  'AI & Automation',
-  'Growth Marketing',
-  'Ecommerce',
-  'Digital Engineering',
-  'Creative Studio',
-] as const
+export { serviceCategories } from '@/sanity/lib/catalog'
 
 export const getAllServiceSlugs = (): ServiceSlug[] =>
   Object.keys(serviceModules) as ServiceSlug[]

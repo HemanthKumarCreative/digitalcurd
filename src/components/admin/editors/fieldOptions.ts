@@ -1,3 +1,5 @@
+import { serviceCategories } from '@/sanity/lib/catalog'
+
 export const FEATURE_ICON_OPTIONS = [
   'bot',
   'chart',
@@ -25,10 +27,7 @@ export const SOCIAL_LABEL_OPTIONS = ['Facebook', 'LinkedIn', 'Instagram', 'YouTu
   (value) => ({ label: value, value })
 )
 
-export const SERVICE_CATEGORY_OPTIONS = [
-  'AI & Automation',
-  'Growth Marketing',
-  'Ecommerce',
-  'Digital Engineering',
-  'Creative Studio',
-].map((value) => ({ label: value, value }))
+export const SERVICE_CATEGORY_OPTIONS = serviceCategories.map((value) => ({
+  label: value,
+  value,
+}))

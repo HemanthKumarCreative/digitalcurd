@@ -35,14 +35,14 @@ import {
   getFallbackService,
   type SeoFields,
 } from './fallback'
-import type { PageHeroContent, SanityImageLike } from './types'
+import type { CmsPageHero, SanityImageLike } from './types'
 import { resolveImageUrl } from './image'
 import { normalizeBlogPost } from '@/lib/blog/normalize'
 import type { BlogAuthor, BlogRelatedPost, BlogSection } from '@/types/blog'
 
 type HomePageData = typeof fallbackHomePage & {
   seo?: SeoFields
-  heroSection?: PageHeroContent & { backgroundImage?: SanityImageLike }
+  heroSection?: CmsPageHero & { backgroundImage?: SanityImageLike }
   contactForm?: {
     title: string
     subtitle?: string
@@ -61,7 +61,7 @@ type HomePageData = typeof fallbackHomePage & {
 }
 
 type AboutPageData = Omit<typeof fallbackAboutPage, 'hero' | 'team'> & {
-  hero?: PageHeroContent
+  hero?: CmsPageHero
   team: {
     eyebrow?: string
     title: string
@@ -75,10 +75,10 @@ type AboutPageData = Omit<typeof fallbackAboutPage, 'hero' | 'team'> & {
   }
 }
 
-type CareersPageData = Omit<typeof fallbackCareersPage, 'hero'> & { hero?: PageHeroContent }
-type ContactPageData = Omit<typeof fallbackContactPage, 'hero'> & { hero?: PageHeroContent }
-type BlogIndexData = Omit<typeof fallbackBlogIndex, 'hero'> & { hero?: PageHeroContent }
-type ServicesIndexData = Omit<typeof fallbackServicesIndex, 'hero'> & { hero?: PageHeroContent }
+type CareersPageData = Omit<typeof fallbackCareersPage, 'hero'> & { hero?: CmsPageHero }
+type ContactPageData = Omit<typeof fallbackContactPage, 'hero'> & { hero?: CmsPageHero }
+type BlogIndexData = Omit<typeof fallbackBlogIndex, 'hero'> & { hero?: CmsPageHero }
+type ServicesIndexData = Omit<typeof fallbackServicesIndex, 'hero'> & { hero?: CmsPageHero }
 
 type PostData = (typeof fallbackPosts)[number] & {
   coverImage?: SanityImageLike

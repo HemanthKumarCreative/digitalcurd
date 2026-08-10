@@ -6,8 +6,8 @@ import StatsDeliverySection from './StatsDeliverySection'
 import HelpSectionGrid from './HelpSectionGrid'
 import AiSection from './AiSection'
 import CorePillarsSection from './CorePillarsSection'
-import FaqAccordion from './FaqAccordion'
-import ContactForm from './ContactForm'
+import ContactForm from '@/components/contact/ContactForm'
+import SimpleFaq from '@/components/shared/SimpleFaq'
 import { DesignModeDocument } from '@/components/design-mode/DesignModeProvider'
 import type homeJson from '@/content/home.json'
 
@@ -34,7 +34,15 @@ export default function HomeContent({ content }: HomeContentProps) {
       <div id="dc-section-pillars">
         <CorePillarsSection data={content.corePillarsSection} />
       </div>
-      <FaqAccordion data={content.faqAccordion} />
+      <SimpleFaq
+        variant="home"
+        pathPrefix="faqAccordion"
+        titleLine1={content.faqAccordion.titleLine1}
+        titleEm={content.faqAccordion.titleEm}
+        subtitle={content.faqAccordion.subtitle}
+        faqs={content.faqAccordion.faqs}
+        showMoreLimit={10}
+      />
       <div id="dc-section-contact">
         <ContactForm data={content.contactForm} />
       </div>

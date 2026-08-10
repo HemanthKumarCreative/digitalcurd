@@ -1,8 +1,8 @@
 import type { PageHeroContent } from '@/types/content'
 import { resolveImageUrl } from './image'
-import type { PageHeroContent as CmsHero } from './types'
+import type { CmsPageHero } from './types'
 
-export const toPageHero = (hero?: CmsHero | null): PageHeroContent => ({
+export const toPageHero = (hero?: CmsPageHero | null): PageHeroContent => ({
   eyebrow: hero?.eyebrow,
   title: hero?.title || '',
   subtitle: hero?.subtitle,

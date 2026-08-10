@@ -40,7 +40,7 @@ type AboutPageContentProps = {
 export default function AboutPageContent({ content }: AboutPageContentProps) {
   return (
     <DesignModeDocument documentId="aboutPage" documentType="aboutPage">
-      <PageHero content={content.hero} documentId="aboutPage" documentType="aboutPage" />
+      <PageHero content={content.hero} />
 
       <ContentSection
         id="dc-section-story"

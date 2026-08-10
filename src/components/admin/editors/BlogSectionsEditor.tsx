@@ -1,7 +1,8 @@
 'use client'
 
-import type { ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import { Button } from '@/components/ui/button'
+import { ConfirmDialog } from '@/components/ui/confirm-dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
@@ -168,6 +169,7 @@ export const BlogSectionsEditor = ({
   onChange,
 }: BlogSectionsEditorProps) => {
   const sections = asSections(value)
+  const [removeIndex, setRemoveIndex] = useState<number | null>(null)
 
   const updateAt = (index: number, next: BlogSection) => {
     const copy = [...sections]
@@ -187,6 +189,12 @@ export const BlogSectionsEditor = ({
   const removeAt = (index: number) => {
     onChange(sections.filter((_, i) => i !== index))
   }
+
+  const removeTargetLabel =
+    removeIndex !== null && sections[removeIndex]
+      ? SECTION_TYPES.find((item) => item.type === sections[removeIndex]._type)?.label ||
+        'section'
+      : 'section'
 
   return (
     <div className="space-y-4">
@@ -280,7 +288,7 @@ export const BlogSectionsEditor = ({
                   variant="outline"
                   size="sm"
                   disabled={disabled}
-                  onClick={() => removeAt(index)}
+                  onClick={() => setRemoveIndex(index)}
                   aria-label={`Remove section ${index + 1}`}
                 >
                   Remove
@@ -727,6 +735,19 @@ export const BlogSectionsEditor = ({
           </div>
         )
       })}
+
+      <ConfirmDialog
+        open={removeIndex !== null}
+        title={`Remove this ${removeTargetLabel} section?`}
+        description="The section and its content are removed from the article body. This takes effect when you save."
+        confirmLabel="Remove section"
+        destructive
+        onConfirm={() => {
+          if (removeIndex !== null) removeAt(removeIndex)
+          setRemoveIndex(null)
+        }}
+        onCancel={() => setRemoveIndex(null)}
+      />
     </div>
   )
 }

@@ -38,6 +38,7 @@ import {
 import { ImageField } from '@/components/admin/ImageField'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { ConfirmDialog } from '@/components/ui/confirm-dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
@@ -84,6 +85,7 @@ export type SectionKind =
   | 'authorRef'
   | 'relatedPosts'
   | 'number'
+  | 'select'
 
 export type SectionDef = {
   key: string
@@ -96,6 +98,8 @@ export type SectionDef = {
   defaultOpen?: boolean
   authors?: AuthorOption[]
   posts?: RelatedPostOption[]
+  /** Options for the `select` kind */
+  options?: { label: string; value: string }[]
 }
 
 type StructuredDocumentEditorProps = {
@@ -155,6 +159,12 @@ export const StructuredDocumentEditor = ({
   const [editMode, setEditMode] = useState<EditMode>(forceFormMode ? 'form' : 'design')
   const [siteUrl, setSiteUrl] = useState('http://localhost:3000')
   const [deleting, setDeleting] = useState(false)
+  const [confirmState, setConfirmState] = useState<
+    | { kind: 'delete' }
+    | { kind: 'design-switch' }
+    | { kind: 'navigate'; href: string }
+    | null
+  >(null)
   const pendingFormSync = useRef(false)
   const initialSerialized = useMemo(() => stableSerialize(initialValues), [initialValues])
 
@@ -168,37 +178,7 @@ export const StructuredDocumentEditor = ({
     if (stored === 'form' || stored === 'design') setEditMode(stored)
   }, [forceFormMode])
 
-  const handleSetEditMode = async (mode: EditMode) => {
-    if (forceFormMode) return
-    if (mode === editMode) return
-    const dirty = stableSerialize(values) !== baseline
-    if (mode === 'design' && dirty) {
-      const ok = window.confirm(
-        'You have unsaved Form changes. Click OK to save draft and open Design, or Cancel to stay in Form.'
-      )
-      if (!ok) return
-      try {
-        const set: Record<string, unknown> = {}
-        for (const section of sections) {
-          let value = values[section.key]
-          if (section.kind === 'slug') {
-            value = { _type: 'slug', current: slugify(String(value || '')) }
-          }
-          set[section.key] = value
-        }
-        await patchDocument({ id: documentId, type: documentType, set, publish: false })
-        setBaseline(stableSerialize(values))
-        setStatus('saved')
-        push({ title: 'Draft saved', tone: 'success' })
-      } catch (error) {
-        push({
-          title: 'Save failed',
-          description: error instanceof Error ? error.message : 'Unknown error',
-          tone: 'danger',
-        })
-        return
-      }
-    }
+  const applyEditMode = (mode: EditMode) => {
     if (mode === 'form') {
       void fetch('/api/admin/design/disable', { method: 'POST' })
       pendingFormSync.current = true
@@ -206,6 +186,17 @@ export const StructuredDocumentEditor = ({
     }
     setEditMode(mode)
     sessionStorage.setItem(EDIT_MODE_KEY, mode)
+  }
+
+  const handleSetEditMode = (mode: EditMode) => {
+    if (forceFormMode) return
+    if (mode === editMode) return
+    const dirty = stableSerialize(values) !== baseline
+    if (mode === 'design' && dirty) {
+      setConfirmState({ kind: 'design-switch' })
+      return
+    }
+    applyEditMode(mode)
   }
 
   const jumpSections = useMemo(() => {
@@ -269,61 +260,107 @@ export const StructuredDocumentEditor = ({
     return () => window.removeEventListener('beforeunload', handleBeforeUnload)
   }, [isDirty])
 
+  // Guard in-app navigation while there are unsaved edits: intercept same-origin
+  // link clicks (capture phase, before Next's router) and ask first.
+  useEffect(() => {
+    if (!isDirty) return
+    const handleDocumentClick = (event: MouseEvent) => {
+      if (event.defaultPrevented || event.button !== 0) return
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+      const anchor = (event.target as HTMLElement | null)?.closest?.('a[href]')
+      if (!(anchor instanceof HTMLAnchorElement)) return
+      if (anchor.target === '_blank' || anchor.hasAttribute('download')) return
+      const url = new URL(anchor.href, window.location.href)
+      if (url.origin !== window.location.origin) return
+      if (url.pathname === window.location.pathname && url.search === window.location.search)
+        return
+      event.preventDefault()
+      event.stopPropagation()
+      setConfirmState({ kind: 'navigate', href: url.pathname + url.search + url.hash })
+    }
+    document.addEventListener('click', handleDocumentClick, true)
+    return () => document.removeEventListener('click', handleDocumentClick, true)
+  }, [isDirty])
+
+  // Ctrl/Cmd+S saves a draft in Form mode.
+  const saveShortcutRef = useRef<() => void>(() => {})
+  saveShortcutRef.current = () => {
+    if (editMode !== 'form' || readOnly || pending || !isDirty) return
+    handleSave(false)
+  }
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 's') {
+        event.preventDefault()
+        saveShortcutRef.current()
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
+
   const setKey = (key: string, value: unknown) => {
     setValues((prev) => ({ ...prev, [key]: value }))
   }
 
-  const handleSave = (publish: boolean) => {
+  /** Validates and normalizes form values into a Sanity patch. Returns null (with a toast) when invalid. */
+  const buildPatchSet = (): Record<string, unknown> | null => {
+    const set: Record<string, unknown> = {}
+    for (const section of sections) {
+      let value = values[section.key]
+      if (section.kind === 'datetime' && typeof value === 'string' && value) {
+        value = new Date(value).toISOString()
+      }
+      if (section.kind === 'slug') {
+        const current = slugify(String(value || ''))
+        if (!current) {
+          push({ title: 'Slug required', description: section.title, tone: 'danger' })
+          return null
+        }
+        value = { _type: 'slug', current }
+      }
+      if (section.kind === 'json' && typeof value === 'string') {
+        try {
+          value = JSON.parse(value)
+        } catch {
+          push({
+            title: 'Invalid JSON',
+            description: `${section.title} must be valid JSON before saving.`,
+            tone: 'danger',
+          })
+          return null
+        }
+      }
+      if (section.key === 'relatedServiceSlugs') {
+        if (typeof value === 'string') {
+          value = value
+            .split('\n')
+            .map((line) => line.trim())
+            .filter(Boolean)
+        } else if (!Array.isArray(value)) {
+          value = []
+        }
+      }
+      if (section.kind === 'cta' && value && typeof value === 'object') {
+        const obj = asObject(value)
+        const nested = asObject(obj.cta)
+        value = {
+          title: String(obj.title || ''),
+          description: String(obj.description || ''),
+          label: String(nested.label || obj.label || ''),
+          href: String(nested.href || obj.href || ''),
+        }
+      }
+      set[section.key] = value
+    }
+    return set
+  }
+
+  const handleSave = (publish: boolean, afterSave?: () => void) => {
+    const set = buildPatchSet()
+    if (!set) return
     startTransition(async () => {
       try {
-        const set: Record<string, unknown> = {}
-        for (const section of sections) {
-          let value = values[section.key]
-          if (section.kind === 'datetime' && typeof value === 'string' && value) {
-            value = new Date(value).toISOString()
-          }
-          if (section.kind === 'slug') {
-            const current = slugify(String(value || ''))
-            if (!current) {
-              push({ title: 'Slug required', description: section.title, tone: 'danger' })
-              return
-            }
-            value = { _type: 'slug', current }
-          }
-          if (section.kind === 'json' && typeof value === 'string') {
-            try {
-              value = JSON.parse(value)
-            } catch {
-              push({
-                title: 'Invalid JSON',
-                description: `${section.title} must be valid JSON before saving.`,
-                tone: 'danger',
-              })
-              return
-            }
-          }
-          if (section.key === 'relatedServiceSlugs') {
-            if (typeof value === 'string') {
-              value = value
-                .split('\n')
-                .map((line) => line.trim())
-                .filter(Boolean)
-            } else if (!Array.isArray(value)) {
-              value = []
-            }
-          }
-          if (section.kind === 'cta' && value && typeof value === 'object') {
-            const obj = asObject(value)
-            const nested = asObject(obj.cta)
-            value = {
-              title: String(obj.title || ''),
-              description: String(obj.description || ''),
-              label: String(nested.label || obj.label || ''),
-              href: String(nested.href || obj.href || ''),
-            }
-          }
-          set[section.key] = value
-        }
         await patchDocument({
           id: documentId,
           type: documentType,
@@ -337,7 +374,11 @@ export const StructuredDocumentEditor = ({
           description: `${title} updated successfully`,
           tone: 'success',
         })
-        router.refresh()
+        if (afterSave) {
+          afterSave()
+        } else {
+          router.refresh()
+        }
       } catch (error) {
         push({
           title: 'Save failed',
@@ -350,16 +391,16 @@ export const StructuredDocumentEditor = ({
 
   const handleDelete = () => {
     if (!allowDelete || readOnly) return
-    const ok = window.confirm(
-      `Delete “${title}”? This removes the published and draft versions and cannot be undone.`
-    )
-    if (!ok) return
+    setConfirmState({ kind: 'delete' })
+  }
 
+  const performDelete = () => {
     setDeleting(true)
     startTransition(async () => {
       try {
         await deleteDocument({ id: documentId, type: documentType })
         push({ title: 'Deleted', description: title, tone: 'success' })
+        setConfirmState(null)
         router.push(listHref || '/admin')
         router.refresh()
       } catch (error) {
@@ -369,6 +410,7 @@ export const StructuredDocumentEditor = ({
           tone: 'danger',
         })
         setDeleting(false)
+        setConfirmState(null)
       }
     })
   }
@@ -397,7 +439,7 @@ export const StructuredDocumentEditor = ({
       : description || modeHint
 
   return (
-    <div className="pb-24 lg:pb-6">
+    <div className="pb-40 sm:pb-28 lg:pb-6">
       <StickyActionBar
         left={
           <div className="flex flex-wrap items-center gap-2">
@@ -437,7 +479,9 @@ export const StructuredDocumentEditor = ({
             ) : (
               <Badge tone="info">Form editor</Badge>
             )}
-            <Badge tone="info">{documentType}</Badge>
+            <Badge tone="info" className="hidden sm:inline-flex">
+              {documentType}
+            </Badge>
             {editMode === 'form' && isDirty ? (
               <Badge tone="warning">Unsaved changes</Badge>
             ) : status === 'published' ? (
@@ -1048,6 +1092,30 @@ export const StructuredDocumentEditor = ({
                 </div>
               ) : null}
 
+              {section.kind === 'select' ? (
+                <div>
+                  <Label htmlFor={`field-${section.key}`}>{section.title}</Label>
+                  <select
+                    id={`field-${section.key}`}
+                    className="flex h-10 w-full rounded-[var(--admin-radius-sm)] border border-[var(--admin-border)] bg-white px-3 text-sm"
+                    value={String(raw || '')}
+                    disabled={readOnly}
+                    onChange={(e) => setKey(section.key, e.target.value)}
+                  >
+                    {(section.options || []).map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                  {section.helper ? (
+                    <p className="mt-1 text-xs text-[var(--admin-text-muted)]">
+                      {section.helper}
+                    </p>
+                  ) : null}
+                </div>
+              ) : null}
+
               {section.kind === 'category' ? (
                 <div>
                   <Label>{section.title}</Label>
@@ -1172,6 +1240,69 @@ export const StructuredDocumentEditor = ({
           No live preview path for this document. Use Form mode to edit fields.
         </p>
       ) : null}
+
+      <ConfirmDialog
+        open={confirmState?.kind === 'delete'}
+        title={`Delete “${title}”?`}
+        description="This removes the published and draft versions and cannot be undone."
+        confirmLabel="Delete"
+        destructive
+        pending={deleting || pending}
+        pendingLabel="Deleting…"
+        onConfirm={performDelete}
+        onCancel={() => {
+          if (!deleting) setConfirmState(null)
+        }}
+      />
+
+      <ConfirmDialog
+        open={confirmState?.kind === 'design-switch'}
+        title="Unsaved changes"
+        description="Save your Form changes as a draft before opening Design mode, or stay here to keep editing."
+        confirmLabel="Save draft & open Design"
+        cancelLabel="Stay in Form"
+        pending={pending}
+        pendingLabel="Saving…"
+        onConfirm={() => {
+          handleSave(false, () => {
+            setConfirmState(null)
+            applyEditMode('design')
+          })
+        }}
+        onCancel={() => setConfirmState(null)}
+      />
+
+      <ConfirmDialog
+        open={confirmState?.kind === 'navigate'}
+        title="Unsaved changes"
+        description="You have unsaved edits on this page. Save them as a draft before leaving, or discard them."
+        confirmLabel="Discard & leave"
+        cancelLabel="Stay"
+        alternateLabel="Save draft & leave"
+        destructive
+        pending={pending}
+        pendingLabel="Saving…"
+        onAlternate={() => {
+          if (confirmState?.kind !== 'navigate') return
+          const href = confirmState.href
+          handleSave(false, () => {
+            setConfirmState(null)
+            router.push(href)
+          })
+        }}
+        onConfirm={() => {
+          if (confirmState?.kind !== 'navigate') return
+          const href = confirmState.href
+          try {
+            setValues(JSON.parse(baseline) as Record<string, unknown>)
+          } catch {
+            /* keep current values; navigation still proceeds */
+          }
+          setConfirmState(null)
+          router.push(href)
+        }}
+        onCancel={() => setConfirmState(null)}
+      />
     </div>
   )
 }

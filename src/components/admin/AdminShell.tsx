@@ -65,12 +65,19 @@ export const AdminShell = ({ children, user }: AdminShellProps) => {
   const pathname = usePathname()
   const router = useRouter()
   const [open, setOpen] = useState(false)
+  const [loggingOut, setLoggingOut] = useState(false)
 
   const handleLogout = async () => {
-    await fetch('/api/admin/logout', { method: 'POST' })
-    const loginHref = pathname.startsWith('/admin') ? '/admin/login' : '/login'
-    router.push(loginHref)
-    router.refresh()
+    if (loggingOut) return
+    setLoggingOut(true)
+    try {
+      await fetch('/api/admin/logout', { method: 'POST' })
+      const loginHref = pathname.startsWith('/admin') ? '/admin/login' : '/login'
+      router.push(loginHref)
+      router.refresh()
+    } catch {
+      setLoggingOut(false)
+    }
   }
 
   const isActive = (href: string) =>
@@ -141,10 +148,12 @@ export const AdminShell = ({ children, user }: AdminShellProps) => {
               size="sm"
               className="mt-3 w-full"
               onClick={handleLogout}
+              disabled={loggingOut}
+              aria-busy={loggingOut}
               aria-label="Log out"
             >
               <LogOut className="h-4 w-4" aria-hidden />
-              Log out
+              {loggingOut ? 'Logging out…' : 'Log out'}
             </Button>
           </div>
         </aside>
@@ -183,6 +192,8 @@ export const AdminShell = ({ children, user }: AdminShellProps) => {
               size="sm"
               className="lg:hidden"
               onClick={handleLogout}
+              disabled={loggingOut}
+              aria-busy={loggingOut}
               aria-label="Log out"
             >
               <LogOut className="h-4 w-4" />

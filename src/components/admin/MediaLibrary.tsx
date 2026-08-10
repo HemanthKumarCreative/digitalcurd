@@ -1,14 +1,16 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useMemo, useState, useTransition } from 'react'
+import { useMemo, useRef, useState, useTransition } from 'react'
 import { ImageIcon, Link2, Search, Trash2, Upload } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { ConfirmDialog } from '@/components/ui/confirm-dialog'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { EmptyState } from '@/components/ui/empty-state'
 import { PageHeader } from '@/components/ui/page-header'
 import { useToast } from '@/components/ui/toast'
+import { useModalFocus } from '@/components/ui/use-modal-focus'
 
 type Asset = {
   _id: string
@@ -38,8 +40,12 @@ export const MediaLibrary = ({ initialAssets, canEdit }: MediaLibraryProps) => {
   const [query, setQuery] = useState('')
   const [filter, setFilter] = useState<'all' | 'image' | 'file'>('all')
   const [pending, startTransition] = useTransition()
+  const [uploading, setUploading] = useState(false)
   const [preview, setPreview] = useState<Asset | null>(null)
+  const [deleteTarget, setDeleteTarget] = useState<Asset | null>(null)
   const [dragOver, setDragOver] = useState(false)
+  const previewPanelRef = useRef<HTMLDivElement>(null)
+  useModalFocus(previewPanelRef, Boolean(preview), () => setPreview(null))
 
   const filtered = useMemo(() => {
     return assets.filter((asset) => {
@@ -58,6 +64,7 @@ export const MediaLibrary = ({ initialAssets, canEdit }: MediaLibraryProps) => {
   const uploadFiles = (fileList: FileList | null) => {
     if (!fileList?.length || !canEdit) return
     const file = fileList[0]
+    setUploading(true)
     startTransition(async () => {
       try {
         const form = new FormData()
@@ -74,13 +81,15 @@ export const MediaLibrary = ({ initialAssets, canEdit }: MediaLibraryProps) => {
           description: error instanceof Error ? error.message : 'Unknown error',
           tone: 'danger',
         })
+      } finally {
+        setUploading(false)
       }
     })
   }
 
-  const handleDelete = (id: string) => {
-    if (!canEdit) return
-    if (!window.confirm('Delete this asset from Sanity?')) return
+  const performDelete = () => {
+    if (!canEdit || !deleteTarget) return
+    const id = deleteTarget._id
     startTransition(async () => {
       try {
         const res = await fetch(`/api/admin/media?id=${encodeURIComponent(id)}`, {
@@ -98,6 +107,8 @@ export const MediaLibrary = ({ initialAssets, canEdit }: MediaLibraryProps) => {
           description: error instanceof Error ? error.message : 'Unknown error',
           tone: 'danger',
         })
+      } finally {
+        setDeleteTarget(null)
       }
     })
   }
@@ -119,17 +130,26 @@ export const MediaLibrary = ({ initialAssets, canEdit }: MediaLibraryProps) => {
         description="Upload and manage Sanity assets. Use Choose from media inside editors to insert images."
         breadcrumbs={[{ label: 'Assets' }, { label: 'Media' }]}
         actions={
-          <label className="inline-flex cursor-pointer">
+          <label
+            className={
+              uploading || !canEdit
+                ? 'inline-flex cursor-not-allowed opacity-60'
+                : 'inline-flex cursor-pointer'
+            }
+          >
             <input
               type="file"
               className="sr-only"
               accept="image/*,video/*,.pdf,.svg,.doc,.docx"
-              disabled={!canEdit || pending}
+              disabled={!canEdit || uploading}
               onChange={(e) => uploadFiles(e.target.files)}
             />
-            <span className="inline-flex h-10 items-center gap-2 rounded-[var(--admin-radius-sm)] bg-[var(--admin-navy)] px-4 text-sm font-semibold text-white">
+            <span
+              aria-busy={uploading}
+              className="inline-flex h-10 items-center gap-2 rounded-[var(--admin-radius-sm)] bg-[var(--admin-navy)] px-4 text-sm font-semibold text-white"
+            >
               <Upload className="h-4 w-4" aria-hidden />
-              Upload
+              {uploading ? 'Uploading…' : 'Upload'}
             </span>
           </label>
         }
@@ -189,11 +209,23 @@ export const MediaLibrary = ({ initialAssets, canEdit }: MediaLibraryProps) => {
       </div>
 
       {filtered.length === 0 ? (
-        <EmptyState
-          icon={<ImageIcon className="h-6 w-6" />}
-          title="No media assets"
-          description="Upload images to use them across page heroes, blogs, and services."
-        />
+        assets.length === 0 ? (
+          <EmptyState
+            icon={<ImageIcon className="h-6 w-6" />}
+            title="No media assets"
+            description="Upload images to use them across page heroes, blogs, and services."
+          />
+        ) : (
+          <EmptyState
+            icon={<Search className="h-6 w-6" />}
+            title="No matches"
+            description={
+              query.trim()
+                ? `Nothing matches “${query.trim()}”. Try a different search or filter.`
+                : 'Nothing matches the current filter.'
+            }
+          />
+        )
       ) : (
         <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
           {filtered.map((asset) => {
@@ -256,7 +288,8 @@ export const MediaLibrary = ({ initialAssets, canEdit }: MediaLibraryProps) => {
                       variant="destructive"
                       size="sm"
                       disabled={!canEdit || pending}
-                      onClick={() => handleDelete(asset._id)}
+                      onClick={() => setDeleteTarget(asset)}
+                      aria-label={`Delete ${asset.originalFilename || asset._id}`}
                     >
                       <Trash2 className="h-3.5 w-3.5" aria-hidden />
                       Delete
@@ -275,17 +308,27 @@ export const MediaLibrary = ({ initialAssets, canEdit }: MediaLibraryProps) => {
           role="dialog"
           aria-modal="true"
           aria-label="Media preview"
+          onClick={(event) => {
+            if (event.target === event.currentTarget) setPreview(null)
+          }}
         >
-          <div className="max-h-[90vh] w-full max-w-3xl overflow-auto rounded-[var(--admin-radius)] bg-white p-4 shadow-[var(--admin-shadow-lg)]">
+          <div
+            ref={previewPanelRef}
+            className="max-h-[90vh] w-full max-w-3xl overflow-auto rounded-[var(--admin-radius)] bg-white p-4 shadow-[var(--admin-shadow-lg)]"
+          >
             <div className="mb-3 flex items-center justify-between gap-3">
-              <p className="font-semibold">{preview.originalFilename}</p>
+              <p className="min-w-0 truncate font-semibold">{preview.originalFilename}</p>
               <Button variant="outline" size="sm" onClick={() => setPreview(null)}>
                 Close
               </Button>
             </div>
             {preview.mimeType?.startsWith('image/') && preview.url ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={preview.url} alt="" className="max-h-[70vh] w-full object-contain" />
+              <img
+                src={preview.url}
+                alt={preview.originalFilename || 'Media asset preview'}
+                className="max-h-[70vh] w-full object-contain"
+              />
             ) : (
               <p className="text-sm text-[var(--admin-text-muted)]">
                 Preview not available.{' '}
@@ -304,6 +347,20 @@ export const MediaLibrary = ({ initialAssets, canEdit }: MediaLibraryProps) => {
           </div>
         </div>
       ) : null}
+
+      <ConfirmDialog
+        open={Boolean(deleteTarget)}
+        title={`Delete “${deleteTarget?.originalFilename || deleteTarget?._id || 'asset'}”?`}
+        description="This permanently removes the asset from Sanity. Pages that reference it will lose the image."
+        confirmLabel="Delete"
+        destructive
+        pending={pending}
+        pendingLabel="Deleting…"
+        onConfirm={performDelete}
+        onCancel={() => {
+          if (!pending) setDeleteTarget(null)
+        }}
+      />
     </div>
   )
 }

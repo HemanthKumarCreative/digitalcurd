@@ -1,7 +1,6 @@
 import { listDocumentsPreferDraft } from '@/lib/admin/data'
-import { ContentListSearch } from '@/components/admin/ContentListSearch'
+import { AdminResourceList } from '@/components/admin/AdminResourceList'
 import { CreateDocumentButton } from '@/components/admin/CreateDocumentButton'
-import { PageHeader } from '@/components/ui/page-header'
 
 type JobRow = {
   _id: string
@@ -20,34 +19,27 @@ export default async function AdminJobsPage() {
   )
 
   return (
-    <div className="space-y-4">
-      <PageHeader
-        title="Jobs"
-        description={`${jobs.length} listings`}
-        breadcrumbs={[{ label: 'Content' }, { label: 'Jobs' }]}
-        actions={<CreateDocumentButton kind="job" />}
-      />
-      <ContentListSearch
-        emptyTitle="No jobs yet"
-        emptyDescription="Create a job listing to show it on Careers."
-        placeholder="Search jobs…"
-        items={jobs.map((job) => ({
-          id: job._id,
-          href: `/admin/jobs/${job._id}`,
-          title: job.title || 'Untitled',
-          subtitle: `${job.location || '—'} · ${job.type || '—'}`,
-          badges: [
-            ...(job.isDraft
-              ? [{ label: 'Draft', tone: 'warning' as const }]
-              : []),
-            {
-              label: job.published === false ? 'Hidden' : 'Published',
-              tone: job.published === false ? ('warning' as const) : ('success' as const),
-            },
-          ],
-          searchText: `${job.location || ''} ${job.type || ''}`,
-        }))}
-      />
-    </div>
+    <AdminResourceList
+      title="Jobs"
+      description={`${jobs.length} listings`}
+      breadcrumbs={[{ label: 'Content' }, { label: 'Jobs' }]}
+      actions={<CreateDocumentButton kind="job" />}
+      emptyTitle="No jobs yet"
+      emptyDescription="Create a job listing to show it on Careers."
+      placeholder="Search jobs…"
+      items={jobs.map((job) => ({
+        id: job._id,
+        href: `/admin/jobs/${job._id}`,
+        title: job.title || 'Untitled',
+        subtitle: `${job.location || '—'} · ${job.type || '—'}`,
+        status: job.isDraft ? ('draft' as const) : ('published' as const),
+        deletableType: 'job',
+        badges:
+          job.published === false
+            ? [{ label: 'Hidden on Careers', tone: 'warning' as const }]
+            : [],
+        searchText: `${job.location || ''} ${job.type || ''}`,
+      }))}
+    />
   )
 }

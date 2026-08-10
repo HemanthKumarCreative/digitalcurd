@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -20,6 +20,7 @@ export const SectionCard = ({
   className,
 }: SectionCardProps) => {
   const [open, setOpen] = useState(defaultOpen)
+  const contentId = useId()
 
   return (
     <section
@@ -33,6 +34,7 @@ export const SectionCard = ({
         className="flex w-full items-start justify-between gap-3 px-4 py-3 text-left hover:bg-slate-50"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
+        aria-controls={contentId}
       >
         <div>
           <h2 className="text-sm font-bold text-[var(--admin-navy)]">{title}</h2>
@@ -48,7 +50,11 @@ export const SectionCard = ({
           aria-hidden
         />
       </button>
-      {open ? <div className="border-t border-[var(--admin-border)] px-4 py-4">{children}</div> : null}
+      {open ? (
+        <div id={contentId} className="border-t border-[var(--admin-border)] px-4 py-4">
+          {children}
+        </div>
+      ) : null}
     </section>
   )
 }

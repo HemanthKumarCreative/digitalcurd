@@ -13,6 +13,29 @@ export const slugifyHeading = (value: string) =>
     .replace(/-+/g, '-')
     .replace(/^-|-$/g, '')
 
+export type BlogDateStyle = 'long' | 'short'
+
+export const formatDate = (
+  value?: string,
+  style: BlogDateStyle = 'long'
+) => {
+  if (!value) return ''
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) return value.slice(0, 10)
+  if (style === 'short') {
+    return date.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    })
+  }
+  return date.toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
+}
+
 export const estimateReadingMinutes = (sections: BlogSection[] = [], faqs: { question?: string; answer?: string }[] = []) => {
   const parts: string[] = []
   for (const section of sections) {

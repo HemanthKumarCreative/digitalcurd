@@ -376,6 +376,8 @@ svg {
   top: var(--nav-h);
   left: 0;
   right: 0;
+  max-height: calc(100vh - var(--nav-h));
+  overflow-y: auto;
   z-index: 400;
   background: var(--s-1);
   border-bottom: 1px solid var(--bd);
@@ -1258,9 +1260,6 @@ a.col__head:hover .arr {
     min-width: 137px;
     max-width: 137px;
   }
-  .get-connect {
-    display: none !important;
-  }
   .col {
     padding-right: 12px;
   }
@@ -1352,9 +1351,19 @@ a.col__head:hover .arr {
     transform: none;
   }
 }
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 992px) {
   .get-connect {
     display: none;
+  }
+}
+@media (max-width: 1200px) {
+  .cols {
+    flex-wrap: wrap;
+    row-gap: 20px;
+  }
+  .cols .col {
+    flex: 1 1 30%;
+    min-width: 200px;
   }
 }
 .nav-v9 .btn-circle {

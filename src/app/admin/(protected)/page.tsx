@@ -9,6 +9,7 @@ import {
   Newspaper,
   Scale,
   Upload,
+  Users,
 } from 'lucide-react'
 import { requireAdminSession } from '@/lib/auth/session'
 import { getDashboardStats } from '@/lib/admin/data'
@@ -52,7 +53,7 @@ const recentHref = (item: {
     case 'legalPage':
       return item.slug ? `/admin/legal/${item.slug}` : '/admin/legal'
     case 'inquiry':
-      return '/admin/inquiries'
+      return `/admin/inquiries/${item._id}`
     default:
       return null
   }
@@ -66,6 +67,7 @@ export default async function AdminDashboardPage() {
     { label: 'Pages', value: stats.pages, href: '/admin/pages', icon: Layers },
     { label: 'Services', value: stats.services, href: '/admin/services', icon: Briefcase },
     { label: 'Blog posts', value: stats.posts, href: '/admin/blog', icon: Newspaper },
+    { label: 'Authors', value: stats.authors, href: '/admin/authors', icon: Users },
     { label: 'Inquiries', value: stats.inquiries, href: '/admin/inquiries', icon: Inbox },
     { label: 'Legal', value: stats.legal, href: '/admin/legal', icon: Scale },
     { label: 'Media', value: stats.media, href: '/admin/media', icon: ImageIcon },
@@ -144,8 +146,8 @@ export default async function AdminDashboardPage() {
           <CardTitle>Account</CardTitle>
           <div className="mt-4 space-y-3 text-sm">
             <div className="flex items-center justify-between gap-3">
-              <span className="text-[var(--admin-text-muted)]">Email</span>
-              <span className="font-medium">{session.user.email}</span>
+              <span className="shrink-0 text-[var(--admin-text-muted)]">Email</span>
+              <span className="min-w-0 truncate font-medium">{session.user.email}</span>
             </div>
             <div className="flex items-center justify-between gap-3">
               <span className="text-[var(--admin-text-muted)]">Access</span>

@@ -47,6 +47,13 @@ export default function Header({ services = [] }: HeaderProps) {
   }, [])
 
   useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isMobileMenuOpen])
+
+  useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       const nav = document.getElementById('nav')
       if (nav && !nav.contains(e.target as Node)) {

@@ -47,7 +47,7 @@ export const EditableIcon = ({
 
   return (
     <label
-      className={cn('inline-flex flex-col items-start gap-1', className)}
+      className={cn('relative inline-flex items-start', className)}
       data-dc-editable="icon"
       data-dc-path={path}
       data-dc-label={label}
@@ -57,7 +57,7 @@ export const EditableIcon = ({
       </span>
       <select
         aria-label={label}
-        className="max-w-[9rem] rounded border border-slate-300 bg-white px-1 py-0.5 text-[10px] font-semibold text-slate-700"
+        className="absolute top-full left-0 z-20 mt-1 w-[7.5rem] max-w-[60vw] rounded border border-slate-300 bg-white px-1 py-0.5 text-[10px] font-semibold text-slate-700 shadow-sm"
         value={value && serviceIconKeys.includes(value as (typeof serviceIconKeys)[number]) ? value : 'sparkles'}
         onChange={handleChange}
         data-dc-editable="icon"

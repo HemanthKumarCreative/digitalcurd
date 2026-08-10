@@ -49,7 +49,7 @@ export default function CareersPageContent({
 }: CareersPageContentProps) {
   return (
     <DesignModeDocument documentId="careersPage" documentType="careersPage">
-      <PageHero content={hero} documentId="careersPage" documentType="careersPage" />
+      <PageHero content={hero} />
 
       <ContentSection
         id="dc-section-culture"

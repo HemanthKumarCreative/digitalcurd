@@ -2,7 +2,16 @@
 
 import React, { useEffect, useId, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Check, CheckCircle2, ChevronDown, Clock3, Mail } from 'lucide-react'
+import {
+  ArrowRight,
+  Check,
+  CheckCircle2,
+  ChevronDown,
+  Clock3,
+  Loader2,
+  Mail,
+  Sparkles,
+} from 'lucide-react'
 import { EditableImage } from '@/components/design-mode/EditableImage'
 import { EditableText } from '@/components/design-mode/EditableText'
 
@@ -21,6 +30,32 @@ const trustPoints = [
   { icon: Clock3, label: 'Reply in 8 business hours' },
   { icon: CheckCircle2, label: 'Free consult — clear next steps' },
 ]
+
+const successNextSteps = [
+  { icon: Mail, label: 'We review your enquiry and context' },
+  { icon: Clock3, label: 'A specialist replies within 8 business hours' },
+  { icon: Sparkles, label: 'You get clear next steps — no hard sell' },
+]
+
+const successMotion = {
+  container: {
+    initial: { opacity: 0, y: 12 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1], staggerChildren: 0.08 },
+    },
+    exit: { opacity: 0, y: -8, transition: { duration: 0.2 } },
+  },
+  item: {
+    initial: { opacity: 0, y: 10 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+    },
+  },
+}
 
 type ContactFormData = {
   title: string
@@ -54,6 +89,7 @@ export default function ContactForm({ data: contactForm }: { data: ContactFormDa
   const [errors, setErrors] = useState<FieldErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [submittedEmail, setSubmittedEmail] = useState('')
   const [isServiceOpen, setIsServiceOpen] = useState(false)
   const [activeOption, setActiveOption] = useState(0)
 
@@ -107,6 +143,7 @@ export default function ContactForm({ data: contactForm }: { data: ContactFormDa
         throw new Error('Failed to submit form')
       }
 
+      setSubmittedEmail(formData.email.trim())
       setIsSuccess(true)
       setFormData({
         name: '',
@@ -114,13 +151,18 @@ export default function ContactForm({ data: contactForm }: { data: ContactFormDa
         service: '',
         requirements: '',
       })
+      setErrors({})
     } catch (error) {
       console.error(error)
-      // Ideally show a toast here, but we'll fallback for now
       alert('There was a problem submitting your inquiry. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
+  }
+
+  const handleSendAnother = () => {
+    setIsSuccess(false)
+    setSubmittedEmail('')
   }
 
   useEffect(() => {
@@ -239,48 +281,86 @@ export default function ContactForm({ data: contactForm }: { data: ContactFormDa
           </a>
         </div>
 
-        <div className="dc-contact__card">
+        <div className={`dc-contact__card ${isSuccess ? 'is-success' : ''}`}>
           <AnimatePresence mode="wait">
             {isSuccess ? (
               <motion.div
                 key="success"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, ease: 'easeOut' }}
                 className="dc-contact__success"
                 role="status"
+                aria-live="polite"
+                variants={successMotion.container}
+                initial="initial"
+                animate="animate"
+                exit="exit"
               >
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.2, type: 'spring', stiffness: 200, damping: 10 }}
-                >
-                  <CheckCircle2 size={48} strokeWidth={1.5} aria-hidden="true" className="text-green-500 mb-4" />
+                <motion.div className="dc-contact__success-icon" variants={successMotion.item}>
+                  <motion.span
+                    className="dc-contact__success-ring"
+                    aria-hidden="true"
+                    initial={{ scale: 0.6, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ type: 'spring', stiffness: 260, damping: 18 }}
+                  />
+                  <motion.span
+                    className="dc-contact__success-check"
+                    aria-hidden="true"
+                    initial={{ scale: 0, rotate: -20 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ delay: 0.12, type: 'spring', stiffness: 320, damping: 16 }}
+                  >
+                    <Check size={28} strokeWidth={2.75} />
+                  </motion.span>
                 </motion.div>
-                <h3 className="text-2xl font-bold mb-2">You&apos;re all set</h3>
-                <EditableText
-                  as="p"
-                  path="contactForm.form.successMessage"
-                  label="Contact → Success message"
-                  value={contactForm.form.successMessage}
-                  className="text-gray-400 mb-6"
-                  multiline
-                />
-                <button
-                  type="button"
-                  className="dc-contact__secondary-btn"
-                  onClick={() => setIsSuccess(false)}
-                >
-                  Send another enquiry
-                </button>
+
+                <motion.p className="dc-contact__success-eyebrow" variants={successMotion.item}>
+                  Enquiry received
+                </motion.p>
+                <motion.h3 className="dc-contact__success-title" variants={successMotion.item}>
+                  You&apos;re all set
+                </motion.h3>
+
+                {submittedEmail ? (
+                  <motion.p className="dc-contact__success-email" variants={successMotion.item}>
+                    We&apos;ll reply to <strong>{submittedEmail}</strong>
+                  </motion.p>
+                ) : null}
+
+                <motion.ul className="dc-contact__success-steps" variants={successMotion.item}>
+                  {successNextSteps.map((step) => (
+                    <li key={step.label}>
+                      <span className="dc-contact__success-step-icon" aria-hidden="true">
+                        <step.icon size={16} strokeWidth={2.25} />
+                      </span>
+                      <span>{step.label}</span>
+                    </li>
+                  ))}
+                </motion.ul>
+
+                <motion.div className="dc-contact__success-actions" variants={successMotion.item}>
+                  <button
+                    type="button"
+                    className="dc-contact__secondary-btn"
+                    onClick={handleSendAnother}
+                  >
+                    Send another enquiry
+                  </button>
+                  <a
+                    href={`mailto:${contactForm.leftCol.email}`}
+                    className="dc-contact__success-mail"
+                  >
+                    <Mail size={15} aria-hidden="true" />
+                    Email us directly
+                  </a>
+                </motion.div>
               </motion.div>
             ) : (
               <motion.form
                 key="form"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
                 className="dc-contact__form"
                 onSubmit={handleSubmit}
                 noValidate
@@ -396,16 +476,28 @@ export default function ContactForm({ data: contactForm }: { data: ContactFormDa
                 type="submit"
                 className="dc-contact__submit"
                 disabled={isSubmitting}
+                aria-busy={isSubmitting}
               >
-                {isSubmitting ? 'Sending…' : (
-                  <EditableText
-                    as="span"
-                    path="contactForm.form.submitButton"
-                    label="Contact → Submit"
-                    value={contactForm.form.submitButton}
-                  />
+                {isSubmitting ? (
+                  <>
+                    <Loader2
+                      size={18}
+                      className="dc-contact__submit-spinner"
+                      aria-hidden="true"
+                    />
+                    Sending…
+                  </>
+                ) : (
+                  <>
+                    <EditableText
+                      as="span"
+                      path="contactForm.form.submitButton"
+                      label="Contact → Submit"
+                      value={contactForm.form.submitButton}
+                    />
+                    <ArrowRight size={18} aria-hidden="true" />
+                  </>
                 )}
-                {!isSubmitting && <ArrowRight size={18} aria-hidden="true" />}
               </button>
 
               <p className="dc-contact__fineprint">

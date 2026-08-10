@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useTransition } from 'react'
+import { useCallback, useRef, useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import { Plus, X } from 'lucide-react'
 import { createDocument } from '@/lib/admin/actions'
@@ -11,8 +11,9 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useToast } from '@/components/ui/toast'
+import { useModalFocus } from '@/components/ui/use-modal-focus'
 
-export type CreateDocumentKind = 'service' | 'post' | 'job'
+export type CreateDocumentKind = 'service' | 'post' | 'job' | 'author'
 
 type CreateDocumentButtonProps = {
   kind: CreateDocumentKind
@@ -20,8 +21,9 @@ type CreateDocumentButtonProps = {
 
 const labels: Record<CreateDocumentKind, { button: string; title: string }> = {
   service: { button: 'New service', title: 'Create service' },
-  post: { button: 'New post', title: 'Create blog post' },
+  post: { button: 'New article', title: 'Create article' },
   job: { button: 'New job', title: 'Create job listing' },
+  author: { button: 'New author', title: 'Create author' },
 }
 
 export const CreateDocumentButton = ({ kind }: CreateDocumentButtonProps) => {
@@ -38,24 +40,17 @@ export const CreateDocumentButton = ({ kind }: CreateDocumentButtonProps) => {
   const [location, setLocation] = useState('Remote')
   const [jobType, setJobType] = useState('Full-time')
   const [applyHref, setApplyHref] = useState('/contact')
-
-  useEffect(() => {
-    if (!open) return
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setOpen(false)
-    }
-    document.addEventListener('keydown', onKey)
-    return () => document.removeEventListener('keydown', onKey)
-  }, [open])
+  const [role, setRole] = useState('Editorial')
+  const dialogPanelRef = useRef<HTMLDivElement>(null)
 
   const handleTitleChange = (value: string) => {
     setTitle(value)
-    if (!slugTouched && (kind === 'service' || kind === 'post' || kind === 'job')) {
+    if (!slugTouched) {
       setSlug(slugify(value))
     }
   }
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     if (pending) return
     setOpen(false)
     setTitle('')
@@ -64,18 +59,30 @@ export const CreateDocumentButton = ({ kind }: CreateDocumentButtonProps) => {
     setLocation('Remote')
     setJobType('Full-time')
     setApplyHref('/contact')
-  }
+    setRole('Editorial')
+  }, [pending])
+
+  useModalFocus(dialogPanelRef, open, handleClose)
 
   const handleCreate = () => {
     const trimmedTitle = title.trim()
     if (!trimmedTitle) {
-      push({ title: 'Title is required', tone: 'danger' })
+      push({
+        title: kind === 'author' ? 'Name and slug are required' : 'Title is required',
+        tone: 'danger',
+      })
       return
     }
 
     const slugValue = slugify(slug || trimmedTitle)
-    if ((kind === 'service' || kind === 'post') && !slugValue) {
-      push({ title: 'Slug is required', tone: 'danger' })
+    if (
+      (kind === 'service' || kind === 'post' || kind === 'author') &&
+      !slugValue
+    ) {
+      push({
+        title: kind === 'author' ? 'Name and slug are required' : 'Slug is required',
+        tone: 'danger',
+      })
       return
     }
     if (kind === 'service' && !category) {
@@ -153,6 +160,25 @@ export const CreateDocumentButton = ({ kind }: CreateDocumentButtonProps) => {
           href = `/admin/jobs/${id}`
         }
 
+        if (kind === 'author') {
+          id = documentIdFor('author', slugValue)
+          await createDocument({
+            id,
+            type: 'author',
+            publish: false,
+            data: {
+              name: trimmedTitle,
+              slug: { _type: 'slug', current: slugValue },
+              role: role.trim() || 'Editorial',
+              avatarUrl:
+                'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=400&q=80',
+              bio: 'Short author bio. Update before publishing posts under this profile.',
+              linkedinUrl: 'https://www.linkedin.com/',
+            },
+          })
+          href = `/admin/authors/${slugValue}`
+        }
+
         push({
           title: 'Draft created',
           description: 'Finish editing, then Publish when ready.',
@@ -189,10 +215,11 @@ export const CreateDocumentButton = ({ kind }: CreateDocumentButtonProps) => {
           }}
         >
           <div
+            ref={dialogPanelRef}
             role="dialog"
             aria-modal="true"
             aria-labelledby="create-doc-title"
-            className="w-full max-w-md rounded-[var(--admin-radius)] border border-[var(--admin-border)] bg-white p-5 shadow-[var(--admin-shadow)]"
+            className="max-h-[min(85vh,85dvh)] w-full max-w-md overflow-y-auto rounded-[var(--admin-radius)] border border-[var(--admin-border)] bg-white p-5 shadow-[var(--admin-shadow)]"
           >
             <div className="mb-4 flex items-start justify-between gap-3">
               <div>
@@ -217,17 +244,23 @@ export const CreateDocumentButton = ({ kind }: CreateDocumentButtonProps) => {
 
             <div className="space-y-3">
               <div>
-                <Label htmlFor="create-title">Title</Label>
+                <Label htmlFor="create-title">{kind === 'author' ? 'Name' : 'Title'}</Label>
                 <Input
                   id="create-title"
                   value={title}
                   onChange={(e) => handleTitleChange(e.target.value)}
-                  placeholder={kind === 'job' ? 'Senior Growth Engineer' : 'Untitled'}
-                  autoFocus
+                  placeholder={
+                    kind === 'job'
+                      ? 'Senior Growth Engineer'
+                      : kind === 'author'
+                        ? 'Jane Cooper'
+                        : 'Untitled'
+                  }
+                  data-autofocus="true"
                 />
               </div>
 
-              {(kind === 'service' || kind === 'post') && (
+              {kind !== 'job' && (
                 <div>
                   <Label htmlFor="create-slug">Slug</Label>
                   <Input
@@ -239,11 +272,25 @@ export const CreateDocumentButton = ({ kind }: CreateDocumentButtonProps) => {
                     }}
                     placeholder="url-friendly-name"
                   />
-                  <p className="mt-1 text-xs text-[var(--admin-text-muted)]">
-                    URL: /{kind === 'service' ? 'services' : 'blog'}/{slug || '…'}
-                  </p>
+                  {kind !== 'author' ? (
+                    <p className="mt-1 text-xs text-[var(--admin-text-muted)]">
+                      URL: /{kind === 'service' ? 'services' : 'blog'}/{slug || '…'}
+                    </p>
+                  ) : null}
                 </div>
               )}
+
+              {kind === 'author' ? (
+                <div>
+                  <Label htmlFor="create-role">Role</Label>
+                  <Input
+                    id="create-role"
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
+                    placeholder="Editorial"
+                  />
+                </div>
+              ) : null}
 
               {kind === 'service' ? (
                 <div>

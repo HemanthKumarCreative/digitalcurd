@@ -101,7 +101,9 @@ html.dc-design-on [data-dc-editable][data-dc-label]:focus::after {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.02em;
-  white-space: nowrap;
+  max-width: min(260px, 70vw);
+  white-space: normal;
+  line-height: 1.3;
   pointer-events: none;
 }
 

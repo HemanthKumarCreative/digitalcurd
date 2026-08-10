@@ -1,9 +1,10 @@
 'use client'
 
-import { useEffect, useState, useTransition } from 'react'
+import { useEffect, useRef, useState, useTransition } from 'react'
 import { ImageIcon, Search, Upload, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { useModalFocus } from '@/components/ui/use-modal-focus'
 import { cn } from '@/lib/utils'
 
 export type MediaAsset = {
@@ -28,6 +29,8 @@ export const MediaPickerDialog = ({ open, onClose, onSelect }: MediaPickerDialog
   const [loading, setLoading] = useState(false)
   const [pending, startTransition] = useTransition()
   const [error, setError] = useState<string | null>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
+  useModalFocus(panelRef, open, onClose)
 
   useEffect(() => {
     if (!open) return
@@ -47,19 +50,6 @@ export const MediaPickerDialog = ({ open, onClose, onSelect }: MediaPickerDialog
     }
     void load()
   }, [open])
-
-  useEffect(() => {
-    if (!open) return
-    const handleKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose()
-    }
-    document.addEventListener('keydown', handleKey)
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', handleKey)
-      document.body.style.overflow = ''
-    }
-  }, [open, onClose])
 
   if (!open) return null
 
@@ -101,7 +91,10 @@ export const MediaPickerDialog = ({ open, onClose, onSelect }: MediaPickerDialog
         aria-label="Close media picker"
         onClick={onClose}
       />
-      <div className="absolute inset-x-4 top-[8%] mx-auto flex max-h-[84vh] max-w-4xl flex-col overflow-hidden rounded-[var(--admin-radius)] bg-white shadow-[var(--admin-shadow-lg)] sm:inset-x-8">
+      <div
+        ref={panelRef}
+        className="absolute inset-x-4 top-[8%] mx-auto flex max-h-[84vh] max-w-4xl flex-col overflow-hidden rounded-[var(--admin-radius)] bg-white shadow-[var(--admin-shadow-lg)] sm:inset-x-8"
+      >
         <div className="flex items-center justify-between border-b border-[var(--admin-border)] px-4 py-3 sm:px-5">
           <div>
             <p className="font-bold text-[var(--admin-navy)]">Choose media</p>
@@ -115,7 +108,7 @@ export const MediaPickerDialog = ({ open, onClose, onSelect }: MediaPickerDialog
         </div>
 
         <div className="flex flex-wrap items-center gap-2 border-b border-[var(--admin-border)] px-4 py-3 sm:px-5">
-          <div className="relative min-w-[200px] flex-1">
+          <div className="relative min-w-[140px] flex-1">
             <Search
               className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-[var(--admin-text-muted)]"
               aria-hidden
@@ -193,7 +186,7 @@ export const MediaPickerDialog = ({ open, onClose, onSelect }: MediaPickerDialog
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={`${asset.url}?w=400&h=225&fit=crop`}
-                          alt={asset.originalFilename || ''}
+                          alt={asset.originalFilename || 'Media asset'}
                           className="h-full w-full object-cover"
                         />
                       ) : (

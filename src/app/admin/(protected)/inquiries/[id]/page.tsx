@@ -13,7 +13,8 @@ export default async function AdminInquiryEditorPage({ params }: PageProps) {
   
   if (!id) notFound()
 
-  const doc = (await getDocument<Record<string, unknown>>(id)) || {}
+  const doc = await getDocument<Record<string, unknown>>(id)
+  if (!doc || doc._type !== 'inquiry') notFound()
 
   return (
     <StructuredDocumentEditor

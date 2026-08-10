@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import ServicePageView from '@/components/services/ServicePageView'
-import ContactForm from '@/components/home/ContactForm'
+import ContactForm from '@/components/contact/ContactForm'
 import JsonLd from '@/components/seo/JsonLd'
 import {
   breadcrumbJsonLd,

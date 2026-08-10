@@ -10,19 +10,9 @@ import catalogJson from '@/content/services/catalog.json'
 import { getServiceContent as getLocalService } from '@/content/services'
 import { normalizeBlogPost } from '@/lib/blog/normalize'
 import type { BlogAuthor, BlogRelatedPost, BlogSection } from '@/types/blog'
-import type { ServiceMeta } from '@/types/content'
+import type { SeoFields, ServiceMeta } from '@/types/content'
 
-export type SeoFields = {
-  title?: string
-  description?: string
-  canonical?: string
-  keywords?: string[]
-  robots?: string
-  ogImageUrl?: string
-  twitterImageUrl?: string
-  schemaJson?: string
-}
-
+export type { SeoFields }
 export type WithSeo<T> = T & { seo?: SeoFields }
 
 export const fallbackSiteSettings = {

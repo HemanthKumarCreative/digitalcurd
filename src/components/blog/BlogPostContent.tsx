@@ -13,7 +13,7 @@ import SimpleFaq from '@/components/shared/SimpleFaq'
 import { DesignModeDocument } from '@/components/design-mode/DesignModeProvider'
 import { EditableImage } from '@/components/design-mode/EditableImage'
 import { EditableText } from '@/components/design-mode/EditableText'
-import { buildTocFromSections } from '@/lib/blog/utils'
+import { buildTocFromSections, formatDate } from '@/lib/blog/utils'
 import type {
   BlogAuthor,
   BlogRelatedPost,
@@ -46,17 +46,6 @@ type BlogPostContentProps = {
   relatedPosts: BlogRelatedPost[]
   relatedServices?: ServiceMeta[]
   cta?: BlogCta
-}
-
-const formatDate = (value?: string) => {
-  if (!value) return ''
-  const date = new Date(value)
-  if (Number.isNaN(date.getTime())) return value.slice(0, 10)
-  return date.toLocaleDateString('en-US', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  })
 }
 
 export default function BlogPostContent({
@@ -172,8 +161,6 @@ export default function BlogPostContent({
             <SimpleFaq
               title="Frequently Asked Questions"
               faqs={faqs}
-              documentId={documentId}
-              documentType="post"
               pathPrefix="faqs"
             />
           </div>

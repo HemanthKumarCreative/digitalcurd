@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from 'react'
 import { Eye, LayoutTemplate, Upload } from 'lucide-react'
 import { MediaPickerDialog, type MediaAsset } from '@/components/admin/MediaPickerDialog'
+import { ScaledPreviewFrame } from '@/components/admin/ScaledPreviewFrame'
 import { patchField, publishDocument } from '@/lib/admin/actions'
 import {
   DESIGN_MODE_MESSAGE,
@@ -11,8 +12,8 @@ import {
 } from '@/lib/design-mode/constants'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { ConfirmDialog } from '@/components/ui/confirm-dialog'
 import { useToast } from '@/components/ui/toast'
-import { cn } from '@/lib/utils'
 
 const devices = [
   { id: 'mobile', label: 'Mobile', width: 390 },
@@ -53,6 +54,7 @@ export const DesignModeView = ({
     documentType: string
   } | null>(null)
   const [showTip, setShowTip] = useState(true)
+  const [publishConfirmOpen, setPublishConfirmOpen] = useState(false)
   const iframeRef = useRef<HTMLIFrameElement>(null)
 
   const width = devices.find((d) => d.id === device)?.width || 1440
@@ -179,9 +181,11 @@ export const DesignModeView = ({
       try {
         await publishDocument({ id: documentId, type: documentType })
         push({ title: 'Published', description: 'Live site updated', tone: 'success' })
+        setPublishConfirmOpen(false)
         onPublish?.()
         setNonce((n) => n + 1)
       } catch (error) {
+        setPublishConfirmOpen(false)
         push({
           title: 'Publish failed',
           description: error instanceof Error ? error.message : 'Unknown error',
@@ -265,24 +269,16 @@ export const DesignModeView = ({
           {pending ? <Badge tone="info">Saving…</Badge> : null}
         </div>
         <div className="flex flex-wrap gap-2">
-          <Button variant="outline" size="sm" onClick={() => void enableDesign()}>
+          <Button
+            variant="outline"
+            size="sm"
+            disabled={pending}
+            onClick={() => void enableDesign()}
+          >
             <Eye className="h-4 w-4" aria-hidden />
             Refresh
           </Button>
-          <Button
-            size="sm"
-            disabled={pending}
-            onClick={() => {
-              if (
-                !window.confirm(
-                  'Publish this document’s draft to the live site? Footer/settings are published from Site → Settings.'
-                )
-              ) {
-                return
-              }
-              handlePublish()
-            }}
-          >
+          <Button size="sm" disabled={pending} onClick={() => setPublishConfirmOpen(true)}>
             <Upload className="h-4 w-4" aria-hidden />
             Publish
           </Button>
@@ -308,25 +304,17 @@ export const DesignModeView = ({
         </div>
       ) : null}
 
-      <div className="overflow-auto rounded-[var(--admin-radius)] bg-[var(--admin-canvas)] p-3 lg:p-4">
+      <div className="rounded-[var(--admin-radius)] bg-[var(--admin-canvas)] p-3 lg:p-4">
         {!ready ? (
           <div className="mb-3 h-2 w-full animate-pulse rounded bg-slate-200" aria-hidden />
         ) : null}
-        <div
-          className={cn(
-            'mx-auto overflow-hidden rounded-[var(--admin-radius-sm)] border border-[var(--admin-border)] bg-white shadow-[var(--admin-shadow)]'
-          )}
-          style={{ width: Math.min(width, 1440), maxWidth: '100%' }}
-        >
-          <iframe
-            ref={iframeRef}
-            key={src}
-            title="Design mode preview"
-            src={src}
-            className="h-[70vh] w-full bg-white lg:h-[75vh]"
-          />
-        </div>
-        <p className="mt-2 text-center text-xs text-[var(--admin-text-muted)]">{width}px viewport</p>
+        <ScaledPreviewFrame
+          src={src}
+          width={Math.min(width, 1440)}
+          title="Design mode preview"
+          heightClassName="h-[70vh] lg:h-[75vh]"
+          iframeRef={iframeRef}
+        />
       </div>
 
       <MediaPickerDialog
@@ -336,6 +324,19 @@ export const DesignModeView = ({
           setMediaTarget(null)
         }}
         onSelect={handleMediaSelect}
+      />
+
+      <ConfirmDialog
+        open={publishConfirmOpen}
+        title="Publish to the live site?"
+        description="This document’s draft goes live immediately. Footer and settings are published from Site → Settings."
+        confirmLabel="Publish"
+        pending={pending}
+        pendingLabel="Publishing…"
+        onConfirm={handlePublish}
+        onCancel={() => {
+          if (!pending) setPublishConfirmOpen(false)
+        }}
       />
     </div>
   )
