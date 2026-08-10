@@ -6,6 +6,7 @@ export type DashboardStats = {
   posts: number
   jobs: number
   legal: number
+  inquiries: number
   drafts: number
   media: number
   storageBytes: number
@@ -31,11 +32,12 @@ const PAGE_IDS = [
 export const getDashboardStats = async (): Promise<DashboardStats> => {
   try {
     const client = getWriteClient()
-    const [services, posts, jobs, legal, drafts, media] = await Promise.all([
+    const [services, posts, jobs, legal, inquiries, drafts, media] = await Promise.all([
       client.fetch<number>('count(*[_type == "service" && !(_id in path("drafts.**"))])'),
       client.fetch<number>('count(*[_type == "post" && !(_id in path("drafts.**"))])'),
       client.fetch<number>('count(*[_type == "job" && !(_id in path("drafts.**"))])'),
       client.fetch<number>('count(*[_type == "legalPage" && !(_id in path("drafts.**"))])'),
+      client.fetch<number>('count(*[_type == "inquiry" && !(_id in path("drafts.**"))])'),
       client.fetch<number>('count(*[_id in path("drafts.**")])'),
       client.fetch<{ count: number; bytes: number }>(`{
         "count": count(*[_type in ["sanity.imageAsset", "sanity.fileAsset"]]),
@@ -48,7 +50,7 @@ export const getDashboardStats = async (): Promise<DashboardStats> => {
     )
 
     const recent = await client.fetch<DashboardStats['recent']>(
-      `*[!(_id in path("drafts.**")) && _type in ["homePage","aboutPage","careersPage","contactPage","blogIndex","servicesIndex","service","post","job","legalPage","siteSettings"]] | order(_updatedAt desc)[0...8]{
+      `*[!(_id in path("drafts.**")) && _type in ["homePage","aboutPage","careersPage","contactPage","blogIndex","servicesIndex","service","post","job","legalPage","siteSettings","inquiry"]] | order(_updatedAt desc)[0...8]{
         _id,
         _type,
         _updatedAt,
@@ -63,6 +65,7 @@ export const getDashboardStats = async (): Promise<DashboardStats> => {
       posts: posts || 0,
       jobs: jobs || 0,
       legal: legal || 0,
+      inquiries: inquiries || 0,
       drafts: drafts || 0,
       media: media?.count || 0,
       storageBytes: media?.bytes || 0,
@@ -75,6 +78,7 @@ export const getDashboardStats = async (): Promise<DashboardStats> => {
       posts: 0,
       jobs: 0,
       legal: 0,
+      inquiries: 0,
       drafts: 0,
       media: 0,
       storageBytes: 0,

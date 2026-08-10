@@ -4,6 +4,7 @@ import {
   Eye,
   FileText,
   ImageIcon,
+  Inbox,
   Layers,
   Newspaper,
   Scale,
@@ -50,6 +51,8 @@ const recentHref = (item: {
       return `/admin/jobs/${item._id}`
     case 'legalPage':
       return item.slug ? `/admin/legal/${item.slug}` : '/admin/legal'
+    case 'inquiry':
+      return '/admin/inquiries'
     default:
       return null
   }
@@ -63,6 +66,7 @@ export default async function AdminDashboardPage() {
     { label: 'Pages', value: stats.pages, href: '/admin/pages', icon: Layers },
     { label: 'Services', value: stats.services, href: '/admin/services', icon: Briefcase },
     { label: 'Blog posts', value: stats.posts, href: '/admin/blog', icon: Newspaper },
+    { label: 'Inquiries', value: stats.inquiries, href: '/admin/inquiries', icon: Inbox },
     { label: 'Legal', value: stats.legal, href: '/admin/legal', icon: Scale },
     { label: 'Media', value: stats.media, href: '/admin/media', icon: ImageIcon },
     { label: 'Jobs', value: stats.jobs, href: '/admin/jobs', icon: FileText },

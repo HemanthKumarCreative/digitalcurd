@@ -35,6 +35,7 @@ import {
   post,
   job,
   legalPage,
+  inquiry,
 } from './documents'
 
 export const schemaTypes = [
@@ -72,4 +73,5 @@ export const schemaTypes = [
   post,
   job,
   legalPage,
+  inquiry,
 ]

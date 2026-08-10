@@ -8,6 +8,7 @@ import {
   Eye,
   FileText,
   ImageIcon,
+  Inbox,
   Layers,
   LayoutDashboard,
   LogOut,
@@ -36,6 +37,7 @@ const navGroups = [
       { href: '/admin/authors', label: 'Authors', icon: Users },
       { href: '/admin/jobs', label: 'Jobs', icon: FileText },
       { href: '/admin/legal', label: 'Legal', icon: Scale },
+      { href: '/admin/inquiries', label: 'Inquiries', icon: Inbox },
     ],
   },
   {

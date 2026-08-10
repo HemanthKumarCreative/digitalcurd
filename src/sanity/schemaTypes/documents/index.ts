@@ -519,3 +519,42 @@ export const legalPage = defineType({
     defineField({ name: 'seo', type: 'seo' }),
   ],
 })
+
+export const inquiry = defineType({
+  name: 'inquiry',
+  title: 'Inquiry',
+  type: 'document',
+  fields: [
+    defineField({ name: 'name', title: 'Full Name', type: 'string', readOnly: true }),
+    defineField({ name: 'email', title: 'Email Address', type: 'string', readOnly: true }),
+    defineField({ name: 'service', title: 'Requested Service', type: 'string', readOnly: true }),
+    defineField({ name: 'requirements', title: 'Requirements', type: 'text', readOnly: true }),
+    defineField({
+      name: 'status',
+      title: 'Status',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'New', value: 'new' },
+          { title: 'Contacted', value: 'contacted' },
+          { title: 'Archived', value: 'archived' },
+        ],
+      },
+      initialValue: 'new',
+    }),
+    defineField({ name: 'submittedAt', title: 'Submitted At', type: 'datetime', readOnly: true }),
+  ],
+  preview: {
+    select: {
+      title: 'name',
+      subtitle: 'service',
+      date: 'submittedAt',
+    },
+    prepare({ title, subtitle, date }) {
+      return {
+        title: title || 'Anonymous',
+        subtitle: `${subtitle || 'No Service'} - ${new Date(date as string).toLocaleDateString()}`,
+      }
+    },
+  },
+})

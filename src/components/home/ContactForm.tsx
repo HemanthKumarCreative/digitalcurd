@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useId, useRef, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Check, CheckCircle2, ChevronDown, Clock3, Mail } from 'lucide-react'
 import { EditableImage } from '@/components/design-mode/EditableImage'
 import { EditableText } from '@/components/design-mode/EditableText'
@@ -92,15 +93,34 @@ export default function ContactForm({ data: contactForm }: { data: ContactFormDa
     if (!validate()) return
 
     setIsSubmitting(true)
-    await new Promise((resolve) => setTimeout(resolve, 800))
-    setIsSubmitting(false)
-    setIsSuccess(true)
-    setFormData({
-      name: '',
-      email: '',
-      service: '',
-      requirements: '',
-    })
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form')
+      }
+
+      setIsSuccess(true)
+      setFormData({
+        name: '',
+        email: '',
+        service: '',
+        requirements: '',
+      })
+    } catch (error) {
+      console.error(error)
+      // Ideally show a toast here, but we'll fallback for now
+      alert('There was a problem submitting your inquiry. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   useEffect(() => {
@@ -220,27 +240,51 @@ export default function ContactForm({ data: contactForm }: { data: ContactFormDa
         </div>
 
         <div className="dc-contact__card">
-          {isSuccess ? (
-            <div className="dc-contact__success" role="status">
-              <CheckCircle2 size={40} strokeWidth={1.75} aria-hidden="true" />
-              <h3>You&apos;re all set</h3>
-              <EditableText
-                as="p"
-                path="contactForm.form.successMessage"
-                label="Contact → Success message"
-                value={contactForm.form.successMessage}
-                multiline
-              />
-              <button
-                type="button"
-                className="dc-contact__secondary-btn"
-                onClick={() => setIsSuccess(false)}
+          <AnimatePresence mode="wait">
+            {isSuccess ? (
+              <motion.div
+                key="success"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4, ease: 'easeOut' }}
+                className="dc-contact__success"
+                role="status"
               >
-                Send another enquiry
-              </button>
-            </div>
-          ) : (
-            <form className="dc-contact__form" onSubmit={handleSubmit} noValidate>
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.2, type: 'spring', stiffness: 200, damping: 10 }}
+                >
+                  <CheckCircle2 size={48} strokeWidth={1.5} aria-hidden="true" className="text-green-500 mb-4" />
+                </motion.div>
+                <h3 className="text-2xl font-bold mb-2">You&apos;re all set</h3>
+                <EditableText
+                  as="p"
+                  path="contactForm.form.successMessage"
+                  label="Contact → Success message"
+                  value={contactForm.form.successMessage}
+                  className="text-gray-400 mb-6"
+                  multiline
+                />
+                <button
+                  type="button"
+                  className="dc-contact__secondary-btn"
+                  onClick={() => setIsSuccess(false)}
+                >
+                  Send another enquiry
+                </button>
+              </motion.div>
+            ) : (
+              <motion.form
+                key="form"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="dc-contact__form"
+                onSubmit={handleSubmit}
+                noValidate
+              >
               <div className="dc-contact__form-head">
                 <h3>Start a conversation</h3>
                 <p>Four quick fields — we&apos;ll take it from there.</p>
@@ -367,8 +411,9 @@ export default function ContactForm({ data: contactForm }: { data: ContactFormDa
               <p className="dc-contact__fineprint">
                 No spam. We only reply about this enquiry.
               </p>
-            </form>
+            </motion.form>
           )}
+          </AnimatePresence>
         </div>
       </div>
     </section>
