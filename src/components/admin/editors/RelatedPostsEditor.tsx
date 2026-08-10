@@ -77,7 +77,7 @@ export const RelatedPostsEditor = ({
               <span>
                 <span className="font-medium">{post.title}</span>
                 <span className="block text-xs text-[var(--admin-text-muted)]">
-                  /blog/{post.slug}
+                  /articles/{post.slug}
                 </span>
               </span>
             </label>

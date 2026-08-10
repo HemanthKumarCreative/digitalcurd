@@ -18,7 +18,7 @@ type HeaderProps = {
 const isLightSurfacePath = (pathname: string) => {
   if (pathname === '/') return false
   return (
-    pathname.startsWith('/blog') ||
+    pathname.startsWith('/articles') ||
     pathname.startsWith('/services') ||
     pathname.startsWith('/about') ||
     pathname.startsWith('/careers') ||
@@ -106,7 +106,7 @@ export default function Header({ services = [] }: HeaderProps) {
           <Link href="/careers" className="trigger" onClick={() => setActivePanel(null)}>
             Careers
           </Link>
-          <Link href="/blog" className="trigger" onClick={() => setActivePanel(null)}>
+          <Link href="/articles" className="trigger" onClick={() => setActivePanel(null)}>
             Articles
           </Link>
         </div>
@@ -246,7 +246,7 @@ export default function Header({ services = [] }: HeaderProps) {
             Careers
           </Link>
           <Link
-            href="/blog"
+            href="/articles"
             className="acc"
             style={{ textDecoration: 'none' }}
             onClick={handleCloseMobile}

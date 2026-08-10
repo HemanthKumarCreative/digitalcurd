@@ -5,7 +5,7 @@ import { getSiteUrl } from '@/lib/site'
 const staticRoutes = [
   '/',
   '/about',
-  '/blog',
+  '/articles',
   '/careers',
   '/contact',
   '/services',
@@ -36,7 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   const blogEntries: MetadataRoute.Sitemap = postSlugs.map((slug) => ({
-    url: `${siteUrl}/blog/${slug}`,
+    url: `${siteUrl}/articles/${slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.6,

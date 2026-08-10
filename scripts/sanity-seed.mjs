@@ -129,7 +129,7 @@ async function main() {
     _type: 'siteSettings',
     siteName: 'Digital Curd',
     email: 'hello@digitalcurd.com',
-    phone: { label: '+91 80 4567 8900', href: 'tel:+918045678900' },
+    phone: { label: '+91 8510932094', href: 'tel:+918510932094' },
     footerBlurb:
       'AI-powered growth systems for marketing, commerce, and modern digital products.',
     socialLinks: [

@@ -31,7 +31,7 @@ export const RelatedPosts = ({ posts }: RelatedPostsProps) => {
             return (
               <Link
                 key={post.slug}
-                href={`/blog/${post.slug}`}
+                href={`/articles/${post.slug}`}
                 className="dc-article__related-card"
               >
                 {cover ? (

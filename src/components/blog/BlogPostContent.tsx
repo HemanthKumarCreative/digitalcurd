@@ -98,7 +98,7 @@ export default function BlogPostContent({
           <nav className="dc-article__breadcrumb" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <span aria-hidden>›</span>
-            <Link href="/blog">Articles</Link>
+            <Link href="/articles">Articles</Link>
             <span aria-hidden>›</span>
             <EditableText
               as="span"

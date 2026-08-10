@@ -26,7 +26,7 @@ export const generateMetadata = async ({ params }: PageProps): Promise<Metadata>
   const post = await getPostBySlug(slug)
   if (!post) {
     return buildPageMetadata({
-      path: `/blog/${slug}`,
+      path: `/articles/${slug}`,
       title: 'Post Not Found',
       description: 'The requested blog post could not be found.',
       noIndex: true,
@@ -37,7 +37,7 @@ export const generateMetadata = async ({ params }: PageProps): Promise<Metadata>
     resolveImageUrl(post.coverImage, post.coverImageUrl) || post.coverImageUrl || ''
 
   return buildPageMetadata({
-    path: `/blog/${slug}`,
+    path: `/articles/${slug}`,
     title: post.seo?.title || post.title,
     description: post.seo?.description || post.excerpt,
     ogImage: cover,
@@ -65,14 +65,14 @@ export default async function BlogPostPage({ params }: PageProps) {
   const relatedServices = relatedServiceSlugs
     .map((serviceSlug) => catalog.find((service) => service.slug === serviceSlug))
     .filter(Boolean) as typeof catalog
-  const shareUrl = absoluteUrl(`/blog/${slug}`)
+  const shareUrl = absoluteUrl(`/articles/${slug}`)
 
   const jsonLd: Record<string, unknown>[] = [
     breadcrumbJsonLd([
       { name: 'Home', path: '/' },
-      { name: 'Blog', path: '/blog' },
-      { name: post.category, path: '/blog' },
-      { name: post.title, path: `/blog/${slug}` },
+      { name: 'Articles', path: '/articles' },
+      { name: post.category, path: '/articles' },
+      { name: post.title, path: `/articles/${slug}` },
     ]),
     articleJsonLd({
       title: post.title,

@@ -67,7 +67,7 @@ export const SeoEditor = ({ value, onChange, disabled }: SeoEditorProps) => {
           value={value.canonical || ''}
           disabled={disabled}
           onChange={(e) => set({ canonical: e.target.value })}
-          placeholder="https://yoursite.com/blog/your-slug"
+          placeholder="https://yoursite.com/articles/your-slug"
         />
         <FieldHint>
           Optional. Only set this if this page should point search engines to a different URL.

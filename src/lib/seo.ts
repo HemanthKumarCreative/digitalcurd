@@ -158,7 +158,7 @@ export const articleJsonLd = (post: {
   '@type': 'Article',
   headline: post.title,
   description: post.excerpt,
-  url: absoluteUrl(`/blog/${post.slug}`),
+  url: absoluteUrl(`/articles/${post.slug}`),
   datePublished: post.publishedAt,
   ...(post.updatedAt ? { dateModified: post.updatedAt } : {}),
   author: post.author?.name

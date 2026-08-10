@@ -13,7 +13,7 @@ const buildLlmsTxt = async (): Promise<string> => {
     '## Key pages',
     `- Home: ${absoluteUrl('/')}`,
     `- Services: ${absoluteUrl('/services')}`,
-    `- Blog: ${absoluteUrl('/blog')}`,
+    `- Articles: ${absoluteUrl('/articles')}`,
     `- About: ${absoluteUrl('/about')}`,
     `- Contact: ${absoluteUrl('/contact')}`,
     `- Careers: ${absoluteUrl('/careers')}`,
@@ -35,7 +35,7 @@ const buildLlmsTxt = async (): Promise<string> => {
 
   for (const post of blogJson.posts) {
     lines.push(
-      `- ${post.title}: ${absoluteUrl(`/blog/${post.slug}`)}`,
+      `- ${post.title}: ${absoluteUrl(`/articles/${post.slug}`)}`,
       `  ${post.excerpt}`,
     )
   }

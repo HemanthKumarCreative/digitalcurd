@@ -11,7 +11,7 @@ import { toPageHero } from '@/sanity/lib/hero'
 export async function generateMetadata(): Promise<Metadata> {
   const { index } = await getBlogIndex()
   return buildPageMetadata({
-    path: '/blog',
+    path: '/articles',
     title: index.seo?.title || 'Blog',
     description:
       index.seo?.description ||

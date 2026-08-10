@@ -195,7 +195,7 @@ export const getPostEditorSections = ({
   {
     key: 'slug',
     title: 'URL slug',
-    description: 'The end of the public link: /blog/your-slug.',
+    description: 'The end of the public link: /articles/your-slug.',
     helper:
       'Use lowercase words with hyphens (no spaces). Changing this updates the public URL after you publish.',
     placeholder: 'how-to-choose-an-ai-partner',
