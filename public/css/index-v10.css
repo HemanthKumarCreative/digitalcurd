@@ -1453,7 +1453,7 @@ textarea {
     margin-top: 30px;
   }
   .faq-section .container {
-    max-width: 1160px;
+    max-width: var(--dc-rail, 1160px);
   }
   .for-client-logo-box i {
     width: 118px;
@@ -1490,7 +1490,7 @@ textarea {
   .hero-section::after,
   .second-level-section::after,
   .hero-img-section h1 {
-    max-width: 1160px;
+    max-width: var(--dc-rail, 1160px);
   }
   .client-logo-box-section h4 {
     font-size: 12px;

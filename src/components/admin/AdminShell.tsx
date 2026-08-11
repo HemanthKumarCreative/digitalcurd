@@ -86,7 +86,7 @@ export const AdminShell = ({ children, user }: AdminShellProps) => {
       : pathname === href || pathname.startsWith(`${href}/`)
 
   const Nav = ({ onNavigate }: { onNavigate?: () => void }) => (
-    <nav className="flex flex-1 flex-col gap-5 p-3" aria-label="Admin">
+    <nav className="admin-scrollbar flex flex-1 flex-col gap-5 overflow-y-auto p-3" aria-label="Admin">
       {navGroups.map((group) => (
         <div key={group.label}>
           <p className="mb-1.5 px-3 text-[10px] font-bold tracking-[0.12em] text-[var(--admin-text-muted)] uppercase">
@@ -121,7 +121,7 @@ export const AdminShell = ({ children, user }: AdminShellProps) => {
   )
 
   return (
-    <div className="min-h-screen">
+    <div className="h-[100dvh] overflow-hidden bg-[var(--admin-bg)]">
       <a
         href="#admin-main"
         className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2"
@@ -129,7 +129,7 @@ export const AdminShell = ({ children, user }: AdminShellProps) => {
         Skip to content
       </a>
 
-      <div className="flex min-h-screen">
+      <div className="flex h-full w-full">
         <aside className="hidden w-[264px] shrink-0 flex-col border-r border-[var(--admin-border)] bg-[var(--admin-panel)] lg:flex">
           <div className="flex h-[var(--admin-header-height)] items-center border-b border-[var(--admin-border)] px-5">
             <Link href="/admin" className="block min-w-0" aria-label="Digital Curd Admin home">
@@ -158,7 +158,7 @@ export const AdminShell = ({ children, user }: AdminShellProps) => {
           </div>
         </aside>
 
-        <div className="flex min-w-0 flex-1 flex-col">
+        <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
           <header
             className="sticky top-0 z-40 flex h-[var(--admin-header-height)] items-center justify-between border-b border-[var(--admin-border)] bg-[var(--admin-panel)]/95 px-[var(--admin-main-pad-x)] backdrop-blur"
           >
@@ -202,7 +202,7 @@ export const AdminShell = ({ children, user }: AdminShellProps) => {
 
           <main
             id="admin-main"
-            className="admin-scrollbar min-w-0 flex-1 overflow-x-clip px-[var(--admin-main-pad-x)] py-[var(--admin-main-pad-y)]"
+            className="admin-scrollbar min-w-0 flex-1 overflow-x-clip overflow-y-auto px-[var(--admin-main-pad-x)] py-[var(--admin-main-pad-y)]"
           >
             {children}
           </main>

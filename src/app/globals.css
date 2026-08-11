@@ -88,6 +88,22 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+@media (min-width: 1321px) {
+  :root {
+    --dc-rail: 1260px;
+  }
+}
+@media (min-width: 1441px) {
+  :root {
+    --dc-rail: 1380px;
+  }
+}
+@media (min-width: 1601px) {
+  :root {
+    --dc-rail: 1480px;
+  }
+}
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
