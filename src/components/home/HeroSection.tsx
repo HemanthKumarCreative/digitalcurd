@@ -49,7 +49,7 @@ export default function HeroSection({ data: heroSection }: { data: HeroData }) {
 
         <div className="dc-rail dc-design-content-layer">
           <div className="dis-flex flex flex-wrap items-center">
-            <div className="left-box basis-full lg:basis-[80%] text-center md:text-left flex flex-col items-center md:items-start">
+            <div className="left-box basis-full lg:basis-[80%] text-left flex flex-col items-start">
               <EditableText
                 as="h1"
                 path="heroSection.title"
@@ -74,7 +74,7 @@ export default function HeroSection({ data: heroSection }: { data: HeroData }) {
               />
 
               <div
-                className={`mt-[24px] mb-[20px] md:mt-[34px] md:mb-[70px] w-full sm:w-auto flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-stretch sm:items-center dc-fade-up dc-fade-up-delay-3 ${entered ? 'is-in' : ''}`}
+                className={`mt-[24px] mb-[20px] md:mt-[34px] md:mb-[70px] w-full sm:w-auto flex flex-col sm:flex-row gap-4 justify-start items-stretch sm:items-center dc-fade-up dc-fade-up-delay-3 ${entered ? 'is-in' : ''}`}
               >
                 <Link
                   href={heroSection.ctaLink}
