@@ -31,7 +31,7 @@ export default function HeroSection({ data: heroSection }: { data: HeroData }) {
     <>
       <section
         id="dc-section-hero"
-        className="hero-section relative isolate flex items-center pt-[110px] pb-[48px] md:pt-[145px] md:pb-[70px] min-h-[auto] w-full"
+        className="hero-section relative isolate flex items-center pt-[120px] pb-[90px] md:pt-[145px] md:pb-[70px] min-h-[auto] w-full"
         aria-label="Hero"
       >
         <EditableImage
@@ -49,20 +49,20 @@ export default function HeroSection({ data: heroSection }: { data: HeroData }) {
 
         <div className="dc-rail dc-design-content-layer">
           <div className="dis-flex flex flex-wrap items-center">
-            <div className="left-box basis-full lg:basis-[80%] text-left">
+            <div className="left-box basis-full lg:basis-[80%] text-center md:text-left flex flex-col items-center md:items-start">
               <EditableText
                 as="h1"
                 path="heroSection.title"
                 label="Hero → Title"
                 value={heroSection.title}
-                className={`text-[34px] leading-[1.25] sm:text-[40px] sm:leading-[50px] md:text-[52px] md:leading-[1.25] lg:text-[70px] lg:leading-[1.3] !text-white mb-5 font-bold drop-shadow-sm dc-fade-up ${entered ? 'is-in' : ''}`}
+                className={`text-[28px] leading-[1.2] sm:text-[36px] sm:leading-[1.15] md:text-[46px] md:leading-[1.2] lg:text-[60px] xl:text-[70px] lg:leading-[1.15] !text-white mb-3 sm:mb-5 font-bold tracking-tight drop-shadow-sm dc-fade-up ${entered ? 'is-in' : ''}`}
               />
               <EditableText
                 as="h3"
                 path="heroSection.subtitle"
                 label="Hero → Subtitle"
                 value={heroSection.subtitle}
-                className={`!text-[#FBBF24] mb-5 text-[19px] sm:text-[22px] lg:text-[26px] font-semibold tracking-tight dc-fade-up dc-fade-up-delay-1 ${entered ? 'is-in' : ''}`}
+                className={`!text-[#FBBF24] mb-4 sm:mb-5 text-[16px] sm:text-[20px] md:text-[22px] lg:text-[26px] font-semibold tracking-tight dc-fade-up dc-fade-up-delay-1 ${entered ? 'is-in' : ''}`}
               />
               <EditableText
                 as="p"
@@ -70,15 +70,15 @@ export default function HeroSection({ data: heroSection }: { data: HeroData }) {
                 label="Hero → Description"
                 value={heroSection.description}
                 multiline
-                className={`mt-5 text-[16px] leading-[27px] lg:text-[18px] lg:leading-[30px] !text-white/90 font-normal max-w-[640px] dc-fade-up dc-fade-up-delay-2 ${entered ? 'is-in' : ''}`}
+                className={`mt-2 sm:mt-5 text-[14px] leading-[1.65] sm:text-[16px] sm:leading-[1.6] md:text-[18px] md:leading-[1.7] !text-white/90 font-normal max-w-[640px] dc-fade-up dc-fade-up-delay-2 ${entered ? 'is-in' : ''}`}
               />
 
               <div
-                className={`mt-[30px] mb-[40px] md:mb-[70px] hero-cta-group dc-fade-up dc-fade-up-delay-3 ${entered ? 'is-in' : ''}`}
+                className={`mt-[24px] mb-[20px] md:mt-[34px] md:mb-[70px] w-full sm:w-auto flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-stretch sm:items-center dc-fade-up dc-fade-up-delay-3 ${entered ? 'is-in' : ''}`}
               >
                 <Link
                   href={heroSection.ctaLink}
-                  className="dc-btn dc-btn--primary"
+                  className="dc-btn dc-btn--primary w-full sm:w-auto"
                   aria-label={heroSection.ctaText}
                 >
                   <EditableText
@@ -91,7 +91,7 @@ export default function HeroSection({ data: heroSection }: { data: HeroData }) {
                     <ArrowRight size={18} strokeWidth={2.25} />
                   </span>
                 </Link>
-                <a href="#form" className="dc-btn dc-btn--secondary">
+                <a href="#form" className="dc-btn dc-btn--secondary w-full sm:w-auto">
                   <span>Talk to us</span>
                   <span className="dc-btn__icon dc-btn__icon--trail" aria-hidden="true">
                     <MessageCircle size={18} strokeWidth={2.25} />
